@@ -33,19 +33,19 @@ The benefit of this version is that it is always up-to-date
 ### Setup LimeDrop
 1. Download the LimeDrop version of D2BS from [here](https://github.com/kolton/d2bot-with-kolbot/archive/limedrop-utf8.zip) or clone from: _https://github.com/kolton/d2bot-with-kolbot.git_
 
-2. Extract to a folder:
-![Extracted Files](images/Limedrop_Extract.png)
+1. Extract to a folder:
+	![Extracted Files](assets/limedrop-extract.png)
 
-3. Follow the usual D2BS setup of adding in your keys
+1. Follow the usual D2BS setup of adding in your keys
 
-4. Create a new profile, we will use GameAction for an example
+1. Create a new profile, we will use GameAction for an example
 	* Make sure you set your own game name to avoid conflicts with other people
-		* ![Add Profile](images/LimeDrop_AddProfile.png)
+		* ![Add Profile](assets/limedrop-addprofile.png)
     * Make sure you use the D2BotGameAction.dbj as the Entry Script
 
-5. Edit the server.config file:
-	* ![Server Config File](images/LimeDrop_ServerConfigFile.png)
-	* ![Server Config Edit](images/LimeDrop_ServerConfigEdit.png)
+1. Edit the server.config file:
+	* ![Server Config File](assets/limedrop-serverconfigfile.png)
+	* ![Server Config Edit](assets/limedrop-serverconfigedit.png)
 	* This default config says to:
 		* Use the D2BS profile called "GameAction"
 		* Create a user with the name "public", password "public" who **is not** able to drop items
@@ -55,29 +55,29 @@ The benefit of this version is that it is always up-to-date
 			* If you want to access from another computer, you will need to use your real local IP like 192.168.1.100
         * The Port we will listen on is 8080
 
-6. LimeDrop is disabled by default on newer releases. Make sure you go to "Settings" and enable the API.
+1. LimeDrop is disabled by default on newer releases. Make sure you go to "Settings" and enable the API.
 		
-### Using-LimeDrop
+### Using LimeDrop
 To start LimeDrop, just open D2BS.exe . You DO NOT have to launch the profile manually.
 LimeDrop will launch the profile on its own when it needs to do something.
 
 #### Logging In
 * To login, either go to your self-hosted web page, or to [http://www.limedrop.org](http://www.limedrop.org)
 * At the upper right, click the profile icon to log in:
-	* ![Login](images/LimeDrop_Login.png)
+	* ![Login](assets/limedrop-login.png)
 	* Enter your server address (including port) according to your server config
 	* Enter your username
 	* Enter your password
 	* **Click Login**
 		* Right now you have to manually click Login. You cannot just press enter.
-        
+
 #### Muling Options
 * You can create a profile using the standard MuleLogger profile
 	* All mules logged this way will appear in the LimeDrop web page
 
 * You can use the Web Interface to manually add a whole profile, or a single character:
-	* ![AddAccount1](images/LimeDrop_AddAccount1.png)
-	* ![AddAccount2](images/LimeDrop_AddAccount2.png)
+	* ![AddAccount1](assets/limedrop-addaccount1.png)
+	* ![AddAccount2](assets/limedrop-addaccount2.png)
 
   A - Select the realm for the account
 
