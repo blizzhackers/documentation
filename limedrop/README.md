@@ -24,7 +24,7 @@ For the web page you can download it [here](https://github.com/noah-/limedrop) a
 If you're using Git to clone D2BS with Kolbot it will ask you if you want to automatically download the sub-repository.
 
 ##### Externally Hosted
-You can also use the externally hosted version here: [http://www.limedrop.org](http://www.limedrop.ord)
+You can also use the externally hosted version here: [http://www.limedrop.org](http://www.limedrop.org)
 
 The benefit of this version is that it is always up-to-date
 
@@ -34,18 +34,18 @@ The benefit of this version is that it is always up-to-date
 1. Download the LimeDrop version of D2BS from [here](https://github.com/kolton/d2bot-with-kolbot/archive/limedrop-utf8.zip) or clone from: _https://github.com/kolton/d2bot-with-kolbot.git_
 
 1. Extract to a folder:
-![Extracted Files](assets/LimeDrop_Extract.png)
+![Extracted Files](https://github.com/blizzhackers/documentation/blob/master/limedrop/assets/Limedrop_Extract.png)
 
 1. Follow the usual D2BS setup of adding in your keys
 
 1. Create a new profile, we will use GameAction for an example
 	* Make sure you set your own game name to avoid conflicts with other people
-		* ![Add Profile](assets/LimeDrop_AddProfile.png)
+		* ![Add Profile](https://github.com/blizzhackers/documentation/blob/master/limedrop/assets/LimeDrop_AddProfile.png)
     * Make sure you use the D2BotGameAction.dbj as the Entry Script
 
 1. Edit the server.config file: 
-	* ![Server Config File](assets/LimeDrop_ServerConfigFile.png)
-	* ![Server Config Edit](assets/LimeDrop_ServerConfigEdit.png)
+	* ![Server Config File](https://github.com/blizzhackers/documentation/blob/master/limedrop/assets/LimeDrop_ServerConfigFile.png)
+	* ![Server Config Edit](https://github.com/blizzhackers/documentation/blob/master/limedrop/assets/LimeDrop_ServerConfigEdit.png)
 	* This default config says to:
 		* Use the D2BS profile called "GameAction"
 		* Create a user with the name "public", password "public" who **is not** able to drop items
@@ -64,7 +64,7 @@ LimeDrop will launch the profile on its own when it needs to do something.
 #### Logging In
 * To login, either go to your self-hosted web page, or to [http://www.limedrop.org](http://www.limedrop.org)
 * At the upper right, click the profile icon to log in:
-	* ![Login](assets/LimeDrop_Login.png)
+	* ![Login](https://github.com/blizzhackers/documentation/blob/master/limedrop/assets/LimeDrop_Login.png)
 	* Enter your server address (including port) according to your server config
 	* Enter your username
 	* Enter your password
@@ -76,8 +76,8 @@ LimeDrop will launch the profile on its own when it needs to do something.
 	* All mules logged this way will appear in the LimeDrop web page
 
 * You can use the Web Interface to manually add a whole profile, or a single character:
-	* ![AddAccount1](assets/LimeDrop_AddAccount1.png)
-	* ![AddAccount2](assets/LimeDrop_AddAccount2.png)
+	* ![AddAccount1](https://github.com/blizzhackers/documentation/blob/master/limedrop/assets/LimeDrop_AddAccount1.png)
+	* ![AddAccount2](https://github.com/blizzhackers/documentation/blob/master/limedrop/assets/LimeDrop_AddAccount2.png)
 
   A - Select the realm for the account
 
