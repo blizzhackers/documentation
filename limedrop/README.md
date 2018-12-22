@@ -1,8 +1,8 @@
 # LimeDrop Guide
-### [About](#about-limedrop)
-### [Setup](#setup-limedrop)
-### [Usage](#using-limedrop)
-### [FAQ](#frequently-asked-questions)
+* [About](#about-limedrop)
+* [Setup](#setup-limedrop)
+* [Usage](#using-limedrop)
+* [FAQ](#frequently-asked-questions)
 
 -----
 
