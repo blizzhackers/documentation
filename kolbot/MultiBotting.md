@@ -2,8 +2,12 @@
 
 [kolbot table of content](https://github.com/blizzhackers/documentation/tree/master/kolbot/#kolbot)
 
-# Multi Botting
 ---
+
+# Multi Botting
+
+---
+
 * [Info](#info)
 * [Game Creator](#game-creator)
 * [Joining Games](#joining-games)

@@ -1,11 +1,21 @@
-[general table of content](https://github.com/blizzhackers/documentation/README.md)
+[general table of content](https://github.com/blizzhackers/documentation/#diablo-2-botting-system)
 
-[d2bot table of content](https://github.com/blizzhackers/documentation/tree/master/d2bot#README.rst)
+[d2bot table of content](https://github.com/blizzhackers/documentation/tree/master/d2bot/#d2bot)
 
-# Keylist
 ---
 
+# Keylist
 
+---
+
+* [info](#info)
+* [keylist creation](#keylist-creation)
+* [manual edit](#manual-edit)
+	* [adding raw/loader keys](#adding-raw-loader-keys)
+	* [set keys](#set-keys)
+* [using loader keys](#using-loader-keys)
+	* [creating loader keys](#creating-loader-keys)
+	* [creating keylist using loader keys](#creating-keylist-using-loader-keys)
 
 ---
 
@@ -53,7 +63,9 @@ case of loader keys in a set list, set1 including key1.mpq, key2.mpq, key3.mpq
 {"CDKeys":[{"Name":"key1.mpq","Classic":"","Expansion":""},{"Name":"key2.mpq","Classic":"","Expansion":""},{"Name":"key3.mpq","Classic":"","Expansion":""}],"Name":"set1"}
 ```
 ## using loader keys
+
 ### creating loader keys
+
 Since June 2017 the key switching/swapping not help you at all in battle.net counting. So it's ok to use only 1 cdkeyset/bot.
 
 * download https://github.com/mf022/D2LoD-files/tree/master/D2LoD-key-utilities.
@@ -64,13 +76,35 @@ Since June 2017 the key switching/swapping not help you at all in battle.net cou
 * place the loader keys into your ...\Diablo II\ folder.
 
 ### creating keylist using loader keys
+
 follow these steps:
-1. L-click Keys on the manager ![keylist2](assets/d2bot-keylist2.png)
-2. write the name of key set (k1), then click add \+ ![keylist3](assets/d2bot-keylist3.png)
-3. L-click the Name box ![keylist4](assets/d2bot-keylist4.png)
-4. write key1.mpq , then click Apply ![keylist5](assets/d2bot-keylist5.png)
-5. k1 entry with key1.mpq is done ![keylist6](assets/d2bot-keylist6.png)
-6. on bottom left write the name of  next key set (k2), then click add \+ ![keylist7](assets/d2bot-keylist7.png)
-7. L-click the Name box, write key2.mpq, then click Apply ![keylist8](assets/d2bot-keylist8.png)
+1. L-click Keys on the manager 
+
+![keylist2](assets/d2bot-keylist2.png)
+
+2. write the name of key set (k1), then click add \+ 
+
+![keylist3](assets/d2bot-keylist3.png)
+
+3. L-click the Name box 
+
+![keylist4](assets/d2bot-keylist4.png)
+
+4. write key1.mpq , then click Apply 
+
+![keylist5](assets/d2bot-keylist5.png)
+
+5. k1 entry with key1.mpq is done 
+
+![keylist6](assets/d2bot-keylist6.png)
+
+6. on bottom left write the name of  next key set (k2), then click add \+ 
+
+![keylist7](assets/d2bot-keylist7.png)
+
+7. L-click the Name box, write key2.mpq, then click Apply 
+
+![keylist8](assets/d2bot-keylist8.png)
+
 8. k2 entry with key2.mpq is done
 

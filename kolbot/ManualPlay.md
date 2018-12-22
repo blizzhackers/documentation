@@ -2,8 +2,12 @@
 
 [kolbot table of content](https://github.com/blizzhackers/documentation/tree/master/kolbot/#kolbot)
 
-# Manual Playing
 ---
+
+# Manual Playing
+
+---
+
 * [Info](#info)
 * [D2BotMap](#d2botmap)
 * [Manual Misc Script](#manual.js)
@@ -12,15 +16,18 @@
 ---
 
 ## info
+
 * [d2bs](https://github.com/kolton/d2bot-with-kolbot) allows manual playing
 
 ## multi loader
+
 * use these parameters in the profile, and no script will be loaded.
 ```
 	-L -w
 ```
 
 ## D2BotMap
+
 1. it's a starter script for manual play.
 1. you have to manually login into account and create or join game.
 1. it gives you some improvements like:
@@ -40,7 +47,7 @@
 
 1. to see all details properly, change the resolution to 800x600 in game settings!
 
-![D2BotMap](assets/kolbot-manualplayD2BotMap)
+![D2BotMap](assets/kolbot-manualplayD2BotMap.jpg)
 
 1. if you wanna view maps + monsters while you are pressing < ALT > key you have to search to the line 727 of kolbot\tools\MapThread.js and to remove the 0x0D code. After that line is looking:
 ```
@@ -48,6 +55,7 @@
 ```
 
 ## Manual.js
+
 1. it's another script for manual play with description in this saved [html file](assets/ManualPlayScriptWithPacketSniffingToolsAndMore.html). 
 1. How to use (from bh topic):
 * copy the code from [@Laz](https://github.com/laztheripper) - [pull-request](https://github.com/kolton/d2bot-with-kolbot/pull/370) or from  [here](https://github.com/laztheripper/d2bot-with-kolbot/blob/03173c86829f22a17ccef8a481f1a6a0e429f081/d2bs/kolbot/libs/bots/Manual.js), and save it in a new file named "Manual.js" in "libs/bots" folder
@@ -63,5 +71,6 @@
 ```
 
 ## using followers
+
 you can run your leader and to have up to other 7 followers in your game.
 check [multi-botting](https://github.com/mf022/d2bs/wiki/multi_botting)

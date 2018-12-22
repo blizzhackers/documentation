@@ -2,8 +2,12 @@
 
 [kolbot table of content](https://github.com/blizzhackers/documentation/tree/master/kolbot/#kolbot)
 
-# FAQ
 ---
+
+# FAQ
+
+---
+
 * [why I cannot use SVN Checkout?](#why-i-cannot-use-svn-checkout?)
 * [how to avoid checking versions issue?](#how-to-avoid-checking-versions-issue?)
 * [how much I have to wait for an answer?](#how-much-i-have-to-wait-for-an-answer?)

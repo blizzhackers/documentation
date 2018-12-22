@@ -2,8 +2,12 @@
 
 [kolbot table of content](https://github.com/blizzhackers/documentation/tree/master/kolbot/#kolbot)
 
-# Hotkeys
 ---
+
+# Hotkeys
+
+---
+
 * [default keys](#default-keys)
 * [changing the default keys](#changing-the-default-keys)
 * [d2bs core commands](#d2bs-core-commands)
