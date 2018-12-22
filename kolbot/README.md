@@ -1,18 +1,19 @@
 [general table of content](https://github.com/blizzhackers/documentation/#diablo-2-botting-system)
 
 [d2bot content](https://github.com/blizzhackers/documentation/d2bot/#d2bot)
+
 ---
 
 # Kolbot
 
 ---
 
-* [FAQ]((kolbot/FAQ.md)
+* [FAQ](FAQ.md/#faq)
 
-* [Manual Play](kolbot/ManualPlay.md)
+* [Manual Play](ManualPlay.md/#manual-playing)
 
-* [Multi Botting](kolbot/MultiBotting.md)
+* [Multi Botting](MultiBotting.md/#multi-botting)
 
-* [Automule](kolbot/Automule.md)
+* [Automule](Automule.md/#automule)
 
-* [Hotkeys]((kolbot/Hotkeys.md)
+* [Hotkeys](Hotkeys.md/#hotkeys)

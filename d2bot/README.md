@@ -8,8 +8,7 @@
 
 ---
 
-* [History](d2bot/History.md)
-* [Download](d2bot/Download.md): how to download files and to keep them updated
-* [ManagerSetup](d2bot/ManagerSetup.md):
-* [Profile Configuration](d2bot/ProfileConfiguration.md)
-* [Keylist Configuration](d2bot/Keylist.md)
+* [Download](Download.md/#download): how to download files and to keep them updated
+* [ManagerSetup](ManagerSetup.md/#manager-setup):
+* [Profile Configuration](ProfileConfiguration.md/#profile-configuration)
+* [Keylist Configuration](Keylist.md/#keylist)
