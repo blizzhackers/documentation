@@ -1,8 +1,12 @@
-[general table of content](https://github.com/blizzhackers/documentation/README.md)
+[general table of content](https://github.com/blizzhackers/documentation/#diablo-2-botting-system)
 
-[d2bot table of content](https://github.com/blizzhackers/documentation/tree/master/d2bot#README.rst)
+[kolbot table of content](https://github.com/blizzhackers/documentation/tree/master/d2bot/#d2bot)
+
+---
 
 # D2BS History
+
+---
 
 * [Diablo2BottingSystem] (https://web.archive.org/web/20170813084150/http://www.blizzhackers.cc/viewforum.php?f=228&sid=923d6d1f4fb72bbe94aa7cb14600e0c1) = D2Bot manager [noah-](https://github.com/noah-) aka @D3STROY3R + kolbot library scripts [@kolton](https://github.com/kolton).
 
