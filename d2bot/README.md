@@ -9,6 +9,11 @@
 ---
 
 * [Download](Download.md/#download): how to download files and to keep them updated
+
 * [ManagerSetup](ManagerSetup.md/#manager-setup):
+
 * [Profile Configuration](ProfileConfiguration.md/#profile-configuration)
+
 * [Keylist Configuration](Keylist.md/#keylist)
+
+* [Autoupdate](Autoupdate.md/#autoupdate)

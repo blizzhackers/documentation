@@ -2,7 +2,7 @@
 
 ---
 
-[d2bot manager](d2bot/#d2bot): d2bot manager by [@noah-](https://github.com/noah-)
+[d2bot](d2bot/#d2bot): d2bot manager by [@noah-](https://github.com/noah-)
 
 * [Download](d2bot/Download.md): how to download files and to keep them updated
 * [ManagerSetup](d2bot/ManagerSetup.md/#manager-setup):
@@ -11,12 +11,12 @@
 
 ---
 
-[d2bs core](d2bs/#d2bs): advanced section
+[d2bs](d2bs/#d2bs): d2bs core - advanced section
 
 
 ---
 
-[Kolbot](kolbot/#kolbot): library scripts by [@kolton](https://github.com/kolton)
+[kolbot](kolbot/#kolbot): library scripts by [@kolton](https://github.com/kolton)
 
 * [FAQ](kolbot/FAQ.md/#faq)
 
@@ -30,7 +30,7 @@
 
 ---
 
-[Limedrop](limedrop/#limedrop-guide): dropper by [@noah-](https://github.com/noah-)
+[limedrop](limedrop/#limedrop-guide): limedrop dropper by [@noah-](https://github.com/noah-)
 
 * [About](limedrop/#about-limedrop)
 * [Setup](limedrop/#setup-limedrop)
@@ -46,7 +46,7 @@
 
 # D2BS History
 
-* [Diablo2BottingSystem] (https://web.archive.org/web/20170813084150/http://www.blizzhackers.cc/viewforum.php?f=228&sid=923d6d1f4fb72bbe94aa7cb14600e0c1) = D2Bot manager [noah-](https://github.com/noah-) aka @D3STROY3R + kolbot library scripts [@kolton](https://github.com/kolton).
+* [Diablo2BottingSystem](https://web.archive.org/web/20170813084150/http://www.blizzhackers.cc/viewforum.php?f=228&sid=923d6d1f4fb72bbe94aa7cb14600e0c1) = D2Bot manager [noah-](https://github.com/noah-) aka @D3STROY3R + kolbot library scripts [@kolton](https://github.com/kolton).
 
 * it was released on 24th Apr 2012 on [blizzhackers](https://web.archive.org/web/20171030004307/http://www.blizzhackers.cc/viewtopic.php?f=206&t=489091&sid=076b6f411e98d938f4568c448d3f5845) , and announced a bit later on [projectetal forum](https://web.archive.org/web/20170215101441/http://www.projectetal.com:80/forums/threads/kolbot-and-d2bot.8698/).
 
