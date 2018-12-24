@@ -1,4 +1,12 @@
-# Diablo 2 Botting System
+# Diablo 2 Botting System (D2BS)
+
+---
+
+[d2bs](d2bs/#d2bs): d2bs core
+* [API Reference](https://github.com/noah-/d2bs/blob/master/README.md):
+* [Current Source](https://github.com/noah-/d2bs)
+* [Original Source](https://app.assembla.com/spaces/d2bs/subversion/source)
+* [Original Devs](https://app.assembla.com/spaces/d2bs/team)
 
 ---
 
@@ -11,21 +19,12 @@
 
 ---
 
-[d2bs](d2bs/#d2bs): d2bs core - advanced section
-
-
----
-
 [kolbot](kolbot/#kolbot): library scripts by [@kolton](https://github.com/kolton)
 
 * [FAQ](kolbot/FAQ.md/#faq)
-
 * [Manual Play](kolbot/ManualPlay.md/#manual-playing)
-
 * [Multi Botting](kolbot/MultiBotting.md/#multi-botting)
-
 * [Automule](kolbot/Automule.md/#automule)
-
 * [Hotkeys](kolbot/Hotkeys.md/#hotkeys)
 
 ---
@@ -39,14 +38,9 @@
 
 ---
 
-[test](test/readme.md)
+# D2BS / Kolbot History
 
-
----
-
-# D2BS History
-
-* [Diablo2BottingSystem](https://web.archive.org/web/20170813084150/http://www.blizzhackers.cc/viewforum.php?f=228&sid=923d6d1f4fb72bbe94aa7cb14600e0c1) = D2Bot manager [noah-](https://github.com/noah-) aka @D3STROY3R + kolbot library scripts [@kolton](https://github.com/kolton).
+* [Diablo2BottingSystem](https://web.archive.org/web/20170813084150/http://www.blizzhackers.cc/viewforum.php?f=228&sid=923d6d1f4fb72bbe94aa7cb14600e0c1) = D2BS core + D2Bot manager [noah-](https://github.com/noah-) aka @D3STROY3R + kolbot library scripts [@kolton](https://github.com/kolton).
 
 * it was released on 24th Apr 2012 on [blizzhackers](https://web.archive.org/web/20171030004307/http://www.blizzhackers.cc/viewtopic.php?f=206&t=489091&sid=076b6f411e98d938f4568c448d3f5845) , and announced a bit later on [projectetal forum](https://web.archive.org/web/20170215101441/http://www.projectetal.com:80/forums/threads/kolbot-and-d2bot.8698/).
 
@@ -54,4 +48,4 @@
 
 * it was updated on March 2018 with fixes for 12th December's 2017 battle.net patches.
 
-* it had several updates until now. use TortoiseSVN Update option from time to time, or any other methods to keep it updated.
+* use TortoiseSVN Update option from time to time, or any other methods to keep it updated.
