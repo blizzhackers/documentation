@@ -2,8 +2,9 @@
 
 ---
 
-[d2bs](d2bs/#d2bs): d2bs core by [View Developers](https://app.assembla.com/spaces/d2bs/team)
-* [API Reference](https://github.com/noah-/d2bs/blob/master/README.md):
+[d2bs](d2bs/#d2bs): d2bs core by [view developers](https://app.assembla.com/spaces/d2bs/team)
+
+* [API Reference](https://github.com/noah-/d2bs/blob/master/README.md)
 * [Current Source](https://github.com/noah-/d2bs)
 * [Original Source](https://app.assembla.com/spaces/d2bs/subversion/source)
 
@@ -12,7 +13,7 @@
 [d2bot](d2bot/#d2bot): d2bot manager by [@noah-](https://github.com/noah-)
 
 * [Download](d2bot/Download.md): how to download files and to keep them updated
-* [ManagerSetup](d2bot/ManagerSetup.md/#manager-setup):
+* [Manager Setup](d2bot/ManagerSetup.md/#manager-setup)
 * [Profile Configuration](d2bot/ProfileConfiguration.md/#profile-configuration)
 * [Keylist Configuration](d2bot/Keylist.md/#keylist)
 
