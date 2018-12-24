@@ -2,11 +2,10 @@
 
 ---
 
-[d2bs](d2bs/#d2bs): d2bs core
+[d2bs](d2bs/#d2bs): d2bs core by [View Developers](https://app.assembla.com/spaces/d2bs/team)
 * [API Reference](https://github.com/noah-/d2bs/blob/master/README.md):
 * [Current Source](https://github.com/noah-/d2bs)
 * [Original Source](https://app.assembla.com/spaces/d2bs/subversion/source)
-* [Original Devs](https://app.assembla.com/spaces/d2bs/team)
 
 ---
 
@@ -40,7 +39,7 @@
 
 # D2BS / Kolbot History
 
-* [Diablo2BottingSystem](https://web.archive.org/web/20170813084150/http://www.blizzhackers.cc/viewforum.php?f=228&sid=923d6d1f4fb72bbe94aa7cb14600e0c1) = D2BS core + D2Bot manager [noah-](https://github.com/noah-) aka @D3STROY3R + kolbot library scripts [@kolton](https://github.com/kolton).
+* [D2BS Release](https://web.archive.org/web/20170813084150/http://www.blizzhackers.cc/viewforum.php?f=228&sid=923d6d1f4fb72bbe94aa7cb14600e0c1) = d2bs core + d2bot manager [noah-](https://github.com/noah-) aka @D3STROY3R + kolbot library scripts [@kolton](https://github.com/kolton).
 
 * it was released on 24th Apr 2012 on [blizzhackers](https://web.archive.org/web/20171030004307/http://www.blizzhackers.cc/viewtopic.php?f=206&t=489091&sid=076b6f411e98d938f4568c448d3f5845) , and announced a bit later on [projectetal forum](https://web.archive.org/web/20170215101441/http://www.projectetal.com:80/forums/threads/kolbot-and-d2bot.8698/).
 
