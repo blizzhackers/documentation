@@ -1,4 +1,4 @@
-# LimeDrop Guide
+# Limedrop Guide
 
 * [About](#about-limedrop)
 * [Setup](#setup-limedrop)
@@ -7,32 +7,32 @@
 
 -----
 
-### About LimeDrop
+### About Limedrop
 ##### What is it?
-LimeDrop is a  **dropper**; it is a program that will manage joining games and dropping specific items.
+Limedrop is a web-based item  **dropper**; it is a program that will manage joining games and dropping specific items.
 
 ##### How do I install it?
-LimeDrop is an addon to the existing D2BS application. The branch [limedrop-utf8](https://github.com/kolton/d2bot-with-kolbot/tree/limedrop-utf8) contains the regular D2BS with Kolbot, and also LimeDrop.
+Limedrop is an API added to D2Bot # and a web-based frontend. The d2bot-with-kolbot [kolbot](https://github.com/kolton/d2bot-with-kolbot) has Limedrop built in.
 
 ##### How does it work?
-There are two parts to LimeDrop. One part is the API, and one part is a web page that calls the API. By default, only the API comes with the limedrop-utf8 version of D2BS.
+There are two parts to Limedrop. One part is the API, and one part is a web page that calls the API. The web page is can be accessed at www.limedrop.org
 
-When the web page requests an item, LimeDrop will launch the configured profile, join the game configured, and drop the item(s) selected.
+When the web page requests an item, Limedrop will launch the configured profile, join the game specified, and drop the item(s) selected.
 
 ##### Self-hosting
-For the web page you can download it [here](https://github.com/noah-/limedrop) and copy it to the "limedrop" folder of your D2BS folder.
+If you want to access the latest version, use www.limedrop.org, if you would like to host the static front-end yourself, you can download it [here](https://github.com/noah-/Limedrop) and copy it to the "Limedrop" folder of your d2bot-with-kolbot download.
 
-If you're using Git to clone D2BS with Kolbot it will ask you if you want to automatically download the sub-repository.
+If you're using Git to clone d2bot-with-kolbot it will ask you if you want to automatically download the sub-repository.
 
-##### Externally Hosted
-You can also use the externally hosted version here: [http://www.limedrop.org](http://www.limedrop.org)
+##### Hosted (recommended)
+You can also use the externally hosted version here: [http://www.limedrop.org](http://www.Limedrop.org)
 
 The benefit of this version is that it is always up-to-date
 
-**Note:** If you want to access LimeDrop externally you will need to open router ports. This is not recommended at this time because LimeDrop is still in the Alpha stage.
+**Note:** If you want to access Limedrop from an external network you will need to open router ports. The frontend only delivers the static site, it uses your instance of D2Bot to power the API. Note, the Limedrop API has not been security tested so if you choose to open your network externally, you need to assume all risks associated with that.
 
-### Setup LimeDrop
-1. Download the LimeDrop version of D2BS from [here](https://github.com/kolton/d2bot-with-kolbot/archive/limedrop-utf8.zip) or clone from: _https://github.com/kolton/d2bot-with-kolbot.git_
+### Setup Limedrop
+1. Download the Limedrop version from [here](https://github.com/kolton/d2bot-with-kolbot/archive/master.zip) or clone from: _https://github.com/kolton/d2bot-with-kolbot.git_
 
 1. Extract to a folder:
 	![Extracted Files](assets/limedrop-extract.png)
@@ -56,16 +56,16 @@ The benefit of this version is that it is always up-to-date
 			* If you want to access from another computer, you will need to use your real local IP like 192.168.1.100
         * The Port we will listen on is 8080
 
-1. LimeDrop is disabled by default on newer releases. Make sure you go to "Settings" and enable the API.
+1. Limedrop is disabled by default on newer releases. Make sure you go to "Settings" and enable the API.
 		
-### Using LimeDrop
-To start LimeDrop, just open D2BS.exe . You DO NOT have to launch the profile manually.
-LimeDrop will launch the profile on its own when it needs to do something.
+### Using Limedrop
+To start Limedrop, just open D2BS.exe . You DO NOT have to launch the profile manually.
+Limedrop will launch the profile on its own when it needs to do something.
 
 #### Logging In
-* To login, either go to your self-hosted web page, or to [http://www.limedrop.org](http://www.limedrop.org)
+* To login, either go to [http://www.limedrop.org](http://www.Limedrop.org) or your self-hosted page
 * At the upper right, click the profile icon to log in:
-	* ![Login](assets/limedrop-login.png)
+	* ![Login](assets/Limedrop-login.png)
 	* Enter your server address (including port) according to your server config
 	* Enter your username
 	* Enter your password
@@ -74,7 +74,7 @@ LimeDrop will launch the profile on its own when it needs to do something.
 
 #### Muling Options
 * You can create a profile using the standard MuleLogger profile
-	* All mules logged this way will appear in the LimeDrop web page
+	* All mules logged this way will appear in the Limedrop web page
 
 * You can use the Web Interface to manually add a whole profile, or a single character:
 	* ![AddAccount1](assets/limedrop-addaccount1.png)
@@ -90,13 +90,13 @@ LimeDrop will launch the profile on its own when it needs to do something.
 
 	E - Click "Add Row" if you want to add more than one account at a time
 
-	F - LimeDrop account password
+	F - Limedrop account password
 
 	G - Click to begin logging accounts
 
 **Note:** It is safe to log the same account by "adding" it through this interface. It will just update the files.
 
-**Note:** Currently you _can not_ use Numpad 5 to manually log a character with LimeDrop
+**Note:** Currently you _can not_ use Numpad 5 to manually log a character with Limedrop
 
 #### Emergency Stop
 You may notice that if you "stop" the GameAction profile that it immediately starts up again.
@@ -111,14 +111,14 @@ If you need to force the profile to stop you need to open the profile and erase 
 **Note:** If you have queued many drops, you will need to clear it for each drop, or you will need to restart D2BSharp.
 
 ### Frequently Asked Questions
-#### Will LimeDrop steal my information?
-No. The web page part of LimeDrop only makes calls to the API running on your D2BS. Your account passwords are not stored directly in the web page. Also, it's open source so if you don't trust it you can always take a look at the code yourself!
+#### Will Limedrop steal my information?
+No. The web page part of Limedrop only makes calls to the API running on your D2BS. Your account passwords are not stored directly in the web page. Also, it's open source so if you don't trust it you can always take a look at the code yourself!
 
 #### Can it run side-by-side with my existing bots?
-Yes. If you want to quickly try LimeDrop you can copy it to a separate folder and configure it
+Yes. If you want to quickly try Limedrop you can copy it to a separate folder and configure it
 
-#### Can I use my existing mule logs with LimeDrop?
-No. You will have to re-scan your existing mules in order to add them to the LimeDrop Inventory
+#### Can I use my existing mule logs with Limedrop?
+No. You will have to re-scan your existing mules in order to add them to the Limedrop Inventory
 
-#### Will LimeDrop automatically update my inventory after dropping items?
+#### Will Limedrop automatically update my inventory after dropping items?
 Yes.
