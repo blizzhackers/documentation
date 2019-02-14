@@ -8,28 +8,28 @@
 
 ---
 
-* [how to avoid checking versions issue?](#how-to-avoid-checking-versions-issue?)
-* [how much I have to wait for an answer?](#how-much-i-have-to-wait-for-an-answer?)
+* [how to avoid checking versions issue?](#how-to-avoid-checking-versions-issue)
+* [how much I have to wait for an answer?](#how-much-i-have-to-wait-for-an-answer)
 * [I have an issue with my bot](#i-have-an-issue-with-my-bot)
 * [best version of d2bs](#best-version-of-d2bs)
-* [how to change the pause button?](#how-to-change-the-pause-button?)
+* [how to change the pause button?](#how-to-change-the-pause-button)
 * [pickit issue](#pickit-issue)
 * [using d2bs only multiloader](#using-d2bs-only-multiloader)
 * [win 8 crash](#win-8-crash)
 * [leeching from the same account](#leeching-from-the-same-account)
 * [how to add own script](#how-to-add-own-script)
-* [mpq or raw keys?](#mpq-or-raw-keys?)
+* [mpq or raw keys?](#mpq-or-raw-keys)
 * [how many bots in one game](#how-many-bots-in-one-game)
 * [fastmod config](#fastmod-config)
 * [d2bs sandboxed](#d2bs-sandboxed)
 * [D2BS is not responding ... starting profile](#d2bs-is-not-responding--starting-profile)
-* [window has unexpectedly exited... starting profile](#window-has-unexpectedly-exited-starting-profilee)
+* [window has unexpectedly exited... starting profile](#window-has-unexpectedly-exited-starting-profile)
 * [you were disconnected from battle.net](#you-were-disconnected-from-battle.net)
 * [how can I stop the bot in game, in case of error](#how-can-i-stop-the-bot-in-game-in-case-of-error)
 * [the login button is gray](#the-login-button-is-gray)
 * [I cannot change account](#I-cannot-change-account)
 * [how can I reset the game counter](#how-can-I-reset-the-game-counter)
-* [how do I stop hidden d2 windows?](#how-do-I-stop-hidden-d2-windows?)
+* [how do I stop hidden d2 windows?](#how-do-I-stop-hidden-d2-windows)
 
 ---
 
