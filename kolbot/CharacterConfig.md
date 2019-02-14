@@ -159,20 +159,27 @@ If you want to change the order of the scripts, just change the order of their l
 ```
 
 ### leeching section
+
 As you probably already noticed some scripts can be done with leader and leecher or even more leechers.
+
 This very useful option gives you many possibilities how to run your bot.
 
 For magic finding team you can use MF Leader/Helper or scripts with leader leecher option like for example Tristram, Travincal. All leechers option you can find in **leeching section**.
 
 To set it up properly your leader runs for example
+
 Scripts.Tristram = true;
+
 Config.Tristram.PortalLeech = true; // Set to true to open a portal for leechers.
 
 For leecher you skip to **leeching section** and set
+
 Scripts.TristramLeech = true;
 
 If u want your character to finish game when other character exits you have to set Quit.List
+
 Example:
+
 Config.QuitList = ["MySorc", "MyDin"]; **(case sensitive)**
 
 **!!! Note !!!** that **MySorc** and **MyDin** are **Character's names** not **Profile's** names!
@@ -200,10 +207,13 @@ In special scripts section you can find additonal scripts with extra features li
 Take a closer look and check what you like. Remember that inside of each script you can find additional information. All scripts are stored in **d2bs\kolbot\libs\bots**. Here you can read more about [URL='https://github.com/kolton/d2bot-with-kolbot/wiki/Gambling-System']Gambling System[/URL]
 
 ### Guest scripts
+
 Here is a place for scripts that you can add on your own. Who knows, maybe you can do some awesome script for us and **share** it!!
+
 BaalAssistant //Used to leech or help in baal runs
 
 ### Town settings
+
 Here you can set the percent of life to go to a healer, and the using of mercenary.
 
 ### Potion settings
@@ -217,9 +227,13 @@ Here you can set the percent of life/mana when the potion to be used, but also h
 * be careful lowest settings can be painful for your experience (XP) in hell, because chicken it's not always 100% safe due to many circumstances like poor servers,low life of character, etc.
 
 ### Inventory lock configuration
+
 Config.Inventory[0] = [1,1,1,1,1,1,0,0,0,0];
+
 Config.Inventory[1] = [1,1,1,1,1,1,0,0,0,0];
+
 Config.Inventory[2] = [1,1,1,1,1,0,0,0,0,0];
+
 Config.Inventory[3] = [1,1,1,1,1,0,0,0,0,0];
 
 * 0 = item is locked and won't be moved. If item occupies more than one slot, ALL of those slots must be set to 0 to lock it in place.
@@ -229,9 +243,13 @@ Config.Inventory[3] = [1,1,1,1,1,0,0,0,0,0];
 
 ### Belt configuration
 Potion types for belt columns from left to right. **Rejuvenation potions must always be rightmost.** Supported potions are Healing ("hp"), Mana ("mp") and Rejuvenation ("rv") example:
+
 Config.BeltColumn[0] = "hp";
+
 Config.BeltColumn[1] = "mp";
+
 Config.BeltColumn[2] = "rv";
+
 Config.BeltColumn[3] = "rv";
 
 You can set minimum amount of potions. If we have less, bot goes to vendor to purchase more. Set rejuvenation columns to 0, because they can't be bought! example:
@@ -242,8 +260,11 @@ Config.MinColumn[3] = 0;
 
 ### Pickit config
 All pickit files are stored in **d2bs/kolbot/pickit/** By default are enabled only kolton.nip and LLD.nip.
+
 To enable other nip file add a line here
+
 [CODE]    Config.PickitFiles.push("myPickit.nip");[/CODE]
+
 There are several files to choose, you can also create and add your own or just edit these files:
 
 * classic.nip
@@ -259,20 +280,31 @@ There are several files to choose, you can also create and add your own or just 
 Additional information about [blizzhackers/pickits](https://github.com/blizzhackers/pickits/#pickits)
 
 ### Item Identification Settings
+
 If you don't want to use Id Tome you can always try with Cain to id your items.
+
 Config.CainID.Enable = true; // Identify items at Cain
+
 * by default items identified at Cain won't be sold, but dropped, so add this workaround - [use Cain and sell items](https://github.com/mf022/d2bs/wiki/Misc_options#use-cain-and-sell-items).
 
 Other option is to identify your drop at field.To activate it just enable this script.
+
 Config.FieldID = true; // Identify items in the field instead of going to town.
 
 ### Manager Item Log Screen
+
 If you wanna hide some items from manager item's log, set those to false:
+
 Config.ShowLowRunes = false; // show/hide low runes (El - Dol) on the item log screen
+
 Config.ShowMiddleRunes = false; // show/hide middle runes (Hel - Mal) on the item log screen
+
 Config.ShowHighRunes = true; // show/hide high runes (Ist - Zod) on the item log screen
+
 Config.ShowLowGems = false; // show/hide low gems (chipped, flawed, normal) on the item log screen
+
 Config.ShowHighGems = false; // show/hide high gems (flawless, perfect) on the item log screen
+
 Config.ShowCubingInfo = true; // show/hide the cubing messages on console and item log screen
 
 
@@ -281,24 +313,34 @@ Here you set the durability percent that will trigger repair
 
 ### Gambling Config
 Gamble is a source of awesome items worth of trying after lvl 88 (classic).
+
 To enable script make it true.
+
 Config.Gamble = true;
+
 You have to set amount of gold when your bot starts to gamble and when it should stop.
+
 Your start amount of gold is stash and character.
+
 Now decide what you want to gamble and activate it.
+
 Config.GambleItems.push(520); // Amulet **ENABLED**
+
 //Config.GambleItems.push(522); // Ring **DISABLED**
 
 for more items check **libs/NTItemAlias.dbl**
 Don't set stop gold amount to low if you use MiniShopBot can fail buy.
-Gambling can be used a Gambling System. More info about [URL='https://github.com/kolton/d2bot-with-kolbot/wiki/Gambling-System']Gambling System[/URL]
+Gambling can be used a Gambling System. For more info about, see [Gambling System Guide](https://github.com/kolton/d2bot-with-kolbot/wiki/Gambling-System)
 
 ### Cubing Config
 All recipes are available in **d2bs\kolbot\libs\config\Templates\Cubing.txt.**
+
 To enable script make it true.
+
 Config.Cubing =true; // Set to true to enable cubing.
 
 For example if u want to collect perfects skulls comment out (remove comment //) the line
+
 //Config.Recipes.push([Recipe.Gem, 600]); // perfect skull to
 
 All ingredients will be auto-picked, for classids check **d2bs\kolbot\libs\NTItemAlias.dbl**
@@ -316,21 +358,34 @@ Keep lines follow pickit format and any given runeword is tested vs ALL lines so
 
 #### local chat
 // If LocalChat is enabled, chat can be sent via 'sendCopyData' instead of BNET
+
 // To allow 'say' to use BNET, use 'say("msg", true)', the 2nd parameter will force BNET
+
 // LocalChat messages will only be visible on clients running on the same PC
-	Config.LocalChat.Enabled = false; // enable the LocalChat system
-	Config.LocalChat.Toggle = false; // optional, set to KEY value to toggle through modes 0, 1, 2
-	Config.LocalChat.Mode = 0; // 0 = disabled, 1 = chat from 'say' (recommended), 2 = all chat (for manual play)
+
+Config.LocalChat.Enabled = false; // enable the LocalChat system
+
+Config.LocalChat.Toggle = false; // optional, set to KEY value to toggle through modes 0, 1, 2
+
+Config.LocalChat.Mode = 0; // 0 = disabled, 1 = chat from 'say' (recommended), 2 = all chat (for manual play)
 
 // If Config.Leader is set, the bot will only accept invites from leader. If Config.PublicMode is not 0, Baal and Diablo script will open Town Portals.
-	Config.PublicMode = 0; // 1 = invite and accept, 2 = accept only, 3 = invite only, 0 = disable
+
+Config.PublicMode = 0; // 1 = invite and accept, 2 = accept only, 3 = invite only, 0 = disable
+
 // Party message settings. Each setting represents an array of messages that will be randomly chosen.
+
 // $name, $level, $class and $killer are replaced by the player's name, level, class and killer
-	Config.Greetings = []; // Example: ["Hello, $name (level $level $class)"]
-	Config.DeathMessages = []; // Example: ["Watch out for that $killer, $name!"]
-	Config.Congratulations = []; // Example: ["Congrats on level $level, $name!"]
-	Config.ShitList = false; // Blacklist hostile players so they don't get invited to party.
-	Config.UnpartyShitlisted = false; // Leave party if someone invited a blacklisted player.
+
+Config.Greetings = []; // Example: ["Hello, $name (level $level $class)"]
+
+Config.DeathMessages = []; // Example: ["Watch out for that $killer, $name!"]
+
+Config.Congratulations = []; // Example: ["Congrats on level $level, $name!"]
+
+Config.ShitList = false; // Blacklist hostile players so they don't get invited to party.
+
+Config.UnpartyShitlisted = false; // Leave party if someone invited a blacklisted player.
 	
 Here you can set if you want to invite to party, accept invitation or ignore and play alone.
 Config.PublicMode = 0; // 1 = invite, 2 = accept, 0 = disable. If Config.Leader is set, the bot will only accept invites from leader.
@@ -340,15 +395,24 @@ Config.ShitList = true;
 
 ### General Config
 Default minimum time of game is set to 60 seconds. You can change it to what you want by changing number of seconds.
+
 The max game time is set to infinity, to force your bot to leave game after desired number of seconds changed 0 to what you like. example: to finish game after 15 minutes
+
 Config.MaxGameTime = 900;
+
 Here you can also configure your ping settings in two ways example:
+
 Config.PingQuit = [{Ping: 600, Duration: 10}, {Ping: 1500, Duration: 0}];
+
 First condition is that bot will quit if your ping will be higher than 600 for 10 seconds, second condition is that will quit when ping is higher then 1500.
+
 Rest of settings are self-explanatory
+
 ### Shrine Scanner
 Shrine Scanner scans for shrines while moving. Put the shrine types in order of priority (from highest to lowest). For a list of types, see **d2bs\kolbot\sdk\Shrines.txt.**
+
 example:
+
 Config.ScanShrines = [15,12,13,]; where
 
 * 12 skill shrine
@@ -369,43 +433,66 @@ While warden is off it's **safe** to use **fastmod** or full **packet casting**.
 
 **Fastmod** does not bypass the animation code of diablo 2 client, it spoofs the incomming packets to the diablo 2 client so that the client thinks it has better mods than it actually has based on the gear its using
 
-Some things that are contingent upon how effective **fastmod** or **packet casting can** be include but are not limited to your base stats, internet connection speed and internet latency (measured by ping) Using **packet casting**, it should technically cast as fast as possible by **your connection**, this means that **fastmod** would not affect you if you are using full **packet casting**.
+Some things that are contingent upon how effective **fastmod** or **packet casting can** be include but are not limited to your base stats, internet connection speed and internet latency (measured by ping)
+
+Using **packet casting**, it should technically cast as fast as possible by **your connection**, this means that **fastmod** would not affect you if you are using full **packet casting**.
 
 Example of settings:
 
 Config.FCR = 255; // 0 - disable, 1 to 255 - set value of faster cast rate
+
 Config.FHR = 255; // 0 - disable, 1 to 255 - set value of faster hit recovery
+
 Config.FBR = 255; // 0 - disable, 1 to 255 - set value of faster block recovery
+
 Config.IAS = 255; // 0 - disable, 1 to 255 - set value of increased attack speed
+
 Config.PacketCasting = 2; // 0 = disable, 1 = packet teleport, 2 = full packet casting.
 
 ### Anti-hostile Config
+
 In this section you can defend your bot against hostile players that want to kill you or ruin your game.
+
 You enable script by setting to true.
+
 Config.AntiHostile = true; // Enable anti-hostile
+
 Now you have some possibilities depending on what you want like chicken to town, exit game or try to kill hostile player when spotted.
 
 ### DClone Config
+
 Bot goes to Palace Cellar level 3 and kills Diablo Clone.
 
 Config.StopOnDClone = true; // Go to town and idle as soon as Diablo walks the Earth
+
 Config.SoJWaitTime = 5; // Time in minutes to wait for another SoJ sale before leaving game. 0 = disabled
+
 Config.KillDclone = true; // Go to Palace Cellar 3 and try to kill Diablo Clone. Pointless if you already have Annihilus.
 
 Monster skip config
+
 Here you can set what kind of monster you would like to skip.
+
 For example if you play classic cold sorceress, you have to skip all cold immunes.
+
 example:
+
 Config.SkipImmune = ["cold"];
+
 You can also skip monsters with **"Aura"** and **"Enchant"**, with exactly similiar way like for **"Immune"**.
 
 ### Attack config
+
 Attack patterns depends on your build and type of character.
+
 You can find some example settings in **d2bs\kolbot\libs\config\Templates\Attacks.txt.**
+
 If you would like to attack Unique/SuperUnique monsters first when clearing you have to change this script to true.
+
 Config.BossPriority = true;
 
 You can decide what kind of monster you want to attack by Clear.Type.
+
 Config.ClearType = 0xF;
 
 * 0xF = skip normal,
@@ -417,51 +504,83 @@ is additional option for class only
 
 #### Amazon
   Config.LightningFuryDelay = 10; // Lightning fury interval in seconds. LF is treated as timed skill.
+  
   Config.SummonValkyrie = true; // Summon Valkyrie
 
 #### Assassin
-  Config.UseTraps = true; // Set to true to use traps
-  Config.Traps = [271, 271, 271, 276, 276]; // Skill IDs for traps to be cast on all mosters except act bosses.
-  Config.BossTraps = [271, 271, 271, 271, 271]; // Skill IDs for traps to be cast on act bosses.
-  Config.SummonShadow = "Master"; // 0 = don't summon, 1 or "Warrior" = summon Shadow Warrior, 2 or "Master" = summon Shadow Master
-  Config.UseFade = true; // Set to true to use Fade prebuff.
-  Config.UseBoS = false; // Set to true to use Burst of Speed prebuff. TODO: Casting in town + UseFade compatibility
-  Config.UseVenom = false; // Set to true to use Venom prebuff. Set to false if you don't have the skill and have Arachnid Mesh - it will cause connection drop otherwise.
-  Config.UseCloakofShadows = true; // Set to true to use Cloak of Shadows while fighting. Useful for blinding regular monsters/minions.
+
+Config.UseTraps = true; // Set to true to use traps
+
+Config.Traps = [271, 271, 271, 276, 276]; // Skill IDs for traps to be cast on all mosters except act bosses.
+
+Config.BossTraps = [271, 271, 271, 271, 271]; // Skill IDs for traps to be cast on act bosses.
+
+Config.SummonShadow = "Master"; // 0 = don't summon, 1 or "Warrior" = summon Shadow Warrior, 2 or "Master" = summon Shadow Master
+
+Config.UseFade = true; // Set to true to use Fade prebuff.
+
+Config.UseBoS = false; // Set to true to use Burst of Speed prebuff. TODO: Casting in town + UseFade compatibility
+
+Config.UseVenom = false; // Set to true to use Venom prebuff. Set to false if you don't have the skill and have Arachnid Mesh - it will cause connection drop otherwise.
+
+Config.UseCloakofShadows = true; // Set to true to use Cloak of Shadows while fighting. Useful for blinding regular monsters/minions.
 
 #### Barbarian
-  Config.FindItem = false; // Use Find Item skill on corpses after clearing.
-  Config.FindItemSwitch = 0; // Find Item weapon slot - 0 = slot I, 1 = slot II
+
+Config.FindItem = false; // Use Find Item skill on corpses after clearing.
+
+Config.FindItemSwitch = 0; // Find Item weapon slot - 0 = slot I, 1 = slot II
 
 #### Druid
-  Config.SummonRaven = true;
-  Config.SummonAnimal = "Grizzly"; // 0 = disabled, 1 or "Spirit Wolf" = summon spirit wolf, 2 or "Dire Wolf" = summon dire wolf, 3 or "Grizzly" = summon grizzly
-  Config.SummonSpirit = "Oak Sage"; // 0 = disabled, 1 / "Oak Sage", 2 / "Heart of Wolverine", 3 / "Spirit of Barbs"
-  Config.SummonVine = "Poison Creeper"; // 0 = disabled, 1 / "Poison Creeper", 2 / "Carrion Vine", 3 / "Solar Creeper"
+
+Config.SummonRaven = true;
+
+Config.SummonAnimal = "Grizzly"; // 0 = disabled, 1 or "Spirit Wolf" = summon spirit wolf, 2 or "Dire Wolf" = summon dire wolf, 3 or "Grizzly" = summon grizzly
+
+Config.SummonSpirit = "Oak Sage"; // 0 = disabled, 1 / "Oak Sage", 2 / "Heart of Wolverine", 3 / "Spirit of Barbs"
+
+Config.SummonVine = "Poison Creeper"; // 0 = disabled, 1 / "Poison Creeper", 2 / "Carrion Vine", 3 / "Solar Creeper"
 
 #### Necromancer
-  Config.Curse[0] = 0; // Boss curse. Use skill number or set to 0 to disable.
-  Config.Curse[1] = 0; // Other monsters curse. Use skill number or set to 0 to disable.
-  Config.ExplodeCorpses = 0; // Explode corpses. Use skill number or 0 to disable. 74 = Corpse Explosion, 83 = Poison Explosion
-  Config.Golem = "None"; // Golem. 0 or "None" = don't summon, 1 or "Clay" = Clay Golem, 2 or "Blood" = Blood Golem, 3 or "Fire" = Fire Golem
-  Config.Skeletons = 0; // Number of skeletons to raise. Set to "max" to auto detect, set to 0 to disable.
-  Config.SkeletonMages = 0; // Number of skeleton mages to raise. Set to "max" to auto detect, set to 0 to disable.
-  Config.Revives = 0; // Number of revives to raise. Set to "max" to auto detect, set to 0 to disable.
-  Config.PoisonNovaDelay = 2; // Delay between two Poison Novas in seconds.
-  Config.ActiveSummon = false; // Raise dead between each attack. If false, it will raise after clearing a spot.
-  Config.ReviveUnstackable = true; // Revive monsters that can move freely after you teleport.
-  Config.IronGolemChicken = 30; // Exit game if Iron Golem's life is less or equal to designated percent.
+
+Config.Curse[0] = 0; // Boss curse. Use skill number or set to 0 to disable.
+
+Config.Curse[1] = 0; // Other monsters curse. Use skill number or set to 0 to disable.
+
+Config.ExplodeCorpses = 0; // Explode corpses. Use skill number or 0 to disable. 74 = Corpse Explosion, 83 = Poison Explosion
+
+Config.Golem = "None"; // Golem. 0 or "None" = don't summon, 1 or "Clay" = Clay Golem, 2 or "Blood" = Blood Golem, 3 or "Fire" = Fire Golem
+
+Config.Skeletons = 0; // Number of skeletons to raise. Set to "max" to auto detect, set to 0 to disable.
+
+Config.SkeletonMages = 0; // Number of skeleton mages to raise. Set to "max" to auto detect, set to 0 to disable.
+
+Config.Revives = 0; // Number of revives to raise. Set to "max" to auto detect, set to 0 to disable.
+
+Config.PoisonNovaDelay = 2; // Delay between two Poison Novas in seconds.
+
+Config.ActiveSummon = false; // Raise dead between each attack. If false, it will raise after clearing a spot.
+
+Config.ReviveUnstackable = true; // Revive monsters that can move freely after you teleport.
+
+Config.IronGolemChicken = 30; // Exit game if Iron Golem's life is less or equal to designated percent.
 
 #### Paladin
-  Config.AvoidDolls = false; // Try to attack Soul Killers from a greater distance with hammerdins.
-  Config.Vigor = true; // Swith to Vigor when running
-  Config.Redemption = [50, 50]; // Switch to Redemption after clearing an area if under designated life or mana. Format: [lifepercent, manapercent]
+
+Config.AvoidDolls = false; // Try to attack Soul Killers from a greater distance with hammerdins.
+
+Config.Vigor = true; // Swith to Vigor when running
+
+Config.Redemption = [50, 50]; // Switch to Redemption after clearing an area if under designated life or mana. Format: [lifepercent, manapercent]
 
 #### Sorceress
-  Config.CastStatic = 60; // Cast static until the target is at designated life percent. 100 = disabled.
-  Config.StaticList = ["Diablo"]; // List of monster NAMES to static. Example: Config.StaticList = ["Andariel", "Diablo", "Baal"];
+
+Config.CastStatic = 60; // Cast static until the target is at designated life percent. 100 = disabled.
+
+Config.StaticList = ["Diablo"]; // List of monster NAMES to static. Example: Config.StaticList = ["Andariel", "Diablo", "Baal"];
 
 ### AutoBuild System
+
 See /d2bs/kolbot/libs/config/Builds/README.txt for instructions
 
 ### Advanced options
@@ -469,10 +588,13 @@ See /d2bs/kolbot/libs/config/Builds/README.txt for instructions
 #### Script-specific config override
 
 Every option belonging to the Config object can be overridden for each individual script.
+
 Format:
+
 Scripts.SomeScript = {changed_properties};
 
 true is replaced by an object containing the properties you wish to change. The properties are listed **without** "Config." in front of them.
+
 For example, disabling dodge for Mephisto script would look like this:
 
 Scripts.Mephisto = {Dodge: false};
@@ -484,6 +606,7 @@ Scripts.Mephisto = {Dodge: false, TownHP: 60, MFSwitchPercent: 25};
 The changes will revert back when the script ends.
 
 #### Character config filename options
+
 There's several ways to name a character config file. List in order of priority (formats higher in the list will override lower ones):
 
 * **Custom Config** (see below)
@@ -498,7 +621,9 @@ There's several ways to name a character config file. List in order of priority 
 
 #### Custom Config
 Custom Config allows you to specify which profile(s) will use which config file.
+
 You can do this by editing **_CustomConfig.js**
+
 The format is:
 
 "Config_Filename_Without_Extension": ["array", "of", "profiles"]
