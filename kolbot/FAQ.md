@@ -8,35 +8,35 @@
 
 ---
 
-* [why I cannot use SVN Checkout?](#why-i-cannot-use-svn-checkout?)
 * [how to avoid checking versions issue?](#how-to-avoid-checking-versions-issue?)
 * [how much I have to wait for an answer?](#how-much-i-have-to-wait-for-an-answer?)
 * [I have an issue with my bot](#i-have-an-issue-with-my-bot)
 * [best version of d2bs](#best-version-of-d2bs)
 * [how to change the pause button?](#how-to-change-the-pause-button?)
 * [pickit issue](#pickit-issue)
-* []()
-* []()
-* []()
-* []()
-* []()
-* []()
-* []()
-* []()
-* []()
-* []()
+* [using d2bs only multiloader](#using-d2bs-only-multiloader)
+* [win 8 crash](#win-8-crash)
+* [leeching from the same account](#leeching-from-the-same-account)
+* [how to add own script](#how-to-add-own-script)
+* [mpq or raw keys?](#mpq-or-raw-keys?)
+* [how many bots in one game](#how-many-bots-in-one-game)
+* [fastmod config](#fastmod-config)
+* [d2bs sandboxed](#d2bs-sandboxed)
+* [D2BS is not responding ... starting profile](#d2bs-is-not-responding--starting-profile)
+* [window has unexpectedly exited... starting profile](#window-has-unexpectedly-exited-starting-profilee)
+* [you were disconnected from battle.net](#you-were-disconnected-from-battle.net)
+* [how can I stop the bot in game, in case of error](#how-can-i-stop-the-bot-in-game-in-case-of-error)
+* [the login button is gray](#the-login-button-is-gray)
+* [I cannot change account](#I-cannot-change-account)
+* [how can I reset the game counter](#how-can-I-reset-the-game-counter)
+* [how do I stop hidden d2 windows?](#how-do-I-stop-hidden-d2-windows?)
 
 ---
 
 ## info
-[original page](https://github.com/kolton/d2bot-with-kolbot/wiki/FAQ) with some adds
+[other FAQ page](https://github.com/kolton/d2bot-with-kolbot/wiki/FAQ)
 
 ## Q / A
-
-### why I cannot use SVN Checkout?
-1. **Q:** I get the error "The server at https://github.com/kolton/d2bot-with-kolbot does not support the HTTP/DAV protocol"
-2. **A:** version 1.11.xx of TortoiseSVN isn't compatible with github repositories.
-* you must downgrade it to version 1.10.xx to use tortoiseSVN on actual github - https://osdn.net/projects/tortoisesvn/storage/1.10.2/Application/
 
 ### how to avoid checking versions issue?
 1. **Q:** Diablo II  login screen is showing "Checking versions..." on every try
@@ -66,9 +66,9 @@ Here you can find [latest kolbot](https://github.com/kolton/d2bot-with-kolbot/).
 
 ### best version of d2bs
 1. **Q:** which version of D2BS should i use ??
-2. **A:** trunk is the latest **stable** version, branches/limedrop-utf8 is the latest version. Since September 2018, all improvements were added only to [limedrop-utf8 branch](https://github.com/kolton/d2bot-with-kolbot/commits/limedrop-utf8)
-* you can use only [TortoiseSVN 1.10.xx version](https://osdn.net/projects/tortoisesvn/storage/1.10.2/Application/) Checkout... directly on limedrop-utf8 branch of repository - https://github.com/kolton/d2bot-with-kolbot/trunk/limedrop-utf8 , and you'll get only that branch.
-* don't update tortoiseSVN to version 1.11.xx, because you cannot use it on github repositories anymore.
+2. **A:** trunk is the latest **stable** version.
+* you can use [TortoiseSVN](https://tortoisesvn.net/downloads.html) on <https://github.com/kolton/d2bot-with-kolbot/trunk/>
+check [download guide](https://github.com/blizzhackers/documentation/tree/master/d2bot/Download.md)
 
 ### how to change the pause button?
 1. **Q:** I don't have numeric keyboard. Where can I change my pause button ??
@@ -102,17 +102,13 @@ Here you can find [latest kolbot](https://github.com/kolton/d2bot-with-kolbot/).
 1. **Q:** can I use mpq or raw keys in profle manager?
 2. **A:** you can use them both i.e raw keys and mpq for the same list or profile. - see [d2bs Keylist](https://github.com/mf022/d2bs/wiki/keylist)
 
-### I'm still getting RD (SD)
-1. **Q:** I have activated RD remover and RD blocker but I'm still getting RD?
-2. **A:** please read carefully more about https://github.com/kolton/d2bot-with-kolbot/wiki/Realm-Down
-
 ### how many bots in one game
 1. **Q:** is it possible to run more bots then 4 in one game?
 2. **A:** yes it is. Since June 2017 are allowed 8 players in the same game, with same IP.
 
 ### fastmod config
 1. **Q:** fastmod config or packet casting.
-2. **A:** read carefully explanations in [Character config] ([URL]https://github.com/kolton/d2bot-with-kolbot/wiki/Kolbot-Character-config#fastmod-config[/URL])
+2. **A:** read carefully explanations in [Character config] (https://github.com/kolton/d2bot-with-kolbot/wiki/Kolbot-Character-config#fastmod-config)
 
 ### d2bs sandboxed
 1. **Q:** Sandboxie
@@ -187,7 +183,7 @@ Here you can find [latest kolbot](https://github.com/kolton/d2bot-with-kolbot/).
 2. **A:** select that profile and R-click it. Choose "Reset Stats".
 if this isn't working, you can try other method: stop bots and close the manager. edit in np++ the profile.json file, changing the values for a several fields with 0
 
-### How do I stop hidden D2 windows?
+### how do I stop hidden d2 windows?
 1. **Q:** bot crashed but I think that the d2 is still running in the background
 2. **A:** on the manager click Settings > Close Game.exe. You'll get a confirmation message.
 other method is to use windows task manager, and if you are seeing Game.exe, R-click and choose End task

@@ -217,7 +217,7 @@ This is just a simple run through, to truly know what each key does, you'll need
 ## d2bs core commands
 
 ### chat commands
-press <Enter> and type:
+press < Enter > and type:
 * .start -
 * .stop - will stop the current scripts. the profile will crash and it will be restarted in few seconds
 * .reload - will stop and reload the scripts. you are able to change config while in game.
@@ -227,7 +227,7 @@ press <Enter> and type:
 ### white console(layer)
 display status messages out of game as well as in game:
 * < HOME > to show/hide console just for viewing
-* < ALT >+< HOME > to open the console for input, allows you to type commands into it
+* < ALT > + < HOME > to open the console for input, allows you to type commands into it
 * < Page up >/< Page down > scrolls console text when it's open for input.
 * the same chat commands without . prefix:
 * start -

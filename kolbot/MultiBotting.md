@@ -19,7 +19,7 @@
 [d2bs](https://github.com/kolton/d2bot-with-kolbot) allows multi-botting.
 
 ## game creator
-[Kolbot Leader config](https://github.com/kolton/d2bot-with-kolbot/wiki/Kolbot-Leader-config)
+*D2BotLead is the starter script that you will use to create games. It can announce games in channels when used for public runs. You have to set D2BotLead for your profile as a entry script. Now edit starter with notepad++. First part of starter is self-explanatory. 
 * the creator of the game doesn't necessarily to be set as the leader in game.
 
 #### create/edit the profile
@@ -56,7 +56,7 @@ var StarterConfig = {
 };
 ```
 * if you don't wanna join a chat channel, you don't have to edit anything more.
-* the game creator can be also a manual played char, see [d2bs manual play](https://github.com/mf022/d2bs/wiki/Manual_playing) page.
+* the game creator can be also a manual played char, see [d2bs manual play](https://github.com/documentation/kolbot/ManualPlay.md/#manual-playing) page.
 
 ## joining games
 [Kolbot Leecher config](https://github.com/kolton/d2bot-with-kolbot/wiki/Kolbot-Leecher-Starter)
@@ -72,8 +72,8 @@ There are two different starter scripts for joining games:
 
 ##### the joiners profiles
 
-![](https://github.com/mf022/d2bs/blob/master/images/d2bsFollower1Profile.png)
-![](https://github.com/mf022/d2bs/blob/master/images/d2bsFollower2Profile.png)
+![follower1](https://github.com/blizzhackers/documentation/blob/master/kolbot/assets/kolbot-multibotFollower1Profile.png)
+![follower2](https://github.com/blizzhackers/documentation/blob/master/kolbot/assets/kolbot-multibotFollower2Profile.png)
 
 ##### randomize the timers
 replace the default lines 1-17 of [D2BotFollow.dbj](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/D2BotFollow.dbj) with these:
@@ -100,7 +100,7 @@ var StarterConfig = {
 ###### edit the joining info
 use np++ to edit D2BotFollow.js and complete the JoinSettings and AdvancedConfig info
 
-![](https://github.com/mf022/d2bs/blob/master/images/d2bsD2BotFollow.png)
+![D2BotFollow](https://github.com/blizzhackers/documentation/blob/master/kolbot/assets/kolbot-multibotD2BotFollow.png)
 
 ### D2BotChannel
 * main [guide](https://github.com/kolton/d2bot-with-kolbot/wiki/Kolbot-Leecher-Starter#2-d2botchannel-is-used-to-join-games-from-both-channel-announcements-and-friend-list-announcements-that-means-that-you-can-use-this-starter-when-want-to-join-games-that-are-runned-on-other-computer-in-this-example-we-will-join-channel-kolbot-and-our-first-message-will-be-im-from-other-dimension)
@@ -115,11 +115,10 @@ you have to complete these fields for your leechers/helpers/followers
 	Config.QuitList = ["xXxX"]; // List of character names to quit with.
 ```
 
-## using MFTeam
-* [Team MFing](https://github.com/kolton/d2bot-with-kolbot/wiki/Team-MFing)
+### using MFTeam
 * script allows multiple characters to do the same boss/area runs in sync.
 * the leader will open a town portal and give commands to the helpers. Because it uses town portals, it's possible for walking characters to run the same bosses as teleporting characters.
-* unfortunately the commands are based on battle.net chat, so the leader key can be muted. To avoid these, check the [local chat](https://github.com/mf022/d2bs/wiki/Misc_options#local-chat) section. Choose mode 1, or 2 if you are playing also manually.
+* unfortunately the commands are based on battle.net chat, so the leader key can be muted. To avoid these, check the [local chat](https://github.com/blizzhackers/documentation/kolbot/CharacterConfig.md/#local-chat) section. Choose mode 1, or 2 if you are playing also manually.
 ```
 	LocalChat: {
 		Enabled: true,
@@ -144,13 +143,13 @@ and to enable the scripts you wanna run.
 ```
 * the MFHelper script will end if the leader enters in Chaos Sanctuary or Throne of Destruction, because it's better to run the related DiabloHelper or BaalHelper after the MFHelper script.
 
-### silenced MFTeam
-check the [local chat](https://github.com/mf022/d2bs/wiki/Misc_options#local-chat) section.
+#### silenced MFTeam
+check the [local chat](https://github.com/blizzhackers/documentation/kolbot/CharacterConfig.md/#local-chat) section.
 
-## using Followers
+### using Followers
 * see [Follower guide](https://github.com/kolton/d2bot-with-kolbot/wiki/Follower)
 * the leader can be played manually - see [d2bs manual play](https://github.com/mf022/d2bs/wiki/Manual_playing)
-* you should use the [local chat](https://github.com/mf022/d2bs/wiki/Misc_options#local-chat) with the settings
+* you should use the (https://github.com/blizzhackers/documentation/kolbot/CharacterConfig.md/#local-chat) with the settings
 ```
 	LocalChat: {
 		Enabled: true,
@@ -165,7 +164,7 @@ check the [local chat](https://github.com/mf022/d2bs/wiki/Misc_options#local-cha
 * Follower.js is using chat commands like: 1, 2, wp, bo, ...
 * for a modded silenced follower, see [silenced Follower](https://github.com/mf022/d2bs/wiki/Misc_options#silenced-follower)
 
-## dia-baal teams
+### dia-baal teams
 * leader and leechers can have other scripts activated before Diablo, or Baal, in the same areas using MFTeam, or separated areas on their own.
 * order for the scripts is top to bottom in character configuration file. To facilitate the meeting on the same time you can cut and paste the scripts, mixing the default order to get that scope.
 * leader will run the main scripts Diablo.js and Baal.js

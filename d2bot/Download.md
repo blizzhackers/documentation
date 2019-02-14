@@ -23,7 +23,7 @@ you need these to be installed:
 
 ### download with tortoiseSVN
 
-* install [1.10.xx version of Tortoise SVN]()
+* install [Tortoise SVN](https://tortoisesvn.net/downloads.html)
 
 * on your local hard drive, create a folder for D2BS and name it whatever you want.
 
@@ -35,15 +35,16 @@ you need these to be installed:
  
  ![tortoise2](assets/d2bot-tortoise2.png)
  
- at <https://github.com/kolton/d2bot-with-kolbot/trunk> or if you wanna the most updated branch, the limedrop-utf8 branch use the SVN Checkout... at <https://github.com/kolton/d2bot-with-kolbot/branches/limedrop-utf8> (! use these links only for Tortoise SVN)
+ at <https://github.com/kolton/d2bot-with-kolbot/trunk> (! use this link only for Tortoise SVN, for browser it become https://github.com/kolton/d2bot-with-kolbot/tree/master)
+ - using <https://github.com/kolton/d2bot-with-kolbot/> will have the result of downloading the whole tree of repository.
 
 * let the default option for Checkout Depth drop down list = Fully recursive
 
 * press "OK".
 
-![tortoise3](assets/d2bot-tortoise3.png): finished download 1
+![tortoise3](assets/d2bot-tortoise3.png): finishing download 1
 
-![tortoise4](assets/d2bot-tortoise4.png): finished download 2
+![tortoise4](assets/d2bot-tortoise4.png): finishing download 2
 
 * after download is finished, open that folder and R-click D2Bot.exe and click Send to > Desktop (create shortcut)
 
@@ -53,6 +54,6 @@ you need these to be installed:
 
 * R-click the D2Bot.exe shortcut and choose Properties. follow the 4th steps
 
-* ![d2bot compatibility](assets/d2bot-compatibility)
+* ![d2bot compatibility](assets/d2bot-compatibility.png)
 
 * for Win 8 if you get issues, choose either "Run this program in compatibility mode for Windows 7"

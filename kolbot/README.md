@@ -10,6 +10,8 @@
 
 * [FAQ](FAQ.md/#faq)
 
+* [Character Configuration](CharacterConfig.md/#character-configuration)
+
 * [Manual Play](ManualPlay.md/#manual-playing)
 
 * [Multi Botting](MultiBotting.md/#multi-botting)

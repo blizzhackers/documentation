@@ -51,14 +51,16 @@ Your cdkeys.json file can have multiple lines like those, simply edited in np++.
 ### set keys
 you don't need more keys to be added into a set of keys, because key switching is worthless in getting R/D (S/D) since June 2017. So one key into a keylist entry is enough.
 
-even is not required atm, an entry with multiple keys associated have to be something like:
+even is not required (& recommended) after June 2017, an entry with multiple keys associated have to be something like:
+```
 {"CDKeys":[{key1 info}, {key2 info}, {key3 info}], "Name":"set1"}
+```
+case of raw d2lod keys with **set1** entry from key list with "raw1", "raw2", "raw3" sub-keys:
 ```
 {"CDKeys":[{"Name":"raw1","Classic":"1234567890","Expansion":"1234567890"}, {"Name":"raw2","Classic":"1234567890","Expansion":"1234567890"}, {"Name":"raw3","Classic":"1234567890","Expansion":"1234567890"}],"Name":"set1"}
 ```
-in this case "set1" entry from key list will have the "raw1", "raw2", "raw3" sub-keys
 
-case of loader keys in a set list, set1 including key1.mpq, key2.mpq, key3.mpq
+case of loader keys in a set list, **set1** including key1.mpq, key2.mpq, key3.mpq
 ```
 {"CDKeys":[{"Name":"key1.mpq","Classic":"","Expansion":""},{"Name":"key2.mpq","Classic":"","Expansion":""},{"Name":"key3.mpq","Classic":"","Expansion":""}],"Name":"set1"}
 ```
