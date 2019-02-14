@@ -22,6 +22,7 @@
 [kolbot](kolbot/#kolbot): library scripts by [@kolton](https://github.com/kolton)
 
 * [FAQ](kolbot/FAQ.md/#faq)
+* [Character Configuration](kolbot/CharacterConfig.md/#character-configuration)
 * [Manual Play](kolbot/ManualPlay.md/#manual-playing)
 * [Multi Botting](kolbot/MultiBotting.md/#multi-botting)
 * [Automule](kolbot/Automule.md/#automule)

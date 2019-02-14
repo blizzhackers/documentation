@@ -144,12 +144,12 @@ and to enable the scripts you wanna run.
 * the MFHelper script will end if the leader enters in Chaos Sanctuary or Throne of Destruction, because it's better to run the related DiabloHelper or BaalHelper after the MFHelper script.
 
 #### silenced MFTeam
-check the [local chat](https://github.com/blizzhackers/documentation/kolbot/CharacterConfig.md/#local-chat) section.
+check the [local chat](https://github.com/blizzhackers/documentation/blob/master/kolbot/CharacterConfig.md/#local-chat) section.
 
 ### using Followers
 * see [Follower guide](https://github.com/kolton/d2bot-with-kolbot/wiki/Follower)
-* the leader can be played manually - see [d2bs manual play](https://github.com/blizzhackers/documentation/tree/master/kolbot/ManualPlay.md)
-* you should use the (https://github.com/blizzhackers/documentation/kolbot/CharacterConfig.md/#local-chat) with the settings
+* the leader can be played manually - see [d2bs manual play](https://github.com/blizzhackers/documentation/blob/master/kolbot/ManualPlay.md/#manual-playing)
+* you should use the (https://github.com/blizzhackers/documentation/blob/master/kolbot/CharacterConfig.md/#local-chat) with the settings
 ```
 	LocalChat: {
 		Enabled: true,

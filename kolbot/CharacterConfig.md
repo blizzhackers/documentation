@@ -268,9 +268,9 @@ Config.FieldID = true; // Identify items in the field instead of going to town.
 
 ### Manager Item Log Screen
 If you wanna hide some items from manager item's log, set those to false:
-Config.ShowLowRunes = false; // show/hide low runes (El ÷ Dol) on the item log screen
-Config.ShowMiddleRunes = false; // show/hide middle runes (Hel ÷ Mal) on the item log screen
-Config.ShowHighRunes = true; // show/hide high runes (Ist ÷ Zod) on the item log screen
+Config.ShowLowRunes = false; // show/hide low runes (El - Dol) on the item log screen
+Config.ShowMiddleRunes = false; // show/hide middle runes (Hel - Mal) on the item log screen
+Config.ShowHighRunes = true; // show/hide high runes (Ist - Zod) on the item log screen
 Config.ShowLowGems = false; // show/hide low gems (chipped, flawed, normal) on the item log screen
 Config.ShowHighGems = false; // show/hide high gems (flawless, perfect) on the item log screen
 Config.ShowCubingInfo = true; // show/hide the cubing messages on console and item log screen
@@ -313,6 +313,25 @@ All recipes are available in **d2bs\kolbot\libs\config\Templates\Runewords.txt.
 Keep lines follow pickit format and any given runeword is tested vs ALL lines so you don't need to repeat them.
 
 ### Public game options
+
+#### local chat
+// If LocalChat is enabled, chat can be sent via 'sendCopyData' instead of BNET
+// To allow 'say' to use BNET, use 'say("msg", true)', the 2nd parameter will force BNET
+// LocalChat messages will only be visible on clients running on the same PC
+	Config.LocalChat.Enabled = false; // enable the LocalChat system
+	Config.LocalChat.Toggle = false; // optional, set to KEY value to toggle through modes 0, 1, 2
+	Config.LocalChat.Mode = 0; // 0 = disabled, 1 = chat from 'say' (recommended), 2 = all chat (for manual play)
+
+// If Config.Leader is set, the bot will only accept invites from leader. If Config.PublicMode is not 0, Baal and Diablo script will open Town Portals.
+	Config.PublicMode = 0; // 1 = invite and accept, 2 = accept only, 3 = invite only, 0 = disable
+// Party message settings. Each setting represents an array of messages that will be randomly chosen.
+// $name, $level, $class and $killer are replaced by the player's name, level, class and killer
+	Config.Greetings = []; // Example: ["Hello, $name (level $level $class)"]
+	Config.DeathMessages = []; // Example: ["Watch out for that $killer, $name!"]
+	Config.Congratulations = []; // Example: ["Congrats on level $level, $name!"]
+	Config.ShitList = false; // Blacklist hostile players so they don't get invited to party.
+	Config.UnpartyShitlisted = false; // Leave party if someone invited a blacklisted player.
+	
 Here you can set if you want to invite to party, accept invitation or ignore and play alone.
 Config.PublicMode = 0; // 1 = invite, 2 = accept, 0 = disable. If Config.Leader is set, the bot will only accept invites from leader.
 
