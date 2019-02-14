@@ -100,7 +100,7 @@ check [download guide](https://github.com/blizzhackers/documentation/tree/master
 
 ### mpq or raw keys?
 1. **Q:** can I use mpq or raw keys in profle manager?
-2. **A:** you can use them both i.e raw keys and mpq for the same list or profile. - see [d2bs Keylist](https://github.com/mf022/d2bs/wiki/keylist)
+2. **A:** you can use them both i.e raw keys and mpq for the same list or profile. - see [d2bs Keylist](https://github.com/blizzhackers/documentation/tree/master/d2bot/Keylist.md)
 
 ### how many bots in one game
 1. **Q:** is it possible to run more bots then 4 in one game?
@@ -158,7 +158,7 @@ check [download guide](https://github.com/blizzhackers/documentation/tree/master
 
 ### you were disconnected from battle.net
 1. **Q:** I get all the time d2 error when it's opened by D2BS: "You were disconnected from battle.net. Please reconnect" 
-2. **A:** clone your profile, and in the Key List field of cloned profile set none, and the default (installation) keyset will be loaded. Set properly your [d2bs Keylist](https://github.com/mf022/d2bs/wiki/keylist).
+2. **A:** clone your profile, and in the Key List field of cloned profile set none, and the default (installation) keyset will be loaded. Set properly your [d2bs Keylist](https://github.com/blizzhackers/documentation/tree/master/d2bot/Keylist.md).
 
 ### how can I stop the bot in game, in case of error
 1. **Q:** the bot enters in the game and I saw some lines indicating errors on the white console layer

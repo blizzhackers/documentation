@@ -148,7 +148,7 @@ check the [local chat](https://github.com/blizzhackers/documentation/kolbot/Char
 
 ### using Followers
 * see [Follower guide](https://github.com/kolton/d2bot-with-kolbot/wiki/Follower)
-* the leader can be played manually - see [d2bs manual play](https://github.com/mf022/d2bs/wiki/Manual_playing)
+* the leader can be played manually - see [d2bs manual play](https://github.com/blizzhackers/documentation/tree/master/kolbot/ManualPlay.md)
 * you should use the (https://github.com/blizzhackers/documentation/kolbot/CharacterConfig.md/#local-chat) with the settings
 ```
 	LocalChat: {

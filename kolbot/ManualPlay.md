@@ -73,4 +73,4 @@
 ## using followers
 
 you can run your leader and to have up to other 7 followers in your game.
-check [multi-botting](https://github.com/mf022/d2bs/wiki/multi_botting)
+check [multi-botting](https://github.com/blizzhackers/documentation/tree/master/kolbot/multibotting.md)
