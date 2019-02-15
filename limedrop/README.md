@@ -65,7 +65,7 @@ Limedrop will launch the profile on its own when it needs to do something.
 #### Logging In
 * To login, either go to [http://www.limedrop.org](http://www.Limedrop.org) or your self-hosted page
 * At the upper right, click the profile icon to log in:
-	* ![Login](assets/Limedrop-login.png)
+	* ![Login](assets/limedrop-login.png)
 	* Enter your server address (including port) according to your server config
 	* Enter your username
 	* Enter your password
