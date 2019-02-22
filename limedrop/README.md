@@ -9,7 +9,7 @@
 
 ### About Limedrop
 ##### What is it?
-Limedrop is a web-based item  **dropper**; it is a program that will manage joining games and dropping specific items.
+Limedrop is a web-based item **dropper**; it is a program that will manage joining games and dropping specific items.
 
 ##### How do I install it?
 Limedrop is an API added to D2Bot # and a web-based frontend. The d2bot-with-kolbot [kolbot](https://github.com/kolton/d2bot-with-kolbot) has Limedrop built in.
@@ -37,14 +37,7 @@ The benefit of this version is that it is always up-to-date
 1. Extract to a folder:
 	![Extracted Files](assets/limedrop-extract.png)
 
-1. Follow the usual D2BS setup of adding in your keys
-
-1. Create a new profile, we will use GameAction for an example
-	* Make sure you set your own game name to avoid conflicts with other people
-		* ![Add Profile](assets/limedrop-addprofile.png)
-    * Make sure you use the D2BotGameAction.dbj as the Entry Script
-
-1. Edit the server.config file:
+1. Edit the server.json config file:
 	* ![Server Config File](assets/limedrop-serverconfigfile.png)
 	* ![Server Config Edit](assets/limedrop-serverconfigedit.png)
 	* This default config says to:
@@ -55,8 +48,16 @@ The benefit of this version is that it is always up-to-date
 		* The IP we will respond on is "localhost" (also known as 127.0.0.1)
 			* If you want to access from another computer, you will need to use your real local IP like 192.168.1.100
         * The Port we will listen on is 8080
+	
+1. Turn on D2Bot and enable the Limedrop API by going to "Settings" and clicking the enable API option.
 
-1. Limedrop is disabled by default on newer releases. Make sure you go to "Settings" and enable the API.
+1. Follow the standard setup guide for adding cdkeys.
+
+1. Create a new profile, we will use GameAction for an example - this needs to match what is in server.json
+	* Make sure you set your own game name to avoid conflicts with other people
+		* ![Add Profile](assets/limedrop-addprofile.png)
+    * Make sure you use the D2BotGameAction.dbj as the Entry Script
+
 		
 ### Using Limedrop
 To start Limedrop, just open D2BS.exe . You DO NOT have to launch the profile manually.
