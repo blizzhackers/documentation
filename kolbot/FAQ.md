@@ -77,7 +77,7 @@ check [download guide](https://github.com/blizzhackers/documentation/tree/master
 
 ### pickit issue
 1. **Q:** I have a problem with my pickit.
-2. **A:** please check this page about - https://github.com/kolton/d2bot-with-kolbot/wiki/Pickit
+2. **A:** please check this page about - <https://github.com/blizzhackers/pickits> or <https://github.com/kolton/d2bot-with-kolbot/wiki/Pickit>
 
 ### using d2bs only multiloader
 1. **Q:** How I can use the dbs only as multiloader, without loading any scripts?
@@ -108,7 +108,7 @@ check [download guide](https://github.com/blizzhackers/documentation/tree/master
 
 ### fastmod config
 1. **Q:** fastmod config or packet casting.
-2. **A:** read carefully explanations in [Character config] (https://github.com/kolton/d2bot-with-kolbot/wiki/Kolbot-Character-config#fastmod-config)
+2. **A:** read carefully explanations in [Character config](https://github.com/kolton/d2bot-with-kolbot/wiki/Kolbot-Character-config#fastmod-config)
 
 ### d2bs sandboxed
 1. **Q:** Sandboxie
