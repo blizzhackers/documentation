@@ -15,7 +15,7 @@ Limedrop is a web-based item **dropper**; it is a program that will manage joini
 Limedrop is an API added to D2Bot # and a web-based frontend. The d2bot-with-kolbot [kolbot](https://github.com/kolton/d2bot-with-kolbot) has Limedrop built in.
 
 ##### How does it work?
-There are two parts to Limedrop. One part is the API, and one part is a web page that calls the API. The web page is can be accessed at www.limedrop.org
+There are two parts to Limedrop. One part is the API, and one part is a web page that calls the API. The web page can be accessed at www.limedrop.org
 
 When the web page requests an item, Limedrop will launch the configured profile, join the game specified, and drop the item(s) selected.
 
