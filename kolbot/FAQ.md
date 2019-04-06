@@ -191,3 +191,4 @@ other method is to use windows task manager, and if you are seeing Game.exe, R-c
 ## support
 * https://github.com/kolton/d2bot-with-kolbot/issues
 * [discord #support](https://discordapp.com/channels/430522386253611018/430522508026839051)
+* [d2bot.discourse.group #support](https://d2bot.discourse.group/c/support)
