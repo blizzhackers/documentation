@@ -10,7 +10,7 @@
 
 * [Info](#info)
 * [D2BotMap](#d2botmap)
-* [Manual Misc Script](#manual.js)
+* [Manual Misc Script](#manualjs)
 * [Using Followers](#using-followers)
 
 ---
