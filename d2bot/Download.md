@@ -11,6 +11,7 @@
 * [requirements](#requirements)
 * [download with tortoiseSVN](#download-with-tortoiseSVN)
 * [compatibility](#compatibility)
+* [keep bot files updated](#keep-bot-files-updated)
 
 ---
 
@@ -50,10 +51,16 @@ you need these to be installed:
 
 ![tortoise5](assets/d2bot-tortoise5.png)
 
-#### compatibility
+### compatibility
 
 * R-click the D2Bot.exe shortcut and choose Properties. follow the 4th steps
 
 * ![d2bot compatibility](assets/d2bot-compatibility.png)
 
 * for Win 8 if you get issues, choose either "Run this program in compatibility mode for Windows 7"
+
+
+### keep bot files updated
+
+* download the d2bot-with-kolbot files using [tortoiseSVN]((#download-with-tortoiseSVN))
+* use SVN Update option when R-click the d2bs(d2bot-with-kolbot) folder
