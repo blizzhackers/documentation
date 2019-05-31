@@ -62,7 +62,7 @@
 ### I have an issue with my bot
 1. **Q:** I have a problem with my bot. What should i do??
 2. **A:** please [pastebin](https://pastebin.com/) your config and write your current bot version. Explain all issues carefully. It's important to keep your bot up to date using latest version (every update fixes a lot of bugs).
-Here you can find [latest kolbot](https://github.com/kolton/d2bot-with-kolbot/). Learn [how to keep it updated](https://github.com/blizzhackers/documentation/blob/master/d2bot/Download.md##keep-bot-files-updated).
+Here you can find [latest kolbot](https://github.com/kolton/d2bot-with-kolbot/). Learn [how to keep it updated](https://github.com/blizzhackers/documentation/blob/master/d2bot/Download.md#keep-bot-files-updated).
 
 ### best version of d2bs
 1. **Q:** which version of D2BS should i use ??
