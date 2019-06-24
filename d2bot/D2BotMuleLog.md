@@ -73,10 +73,10 @@ It's a free public dropper - limedrop, included in the default branch (master = 
 - download link for TortoiseSVN <https://github.com/kolton/d2bot-with-kolbot/trunk/>
 - check the [discord limedrop channel](https://discordapp.com/channels/430522386253611018/482930024681439242):
 
-* [About](https://github.com/blizzhackers/documentation/limedrop#about-limedrop)
-* [Setup](https://github.com/blizzhackers/documentation/limedrop#setup-limedrop)
-* [Usage](https://github.com/blizzhackers/documentation/limedrop#using-limedrop)
-* [FAQ](https://github.com/blizzhackers/documentation/limedrop#frequently-asked-questions)
+* [About limedrop](https://github.com/blizzhackers/documentation/tree/master/limedrop#about-limedrop)
+* [Setup Limedrop](https://github.com/blizzhackers/documentation/tree/master/limedrop#setup-limedrop)
+* [Using Limedrop](https://github.com/blizzhackers/documentation/tree/master/limedrop#using-limedrop)
+* [FAQ](https://github.com/blizzhackers/documentation/tree/master/limedrop#frequently-asked-questions)
 
 
 ### diabase & d2bs
