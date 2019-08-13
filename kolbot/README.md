@@ -16,6 +16,8 @@
 
 * [Multi Botting](MultiBotting.md/#multi-botting)
 
+* [D2BotMuleLog](D2BotMuleLog.md/#d2botmulelog)
+
 * [Automule](Automule.md/#automule)
 
 * [Hotkeys](Hotkeys.md/#hotkeys)

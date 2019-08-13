@@ -1,5 +1,13 @@
+[general table of content](https://github.com/blizzhackers/documentation/#diablo-2-botting-system)
+
+[kolbot table of content](https://github.com/blizzhackers/documentation/tree/master/kolbot/#kolbot)
+
+---
+
+# D2BotMuleLog
+
 ### info
-It's a D2BS starter script which allow to log the items from inventory, stash and the equipped (including merc) to text files, then to show them in the <Char Viewer> tab of the manager.
+It's a D2BS starter script which allow to log the items from inventory, stash and the equipped ones (including merc) to text files, then to show them in the <Char Viewer> tab of the manager.
 
 ### how to set up
 In MuleLogger.js lines 21 and 24 have to be set:
@@ -31,20 +39,20 @@ In case of logging all the chars (the visible 8), at the end the d2 will be rese
 
 The profile doesn't need all fields completed:
 
-![1](assets/d2bot-d2botmulelog1.png)
+![1](assets/kolbot-d2botmulelog1.png)
 * Location coordinates only if Visible is checked
 
 there will be automatically created in ...\mules\ the "Realm\Account\" subfolders. Charnames will be ordered alphabetically.
 
-![2](assets/d2bot-d2botmulelog2.png)
+![2](assets/kolbot-d2botmulelog2.png)
 
 the logging info for items includes the shapes and other details and you'll see on mouse over the image of the item (other than the screenshots from Images folder):
 
-![3](assets/d2bot-d2botmulelog3.png)
+![3](assets/kolbot-d2botmulelog3.png)
 
 and with R-click you have these option for saved items:
 
-![4](assets/d2bot-d2botmulelog4.png)
+![4](assets/kolbot-d2botmulelog4.png)
 
 You'll have that info in the "Char Viewer" tab of the manager console as long as you keep those log files in ...\mules\ folder. Those will be automatically loaded at every D2Bot.exe start, but there is an option in Settings > Refresh Char View, to reload the logging files.
 Every item is saved on different line, so you can edit those logging files easily with notepad++.
@@ -53,15 +61,15 @@ It will be saved in ...\logs\MuleLog.json the current account and the current ch
 ### searching for items
 In the left box of <Char Viewer> tab, select the branch (Realm or Account) where you are trying to find the item. Use the right-bottom search box. It accepts regular expressions, so you can search for just about anything as long as the query is correctly written.
 
-![5](assets/d2bot-d2botmulelog5.png)
+![5](assets/kolbot-d2botmulelog5.png)
 
 The account/charname will be logged automatically (and help you in searching items) and you'll see on mouse over the item list, the "account / charname" in top-left of that image if in the manager Settings is activated the option 
 
-![Show Item Header](assets/d2bot-d2botmulelog6.png)
+![Show Item Header](assets/kolbot-d2botmulelog6.png)
 
 If you wanna save the image (check R-click options) of an item without having this info, 
 
-![deactivate the Item Header](assets/d2bot-d2botmulelog7.png).
+![deactivate the Item Header](assets/kolbot-d2botmulelog7.png).
 
 You will find the images near D2Bot.exe in the subfolder \images , the same location for screenshots made during the logging.
 
@@ -69,8 +77,8 @@ Check [@rivx mule view project](http://www.rivsoft.net/projects/other/muleview/)
 
 ### dropper
 It's a free public dropper - limedrop, included in the default branch (master = trunk) of repository
-- browser link <https://github.com/kolton/d2bot-with-kolbot/tree/master>
-- download link for TortoiseSVN <https://github.com/kolton/d2bot-with-kolbot/trunk/>
+- browser link <https://github.com/kolton/kolbot-with-kolbot/tree/master>
+- download link for TortoiseSVN <https://github.com/kolton/kolbot-with-kolbot/trunk/>
 - check the [discord limedrop channel](https://discordapp.com/channels/430522386253611018/482930024681439242):
 
 * [About limedrop](https://github.com/blizzhackers/documentation/tree/master/limedrop#about-limedrop)
