@@ -60,6 +60,7 @@ You'll have that info in the "Char Viewer" tab of the manager console as long as
 Every item is saved on different line, so you can edit those logging files easily with notepad++.
 
 It will be saved in ...\logs\MuleLog.json the current account and the current charname. This have to be edited or removed in case of crashes when some chars were omitted from logging. At the end of full account logging, that file is deleted automatically.
+
 ### searching for items
 In the left box of <Char Viewer> tab, select the branch (Realm or Account) where you are trying to find the item. Use the right-bottom search box. It accepts regular expressions, so you can search for just about anything as long as the query is correctly written.
 
