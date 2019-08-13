@@ -6,6 +6,8 @@
 
 # D2BotMuleLog
 
+---
+
 ### info
 It's a D2BS starter script which allow to log the items from inventory, stash and the equipped ones (including merc) to text files, then to show them in the <Char Viewer> tab of the manager.
 

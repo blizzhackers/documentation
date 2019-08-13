@@ -15,7 +15,7 @@
 * [Download](d2bot/Download.md): how to download files and to keep them updated
 * [Manager Setup](d2bot/ManagerSetup.md/#manager-setup): how to set-up d2bot manager
 * [Keylist Configuration](d2bot/Keylist.md/#keylist): additional info for key list management
-* [Autoupdate](Autoupdate.md/#autoupdate)
+* [Autoupdate](d2bot/Autoupdate.md/#autoupdate)
 
 ---
 
@@ -25,7 +25,7 @@
 * [Character Configuration](kolbot/CharacterConfig.md/#character-configuration)
 * [Manual Play](kolbot/ManualPlay.md/#manual-playing)
 * [Multi Botting](kolbot/MultiBotting.md/#multi-botting)
-* [D2BotMuleLog](D2BotMuleLog.md/#d2botmulelog)
+* [D2BotMuleLog](kolbot/D2BotMuleLog.md/#d2botmulelog)
 * [Automule](kolbot/Automule.md/#automule)
 * [Hotkeys](kolbot/Hotkeys.md/#hotkeys)
 

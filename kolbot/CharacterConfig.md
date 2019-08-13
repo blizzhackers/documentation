@@ -279,7 +279,48 @@ There are several files to choose, you can also create and add your own or just 
 
 Additional information about [blizzhackers/pickits](https://github.com/blizzhackers/pickits/#pickits)
 
+### Advanced automule settings
+
+* Trigger - Having an item that is on the list will initiate muling. Useful if you want to mule something immediately upon finding.
+* Force - Items listed here will be muled even if they are ingredients for cubing.
+* Exclude - Items listed here will be ignored and will not be muled. Items on Trigger or Force lists are prioritized over this list.
+* List can either be set as string in pickit format and/or as number referring to item classids. Each entries are separated by commas.
+* Example :
+	*  Config.AutoMule.Trigger = [639, 640, "[type] == ring && [quality] == unique # [maxmana] == 20"];
+		*  	This will initiate muling when your character finds Ber, Jah, or SOJ.
+	*  Config.AutoMule.Force = [561, 566, 571, 576, 581, 586, 601];
+		*  	This will mule perfect gems/skull during muling.
+	*  Config.AutoMule.Exclude = ["[name] >= talrune && [name] <= solrune", "[name] >= 654 && [name] <= 657"];
+		*  	This will exclude muling of runes from tal through sol, and any essences.
+
+Config.AutoMule.Trigger = [];
+
+Config.AutoMule.Force = [];
+
+Config.AutoMule.Exclude = [];
+
+### Additional item info log settings. All info goes to \logs\ItemLog.txt
+
+Config.ItemInfo = false; // Log stashed, skipped (due to no space) or sold items.
+
+Config.ItemInfoQuality = []; // The quality of sold items to log. See NTItemAlias.dbl for values. Example: Config.ItemInfoQuality = [6, 7, 8];
+
 ### Item Identification Settings
+
+Config.CainID.Enable = false; // Identify items at Cain
+
+Config.CainID.MinGold = 2500000; // Minimum gold (stash + character) to have in order to use Cain.
+
+Config.CainID.MinUnids = 3; // Minimum number of unid items in order to use Cain.
+
+Config.FieldID = false; // Identify items in the field instead of going to town.
+
+Config.DroppedItemsAnnounce.Enable = false;	// Announce Dropped Items to in-game newbs
+
+Config.DroppedItemsAnnounce.Quality = []; // Quality of item to announce. See NTItemAlias.dbl for values. 
+
+	Example: Config.DroppedItemsAnnounce.Quality = [6, 7, 8];
+
 
 If you don't want to use Id Tome you can always try with Cain to id your items.
 
@@ -291,21 +332,28 @@ Other option is to identify your drop at field.To activate it just enable this s
 
 Config.FieldID = true; // Identify items in the field instead of going to town.
 
+
 ### Manager Item Log Screen
 
 If you wanna hide some items from manager item's log, set those to false:
 
-Config.ShowLowRunes = false; // show/hide low runes (El - Dol) on the item log screen
+Config.LogKeys = false; // Log keys on item viewer
 
-Config.ShowMiddleRunes = false; // show/hide middle runes (Hel - Mal) on the item log screen
+Config.LogOrgans = true; // Log organs on item viewer
 
-Config.ShowHighRunes = true; // show/hide high runes (Ist - Zod) on the item log screen
+Config.LogLowRunes = false; // Log low runes (El - Dol) on item viewer
 
-Config.ShowLowGems = false; // show/hide low gems (chipped, flawed, normal) on the item log screen
+Config.LogMiddleRunes = false; // Log middle runes (Hel - Mal) on item viewer
 
-Config.ShowHighGems = false; // show/hide high gems (flawless, perfect) on the item log screen
+Config.LogHighRunes = true; // Log high runes (Ist - Zod) on item viewer
 
-Config.ShowCubingInfo = true; // show/hide the cubing messages on console and item log screen
+Config.LogLowGems = false; // Log low gems (chipped, flawed, normal) on item viewer
+
+Config.LogHighGems = false; // Log high gems (flawless, perfect) on item viewer
+
+Config.SkipLogging = []; // Custom log skip list. Set as three digit item code or classid. Example: ["tes", "ceh", 656, 657] will ignore logging of essences.
+
+Config.ShowCubingInfo = true; // Show cubing messages on console
 
 
 ### Repair settings
@@ -459,6 +507,7 @@ Config.AntiHostile = true; // Enable anti-hostile
 
 Now you have some possibilities depending on what you want like chicken to town, exit game or try to kill hostile player when spotted.
 
+
 ### DClone Config
 
 Bot goes to Palace Cellar level 3 and kills Diablo Clone.
@@ -469,7 +518,8 @@ Config.SoJWaitTime = 5; // Time in minutes to wait for another SoJ sale before l
 
 Config.KillDclone = true; // Go to Palace Cellar 3 and try to kill Diablo Clone. Pointless if you already have Annihilus.
 
-Monster skip config
+
+### Monster skip config
 
 Here you can set what kind of monster you would like to skip.
 
@@ -480,6 +530,11 @@ example:
 Config.SkipImmune = ["cold"];
 
 You can also skip monsters with **"Aura"** and **"Enchant"**, with exactly similiar way like for **"Immune"**.
+
+Uncomment the following line to always attempt to kill these bosses despite immunities and mods
+
+Config.SkipException = [getLocaleString(2851), getLocaleString(2852), getLocaleString(2853)]; // vizier, de seis, infector
+
 
 ### Attack config
 
@@ -499,13 +554,16 @@ Config.ClearType = 0xF;
 * 0x7 = champions/bosses,
 * 0 = all
 
+
 ### Class specific config
 is additional option for class only
+
 
 #### Amazon
   Config.LightningFuryDelay = 10; // Lightning fury interval in seconds. LF is treated as timed skill.
   
   Config.SummonValkyrie = true; // Summon Valkyrie
+
 
 #### Assassin
 
@@ -525,11 +583,13 @@ Config.UseVenom = false; // Set to true to use Venom prebuff. Set to false if yo
 
 Config.UseCloakofShadows = true; // Set to true to use Cloak of Shadows while fighting. Useful for blinding regular monsters/minions.
 
+
 #### Barbarian
 
 Config.FindItem = false; // Use Find Item skill on corpses after clearing.
 
 Config.FindItemSwitch = 0; // Find Item weapon slot - 0 = slot I, 1 = slot II
+
 
 #### Druid
 
@@ -540,6 +600,7 @@ Config.SummonAnimal = "Grizzly"; // 0 = disabled, 1 or "Spirit Wolf" = summon sp
 Config.SummonSpirit = "Oak Sage"; // 0 = disabled, 1 / "Oak Sage", 2 / "Heart of Wolverine", 3 / "Spirit of Barbs"
 
 Config.SummonVine = "Poison Creeper"; // 0 = disabled, 1 / "Poison Creeper", 2 / "Carrion Vine", 3 / "Solar Creeper"
+
 
 #### Necromancer
 
@@ -565,6 +626,7 @@ Config.ReviveUnstackable = true; // Revive monsters that can move freely after y
 
 Config.IronGolemChicken = 30; // Exit game if Iron Golem's life is less or equal to designated percent.
 
+
 #### Paladin
 
 Config.AvoidDolls = false; // Try to attack Soul Killers from a greater distance with hammerdins.
@@ -573,15 +635,34 @@ Config.Vigor = true; // Swith to Vigor when running
 
 Config.Redemption = [50, 50]; // Switch to Redemption after clearing an area if under designated life or mana. Format: [lifepercent, manapercent]
 
+
 #### Sorceress
 
 Config.CastStatic = 60; // Cast static until the target is at designated life percent. 100 = disabled.
 
 Config.StaticList = ["Diablo"]; // List of monster NAMES to static. Example: Config.StaticList = ["Andariel", "Diablo", "Baal"];
 
+
+### AutoSkill builds character
+
+it is based on array defined by the user and it replaces AutoBuild's skill system.
+
+AutoSkill will automatically spend skill points and it can also allocate any prerequisite skills as required.
+
+See libs/config/Templates/AutoSkillExampleBuilds.txt for Config.AutoSkill.Build examples.
+
+
+###  AutoStat builds character
+
+it is based on array defined by the user and this will replace AutoBuild's stat system.
+
+See libs/config/Templates/AutoStatExampleBuilds.txt for Config.AutoStat.Build examples.
+
+
 ### AutoBuild System
 
 See /d2bs/kolbot/libs/config/Builds/README.txt for instructions
+
 
 ### Advanced options
 
@@ -605,6 +686,7 @@ Scripts.Mephisto = {Dodge: false, TownHP: 60, MFSwitchPercent: 25};
 
 The changes will revert back when the script ends.
 
+
 #### Character config filename options
 
 There's several ways to name a character config file. List in order of priority (formats higher in the list will override lower ones):
@@ -618,6 +700,7 @@ There's several ways to name a character config file. List in order of priority 
 **Examples**: Sorceress.MyChar.js, Druid.Sorceress.MyOtherChar.js
 * **Profile.js** - Similar to 1 but without Class prefix. This is used for generic characters where class doesn't matter (Follower, Wakka, AutoBaal etc.).
 **Examples**: Follower1.js, Follower2.js
+
 
 #### Custom Config
 Custom Config allows you to specify which profile(s) will use which config file.
