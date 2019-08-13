@@ -15,7 +15,7 @@
 
 If you use Windows 8/8.1, run D2Bot.exe in Windows 7 Compatibility Mode + Administrator Mode
 
-![managersetup1](assets/d2bot-managersetup1.jpg)
+![managersetup1](assets/d2bot-managersetup1.png)
 
  1. Start selected profile(s)
  2. Stop selected profile(s)
@@ -31,7 +31,7 @@ If you use Windows 8/8.1, run D2Bot.exe in Windows 7 Compatibility Mode + Admini
 12. Save current config and state
 13. About cointains suport links and shows if an update is available
 	
-![managersetup1-1](assets/d2bot-managersetup1-1.jpg)
+![managersetup1-1](assets/d2bot-managersetup1-1.pnp)
 
 14. Console prints messages from Kolbot and shows items found
 15. Char Viewer shows items located on mule accounts
@@ -61,33 +61,33 @@ If you use Windows 8/8.1, run D2Bot.exe in Windows 7 Compatibility Mode + Admini
  7. Realm
  8. Mode: 
 
-	Single player
-	Battle.net
-	Open Battle.net
-	Host TCP/IP game
-	Join TCP/IP game
+- Single player
+- Battle.net
+- Open Battle.net
+- Host TCP/IP game
+- Join TCP/IP game
 		
  9. Parameters:
 
-	/**-w** = windowed mode (don't change this option, it is needed for D2BS)
-	/**-sleepy** = saves resources by inserting sleep call to game loop
-	/**-lq** = Low Quality (low quality graphics uses less resources)
-	/**-ns** = Disables ingame sound (uses less resources)
-	/**-ftj** = Fail-to-join
-	/**-L** = Loader only mode (does NOT load any scripts)
+**-w** = windowed mode (don't change this option, it is needed for D2BS)
+**-sleepy** = saves resources by inserting sleep call to game loop
+**-lq** = Low Quality (low quality graphics uses less resources)
+**-ns** = Disables ingame sound (uses less resources)
+**-ftj** = Fail-to-join
+**-L** = Loader only mode (does NOT load any scripts)
 
 10. Path to Game.exe (or any copy of Game.exe if you use proxies)
 11. Entry Point - select starter script from the kolbot folder
 
-	**D2BotBlank.dbj** - blank starter used for testing
-	**D2BotChannel.dbj** - using a chat channel
-	**D2BotFollow.dbj** - start as follower, join leader defined in character config
-	**D2BotGameAction.dbj** - used for limedrop
-	**D2BotLead.dbj** - start as leader/single mf char
-	**D2BotMap.dbj** - manual play with maphack enabled
-	**D2BotMule.dbj** - used by the mule profile
-	**D2BotMuleLog.dbj** - runs the mule logging script
-	**D2BotPubJoin.dbj** - joining public games
+**D2BotBlank.dbj** - blank starter used for testing
+**D2BotChannel.dbj** - using a chat channel
+**D2BotFollow.dbj** - start as follower, join leader defined in character config
+**D2BotGameAction.dbj** - used for limedrop
+**D2BotLead.dbj** - start as leader/single mf char
+**D2BotMap.dbj** - manual play with maphack enabled
+**D2BotMule.dbj** - used by the mule profile
+**D2BotMuleLog.dbj** - runs the mule logging script
+**D2BotPubJoin.dbj** - joining public games
 
 12. Select a cd key list previous created. (leave blank to use original key with D2 installation)
 13. Select schedule (optional)
@@ -114,13 +114,16 @@ If you use Windows 8/8.1, run D2Bot.exe in Windows 7 Compatibility Mode + Admini
 
 ![managersetup5](assets/d2bot-managersetup5.png)
 
- 1. For low resource PC or running MANY profiles, higher response time will work better but detect failures slower
- 2. Sets the delay (in MS) between starting multiple profiles
- 3. Start D2 Windows in hidden mode (default is minimized)
- 4. Show item header (shows account and character information in the 'Char Viewer' tab)
- 5. Reloads mule files in 'Char Viewer' tab
- 6. Close all instances of Game.exe (useful for rogue or crashed clients)
- 7. Developer Mode (ignore, will not work if this is enabled)
+ 1. D2 Version - 1.14d (note that the trunk/master isn't working with 1.13d without some files from branches/1.13d) 
+ 2. For low resource PC or running MANY profiles, higher response time will work better but detect failures slower
+ 3. Sets the delay (in MS) between starting multiple profiles
+ 4. Start D2 Windows in hidden mode (default is minimized)
+ 5. Use the system font
+ 6. Show item header (shows account and character information in the 'Char Viewer' tab)
+ 7. Reloads mule files in 'Char Viewer' tab
+ 8. Close all instances of Game.exe (useful for rogue or crashed clients)
+ 9. Run API Server
+10. Developer Mode (ignore, will not work if this is enabled)
 
 ### Scheduler (optional)
 
