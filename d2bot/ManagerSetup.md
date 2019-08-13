@@ -31,7 +31,7 @@ If you use Windows 8/8.1, run D2Bot.exe in Windows 7 Compatibility Mode + Admini
 12. Save current config and state
 13. About cointains suport links and shows if an update is available
 	
-![managersetup1-1](assets/d2bot-managersetup1-1.pnp)
+![managersetup1-1](assets/d2bot-managersetup1-1.png)
 
 14. Console prints messages from Kolbot and shows items found
 15. Char Viewer shows items located on mule accounts
@@ -61,33 +61,46 @@ If you use Windows 8/8.1, run D2Bot.exe in Windows 7 Compatibility Mode + Admini
  7. Realm
  8. Mode: 
 
-- Single player
-- Battle.net
-- Open Battle.net
-- Host TCP/IP game
-- Join TCP/IP game
+	- Single player
+	- Battle.net
+	- Open Battle.net
+	- Host TCP/IP game
+	- Join TCP/IP game
 		
  9. Parameters:
 
-**-w** = windowed mode (don't change this option, it is needed for D2BS)
-**-sleepy** = saves resources by inserting sleep call to game loop
-**-lq** = Low Quality (low quality graphics uses less resources)
-**-ns** = Disables ingame sound (uses less resources)
-**-ftj** = Fail-to-join
-**-L** = Loader only mode (does NOT load any scripts)
+	**-w** = windowed mode (don't change this option, it is needed for D2BS)
+
+	**-sleepy** = saves resources by inserting sleep call to game loop
+
+	**-lq** = Low Quality (low quality graphics uses less resources)
+
+	**-ns** = Disables ingame sound (uses less resources)
+
+	**-ftj** = Fail-to-join
+
+	**-L** = Loader only mode (does NOT load any scripts)
 
 10. Path to Game.exe (or any copy of Game.exe if you use proxies)
 11. Entry Point - select starter script from the kolbot folder
 
-**D2BotBlank.dbj** - blank starter used for testing
-**D2BotChannel.dbj** - using a chat channel
-**D2BotFollow.dbj** - start as follower, join leader defined in character config
-**D2BotGameAction.dbj** - used for limedrop
-**D2BotLead.dbj** - start as leader/single mf char
-**D2BotMap.dbj** - manual play with maphack enabled
-**D2BotMule.dbj** - used by the mule profile
-**D2BotMuleLog.dbj** - runs the mule logging script
-**D2BotPubJoin.dbj** - joining public games
+	**D2BotBlank.dbj** - blank starter used for testing
+
+	**D2BotChannel.dbj** - using a chat channel
+
+	**D2BotFollow.dbj** - start as follower, join leader defined in character config
+
+	**D2BotGameAction.dbj** - used for limedrop
+
+	**D2BotLead.dbj** - start as leader/single mf char
+
+	**D2BotMap.dbj** - manual play with maphack enabled
+
+	**D2BotMule.dbj** - used by the mule profile
+
+	**D2BotMuleLog.dbj** - runs the mule logging script
+
+	**D2BotPubJoin.dbj** - joining public games
 
 12. Select a cd key list previous created. (leave blank to use original key with D2 installation)
 13. Select schedule (optional)
