@@ -8,6 +8,15 @@
 
 ---
 
+* [info](#info)
+* [how to set up](#how-to-set-up)
+* [searching for items](#searching-for-items)
+* [optional mule viewer](#optional-mule-viewer)
+* [dropper](#dropper)
+* [diabase & d2bs](#diabase--d2bs)
+
+---
+
 ### info
 It's a D2BS starter script which allow to log the items from inventory, stash and the equipped ones (including merc) to text files, then to show them in the <Char Viewer> tab of the manager.
 
@@ -41,20 +50,20 @@ In case of logging all the chars (the visible 8), at the end the d2 will be rese
 
 The profile doesn't need all fields completed:
 
-![1](assets/kolbot-d2botmulelog1.png)
+![d2botmulelog1](assets/kolbot-d2botmulelog1.png)
 * Location coordinates only if Visible is checked
 
 there will be automatically created in ...\mules\ the "Realm\Account\" subfolders. Charnames will be ordered alphabetically.
 
-![2](assets/kolbot-d2botmulelog2.png)
+![d2botmulelog2](assets/kolbot-d2botmulelog2.png)
 
 the logging info for items includes the shapes and other details and you'll see on mouse over the image of the item (other than the screenshots from Images folder):
 
-![3](assets/kolbot-d2botmulelog3.png)
+![d2botmulelog3](assets/kolbot-d2botmulelog3.png)
 
 and with R-click you have these option for saved items:
 
-![4](assets/kolbot-d2botmulelog4.png)
+![d2botmulelog4](assets/kolbot-d2botmulelog4.png)
 
 You'll have that info in the "Char Viewer" tab of the manager console as long as you keep those log files in ...\mules\ folder. Those will be automatically loaded at every D2Bot.exe start, but there is an option in Settings > Refresh Char View, to reload the logging files.
 Every item is saved on different line, so you can edit those logging files easily with notepad++.
@@ -64,11 +73,11 @@ It will be saved in ...\logs\MuleLog.json the current account and the current ch
 ### searching for items
 In the left box of <Char Viewer> tab, select the branch (Realm or Account) where you are trying to find the item. Use the right-bottom search box. It accepts regular expressions, so you can search for just about anything as long as the query is correctly written.
 
-![5](assets/kolbot-d2botmulelog5.png)
+![d2botmulelog5](assets/kolbot-d2botmulelog5.png)
 
 The account/charname will be logged automatically (and help you in searching items) and you'll see on mouse over the item list, the "account / charname" in top-left of that image if in the manager Settings is activated the option 
 
-![Show Item Header](assets/kolbot-d2botmulelog6.png)
+![d2botmulelog6](assets/kolbot-d2botmulelog6.png)
 
 If you wanna save the image (check R-click options) of an item without having this info, 
 
@@ -76,7 +85,10 @@ If you wanna save the image (check R-click options) of an item without having th
 
 You will find the images near D2Bot.exe in the subfolder \images , the same location for screenshots made during the logging.
 
-Check [@rivx mule view project](http://www.rivsoft.net/projects/other/muleview/) and download [MuleView-v0.3.zip](http://www.rivsoft.net/download/other/MuleView-v0.3.zip) which allows you to view the logged files saved with d2bs. [original shared topic](https://web.archive.org/web/20150613144010/http://www.blizzhackers.cc:80/viewtopic.php?f=172&t=500047)
+### optional mule viewer
+
+Check [@rivx mule view project](http://www.rivsoft.net/projects/other/muleview/) and download [MuleView-v0.3.zip](http://www.rivsoft.net/download/other/MuleView-v0.3.zip) which allows you to view the logged files saved with d2bs. 
+[original shared topic](https://web.archive.org/web/20150613144010/http://www.blizzhackers.cc:80/viewtopic.php?f=172&t=500047)
 
 ### dropper
 It's a free public dropper - limedrop, included in the default branch (master = trunk) of repository
