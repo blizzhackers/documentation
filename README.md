@@ -28,6 +28,7 @@
 * [D2BotMuleLog](kolbot/D2BotMuleLog.md/#d2botmulelog)
 * [Automule](kolbot/Automule.md/#automule)
 * [Hotkeys](kolbot/Hotkeys.md/#hotkeys)
+* [Miscellaneous Options](kolbot/MiscellaneousOptions.md/#miscellaneous-options)
 
 ---
 

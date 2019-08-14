@@ -21,3 +21,5 @@
 * [Automule](Automule.md/#automule)
 
 * [Hotkeys](Hotkeys.md/#hotkeys)
+
+* [Miscellaneous Options](MiscellaneousOptions.md/#miscellaneous-options)
