@@ -21,6 +21,7 @@
 * [use Cain and sell items](#use-Cain-and-sell-items)
 * [inventory full](#inventory-full)
 * [cubing all kind of gems](#cubing-all-kind-of-gems)
+* [picking and selling junk items](#picking-and-selling-junk-items)
 * [Diabase & D2BS](#Diabase--D2BS)
 * [silencing the scripts](#silencing-the-scripts)
 
@@ -447,6 +448,22 @@ old Etal users may used it.
 * if picking a lot of gems will highly increase the number of the lines in d2bs manager item log tab
 see the next section
 
+
+## picking and selling junk items
+
+* if your low bot need gold, you should activate the picking of junk items.
+* if total gold is less than Config.LowGold value pick up anything worth 10 gold per square to sell in town.
+
+* you should add in the char configuration file:
+```
+    Config.LowGold = 200000 // any low item will be picked and sold to NPC until me.gold < Config.LowGold
+```
+that variable is already defined in Config.js (line 138, where it is set to 0), and it is used in Pickit.js(line 64) and Town.js(line 526)
+
+* some ittems are ignored, but if you wanna pick everything, remove this part from default line 64 in Pickit.js:
+```
+&& Town.ignoredItemTypes.indexOf(unit.itemType) === -1 
+```
 
 ## Diabase & D2BS
 @Ned added some changes to Diabase to work with D2BS

@@ -6,6 +6,8 @@
 
 # D2Bot
 
+d2bot manager by [@noah-](https://github.com/noah-)
+
 ---
 
 * [Download](Download.md/#download): how to download files and to keep them updated
