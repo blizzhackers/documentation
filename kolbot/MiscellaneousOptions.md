@@ -456,11 +456,11 @@ see the next section
 
 * you should add in the char configuration file:
 ```
-    Config.LowGold = 200000 // any low item will be picked and sold to NPC until me.gold < Config.LowGold
+    Config.LowGold = 200000 // any low item with 10 gold per square will be picked and sold to NPC until me.gold < Config.LowGold
 ```
 that variable is already defined in Config.js (line 138, where it is set to 0), and it is used in Pickit.js(line 64) and Town.js(line 526)
 
-* some ittems are ignored, but if you wanna pick everything, remove this part from default line 64 in Pickit.js:
+* some items are ignored, but if you wanna pick everything, remove this part from default line 64 in Pickit.js:
 ```
 && Town.ignoredItemTypes.indexOf(unit.itemType) === -1 
 ```
