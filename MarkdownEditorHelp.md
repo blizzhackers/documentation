@@ -1,4 +1,9 @@
 # Markdown Editor Help
+
+---
+
+* additional guides can be found on http://docutils.sourceforge.net/docs/ref/rst/
+
 ---
 [Block Elements](#block-elements)
 
