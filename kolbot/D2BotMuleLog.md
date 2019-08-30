@@ -22,21 +22,21 @@ It's a D2BS starter script which allow to log the items from inventory, stash an
 
 ### how to set up
 In MuleLogger.js lines 21 and 24 have to be set:
-```
+```javascript
 		"account/password/realm": ["all"]
 ```
 ! the realm should be written with lowercase letters (see line 16), otherwise you'll get an error in OOG.js
-```
+```javascript
 	LogGame: ["", ""], // ["gamename", "password"]
 ```
 
 
 At the first run set the next variables (lines 25-30):
-```
+```javascript
 	LogNames: true, // Put account/character name on the picture
 ```
 ! set false if you wanna use your item images ...(related to SaveScreenShot: true)
-```
+```javascript
 	LogItemLevel: true, // Add item level to the picture
 	LogEquipped: false, // include equipped items
 	LogMerc: false, // include items merc has equipped (if alive)

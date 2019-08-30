@@ -50,7 +50,7 @@
 ![D2BotMap](assets/kolbot-manualplayD2BotMap.jpg)
 
 1. if you wanna view maps + monsters while you are pressing < ALT > key you have to search to the line 727 of kolbot\tools\MapThread.js and to remove the 0x0D code. After that line is looking:
-```
+```javascript
         hideFlags = [0x09, 0x0C, 0x01, 0x02, 0x0F, 0x18, 0x19, 0x21];
 ```
 
@@ -66,7 +66,7 @@
 ![Manual.js](assets/kolbot-manualplayMiscScript.jpg)
 
 1. if you wanna view maps + monsters while you are pressing < ALT > key you have to search to the line 727 of kolbot\tools\MapThread.js and to remove the 0x0D code. After that line is looking:
-```
+```javascript
         hideFlags = [0x09, 0x0C, 0x01, 0x02, 0x0F, 0x18, 0x19, 0x21];
 ```
 

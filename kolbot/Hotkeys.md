@@ -240,17 +240,17 @@ display status messages out of game as well as in game:
 * all output is directed to the console instead of to the screen.
 * < Up arrow > will show the latest command that you typed in the console. Up/Down arrows will show different commands entered in the console
 * you can type on the console different javascript lines:
-```
+```javascript
 	var ip = Number(me.gameserverip.split(".")[3]);
 	print("IP of the game: " + ip);
 ``` 
 	and the result will be:
-```
+```javascript
 	IP of the game: ... (the last part of the IP)
 ```
 * one defined variable (like ip) remains defined in that game, even you type reload in the meantime.
 * to find the mouse coordinates type:
-```
+```javascript
 	getMouseCoords(1);
 ```
 	and you'll get the X, Y coordinates. 

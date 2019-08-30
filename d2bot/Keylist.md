@@ -35,7 +35,7 @@ You are still able to edit ...\data\cdkeys.json with notepad++.
 
 ### adding raw/loader keys
 There are 2 kind of lines:
-```
+```javascript
 {"CDKeys":[{"Name":"raw1","Classic":"1234567890","Expansion":"1234567890"}],"Name":"k1"}
 {"CDKeys":[{"Name":"key2.mpq","Classic":"","Expansion":""}],"Name":"k2"}
 ```
@@ -52,16 +52,16 @@ Your cdkeys.json file can have multiple lines like those, simply edited in np++.
 you don't need more keys to be added into a set of keys, because key switching is worthless in getting R/D (S/D) since June 2017. So one key into a keylist entry is enough.
 
 even is not required (& recommended) after June 2017, an entry with multiple keys associated have to be something like:
-```
+```javascript
 {"CDKeys":[{key1 info}, {key2 info}, {key3 info}], "Name":"set1"}
 ```
 case of raw d2lod keys with **set1** entry from key list with "raw1", "raw2", "raw3" sub-keys:
-```
+```javascript
 {"CDKeys":[{"Name":"raw1","Classic":"1234567890","Expansion":"1234567890"}, {"Name":"raw2","Classic":"1234567890","Expansion":"1234567890"}, {"Name":"raw3","Classic":"1234567890","Expansion":"1234567890"}],"Name":"set1"}
 ```
 
 case of loader keys in a set list, **set1** including key1.mpq, key2.mpq, key3.mpq
-```
+```javascript
 {"CDKeys":[{"Name":"key1.mpq","Classic":"","Expansion":""},{"Name":"key2.mpq","Classic":"","Expansion":""},{"Name":"key3.mpq","Classic":"","Expansion":""}],"Name":"set1"}
 ```
 ## using loader keys

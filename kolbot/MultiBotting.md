@@ -28,7 +28,7 @@
 ![CreatorProfile](assets/kolbot-multibotCreatorProfile.png)
 
 #### randomize the timers
-```
+```javascript
 var StarterConfig = {
     MinGameTime: rand(150, 180), // Minimum game length in seconds. If a game is ended too soon, the rest of the time is waited in the lobby
     PingQuitDelay: rand(30, 40), // Time in seconds to wait in lobby after quitting due to high ping
@@ -77,7 +77,7 @@ There are two different starter scripts for joining games:
 
 ##### randomize the timers
 replace the default lines 1-17 of [D2BotFollow.dbj](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/D2BotFollow.dbj) with these:
-```
+```javascript
 var StarterConfig = {
     JoinChannel: "", // Name of the channel to join
     FirstJoinMessage: "", // Message to say when first joining a channel, usually ".login"
@@ -119,7 +119,7 @@ you have to complete these fields for your leechers/helpers/followers
 * script allows multiple characters to do the same boss/area runs in sync.
 * the leader will open a town portal and give commands to the helpers. Because it uses town portals, it's possible for walking characters to run the same bosses as teleporting characters.
 * unfortunately the commands are based on battle.net chat, so the leader key can be muted. To avoid these, check the [local chat](https://github.com/blizzhackers/documentation/kolbot/CharacterConfig.md/#local-chat) section. Choose mode 1, or 2 if you are playing also manually.
-```
+```javascript
 	LocalChat: {
 		Enabled: true,
 		Toggle: false,
@@ -130,7 +130,7 @@ you have to complete these fields for your leechers/helpers/followers
 
 #### MFLeader
 * in the leader config you have to set
-```
+```javascript
     // Team MF system
     Config.MFLeader = true; // Set to true if you have one or more MFHelpers. Opens TP and gives commands when doing normal MF runs.
 ```
@@ -138,7 +138,7 @@ and to enable the scripts you wanna run.
 
 #### MFHelper
 * the helper needs to have as the only running script
-```
+```javascript
     Scripts.MFHelper = true; // Run the same MF run as the MFLeader.
 ```
 * the MFHelper script will end if the leader enters in Chaos Sanctuary or Throne of Destruction, because it's better to run the related DiabloHelper or BaalHelper after the MFHelper script.
@@ -150,7 +150,7 @@ check the [local chat](https://github.com/blizzhackers/documentation/blob/master
 * see [Follower guide](https://github.com/kolton/d2bot-with-kolbot/wiki/Follower)
 * the leader can be played manually - see [d2bs manual play](https://github.com/blizzhackers/documentation/blob/master/kolbot/ManualPlay.md/#manual-playing)
 * you should use the [local chat](https://github.com/blizzhackers/documentation/blob/master/kolbot/CharacterConfig.md/#local-chat) with the settings
-```
+```javascript
 	LocalChat: {
 		Enabled: true,
 		Toggle: false,
@@ -158,7 +158,7 @@ check the [local chat](https://github.com/blizzhackers/documentation/blob/master
 	},
 ```
 * the other helping characters need this
-```
+```javascript
     Scripts.Follower = true; // Script that follows a manually played leader around like a merc. For a list of commands, see Follower.js
 ```
 * Follower.js is using chat commands like: 1, 2, wp, bo, ...

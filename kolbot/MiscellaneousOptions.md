@@ -30,7 +30,7 @@
 ## local chat
 
 * [@noah-](https://github.com/noah-) added in the char configuration files the options:
-```
+```javascript
 	// Public game options
 
 	// If LocalChat is enabled, chat can be sent via 'sendCopyData' instead of BNET
@@ -43,7 +43,7 @@
 * for using manual play and Follower.js you should activate it on mode 2
 * silenced MFHelper scripts become useless, but consider that anything typed in chat box will not be local chat
 * to be sure that any of chars aren't using the battle.net chat, you can set in Config.js
-```
+```javascript
 	LocalChat: {
 		Enabled: true,
 		Toggle: false,
@@ -73,7 +73,7 @@
 * barbarian will go to the waypoint of your choosing and bo anyone that is nearby if they have bo or not. It will go back to town if monsters come close to the boer. It will go back to town and visit a healer NPC if it's mana gets below a set percentage then return to continue giving bo.
 
 * there are some settings at the top of the script you can change:
-```
+```javascript
     const BO_WP = 35; // area to buff - 35 is catacombs level 2
     const TOWN_NEARBY_MONSTER = true; // go to town if monsters nearby
     const TOWN_MANA = 20; // go refill mana if mana drops below this percent
@@ -84,14 +84,14 @@
 
 Notes:
 * only for giving BO, so only in barbarian config file:
-```
+```javascript
     // Battle orders script - Use this for 2+ characters (for example BO barb + sorc)
     Scripts.BattleOrders = true;
 ```
 * the other parameters are useless.
 * in barbarian config Config.QuitList = ["..."]; should be completed.
 * this script is only the "barb giving bo" component, so it's not really compatible with the current BattleOrders unless you do what you done and make the characters receiving bo to go on the Boer wp first, by adding in your running scripts the following lines:
-```
+```javascript
     Pather.useWaypoint(35, true); // take Boer wp
     Pather.moveTo(me.x + 5, me.y + 5);
     delay(3000);
@@ -101,20 +101,21 @@ Notes:
 * It is a public mode when your players invite and accept other players invites, only if their names are in your previously configured MyOwnParty list
 
 * in char config file, look to the // Public game options section and you have to add (line Config.PublicMode is already there, so add only option 4)
-```
+```javascript
     Config.PublicMode = 4; // 1 = invite and accept, 2 = accept only, 3 = invite only, 4 = MyOwnParty, 0 = disable
     Config.MyOwnParty = []; // ["MyPlayer1", "MyPlayer2", "MyPlayer3"]
 ```
 
 * in ... libs\common\Config.js before line 161 DeathMessages add
-```
+```javascript
     MyOwnParty: [],
 ```
 * and complete the same list on every char config that you will add in your team game, including all charnames.
     Config.MyOwnParty = ["MyPlayer1", "MyPlayer2", "MyPlayer3", "MyPlayer4"];
 
 * in ... \tools\Party.js add after SVN line 141 the case 4 (for entire Party.js script, check [next chapter](#hardcore-loot-corpses) pastebins)
-```                    case 4: // MyOwnParty
+```javascript
+                    case 4: // MyOwnParty
                         if (Config.MyOwnParty.length > 0) {
                             var i;
  
@@ -150,7 +151,7 @@ Notes:
 * copy the text and paste it.
 
 * I tested it with my modded Follower.js, where I added (around line 824+) an infinite loop to stop dead HC player from other actions which will end the game because of errors
-```
+```javascript
         if (me.playertype == 1 && me.mode === 17) { // stop the HC screen to allow the loot of dead player
             while(true) {
                 delay(60000);
@@ -164,7 +165,7 @@ Notes:
 * https://pastebin.com/mnqySRqF copy and paste the text, replacing the content of ...\libs\bots\Baal.js file.
 * the adds for pala hdin consist in an extra function for wave 2 (without having the Nature's Peace ring, which is making this unnecessary). You have to set in hdin config file for wave 2
 
-```
+```javascript
     Config.AttackSkill[5] = 97; // Secondary skill if monster is immune to primary.
     Config.AttackSkill[6] = 113; // Secondary aura.
 ```
@@ -186,11 +187,11 @@ Notes:
 
 ## opening all chests
 * if you want to open all chests during clearing, set in char configuration file
-```
+```javascript
 Config.OpenChests = true;
 ```
 * add the changes to Attack.js, so line 892 from Attack.js will be:
-```
+```javascript
             ids = ["chest", "loose rock", "hidden stash", "loose boulder", "corpseonstick", "casket", "armorstand", "weaponrack", "barrel",
                 "holeanim", "tomb2", "tomb3", "roguecorpse", "ratnest", "corpse", "goo pile", "largeurn", "urn", "chest3", "jug", "skeleton",
                 "guardcorpse", "sarcophagus", "object2", "cocoon", "basket", "stash", "hollow log", "hungskeleton", "pillar", "skullpile",
@@ -216,7 +217,7 @@ Config.OpenChests = true;
 old Etal users may used it.
 
 * look for SVN lines 716-720 from ...\d2bs\kolbot\libs\common\Town.js
-```
+```javascript
                 case 0:
                     Misc.itemLogger("Dropped", unids[i], "cainID");
                     unids[i].drop();
@@ -224,7 +225,7 @@ old Etal users may used it.
                     break;
 ```
 * change them into:
-```
+```javascript
                 case 0:
                     Misc.itemLogger("Dropped", unids[i], "cainID");
                     this.initNPC("Shop", "clearInventory");
@@ -239,23 +240,25 @@ old Etal users may used it.
 * again, some old etal users may need this function.
 
 * add in char configuration file (at the end of General config section, ~ line 400), a new variable:
-```
+```javascript
     Config.InventoryFull = true; // stop profile if inventory full
 ```
 
 * then edit Config.js and add after line ~ 204
-```
+```javascript
     InventoryFull: false,
 ```
 
 * finally, look for the default SVN lines 145-148 from Pickit.js
-```                            // Town visit failed - abort
+```javascript
+                            // Town visit failed - abort
                             print("ÿc7Not enough room for " + this.itemColor(pickList[0]) + pickList[0].name);
 
                             return false;
 ```
 * and change them to:
-```                            // Town visit failed - abort
+```javascript
+                            // Town visit failed - abort
                             print("ÿc7Not enough room for " + this.itemColor(pickList[0]) + pickList[0].name);
  
                             if (Config.InventoryFull) {
@@ -269,7 +272,7 @@ old Etal users may used it.
 ## cubing all kind of gems
 * if you wanna a bot from your team to cube all the gems found, you can add some changes:
 * in the special pickit file for that char, you can have only 1 line near the perfect gem lines
-```
+```javascript
 [type] == gem
 [name] == perfectamethyst
 [name] == perfectdiamond
@@ -280,7 +283,7 @@ old Etal users may used it.
 [name] == perfectskull
 ```
 * in ...\kolbot\libs\common\Cubing.js after SVN line 667 add these lines:
-```
+```javascript
                 // flawless gems
                 // Make flawless amethyst
                 if (this.subRecipes.indexOf(560) === -1 && (this.recipes[i].Ingredients[j] === 560 || (this.recipes[i].Ingredients[j] === "lgem" && this.gemList.indexOf(560) > -1))) {
@@ -411,7 +414,7 @@ old Etal users may used it.
                 }
 ```
 * in character configuration file should be added in the cubing config section (default lines ~320-326 have the cubing of the flawless to perfect gems):
-```
+```javascript
     Config.Recipes.push([Recipe.Gem, "Chipped Amethyst"]); // make FlawedAmethyst
     Config.Recipes.push([Recipe.Gem, "Chipped Topaz"]); // make Flawed Topaz
     Config.Recipes.push([Recipe.Gem, "Chipped Sapphire"]); // make Flawed Sapphire
@@ -455,14 +458,18 @@ see the next section
 * if total gold is less than Config.LowGold value pick up anything worth 10 gold per square to sell in town.
 
 * you should add in the char configuration file:
-```
+```javascript
     Config.LowGold = 200000 // any low item with 10 gold per square will be picked and sold to NPC until me.gold < Config.LowGold
 ```
 that variable is already defined in Config.js (line 138, where it is set to 0), and it is used in Pickit.js(line 64) and Town.js(line 526)
 
 * some items are ignored, but if you wanna pick everything, remove this part from default line 64 in Pickit.js:
-```
+```javascript
 && Town.ignoredItemTypes.indexOf(unit.itemType) === -1 
+```
+otherwise you can only to comment the desired line from Town.js like line 54
+```javascript
+		//38, // Missile Potion
 ```
 
 ## Diabase & D2BS
@@ -475,7 +482,7 @@ that variable is already defined in Config.js (line 138, where it is set to 0), 
 ## silencing the scripts
 1. take a look to [local chat](#local-chat) section
 2. if you insist to silent your scripts, the easier option (@nag0k choice) is to add a function in ...\kolbot\default.dbj after line 92:
-```
+```javascript
    this.say = function (string) {
        me.overhead(string);
    };
@@ -483,7 +490,7 @@ that variable is already defined in Config.js (line 138, where it is set to 0), 
 
 3. other method:
 * for silencing Baal.js, look to SVN line 196
-```
+```javascript
        say(string);
 ```
 * comment this line adding // before say, or change say into print
@@ -491,7 +498,7 @@ that variable is already defined in Config.js (line 138, where it is set to 0), 
 * in char configuration file you can remove the text between quotes "" , lines 85-88, 114-116, 220-223.
 * in Config.js you can remove the text between quotes in lines 344-346, and for Diablo 376-381
 * use np++ Find in Files looking for say( in whole d2bs folder. Then manually edit those results, changing them to (choose one):
-```
+```javascript
 	print( - print on screen only
 	me.overhead( - a message displayed above bot head, but it's visible only for that char, not a battle.net chat.
 ```

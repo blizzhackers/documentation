@@ -39,13 +39,13 @@ By default script **UserAddon.js** is enabled. It's for manual play.
 * Shows other players' gear.
 
 To start botting you need to disable script **UserAddon.js**, to do it change line 17 to **false**. Now you can start boss/area scripts
-```
+```javascript
 	Scripts.UserAddon = false; // !!!YOU MUST SET THIS TO FALSE IF YOU WANT TO RUN BOSS/AREA SCRIPTS!!!
 ```
 
 ### Battle orders
 Use this for 2+ characters (for example BO barb + sorc)
-```
+```javascript
 	Scripts.BattleOrders = false;
 		Config.BattleOrders.Mode = 0; // 0 = give BO, 1 = get BO
 		Config.BattleOrders.Wait = false; // Idle until the player that received BO leaves.
@@ -56,14 +56,14 @@ It will be used the Catacombs 2 wp, see line 36 from BattleOrders.js script. Unf
 A modded script for HC players, with barbarian staying whole game on a chosen wp, written by [@nag0k](https://github.com/nag0k) you can find at https://pastebin.com/JTmWbqLf, and replace the default ...\libs\bots\BattleOrders.js. The barbarian will go to the chosen waypoint and will bo anyone that is nearby, no matter if they have bo stats or not. It will go back to town if monsters come closer to him, or when his mana is lower than the set value and visit a healer NPC, then return to continue giving bo. For using this script you have to add the other characters moving to that wp, from time to time.
 
 ### Team MF system
-```
+```javascript
 	Config.MFLeader = false; // Set to true if you have one or more MFHelpers. Opens TP and gives commands when doing normal MF runs.
 ```
 
 ### Boss/area scripts
 Enable desired scripts, changing the value to true.
 If you want to change the order of the scripts, just change the order of their lines by using cut and paste. Scripts are executed from top to bottom.
-```
+```javascript
 	// *** act 1 ***
 	Scripts.Corpsefire = false;
 		Config.Corpsefire.ClearDen = false;
