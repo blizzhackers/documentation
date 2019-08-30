@@ -467,7 +467,7 @@ that variable is already defined in Config.js (line 138, where it is set to 0), 
 ```javascript
 && Town.ignoredItemTypes.indexOf(unit.itemType) === -1 
 ```
-otherwise you can only to comment the desired line from Town.js like line 54
+otherwise you can only to comment the desired line from Town.js like line 54, which is responsible of ignoring [throwing potions](http://classic.battle.net/diablo2exp/items/potions.shtml)
 ```javascript
 		//38, // Missile Potion
 ```
