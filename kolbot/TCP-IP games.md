@@ -22,7 +22,7 @@
 
 1. save https://pastebin.com/FGaMpj18 as D2BotTcpIpHost.dbj in your ...\kolbot folder
 
-1. create and edit a new profile in your D2Bot manager:
+1. create and edit a new profile in your D2Bot manager, using the previous created starter script:
 
 ![Host config](assets/kolbot-TcpIp-host.png)
 
@@ -31,7 +31,7 @@
 
 1. save https://pastebin.com/zQyUrDKP as D2BotTcpIpJoin.dbj in your ...\kolbot folder
 
-1. create and edit a new profile in your D2Bot manager:
+1. create and edit a new profile in your D2Bot manager, using the previous created starter script:
 
 ![Host config](assets/kolbot-TcpIp-join.png)
 
