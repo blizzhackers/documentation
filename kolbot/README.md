@@ -18,7 +18,7 @@ library scripts by [@kolton](https://github.com/kolton)
 
 * [Multi Botting](MultiBotting.md/#multi-botting): game creator, joining games, ...
 
-* [TCP/IP Games](TCP-IP%20games.md#tcpip-games): host and join TCP/IP config
+* [TCP/IP Games](TCP-IP%20games.md#tcpip-games): host and join TCP/IP games
 
 * [D2BotMuleLog](D2BotMuleLog.md/#d2botmulelog): log muled items
 
