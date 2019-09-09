@@ -18,6 +18,8 @@ library scripts by [@kolton](https://github.com/kolton)
 
 * [Multi Botting](MultiBotting.md/#multi-botting): game creator, joining games, ...
 
+* [TCP/IP Games](TCP-IP-games.md#TCP/IP-games): host and join TCP/IP config
+
 * [D2BotMuleLog](D2BotMuleLog.md/#d2botmulelog): log muled items
 
 * [Automule](Automule.md/#automule): Automuling and torch muling

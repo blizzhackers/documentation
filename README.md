@@ -25,6 +25,7 @@
 * [Character Configuration](kolbot/CharacterConfig.md/#character-configuration)
 * [Manual Play](kolbot/ManualPlay.md/#manual-playing): D2BotMap, Manual.js script
 * [Multi Botting](kolbot/MultiBotting.md/#multi-botting): game creator, joining games, ...
+* [TCP/IP Games](kolbot/TCP-IP-games.md#TCP/IP-games): host and join TCP/IP config
 * [D2BotMuleLog](kolbot/D2BotMuleLog.md/#d2botmulelog): log muled items
 * [Automule](kolbot/Automule.md/#automule): Automuling and torch muling
 * [Hotkeys](kolbot/Hotkeys.md/#hotkeys): d2bs hotkeys, how to change them, console commands
