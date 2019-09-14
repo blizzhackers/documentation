@@ -59,7 +59,7 @@
 
 1. it's another script for manual play with description in this saved [html file](assets/ManualPlayScriptWithPacketSniffingToolsAndMore.html). 
 1. How to use (from bh topic):
-* copy the code from [@Laz](https://github.com/laztheripper) - [pull-request](https://github.com/kolton/d2bot-with-kolbot/pull/370) or from  [here](https://github.com/laztheripper/d2bot-with-kolbot/blob/03173c86829f22a17ccef8a481f1a6a0e429f081/d2bs/kolbot/libs/bots/Manual.js), and save it in a new file named "Manual.js" in "libs/bots" folder
+* copy the code from [@Laz](https://github.com/laztheripper) - [pull-request](https://github.com/kolton/d2bot-with-kolbot/pull/370/files#diff-a3ae496fb0351d4e7c2cfe5a831cb491) or from  [laz repo](https://github.com/laztheripper/d2bot-with-kolbot/blob/03173c86829f22a17ccef8a481f1a6a0e429f081/d2bs/kolbot/libs/bots/Manual.js), and save it in a new file named "Manual.js" in "libs/bots" folder
 * in your character's config add "Scripts.Manual = true;"
 * use d2botblank as starter/entry point/.dbj for the profile.
 * in d2bs.ini (located in kolbot/d2bs) set "UseGamePrint=true", otherwise you won't see anything useful ingame.
