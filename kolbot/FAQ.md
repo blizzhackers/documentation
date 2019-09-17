@@ -118,7 +118,7 @@ check [download guide](https://github.com/blizzhackers/documentation/tree/master
 1. **Q:** I get all the time "D2BS is not responding... starting profile"
 2. **A:** update D2BS to latest version.
 
-* check install guide (VC++ 2005, 2008, 2010 and .NET Framework 3.5, 4 or higher installed) see https://github.com/kolton/d2bot-with-kolbot/wiki/D2Bot-%23-Manager-Setup#install-dependencies
+* check install guide (VC++ 2005, 2008, 2010 and .NET Framework 3.5, 4 or higher installed) see https://github.com/blizzhackers/documentation/blob/master/d2bot/ManagerSetup.md/#install-dependencies
 
 * if you have TeamViewer installed and you have **<->** icon. click ok it and disable.
 * you can get this error and several crashes when there are differences between ...\d2bs\d2bs.ini and ...\data\profile.json. When the manager correct the errors that profile will start just fine.
@@ -174,7 +174,7 @@ check [download guide](https://github.com/blizzhackers/documentation/tree/master
 
 ### I cannot change account
 1. **Q:** I'm playing manually and I cannot change the first account with I did the first log in. Even I enter other account the character screen will be for the first account, or in the worst case an empty character selection screen with Connecting ... 
-2. **A:** Uncheck the "RD Blocker" box, because that is causing it. The [wiki guide](https://github.com/kolton/d2bot-with-kolbot/wiki/D2Bot-%23-Manager-Setup#create-a-profile) :
+2. **A:** Uncheck the "RD Blocker" box, because that is causing it. The [wiki guide](https://github.com/blizzhackers/documentation/blob/master/d2bot/ManagerSetup.md/#create-a-profile) :
 > 19. Enables RD Block (**don't enable unless you know what you are doing**)
 * it does nothing useful for most people
 
