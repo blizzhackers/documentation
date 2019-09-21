@@ -8,6 +8,55 @@
 
 ---
 
+* [Basic Start](#basic-start)
+* [UserAddon](#useraddon)
+* [Battle orders](#battle-orders)
+* [Team MF system](#team-mf-system)
+* [Boss/area scripts](#bossarea-scripts)
+* [Leeching section](#leeching-section)
+* [Special Scripts](#special-scripts)
+* [Guest scripts](#guest-scripts)
+* [Town settings](#town-settings)
+* [Potion settings](#potion-settings)
+* [Chicken](#chicken)
+* [Inventory lock configuration](#inventory-lock-configuration)
+* [Belt configuration](#belt-configuration)
+* [Pickit config](#pickit-config)
+* [Advanced automule settings](#advanced-automule-settings)
+* [Additional item info log settings](#additional-item-info-log-settings-all-info-goes-to-logsitemlogtxt)
+* [Item Identification Settings](#item-identification-settings)
+* [Manager Item Log Screen](#manager-item-log-screen)
+* [Repair settings](#repair-settings)
+* [Gambling Config](#gambling-config)
+* [Cubing Config](#cubing-config)
+* [Runeword Config](#runeword-config)
+* [Public game options](#public-game-options)
+	* [Local Chat](#local-chat)
+* [General Config](#general-config)
+* [Shrine Scanner](#shrine-scanner)
+* [MF Switch](#mf-switch)
+* [Fastmod Config](#fastmod-config)
+* [Anti-hostile Config](#anti-hostile-config)
+* [DClone Config](#dclone-config)
+* [Monster skip config](#monster-skip-config)
+* [Attack config](#attack-config)
+* [Class specific config](#class-specific-config)
+	* [Amazon](#amazon)
+	* [Assassin](#assassin)
+	* [Barbarian](#barbarian)
+	* [Druid](#druid)
+	* [Necromancer](#necromancer)
+	* [Paladin](#paladin)
+	* [Sorceress](#sorceress)
+* [AutoSkill builds character](#autoskill-builds-character)
+* [AutoStat builds character](#autostat-builds-character)
+* [AutoBuild System](#autobuild-system)
+* [Advanced options](#advanced-options)
+	* [Script-specific config override](#script-specific-config-override)
+	* [Character config filename options](#character-config-filename-options)
+	* [Custom Config](#custom-config)
+
+---
 ### Basic Start
 Character config files can be found in ...\d2bs\kolbot\libs\config\...:  Amazon.js, Assassin.js, Barbarian.js, Druid.js, Necromancer.js, Paladin.js, Sorceress.js. Choose your toon class file and copy it adding your toon name, like Sorceress.MyToon.js
 If you started without having a char config file, you'll see on the top white console the option to press < Home > and < Space > to create the char config. Close that profile and look for the file Class.MyToon.js, because you have to edit it before start running.
@@ -158,7 +207,7 @@ If you want to change the order of the scripts, just change the order of their l
 		Config.Baal.KillBaal = true; // Kill Baal. Leaves game after wave 5 if false.
 ```
 
-### leeching section
+### Leeching section
 
 As you probably already noticed some scripts can be done with leader and leecher or even more leechers.
 
@@ -404,7 +453,7 @@ Keep lines follow pickit format and any given runeword is tested vs ALL lines so
 
 ### Public game options
 
-#### local chat
+#### Local Chat
 // If LocalChat is enabled, chat can be sent via 'sendCopyData' instead of BNET
 
 // To allow 'say' to use BNET, use 'say("msg", true)', the 2nd parameter will force BNET
