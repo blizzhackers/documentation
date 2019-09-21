@@ -50,6 +50,6 @@
 
 * it was updated on June 2017 for 1.14d d2 patch according to [blizzhackers announce](https://web.archive.org/web/20171115131230/http://www.blizzhackers.cc/viewtopic.php?f=204&t=545178&sid=ffa80262b1692f21eaea19109146c071&start=0)
 
-* it was updated on March 2018 with fixes for 12th December's 2017 battle.net patches.
+* it was updated on March 2018 with fixes for 12th December's 2017 d2 server patches.
 
 * use TortoiseSVN Update option from time to time, or any other methods to keep it updated.
