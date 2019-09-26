@@ -30,26 +30,25 @@
 ## local chat
 
 * [@noah-](https://github.com/noah-) added in the char configuration files the options:
-```javascript
-	// Public game options
+	```javascript
+		// Public game options
 
-	// If LocalChat is enabled, chat can be sent via 'sendCopyData' instead of BNET
-	// To allow 'say' to use BNET, use 'say("msg", true)', the 2nd parameter will force BNET
-	// LocalChat messages will only be visible on clients running on the same PC
-	Config.LocalChat.Enabled = false; // enable the LocalChat system
-	Config.LocalChat.Toggle = false; // optional, set to KEY value to toggle through modes 0, 1, 2
-	Config.LocalChat.Mode = 0; // 0 = disabled, 1 = chat from 'say' (recommended), 2 = all chat (for manual play)
-```
+		// If LocalChat is enabled, chat can be sent via 'sendCopyData' instead of BNET
+		// To allow 'say' to use BNET, use 'say("msg", true)', the 2nd parameter will force BNET
+		// LocalChat messages will only be visible on clients running on the same PC
+		Config.LocalChat.Enabled = false; // enable the LocalChat system
+		Config.LocalChat.Toggle = false; // optional, set to KEY value to toggle through modes 0, 1, 2
+		Config.LocalChat.Mode = 0; // 0 = disabled, 1 = chat from 'say' (recommended), 2 = all chat (for manual play)
+	```
 * for using manual play and Follower.js you should activate it on mode 2
-* silenced MFHelper scripts become useless, but consider that anything typed in chat box will not be local chat
-* to be sure that any of chars aren't using the battle.net chat, you can set in Config.js
-```javascript
-	LocalChat: {
-		Enabled: true,
-		Toggle: false,
-		Mode: 2
-	},
-```
+* to be sure that any char isn't using the d2 server chat, you can set in Config.js:
+	```javascript
+		LocalChat: {
+			Enabled: true,
+			Toggle: false,
+			Mode: 2
+		},
+	```
 
 ## updated Autosmurf
 * @Dark-f updated the [JeanMax/AutoSmurf](https://github.com/JeanMax/AutoSmurf) with https://cdn.discordapp.com/attachments/228855570537381888/456564852971012096/AutoSmurf_2018-6-13.rar
@@ -67,49 +66,49 @@
 * you can post the results on discord [#testing channel](https://discordapp.com/channels/430522386253611018/430534815549358080)
 
 ## modded BattleOrders.js
-* reason = by default that script was programmed to do only a single BOgive - BOget at the beggining of the game. maybe it wasn't necessary a 2nd one, because games were shorter in those battle.net times without a lot of restrictions, which were applied in the meantime.
+* reason = the default script was programmed to do only a single BOgive - BOget at the beggining of the game. Maybe it wasn't necessary a 2nd one, because games were shorter in those battle.net times without a lot of restrictions, which were applied in the meantime.
 
 * by [@nag0k](https://github.com/nag0k) - https://pastebin.com/JTmWbqLf - replace the default ...\libs\bots\BattleOrders.js
 * barbarian will go to the waypoint of your choosing and bo anyone that is nearby if they have bo or not. It will go back to town if monsters come close to the boer. It will go back to town and visit a healer NPC if it's mana gets below a set percentage then return to continue giving bo.
 
 * there are some settings at the top of the script you can change:
-```javascript
-    const BO_WP = 35; // area to buff - 35 is catacombs level 2
-    const TOWN_NEARBY_MONSTER = true; // go to town if monsters nearby
-    const TOWN_MANA = 20; // go refill mana if mana drops below this percent
-```
+	```javascript
+		const BO_WP = 35; // area to buff - 35 is catacombs level 2
+		const TOWN_NEARBY_MONSTER = true; // go to town if monsters nearby
+		const TOWN_MANA = 20; // go refill mana if mana drops below this percent
+	```
 * BO_WP sets what wp to bo at, 35 is default which is catacombs level 2.
 * TOWN_NEARBY_MONSTER makes the barb go to town if monsters come too close.
 * TOWN_MANA makes the barb go refill it's mana if it drops below this percentage, if mana drops below 20% the barb will go heal by default.
 
-Notes:
-* only for giving BO, so only in barbarian config file:
-```javascript
-    // Battle orders script - Use this for 2+ characters (for example BO barb + sorc)
-    Scripts.BattleOrders = true;
-```
-* the other parameters are useless.
-* in barbarian config Config.QuitList = ["..."]; should be completed.
-* this script is only the "barb giving bo" component, so it's not really compatible with the current BattleOrders unless you do what you done and make the characters receiving bo to go on the Boer wp first, by adding in your running scripts the following lines:
-```javascript
-    Pather.useWaypoint(35, true); // take Boer wp
-    Pather.moveTo(me.x + 5, me.y + 5);
-    delay(3000);
-```
+* Notes:
+	* only for giving BO, so only in barbarian config file:
+		```javascript
+			// Battle orders script - Use this for 2+ characters (for example BO barb + sorc)
+			Scripts.BattleOrders = true;
+		```
+	* the other parameters are useless.
+	* in barbarian config Config.QuitList = ["..."]; should be completed.
+	* this script is only the "barb giving bo" component, so it's not really compatible with the current BattleOrders unless you do what you done and make the characters receiving bo to go on the Boer wp first, by adding in your running scripts the following lines:
+		```javascript
+			Pather.useWaypoint(35, true); // take Boer wp
+			Pather.moveTo(me.x + 5, me.y + 5);
+			delay(3000);
+		```
 
 ## how to define your own party
 * It is a public mode when your players invite and accept other players invites, only if their names are in your previously configured MyOwnParty list
 
 * in char config file, look to the // Public game options section and you have to add (line Config.PublicMode is already there, so add only option 4)
-```javascript
-    Config.PublicMode = 4; // 1 = invite and accept, 2 = accept only, 3 = invite only, 4 = MyOwnParty, 0 = disable
-    Config.MyOwnParty = []; // ["MyPlayer1", "MyPlayer2", "MyPlayer3"]
-```
+	```javascript
+		Config.PublicMode = 4; // 1 = invite and accept, 2 = accept only, 3 = invite only, 4 = MyOwnParty, 0 = disable
+		Config.MyOwnParty = []; // ["MyPlayer1", "MyPlayer2", "MyPlayer3"]
+	```
 
 * in ... libs\common\Config.js before line 161 DeathMessages add
-```javascript
-    MyOwnParty: [],
-```
+	```javascript
+		MyOwnParty: [],
+	```
 * and complete the same list on every char config that you will add in your team game, including all charnames.
     Config.MyOwnParty = ["MyPlayer1", "MyPlayer2", "MyPlayer3", "MyPlayer4"];
 
@@ -165,10 +164,10 @@ Notes:
 * https://pastebin.com/mnqySRqF copy and paste the text, replacing the content of ...\libs\bots\Baal.js file.
 * the adds for pala hdin consist in an extra function for wave 2 (without having the Nature's Peace ring, which is making this unnecessary). You have to set in hdin config file for wave 2
 
-```javascript
-    Config.AttackSkill[5] = 97; // Secondary skill if monster is immune to primary.
-    Config.AttackSkill[6] = 113; // Secondary aura.
-```
+	```javascript
+		Config.AttackSkill[5] = 97; // Secondary skill if monster is immune to primary.
+		Config.AttackSkill[6] = 113; // Secondary aura.
+	```
 
 * try to have Holy Shield at max points, and hdin Smite dmg will be around 1.8-2 k physical dmg with concentration aura, which will increase also the mercenary's dmg.
 
@@ -187,9 +186,9 @@ Notes:
 
 ## opening all chests
 * if you want to open all chests during clearing, set in char configuration file
-```javascript
-Config.OpenChests = true;
-```
+	```javascript
+		Config.OpenChests = true;
+	```
 * add the changes to Attack.js, so line 892 from Attack.js will be:
 ```javascript
             ids = ["chest", "loose rock", "hidden stash", "loose boulder", "corpseonstick", "casket", "armorstand", "weaponrack", "barrel",
@@ -240,14 +239,14 @@ old Etal users may used it.
 * again, some old etal users may need this function.
 
 * add in char configuration file (at the end of General config section, ~ line 400), a new variable:
-```javascript
-    Config.InventoryFull = true; // stop profile if inventory full
-```
+	```javascript
+		Config.InventoryFull = true; // stop profile if inventory full
+	```
 
 * then edit Config.js and add after line ~ 204
-```javascript
-    InventoryFull: false,
-```
+	```javascript
+		InventoryFull: false,
+	```
 
 * finally, look for the default SVN lines 145-148 from Pickit.js
 ```javascript
@@ -272,16 +271,16 @@ old Etal users may used it.
 ## cubing all kind of gems
 * if you wanna a bot from your team to cube all the gems found, you can add some changes:
 * in the special pickit file for that char, you can have only 1 line near the perfect gem lines
-```javascript
-[type] == gem
-[name] == perfectamethyst
-[name] == perfectdiamond
-[name] == perfectemerald
-[name] == perfectruby
-[name] == perfectsapphire
-[name] == perfecttopaz
-[name] == perfectskull
-```
+	```javascript
+	[type] == gem
+	[name] == perfectamethyst
+	[name] == perfectdiamond
+	[name] == perfectemerald
+	[name] == perfectruby
+	[name] == perfectsapphire
+	[name] == perfecttopaz
+	[name] == perfectskull
+	```
 * in ...\kolbot\libs\common\Cubing.js after SVN line 667 add these lines:
 ```javascript
                 // flawless gems
@@ -414,42 +413,41 @@ old Etal users may used it.
                 }
 ```
 * in character configuration file should be added in the cubing config section (default lines ~320-326 have the cubing of the flawless to perfect gems):
-```javascript
-    Config.Recipes.push([Recipe.Gem, "Chipped Amethyst"]); // make FlawedAmethyst
-    Config.Recipes.push([Recipe.Gem, "Chipped Topaz"]); // make Flawed Topaz
-    Config.Recipes.push([Recipe.Gem, "Chipped Sapphire"]); // make Flawed Sapphire
-    Config.Recipes.push([Recipe.Gem, "Chipped Emerald"]); // make Flawed Emerald
-    Config.Recipes.push([Recipe.Gem, "Chipped Ruby"]); // make Flawed Ruby
-    Config.Recipes.push([Recipe.Gem, "Chipped Diamond"]); // make Flawed Diamond
-    Config.Recipes.push([Recipe.Gem, "Chipped Skull"]); // make Flawed Skull
+	```javascript
+		Config.Recipes.push([Recipe.Gem, "Chipped Amethyst"]); // make FlawedAmethyst
+		Config.Recipes.push([Recipe.Gem, "Chipped Topaz"]); // make Flawed Topaz
+		Config.Recipes.push([Recipe.Gem, "Chipped Sapphire"]); // make Flawed Sapphire
+		Config.Recipes.push([Recipe.Gem, "Chipped Emerald"]); // make Flawed Emerald
+		Config.Recipes.push([Recipe.Gem, "Chipped Ruby"]); // make Flawed Ruby
+		Config.Recipes.push([Recipe.Gem, "Chipped Diamond"]); // make Flawed Diamond
+		Config.Recipes.push([Recipe.Gem, "Chipped Skull"]); // make Flawed Skull
  
-    Config.Recipes.push([Recipe.Gem, "Flawed Amethyst"]); // make Amethyst
-    Config.Recipes.push([Recipe.Gem, "Flawed Topaz"]); // make Topaz
-    Config.Recipes.push([Recipe.Gem, "Flawed Sapphire"]); // make Sapphire
-    Config.Recipes.push([Recipe.Gem, "Flawed Emerald"]); // make Emerald
-    Config.Recipes.push([Recipe.Gem, "Flawed Ruby"]); // make Ruby
-    Config.Recipes.push([Recipe.Gem, "Flawed Diamond"]); // make Diamond
-    Config.Recipes.push([Recipe.Gem, "Flawed Skull"]); // make Skull
+		Config.Recipes.push([Recipe.Gem, "Flawed Amethyst"]); // make Amethyst
+		Config.Recipes.push([Recipe.Gem, "Flawed Topaz"]); // make Topaz
+		Config.Recipes.push([Recipe.Gem, "Flawed Sapphire"]); // make Sapphire
+		Config.Recipes.push([Recipe.Gem, "Flawed Emerald"]); // make Emerald
+		Config.Recipes.push([Recipe.Gem, "Flawed Ruby"]); // make Ruby
+		Config.Recipes.push([Recipe.Gem, "Flawed Diamond"]); // make Diamond
+		Config.Recipes.push([Recipe.Gem, "Flawed Skull"]); // make Skull
  
-    Config.Recipes.push([Recipe.Gem, "Amethyst"]); // make Flawless Amethyst
-    Config.Recipes.push([Recipe.Gem, "Topaz"]); // make Flawless Topaz
-    Config.Recipes.push([Recipe.Gem, "Sapphire"]); // make Flawless Sapphire
-    Config.Recipes.push([Recipe.Gem, "Emerald"]); // make Flawless Emerald
-    Config.Recipes.push([Recipe.Gem, "Ruby"]); // make Flawless Ruby
-    Config.Recipes.push([Recipe.Gem, "Diamond"]); // make Flawless Diamond
-    Config.Recipes.push([Recipe.Gem, "Skull"]); // make Flawless Skull
+		Config.Recipes.push([Recipe.Gem, "Amethyst"]); // make Flawless Amethyst
+		Config.Recipes.push([Recipe.Gem, "Topaz"]); // make Flawless Topaz
+		Config.Recipes.push([Recipe.Gem, "Sapphire"]); // make Flawless Sapphire
+		Config.Recipes.push([Recipe.Gem, "Emerald"]); // make Flawless Emerald
+		Config.Recipes.push([Recipe.Gem, "Ruby"]); // make Flawless Ruby
+		Config.Recipes.push([Recipe.Gem, "Diamond"]); // make Flawless Diamond
+		Config.Recipes.push([Recipe.Gem, "Skull"]); // make Flawless Skull
 
-    Config.Recipes.push([Recipe.Gem, "Flawless Amethyst"]); // make Perfect Amethyst
-    Config.Recipes.push([Recipe.Gem, "Flawless Topaz"]); // make Perfect Topaz
-    Config.Recipes.push([Recipe.Gem, "Flawless Sapphire"]); // make Perfect Sapphire
-    Config.Recipes.push([Recipe.Gem, "Flawless Emerald"]); // make Perfect Emerald
-    Config.Recipes.push([Recipe.Gem, "Flawless Ruby"]); // make Perfect Ruby
-    Config.Recipes.push([Recipe.Gem, "Flawless Diamond"]); // make Perfect Diamond
-    Config.Recipes.push([Recipe.Gem, "Flawless Skull"]); // make Perfect Skull
-```
+		Config.Recipes.push([Recipe.Gem, "Flawless Amethyst"]); // make Perfect Amethyst
+		Config.Recipes.push([Recipe.Gem, "Flawless Topaz"]); // make Perfect Topaz
+		Config.Recipes.push([Recipe.Gem, "Flawless Sapphire"]); // make Perfect Sapphire
+		Config.Recipes.push([Recipe.Gem, "Flawless Emerald"]); // make Perfect Emerald
+		Config.Recipes.push([Recipe.Gem, "Flawless Ruby"]); // make Perfect Ruby
+		Config.Recipes.push([Recipe.Gem, "Flawless Diamond"]); // make Perfect Diamond
+		Config.Recipes.push([Recipe.Gem, "Flawless Skull"]); // make Perfect Skull
+	```
 
-* if picking a lot of gems will highly increase the number of the lines in d2bs manager item log tab
-see the next section
+* if picking a lot of gems will highly increase the number of the lines in d2bs manager item log tab, check the proper settings in the **// Manager Item Log Screen** section from character config file
 
 
 ## picking and selling junk items
@@ -458,19 +456,19 @@ see the next section
 * if total gold is less than Config.LowGold value pick up anything worth 10 gold per square to sell in town.
 
 * you should add in the char configuration file:
-```javascript
-    Config.LowGold = 200000 // any low item with 10 gold per square will be picked and sold to NPC until me.gold < Config.LowGold
-```
+	```javascript
+		Config.LowGold = 200000 // any low item with 10 gold per square will be picked and sold to NPC until me.gold < Config.LowGold
+	```
 that variable is already defined in Config.js (line 138, where it is set to 0), and it is used in Pickit.js(line 64) and Town.js(line 526)
 
 * some items are ignored, but if you wanna pick everything, remove this part from default line 64 in Pickit.js:
-```javascript
-&& Town.ignoredItemTypes.indexOf(unit.itemType) === -1 
-```
+	```javascript
+	&& Town.ignoredItemTypes.indexOf(unit.itemType) === -1 
+	```
 otherwise you can only comment the desired line from Town.js like line 54, which is responsible of ignoring [throwing potions](http://classic.battle.net/diablo2exp/items/potions.shtml)
-```javascript
-		//38, // Missile Potion
-```
+	```javascript
+			//38, // Missile Potion
+	```
 
 ## Diabase & D2BS
 @Ned added some changes to Diabase to work with D2BS
@@ -482,43 +480,43 @@ otherwise you can only comment the desired line from Town.js like line 54, which
 ## silencing the scripts
 **me.overhead** command in d2bs is displayed only on client side, like the **print** command, too. Nobody in the same game cannot see those messages. Those are different than server chat messages starting with **!** symbol.
 
-1. if you are worried about server chat filter, you can set[Local Chat](#local-chat) true and mode 1 or 2. This is enough to get those messages only on local client.
+1. if you are worried about server chat filter, you can set[Local Chat](#local-chat) true and mode 1 or 2. Setting mode 2 is enough to get all chat messages only on local client.
 2. if you don't wanna see any messages overhead, use notepad++ find and remove the text between quotes -> you'll get smth like:
-```
-me.overhead("");
-```
+	```
+	me.overhead("");
+	```
 3. if you don't wanna see any chat messages:
 	* check the config file and remove text between quotes -> you'll get smth like:
-	```
-	Config.  ... = "";
-	```
+		```
+		Config.  ... = "";
+		```
 	* and also check the Boss/Area script and remove the text between quotes in the line with **say("anytext");** -> so you'll get smth like:
-	```
-	say("");
-	```
+		```
+		say("");
+		```
 
 4. if you insist to silent your scripts, the easier option (@nag0k choice) is to add a function in ...\kolbot\default.dbj after line 92, which will change **say** into **me.overhead** or **print**:
-```javascript
-   this.say = function (string) {
-       me.overhead(string);
-   };
-```
-```javascript
-   this.say = function (string) {
-       print(string);
-   };
-```
+	```javascript
+	this.say = function (string) {
+		me.overhead(string);
+	};
+	```
+	```javascript
+	this.say = function (string) {
+		print(string);
+	};
+	```
 
 5. other method:
-* for silencing Baal.js, look to SVN line 196
-```javascript
-       say(string);
-```
-* comment this line adding // before say, or change say into print
-* do the same with lines 214 and 220, for the cases of dolls and souls.
-* in char configuration file you can remove the text between quotes "" , lines 85-88, 114-116, 220-223.
-* in Config.js you can remove the text between quotes in lines 344-346, and for Diablo 376-381
-* use np++ Find in Files looking for **say(** in whole d2bs folder. Then manually edit those results, changing them to (choose one):
-	* **print(** - print on screen only
-	* **me.overhead(** - a message displayed above bot head, but it's visible only for that char, not a battle.net chat.
-```
+	* for silencing Baal.js, look to SVN line 196
+		```javascript
+			say(string);
+		```
+	* comment this line adding // before say, or change say into print
+	* do the same with lines 214 and 220, for the cases of dolls and souls.
+	* in char configuration file you can remove the text between quotes "" , lines 85-88, 114-116, 220-223.
+	* in Config.js you can remove the text between quotes in lines 344-346, and for Diablo 376-381
+	* use np++ Find in Files looking for **say(** in whole d2bs folder. Then manually edit those results, changing them to (choose one):
+		* **print(** - print on screen only
+		* **me.overhead(** - a message displayed above bot head, but it's visible only for that char, not a battle.net chat.
+
