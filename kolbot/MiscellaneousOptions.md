@@ -480,15 +480,36 @@ otherwise you can only comment the desired line from Town.js like line 54, which
 * you have the option to not use the Diabase function which overwrite the files, using Utilities > Verify logging files, and it's enough to replace the default libs\MuleLogger.js with https://pastebin.com/5AkYLwNU - which will create the both log files for the default D2BS Char Viewer (in mules\realm\account) and Diabase(in MuleInventory\).
 
 ## silencing the scripts
-1. take a look to [local chat](#local-chat) section
-2. if you insist to silent your scripts, the easier option (@nag0k choice) is to add a function in ...\kolbot\default.dbj after line 92:
+**me.overhead** command in d2bs is displayed only on client side, like the **print** command, too. Nobody in the same game cannot see those messages. Those are different than server chat messages starting with **!** symbol.
+
+1. if you are worried about server chat filter, you can set[Local Chat](#local-chat) true and mode 1 or 2. This is enough to get those messages only on local client.
+2. if you don't wanna see any messages overhead, use notepad++ find and remove the text between quotes -> you'll get smth like:
+```
+me.overhead("");
+```
+3. if you don't wanna see any chat messages:
+	* check the config file and remove text between quotes -> you'll get smth like:
+	```
+	Config.  ... = "";
+	```
+	* and also check the Boss/Area script and remove the text between quotes in the line with **say("anytext");** -> so you'll get smth like:
+	```
+	say("");
+	```
+
+4. if you insist to silent your scripts, the easier option (@nag0k choice) is to add a function in ...\kolbot\default.dbj after line 92, which will change **say** into **me.overhead** or **print**:
 ```javascript
    this.say = function (string) {
        me.overhead(string);
    };
 ```
+```javascript
+   this.say = function (string) {
+       print(string);
+   };
+```
 
-3. other method:
+5. other method:
 * for silencing Baal.js, look to SVN line 196
 ```javascript
        say(string);
@@ -497,8 +518,7 @@ otherwise you can only comment the desired line from Town.js like line 54, which
 * do the same with lines 214 and 220, for the cases of dolls and souls.
 * in char configuration file you can remove the text between quotes "" , lines 85-88, 114-116, 220-223.
 * in Config.js you can remove the text between quotes in lines 344-346, and for Diablo 376-381
-* use np++ Find in Files looking for say( in whole d2bs folder. Then manually edit those results, changing them to (choose one):
-```javascript
-	print( - print on screen only
-	me.overhead( - a message displayed above bot head, but it's visible only for that char, not a battle.net chat.
+* use np++ Find in Files looking for **say(** in whole d2bs folder. Then manually edit those results, changing them to (choose one):
+	* **print(** - print on screen only
+	* **me.overhead(** - a message displayed above bot head, but it's visible only for that char, not a battle.net chat.
 ```
