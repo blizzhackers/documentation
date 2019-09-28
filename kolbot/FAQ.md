@@ -24,7 +24,7 @@
 * [d2bs sandboxed](#d2bs-sandboxed)
 * [D2BS is not responding ... starting profile](#d2bs-is-not-responding--starting-profile)
 * [window has unexpectedly exited... starting profile](#window-has-unexpectedly-exited-starting-profile)
-* [you were disconnected from battle.net](#you-were-disconnected-from-battle.net)
+* [you were disconnected from d2 server](#you-were-disconnected-from-d2-server)
 * [how can I stop the bot in game, in case of error](#how-can-i-stop-the-bot-in-game-in-case-of-error)
 * [the login button is gray](#the-login-button-is-gray)
 * [I cannot change account](#I-cannot-change-account)
@@ -45,7 +45,7 @@
 * click Open and browse to C:\Windows\System32\drivers\etc\
 * choose to see All files in the drop-down list
 * open hosts file
-* add the line corresponding to your battle.net server
+* add the line corresponding to your d2 server
 ```
 	199.108.55.57 useast.battle.net
 	12.129.236.17 uswest.battle.net
@@ -89,7 +89,7 @@ check [download guide](https://github.com/blizzhackers/documentation/tree/master
 
 ### leeching from the same account
 1. **Q:** leeching from the same account.
-2. **A:** leeching from same account isn't supported, and it's a bad idea. You cannot have 2 characters from the same account in the same time in lobby on battle.net.
+2. **A:** leeching from same account isn't supported, and it's a bad idea. You cannot have in the same time 2 characters from the same account on d2 server lobby screen.
 
 ### how to add own script
 1. **Q:** I want to run my own script.
@@ -156,8 +156,8 @@ check [download guide](https://github.com/blizzhackers/documentation/tree/master
 * https://stackoverflow.com/questions/14949904/what-do-i-do-when-my-program-crashes-with-exception-0xc0000005-at-address-0
 * http://www.errorlive.com/exception-code-0xc0000005
 
-### you were disconnected from battle.net
-1. **Q:** I get all the time d2 error when it's opened by D2BS: "You were disconnected from battle.net. Please reconnect" 
+### you were disconnected from d2 server
+1. **Q:** I get all the time d2 error when it's opened by D2BS: "You were disconnected from d2 server. Please reconnect" 
 2. **A:** clone your profile, and in the Key List field of cloned profile set none, and the default (installation) keyset will be loaded. Set properly your [d2bs Keylist](https://github.com/blizzhackers/documentation/tree/master/d2bot/Keylist.md).
 
 ### how can I stop the bot in game, in case of error

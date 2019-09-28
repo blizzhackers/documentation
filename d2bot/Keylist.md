@@ -20,7 +20,7 @@
 ---
 
 ## info
-Since 14th Aug 2018 patch you cannot use the keys with 16 alphanumeric strings on battle.net, until you register and claim them on battle.net account, getting the converted 26 strings. https://us.battle.net/account/management/claim-code.html
+Since 14th Aug 2018 patch you cannot use the keys with 16 alphanumeric strings on d2 server, until you register and [claim them on d2 server account](https://us.battle.net/account/management/claim-code.html), getting the converted 26 strings. 
 
 ## keylist creation
 ![keylist1](assets/d2bot-keylist1.jpg)
@@ -68,7 +68,7 @@ case of loader keys in a set list, **set1** including key1.mpq, key2.mpq, key3.m
 
 ### creating loader keys
 
-Since June 2017 the key switching/swapping not help you at all in battle.net counting. So it's ok to use only 1 cdkeyset/bot.
+Since June 2017 the key switching/swapping not help you at all in d2 server counting. So it's ok to use only 1 cdkeyset/bot.
 
 * download https://github.com/mf022/D2LoD-files/tree/master/D2LoD-key-utilities.
 * read ...\loaderkey-creator\loaderkey-creator-Readme.txt.

@@ -18,6 +18,7 @@
 * [staggered delays for creating games](#staggered-delays-for-creating-games)
 * [opening all chests](#opening-all-chests)
 * [silenced Follower](#silenced-Follower)
+* [LifeChicken restart profile](#lifechicken-restart-profile)
 * [use Cain and sell items](#use-Cain-and-sell-items)
 * [inventory full](#inventory-full)
 * [cubing all kind of gems](#cubing-all-kind-of-gems)
@@ -66,7 +67,7 @@
 * you can post the results on discord [#testing channel](https://discordapp.com/channels/430522386253611018/430534815549358080)
 
 ## modded BattleOrders.js
-* reason = the default script was programmed to do only a single BOgive - BOget at the beggining of the game. Maybe it wasn't necessary a 2nd one, because games were shorter in those battle.net times without a lot of restrictions, which were applied in the meantime.
+* reason = the default script was programmed to do only a single BOgive - BOget at the beggining of the game. Maybe it wasn't necessary a 2nd one, because games were shorter in those d2 server times without a lot of restrictions, which were applied in the meantime.
 
 * by [@nag0k](https://github.com/nag0k) - https://pastebin.com/JTmWbqLf - replace the default ...\libs\bots\BattleOrders.js
 * barbarian will go to the waypoint of your choosing and bo anyone that is nearby if they have bo or not. It will go back to town if monsters come close to the boer. It will go back to town and visit a healer NPC if it's mana gets below a set percentage then return to continue giving bo.
@@ -112,7 +113,7 @@
 * and complete the same list on every char config that you will add in your team game, including all charnames.
     Config.MyOwnParty = ["MyPlayer1", "MyPlayer2", "MyPlayer3", "MyPlayer4"];
 
-* in ... \tools\Party.js add after SVN line 141 the case 4 (for entire Party.js script, check [next chapter](#hardcore-loot-corpses) pastebins)
+* in ... \tools\Party.js add after [default SVN line 143](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/tools/Party.js#L143) the case 4 (for entire Party.js script, check [next chapter](#hardcore-loot-corpses) pastebins)
 ```javascript
                     case 4: // MyOwnParty
                         if (Config.MyOwnParty.length > 0) {
@@ -172,7 +173,7 @@
 * try to have Holy Shield at max points, and hdin Smite dmg will be around 1.8-2 k physical dmg with concentration aura, which will increase also the mercenary's dmg.
 
 ## staggered delays for creating games
-* For running more solo bots(game creators) you should bypass the 2 min battle.net restriction for consecutive creation of games/same IP.
+* For running more solo bots(game creators) you should bypass the 2 min d2 server restriction for consecutive creation of games/same IP.
 
 * Note: apply it only if you run more game creator bots, and test first without it, someone on discord is saying that it isn't required the staggering like in the previous ladder season.
 
@@ -202,7 +203,7 @@
 
 ## silenced Follower
 * reason = to avoid the muting of keys. 
-* thanks to [@noah-](https://github.com/noah-), if you set the LocalChat on mode 2, you should no worry about battle.net chat.
+* thanks to [@noah-](https://github.com/noah-), if you set the LocalChat on mode 2, you should no worry about d2 server chat.
 
 * the default script ...\d2bs\kolbot\libs\bots\Follower.js is a wonderful written script, but it was working only by using chat commands to move to leader position, take portals, ...
 * also the follower reporting have to be silenced changing say( with print( or me.overhead (server side function of d2bs, other players don't see that).
@@ -210,28 +211,46 @@
 
 * https://pastebin.com/LnXCQ3ES - copy and paste the text, replacing the content of ...\bots\Follower.js. 
 
+## LifeChicken restart profile
+* by default LifeChicken will exit game
+* if you wanna close d2 window (like the d2nt method) instead exiting game, you should think about restarting the current d2bot profile:
+
+	* add in Config.js after https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/common/Config.js#L117 :
+	```javascript
+		LifeChickenRestart: false,
+	```
+
+	* add in char config file:
+	```javascript
+		Config.LifeChickenRestart = true; // Restart profile if LifeChicken is activated
+	```
+
+	* in ToolsThread.js replace https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/tools/ToolsThread.js#L564 with:
+	```javascript
+						Config.LifeChickenRestart ? D2Bot.restart(true) : this.exit();
+	```
+
 ## use Cain and sell items
 * By default the identifying items on Cain will end with dropping the unwanted items. That was the reason to add a variable with minimum gold, just under the enabling ID at Cain.
-* [@noah-](https://github.com/noah-) argued that identifying on other npc is faster, but it isn't matter some seconds in these days on battle.net.
-old Etal users may used it.
+* [@noah-](https://github.com/noah-) argued that identifying on other npc is faster, but it isn't matter some seconds in these days on d2 server, and maybe old Etal users will use it.
 
-* look for SVN lines 716-720 from ...\d2bs\kolbot\libs\common\Town.js
-```javascript
-                case 0:
-                    Misc.itemLogger("Dropped", unids[i], "cainID");
-                    unids[i].drop();
-
-                    break;
-```
-* change them into:
-```javascript
-                case 0:
-                    Misc.itemLogger("Dropped", unids[i], "cainID");
-                    this.initNPC("Shop", "clearInventory");
-                    unids[i].sell();
-
-                    break;
-```
+* look in ...\d2bs\kolbot\libs\common\Town.js for [SVN lines 711-715](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/common/Town.js#L711-L715) :
+	```javascript
+					case 0:
+						Misc.itemLogger("Dropped", unids[i], "cainID");
+						unids[i].drop();
+	
+						break;
+	```
+* and change them into:
+	```javascript
+					case 0:
+						Misc.itemLogger("Dropped", unids[i], "cainID");
+						this.initNPC("Shop", "clearInventory");
+						unids[i].sell();
+	
+						break;
+	```
 * set a lower gold limit on char for using Cain, like 100.000 or 0.
 
 ## inventory full
@@ -281,8 +300,9 @@ old Etal users may used it.
 	[name] == perfecttopaz
 	[name] == perfectskull
 	```
-* in ...\kolbot\libs\common\Cubing.js after SVN line 667 add these lines:
+* in ...\kolbot\libs\common\Cubing.js after [SVN line 667](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/common/Cubing.js#L667) add these lines:
 ```javascript
+
                 // flawless gems
                 // Make flawless amethyst
                 if (this.subRecipes.indexOf(560) === -1 && (this.recipes[i].Ingredients[j] === 560 || (this.recipes[i].Ingredients[j] === "lgem" && this.gemList.indexOf(560) > -1))) {
@@ -465,7 +485,7 @@ that variable is already defined in Config.js (line 138, where it is set to 0), 
 	```javascript
 	&& Town.ignoredItemTypes.indexOf(unit.itemType) === -1 
 	```
-otherwise you can only comment the desired line from Town.js like line 54, which is responsible of ignoring [throwing potions](http://classic.battle.net/diablo2exp/items/potions.shtml)
+otherwise you can only comment the desired line from Town.js like line 54, which is responsible of ignoring [throwing potions](http://classic.d2 server/diablo2exp/items/potions.shtml)
 	```javascript
 			//38, // Missile Potion
 	```
@@ -481,7 +501,7 @@ otherwise you can only comment the desired line from Town.js like line 54, which
 **me.overhead** command in d2bs is displayed only on client side, like the **print** command, too. Nobody in the same game cannot see those messages. Those are different than server chat messages starting with **!** symbol.
 Some of d2bot-with-kolbot scripts aren't silenced by default, and in some cases like MFTeam, SealLeader/Leecher, Follower.js, a.s.o.  the functionality is made through chat expressions.
 
-1. if you are worried about server chat filter, you can set [Local Chat](#local-chat) true and mode 1 or 2. Setting mode 1 in the case of MFTeam or SealLeader/Leecher, or mode 2 in the case of Followers.js is enough to get all chat messages only on local client.
+1. **if you are worried about server chat filter**, you can **set** [**Local Chat**](#local-chat) **true** and **mode 1** or **2**. Setting mode 1 in the case of MFTeam or SealLeader/Leecher, or mode 2 in the case of Followers.js is all you have to do to get all chat messages only on local client(d2 window).
 
 2. if you don't wanna see any messages overhead, use notepad++ find and remove the text between quotes -> you'll get smth like:
 	```
@@ -511,15 +531,15 @@ Some of d2bot-with-kolbot scripts aren't silenced by default, and in some cases 
 	```
 
 5. other method:
-	* for silencing Baal.js, look to SVN line 196
+	* for silencing Baal.js, look for [SVN line 196](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/bots/Baal.js#L196)
 		```javascript
 			say(string);
 		```
-	* comment this line adding // before say, or change say into print
-	* do the same with lines 214 and 220, for the cases of dolls and souls.
+	* comment this line adding **//** before say, or change **say** into **print**
+	* do the same with lines [214](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/bots/Baal.js#L214) and [220](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/bots/Baal.js#L220), for the cases of dolls and souls.
 	* in char configuration file you can remove the text between quotes "" , lines 85-88, 114-116, 220-223.
 	* in Config.js you can remove the text between quotes in lines 344-346, and for Diablo 376-381
 	* use np++ Find in Files looking for **say(** in whole d2bs folder. Then manually edit those results, changing them to (choose one):
 		* **print(** - print on screen only
-		* **me.overhead(** - a message displayed above bot head, but it's visible only for that char, not a battle.net chat.
+		* **me.overhead(** - a message displayed above bot head, but it's visible only for that char, and not in a d2 server chat.
 
