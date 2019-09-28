@@ -10,13 +10,28 @@
 
 * [Info](#info)
 * [Game Creator](#game-creator)
+	* [create/edit the profile](#createedit-the-profile)
+	* [randomize the timers](#randomize-the-timers)
 * [Joining Games](#joining-games)
-* [Using Followers](#using-followers)
+	* [D2BotFollow](#d2botfollow)
+		* [the joiners profiles](#the-joiners-profiles)
+		* [randomize the timers](#randomize-the-timers-1)
+		* [edit the joining info](#edit-the-joining-info)		
+	* [D2BotChannel](#d2botchannel)
+* [Team Games](#team-games)
+	* [using MFTeam](#using-mfteam)
+		* [MFLeader](#mfleader)
+		* [MFHelper](#mfhelper)
+		* [silenced MFTeam](#silenced-mfteam)
+	* [using Followers](#using-followers)
+	* [followers exit delays](#followers-exit-delays)
+	* [dia-baal teams](#dia-baal-teams)
 
 ---
 
 ### info
 [d2bs](https://github.com/kolton/d2bot-with-kolbot) allows multi-botting.
+
 
 ## game creator
 *D2BotLead is the starter script that you will use to create games. It can announce games in channels when used for public runs. You have to set D2BotLead for your profile as a entry script. Now edit starter with notepad++. First part of starter is self-explanatory. 
@@ -58,6 +73,7 @@ var StarterConfig = {
 * if you don't wanna join a chat channel, you don't have to edit anything more.
 * the game creator can be also a manual played char, see [d2bs manual play](https://github.com/documentation/kolbot/ManualPlay.md/#manual-playing) page.
 
+
 ## joining games
 [Kolbot Leecher config](https://github.com/kolton/d2bot-with-kolbot/wiki/Kolbot-Leecher-Starter)
 There are two different starter scripts for joining games:
@@ -68,7 +84,7 @@ There are two different starter scripts for joining games:
 
 ### D2BotFollow
 * joining chat channel isn't needed.
-* the game name & password is shared through d2bs locally.
+* the game name & password are shared locally through d2bs.
 
 ##### the joiners profiles
 
@@ -102,6 +118,7 @@ use np++ to edit D2BotFollow.js and complete the JoinSettings and AdvancedConfig
 
 ![D2BotFollow](https://github.com/blizzhackers/documentation/blob/master/kolbot/assets/kolbot-multibotD2BotFollow.png)
 
+
 ### D2BotChannel
 * main [guide](https://github.com/kolton/d2bot-with-kolbot/wiki/Kolbot-Leecher-Starter#2-d2botchannel-is-used-to-join-games-from-both-channel-announcements-and-friend-list-announcements-that-means-that-you-can-use-this-starter-when-want-to-join-games-that-are-runned-on-other-computer-in-this-example-we-will-join-channel-kolbot-and-our-first-message-will-be-im-from-other-dimension)
 * edit [D2BotChannel.dbj](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/D2BotChannel.dbj) with the required settings
@@ -114,6 +131,7 @@ you have to complete these fields for your leechers/helpers/followers
 	Config.Leader = "xXxX"; // Leader's ingame character name.
 	Config.QuitList = ["xXxX"]; // List of character names to quit with.
 ```
+
 
 ### using MFTeam
 * script allows multiple characters to do the same boss/area runs in sync.
@@ -163,6 +181,41 @@ check the [local chat](https://github.com/blizzhackers/documentation/blob/master
 ```
 * Follower.js is using chat commands like: 1, 2, wp, bo, ...
 * for a modded silenced follower, see [silenced Follower](https://github.com/mf022/d2bs/wiki/Misc_options#silenced-follower)
+
+### followers exit delays
+
+To avoid issues like "Please Wait" when you quit the game with all chars at the same time, you should set diferent delays for followers to exit game
+
+1. for quiting using **Config.QuitList** set in char config, you could try to find default lines 424-430 from ToolsThread.js and to add a delay line (eg. with random delay 5-30 seconds)
+```javascript
+		case 0x03: // "%Name1(%Name2) left our world. Diablo's minions weaken."
+			if ((typeof Config.QuitList === "string" && Config.QuitList.toLowerCase() === "any") ||
+					(Config.QuitList instanceof Array && Config.QuitList.indexOf(name1) > -1)) {
+				print(name1 + (mode === 0 ? " timed out" : " left"));
+
+				delay(rand(5, 30) * 1000);
+				quitFlag = true;
+			}
+```
+
+2. For using the quiting from Follower.js you should edit that file on default lines 506-510 and add a delay line
+```javascript
+			case "quit":
+			case me.name + " quit":
+				delay(rand(5, 30) * 1000);
+				quit();
+
+				break;
+```
+
+3. maybe you can set different delays using the name of the profiles that you set in manager, something like
+```javascript
+				if (me.profile == "leecher1") { delay(rand(5, 9) * 1000); }
+				if (me.profile == "leecher2") { delay(rand(10, 14) * 1000); }
+				if (me.profile == "leecher3") { delay(rand(15, 19) * 1000); }
+				if (me.profile == "leecher4") { delay(rand(20, 24) * 1000); }
+...
+```
 
 ### dia-baal teams
 * leader and leechers can have other scripts activated before Diablo, or Baal, in the same areas using MFTeam, or separated areas on their own.
