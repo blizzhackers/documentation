@@ -479,12 +479,15 @@ otherwise you can only comment the desired line from Town.js like line 54, which
 
 ## silencing the scripts
 **me.overhead** command in d2bs is displayed only on client side, like the **print** command, too. Nobody in the same game cannot see those messages. Those are different than server chat messages starting with **!** symbol.
+Some of d2bot-with-kolbot scripts aren't silenced by default, and in some cases like MFTeam, SealLeader/Leecher, Follower.js, a.s.o.  the functionality is made through chat expressions.
 
-1. if you are worried about server chat filter, you can set[Local Chat](#local-chat) true and mode 1 or 2. Setting mode 2 is enough to get all chat messages only on local client.
+1. if you are worried about server chat filter, you can set [Local Chat](#local-chat) true and mode 1 or 2. Setting mode 1 in the case of MFTeam or SealLeader/Leecher, or mode 2 in the case of Followers.js is enough to get all chat messages only on local client.
+
 2. if you don't wanna see any messages overhead, use notepad++ find and remove the text between quotes -> you'll get smth like:
 	```
 	me.overhead("");
 	```
+	
 3. if you don't wanna see any chat messages:
 	* check the config file and remove text between quotes -> you'll get smth like:
 		```
