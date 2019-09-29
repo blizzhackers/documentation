@@ -227,7 +227,7 @@
 
 	* in ToolsThread.js replace https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/tools/ToolsThread.js#L564 with:
 	```javascript
-						Config.LifeChickenRestart ? D2Bot.restart(true) : this.exit();
+						Config.LifeChickenRestart ? D2Bot.restart() : this.exit();
 	```
 
 ## use Cain and sell items
