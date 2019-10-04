@@ -186,14 +186,14 @@ check the [local chat](https://github.com/blizzhackers/documentation/blob/master
 
 To avoid issues like "Please Wait" when you quit the game with all chars at the same time, you should set diferent delays for followers to exit game
 
-1. for quiting using **Config.QuitList** set in char config, you could try to find default lines 424-430 from ToolsThread.js and to add a delay line (eg. with random delay 5-30 seconds)
+1. for quiting using **Config.QuitList** set in char config, you could try to find default lines [424-430 from ToolsThread.js](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/tools/ToolsThread.js#L424-L430) and to add a delay line (eg. with random delay 5-30 seconds)
 ```javascript
 		case 0x03: // "%Name1(%Name2) left our world. Diablo's minions weaken."
 			if ((typeof Config.QuitList === "string" && Config.QuitList.toLowerCase() === "any") ||
 					(Config.QuitList instanceof Array && Config.QuitList.indexOf(name1) > -1)) {
 				print(name1 + (mode === 0 ? " timed out" : " left"));
 
-				delay(rand(5, 30) * 1000);
+				delay(rand(5e3, 3e4));
 				quitFlag = true;
 			}
 ```
