@@ -12,6 +12,7 @@
 * [updated Autosmurf](#updated-Autosmurf)
 * [Autochaos](#Autochaos)
 * [modded BattleOrders.js](#modded-BattleOrdersjs)
+* [walking char](#walking-char)
 * [how to define your own party](#how-to-define-your-own-party)
 * [hardcore loot corpses](#hardcore-loot-corpses)
 * [Baal.js with adds for hdin on wave 2](#Baaljs-with-adds-for-hdin-on-wave-2)
@@ -96,6 +97,29 @@
 			Pather.moveTo(me.x + 5, me.y + 5);
 			delay(3000);
 		```
+
+## walking char
+
+* you can add a variable in the char config ([maybe ~ line24](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/config/Sorceress.js#L24), just after BattleOrders section), like:
+	```javascript
+	
+		Config.WalkingChar = true
+	
+	```
+
+* in [Config.js line 277](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/common/Config.js#L277) add
+	```
+		WalkingChar: false,
+
+	``` 
+	this is the default option if you don't have it in char config and prevent other errors.
+
+* finally, add it in the line https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/common/Pather.js#L121 , so you'll get smth like 
+	```javascript
+        return this.teleport && !me.getState(139) && !me.getState(140) && !me.inTown && !Config.WalkingChar && ((me.classid === 1 && me.getSkill(54, 1)) || me.getStat(97, 54));
+	```
+	if that **Config.WalkingChar = true** in the char config, the result should be **teleport = false**
+
 
 ## how to define your own party
 * It is a public mode when your players invite and accept other players invites, only if their names are in your previously configured MyOwnParty list
