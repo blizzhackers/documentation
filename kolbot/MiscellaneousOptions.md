@@ -103,7 +103,7 @@
 * you can add a variable in the char config ([maybe ~ line24](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/config/Sorceress.js#L24), just after BattleOrders section), like:
 	```javascript
 	
-		Config.WalkingChar = true
+		Config.WalkingChar = true;
 	
 	```
 
