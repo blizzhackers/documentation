@@ -118,7 +118,7 @@
 	```javascript
         return this.teleport && !me.getState(139) && !me.getState(140) && !me.inTown && !Config.WalkingChar && ((me.classid === 1 && me.getSkill(54, 1)) || me.getStat(97, 54));
 	```
-	if that **Config.WalkingChar = true** in the char config, the result should be **teleport = false**
+	if that **Config.WalkingChar = true** in the char config, the result should be **use.teleport = false**
 
 
 ## how to define your own party
@@ -230,8 +230,9 @@
 * thanks to [@noah-](https://github.com/noah-), if you set the LocalChat on mode 2, you should no worry about d2 server chat.
 
 * the default script ...\d2bs\kolbot\libs\bots\Follower.js is a wonderful written script, but it was working only by using chat commands to move to leader position, take portals, ...
-* also the follower reporting have to be silenced changing say( with print( or me.overhead (server side function of d2bs, other players don't see that).
-* by default, the follower is doing town activities only with command, and this can be changed to be done at the start of the game and just after every leader move in town. Cain can be used to identify items, but before setting that check the section related, below.
+
+* without the LocalChat active in mode 2, the follower reporting have to be silenced changing **say(** with **print(** or me.overhead (server side function of d2bs, other players don't see that).
+* the default Follower.js has set town activities only with command, and in the case of silenced it was changed to do town activities at the start of the game and just after every leader move in town. Cain can be used to identify items, but before setting that check the [section related](#use-cain-and-sell-items), below.
 
 * https://pastebin.com/LnXCQ3ES - copy and paste the text, replacing the content of ...\bots\Follower.js. 
 
