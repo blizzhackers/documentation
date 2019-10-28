@@ -120,21 +120,19 @@ check [download guide](https://github.com/blizzhackers/documentation/tree/master
 
 * check install guide (VC++ 2005, 2008, 2010 and .NET Framework 3.5, 4 or higher installed) see https://github.com/blizzhackers/documentation/blob/master/d2bot/ManagerSetup.md/#install-dependencies
 
-* if you have TeamViewer installed and you have **<->** icon. click ok it and disable.
 * you can get this error and several crashes when there are differences between ...\d2bs\d2bs.ini and ...\data\profile.json. When the manager correct the errors that profile will start just fine.
 
+previous versions of d2bs released before the current with utf-8 encoding had other issues like:
+* if you have TeamViewer installed and you have **<->** icon. click ok it and disable.
 * check if the parent folders of D2BS should not have special character like accents in their names (if d2bs folder it's located on Desktop, maybe the username have them). Move the d2bs folder to root of drive C:\, D:\ . Place on desktop only the shortcut to D2Bot.exe.
-* increase the value of this variable from starter script
-```
-	CrashDelay: 5, // Seconds to wait after a d2 window crash
-```
 
 ### window has unexpectedly exited... starting profile
 1. **Q:** I see on d2bs console "Window has unexpectedly exited... starting profile" when I start a profile
 2. **A:** you must run Diablo II windowed (-w parameter) on windows 8 or 10, otherwise the d2 game will crash.
+* check your Diablo II folder. It should have the 1.14d patch, Try to connect directly on d2 server using a shortcut to Diablo.exe with -w parameter. If your d2 folder it's ok, you should have no issues to connect manually on the d2 server.
 * remove the "-3dfx" parameter from the profile, maybe it's causing the d2 crash (the crash is when enter in the game with glide activated).
 * recheck your starter script, use [Esprima: Syntax Validator](http://esprima.org/demo/validate.html) if you edited that.
-* if it's the first run and you get this issue, you can try to move your Diablo II folder, and update the d2bs profile with
+* if it's the first run and you get this issue, you can try to move your Diablo II folder, and update the d2bs profile with that path
 ```
 	D2BS is not responding... starting profile
 	Crash Info: Script: none Area: out of game
