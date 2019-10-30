@@ -25,6 +25,7 @@
 * [D2BS is not responding ... starting profile](#d2bs-is-not-responding--starting-profile)
 * [window has unexpectedly exited... starting profile](#window-has-unexpectedly-exited-starting-profile)
 * [you were disconnected from d2 server](#you-were-disconnected-from-d2-server)
+* [game with that name already exists](#game-with-that-name-already-exists)
 * [how can I stop the bot in game, in case of error](#how-can-i-stop-the-bot-in-game-in-case-of-error)
 * [the login button is gray](#the-login-button-is-gray)
 * [I cannot change account](#I-cannot-change-account)
@@ -73,7 +74,7 @@ check [download guide](https://github.com/blizzhackers/documentation/tree/master
 ### how to change the pause button?
 1. **Q:** I don't have numeric keyboard. Where can I change my pause button ??
 2. **A:** you can use this site for new [keys](http://www.cambiaresearch.com/articles/15/javascript-char-codes-key-codes). Now edit tools/toolsthread.js and find this.keyEvent function.
-* check [Hotkeys](https://github.com/blizzhackers/documentation/tree/master/kolbot/Hotkeys.md#changing-the-default-keys)
+* check [Hotkeys guide](https://github.com/blizzhackers/documentation/tree/master/kolbot/Hotkeys.md#changing-the-default-keys)
 
 ### pickit issue
 1. **Q:** I have a problem with my pickit.
@@ -103,8 +104,8 @@ check [download guide](https://github.com/blizzhackers/documentation/tree/master
 2. **A:** you can use them both i.e raw keys and mpq for the same list or profile. - see [d2bs Keylist](https://github.com/blizzhackers/documentation/tree/master/d2bot/Keylist.md)
 
 ### how many bots in one game
-1. **Q:** is it possible to run more bots then 4 in one game?
-2. **A:** yes it is. Since June 2017 are allowed 8 players in the same game, with same IP.
+1. **Q:** is it possible to run more than 4 bots in one game?
+2. **A:** yes it is. Even on d2 main server, since [1 June 2017](https://us.battle.net/forums/en/bnet/topic/20754946455?page=12#post-229) are allowed 8 players in the same game, with same IP.
 
 ### fastmod config
 1. **Q:** fastmod config or packet casting.
@@ -122,13 +123,14 @@ check [download guide](https://github.com/blizzhackers/documentation/tree/master
 
 * you can get this error and several crashes when there are differences between ...\d2bs\d2bs.ini and ...\data\profile.json. When the manager correct the errors that profile will start just fine.
 
-previous versions of d2bs released before the current with utf-8 encoding had other issues like:
-* if you have TeamViewer installed and you have **<->** icon. click ok it and disable.
-* check if the parent folders of D2BS should not have special character like accents in their names (if d2bs folder it's located on Desktop, maybe the username have them). Move the d2bs folder to root of drive C:\, D:\ . Place on desktop only the shortcut to D2Bot.exe.
+* previous versions of d2bs released before the current with utf-8 encoding had other issues like:
+	* if you have TeamViewer installed and you have **<->** icon. click ok it and disable.
+	* check if the parent folders of D2BS should not have special character like accents in their names (if d2bs folder it's located on Desktop, maybe the username have them). Move the d2bs folder to root of drive C:\, D:\ . Place on desktop only the shortcut to D2Bot.exe.
 
 ### window has unexpectedly exited... starting profile
 1. **Q:** I see on d2bs console "Window has unexpectedly exited... starting profile" when I start a profile
 2. **A:** you must run Diablo II windowed (-w parameter) on windows 8 or 10, otherwise the d2 game will crash.
+
 * check your Diablo II folder. It should have the 1.14d patch, Try to connect directly on d2 server using a shortcut to Diablo.exe with -w parameter. If your d2 folder it's ok, you should have no issues to connect manually on the d2 server.
 * remove the "-3dfx" parameter from the profile, maybe it's causing the d2 crash (the crash is when enter in the game with glide activated).
 * recheck your starter script, use [Esprima: Syntax Validator](http://esprima.org/demo/validate.html) if you edited that.
@@ -158,6 +160,10 @@ previous versions of d2bs released before the current with utf-8 encoding had ot
 1. **Q:** I get all the time d2 error when it's opened by D2BS: "You were disconnected from d2 server. Please reconnect" 
 2. **A:** clone your profile, and in the Key List field of cloned profile set none, and the default (installation) keyset will be loaded. Set properly your [d2bs Keylist](https://github.com/blizzhackers/documentation/tree/master/d2bot/Keylist.md).
 
+### game with that name already exists
+1. **Q:** The leader get "Game With That Name Already Exists" on d2 server, but all followers get "the game does not exist" message when they attempt to join.
+2. **A:** Remove the spaces from the name of the game on leader's profile. 
+
 ### how can I stop the bot in game, in case of error
 1. **Q:** the bot enters in the game and I saw some lines indicating errors on the white console layer
 2. **A:** press < HOME > or < ESC > to cancel the console, then press Pause/Break key.
@@ -178,13 +184,11 @@ previous versions of d2bs released before the current with utf-8 encoding had ot
 
 ### how can I reset the game counter
 1. **Q:** the auto reset is set to 999 (ResetCount: 999) in the starter script (D2BotLead.dbj), but how I can reset this manually to start again with 1
-2. **A:** select that profile and R-click it. Choose "Reset Stats".
-if this isn't working, you can try other method: stop bots and close the manager. edit in np++ the profile.json file, changing the values for a several fields with 0
+2. **A:** select that profile and R-click it. Choose "Reset Stats". If this isn't working, you can try other method: stop bots and close the manager. edit in np++ the profile.json file, changing the values for a several fields with 0
 
 ### how do I stop hidden d2 windows?
 1. **Q:** bot crashed but I think that the d2 is still running in the background
-2. **A:** on the manager click Settings > Close Game.exe. You'll get a confirmation message.
-other method is to use windows task manager, and if you are seeing Game.exe, R-click and choose End task
+2. **A:** on the manager click Settings > Close Game.exe. You'll get a confirmation message. Other method is to use windows task manager, and if you are seeing Game.exe, R-click and choose End task
 
 ## support
 * https://github.com/kolton/d2bot-with-kolbot/issues
