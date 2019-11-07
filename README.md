@@ -1,8 +1,15 @@
 # Diablo 2 Botting System (D2BS)
 
+* [d2bs core](#d2bs)
+* [d2bot manager](#d2bot)
+* [kolbot library scripts](#kolbot)
+* [limedrop dropper]{#limedrop)
+* [video guides](#video-guides)
+* [d2bot-with-kolbot history](#d2bs(d2bot-with-kolbot)-history)
+
 ---
 
-[d2bs](d2bs/#d2bs): d2bs core by [view developers](https://app.assembla.com/spaces/d2bs/team)
+### [d2bs](d2bs/#d2bs): d2bs core by [view developers](https://app.assembla.com/spaces/d2bs/team)
 
 * [API Reference](https://github.com/noah-/d2bs/blob/master/README.md)
 * [Current Source](https://github.com/noah-/d2bs)
@@ -10,7 +17,7 @@
 
 ---
 
-[d2bot](d2bot/#d2bot): d2bot manager by [@noah-](https://github.com/noah-)
+### [d2bot](d2bot/#d2bot): d2bot manager by [@noah-](https://github.com/noah-)
 
 * [Download](d2bot/Download.md): how to download files and to keep them updated
 * [Manager Setup](d2bot/ManagerSetup.md/#manager-setup): how to set-up d2bot manager
@@ -19,7 +26,7 @@
 
 ---
 
-[kolbot](kolbot/#kolbot): library scripts by [@kolton](https://github.com/kolton)
+### [kolbot](kolbot/#kolbot): library scripts by [@kolton](https://github.com/kolton)
 
 * [FAQ](kolbot/FAQ.md/#faq)
 * [Character Configuration](kolbot/CharacterConfig.md/#character-configuration)
@@ -33,7 +40,7 @@
 
 ---
 
-[limedrop](limedrop/#limedrop-guide): limedrop dropper by [@noah-](https://github.com/noah-)
+### [limedrop](limedrop/#limedrop-guide): limedrop dropper by [@noah-](https://github.com/noah-)
 
 * [About](limedrop/#about-limedrop)
 * [Setup](limedrop/#setup-limedrop)
@@ -42,7 +49,14 @@
 
 ---
 
-# D2BS(d2bot-with-kolbot) history
+### video guides:
+
+* <https://www.youtube.com/playlist?list=PLsHwtjzVMbwGJr8NS-5GPMthAbVF8iZUM>
+* <https://darcvigilante.site/forumdisplay.php?fid=6>
+
+---
+
+### D2BS(d2bot-with-kolbot) history
 
 * [D2BS Release](https://web.archive.org/web/20170813084150/http://www.blizzhackers.cc/viewforum.php?f=228&sid=923d6d1f4fb72bbe94aa7cb14600e0c1) = d2bs core + [d2bot manager](https://github.com/noah-/d2bs) by [noah-](https://github.com/noah-) aka @D3STROY3R + kolbot library scripts by [@kolton](https://github.com/kolton).
 
