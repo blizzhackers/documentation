@@ -1,11 +1,12 @@
 # Diablo 2 Botting System (D2BS)
 
-* [d2bs core](#d2bs)
-* [d2bot manager](#d2bot)
-* [kolbot library scripts](#kolbot)
-* [limedrop dropper]{#limedrop)
+* [d2bs core](#d2bs-d2bs-core-by-view-developers)
+* [d2bot manager](#d2bot-d2bot-manager-by-noah-)
+* [kolbot library scripts](#kolbot-library-scripts-by-kolton)
+* [limedrop dropper]{#limedrop-limedrop-dropper-by-noah-)
+
 * [video guides](#video-guides)
-* [d2bot-with-kolbot history](#d2bs(d2bot-with-kolbot)-history)
+* [d2bot-with-kolbot history](#d2bsd2bot-with-kolbot-history)
 
 ---
 
