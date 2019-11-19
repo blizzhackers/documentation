@@ -18,7 +18,7 @@
 * [Baal.js with adds for hdin on wave 2](#Baaljs-with-adds-for-hdin-on-wave-2)
 * [staggered delays for creating games](#staggered-delays-for-creating-games)
 * [opening all chests](#opening-all-chests)
-* [open chests only from specific areas](#open-chests-only-from-specific-areas]
+* [open chests only from specific areas](#open-chests-only-from-specific-areas)
 * [silenced Follower](#silenced-Follower)
 * [LifeChicken restart profile](#lifechicken-restart-profile)
 * [use Cain and sell items](#use-Cain-and-sell-items)
@@ -230,7 +230,7 @@
 
 1. in char config you should set:
 ```javascript
-	Config.OpenChests = true;
+	Config.OpenChests = true; // Open chests. Controls key buying.
 ```
 
 2. add in [Misc.js before default line 988](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/common/Misc.js#L988) '    shrineStates: false,'  (and feel free to add any other area where you wanna open chests, using sdk\areas.txt) :
