@@ -18,6 +18,7 @@
 * [Baal.js with adds for hdin on wave 2](#Baaljs-with-adds-for-hdin-on-wave-2)
 * [staggered delays for creating games](#staggered-delays-for-creating-games)
 * [opening all chests](#opening-all-chests)
+* [open chests only from specific areas](#open-chests-only-from-specific-areas]
 * [silenced Follower](#silenced-Follower)
 * [LifeChicken restart profile](#lifechicken-restart-profile)
 * [use Cain and sell items](#use-Cain-and-sell-items)
@@ -223,6 +224,38 @@
                 "explodingchest", "chestl", "chestr", "groundtomb", "icecavejar1", "icecavejar2", "icecavejar3", "icecavejar4", "deadperson",
                 "deadperson2", "evilurn", "tomb1l", "tomb3l", "groundtombl"
                 ];
+```
+
+## open chests only from specific areas
+
+1. in char config you should set:
+```javascript
+	Config.OpenChests = true;
+```
+
+2. add in [Misc.js before default line 988](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/common/Misc.js#L988) '    shrineStates: false,'  (and feel free to add any other area where you wanna open chests, using sdk\areas.txt) :
+```javascript
+
+	// open chests only from these areas -> Pather.popChests
+	openAreaChests: function (area) {
+		if (!area) {
+			area = me.area;
+		}
+
+		switch (area) {
+		case  79: // Lower Kurast
+		case 102: // Durance Of Hate Level 3
+			return true;
+		}
+
+		return false;
+	},
+
+```
+
+3. [the default 54th line from Pather.js](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/common/Pather.js#L54) should be:
+```javascript
+		if (!!Config.OpenChests && Misc.openAreaChests()) {
 ```
 
 ## silenced Follower
