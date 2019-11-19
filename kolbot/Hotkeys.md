@@ -230,11 +230,11 @@ display status messages out of game as well as in game:
 * < ALT > + < HOME > to open the console for input, allows you to type commands into it
 * < Page up >/< Page down > scrolls console text when it's open for input.
 * the same chat commands without . prefix:
-* start -
-* stop - will stop the current scripts. the profile will crash and it will be restarted in few seconds
-* reload - will stop and reload the scripts. you are able to change config while in game.
-* flushcache -
-* load
+	* start -
+	* stop - will stop the current scripts. the profile will crash and it will be restarted in few seconds
+	* reload - will stop and reload the scripts. you are able to change config while in game.
+	* flushcache -
+	* load
 * include - other scripts can be loaded: include("common/prototypes.js");
 * any other command is interpreted as a javascript string and will be executed (as per the old .exec).
 * all output is directed to the console instead of to the screen.

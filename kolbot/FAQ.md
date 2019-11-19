@@ -119,8 +119,8 @@ check [download guide](https://github.com/blizzhackers/documentation/tree/master
 1. **Q:** I get all the time "D2BS is not responding... starting profile"
 2. **A:** update D2BS to latest version.
 
-* check install guide (VC++ 2005, 2008, 2010 and .NET Framework 3.5, 4 or higher installed) see https://github.com/blizzhackers/documentation/blob/master/d2bot/ManagerSetup.md/#install-dependencies
-
+* check if you run the 1.14d patch of Diablo II. Try to run D2LoD directly, using a Diablo II shortcut with windowed (-w) parameter.
+* check the installed MS dependencies (VC++ 2005, 2008, 2010 and .NET Framework 3.5, 4 or higher installed). try to re-install those MS dependencies https://github.com/blizzhackers/documentation/blob/master/d2bot/ManagerSetup.md/#install-dependencies
 * you can get this error and several crashes when there are differences between ...\d2bs\d2bs.ini and ...\data\profile.json. When the manager correct the errors that profile will start just fine.
 
 * previous versions of d2bs released before the current with utf-8 encoding had other issues like:
