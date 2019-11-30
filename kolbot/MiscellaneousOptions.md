@@ -54,7 +54,8 @@
 	```
 
 ## updated Autosmurf
-* @Dark-f updated the [JeanMax/AutoSmurf](https://github.com/JeanMax/AutoSmurf) with https://cdn.discordapp.com/attachments/228855570537381888/456564852971012096/AutoSmurf_2018-6-13.rar
+* [@Dark-f](https://d2bot.discourse.group/u/hk-dark-f/) updated the [JeanMax/AutoSmurf](https://github.com/JeanMax/AutoSmurf)
+	- the files can be found on https://github.com/blizzhackers/autosmurf repository
 	- check this @Dark-f video https://www.youtube.com/watch?v=rTXM9szlIdw
 
 * other autosmurf version can be be downloaded with tortoiseSVN <https://github.com/SetupSonic/d2bot-with-kolbot-sonic/trunk>
