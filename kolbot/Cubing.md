@@ -97,16 +97,7 @@ You should enable the cubing. If your toon hasn't the horadric cube, at the game
 
 ### crafting
 
-```javascript
-	//Config.Recipes.push([Recipe.Caster.Amulet]); // Craft Caster Amulet
-	//Config.Recipes.push([Recipe.Caster.Ring]); // Craft Caster Ring
-
-	//Config.Recipes.push([Recipe.Blood.Ring]); // Craft Blood Ring
-	//Config.Recipes.push([Recipe.Blood.Helm, "Armet"]); // Craft Blood Armet
-
-	//Config.Recipes.push([Recipe.HitPower.Gloves, "Vambraces"]); // Craft Hit Power Vambraces
-```
-In your pickit file you should have the base items:
+In your pickit file you may specify the level for the base items:
 ```javascript
 // Crafting gear
 [name] == vampirebonegloves && [quality] == magic && [level] >= 94 # // Diablo/Baal
@@ -114,7 +105,55 @@ In your pickit file you should have the base items:
 [type] == ring && [quality] == magic && [level] >= 94 # // Diablo/Baal
 [type] == amulet && [quality] == magic && [level] >= 94 # // Diablo/Baal
 ```
+Blood - Caster - Hit Power - Safety   Recipes
+```javascript
+	// Ingredients for the following recipes will be auto-picked, for classids check libs/NTItemAlias.dbl
+
+	//Config.Recipes.push([Recipe.Blood.Helm, "Armet"]); // Craft Blood Helm
+	//Config.Recipes.push([Recipe.Blood.Boots, "Mirrored Boots"]); // Craft Blood Boots
+	//Config.Recipes.push([Recipe.Blood.Gloves, "Vampirebone Gloves"]); // Craft Blood Gloves
+	//Config.Recipes.push([Recipe.Blood.Belt, "Mithril Coil"]); // Craft Blood Belt
+	//Config.Recipes.push([Recipe.Blood.Shield, "Blade Barrier"]); // Craft Blood Shield
+	//Config.Recipes.push([Recipe.Blood.Body, "Hellforge Plate"]); // Craft Blood Armor
+	//Config.Recipes.push([Recipe.Blood.Amulet]); // Craft Blood Amulet
+	//Config.Recipes.push([Recipe.Blood.Ring]); // Craft Blood Ring
+	//Config.Recipes.push([Recipe.Blood.Weapon, "Berserker Axe"]); // Craft Blood Weapon
+
+	//Config.Recipes.push([Recipe.Caster.Helm, "Demonhead Mask"]); // Craft Caster Helm
+	//Config.Recipes.push([Recipe.Caster.Boots, "Wyrmhide Boots"]); // Craft Caster Boots
+	//Config.Recipes.push([Recipe.Caster.Gloves, "Bramble Mitts"]); // Craft Caster Gloves
+	//Config.Recipes.push([Recipe.Caster.Belt, "Vampirefang Belt"]); // Craft Caster Belt
+	//Config.Recipes.push([Recipe.Caster.Shield, "Luna"]); // Craft Caster Shield
+	//Config.Recipes.push([Recipe.Caster.Body, "Archon Plate"]); // Craft Caster Armor
+	//Config.Recipes.push([Recipe.Caster.Amulet]); // Craft Caster Amulet
+	//Config.Recipes.push([Recipe.Caster.Ring]); // Craft Caster Ring
+	//Config.Recipes.push([Recipe.Caster.Weapon, "Seraph Rod"]); // Craft Caster  Weapon
+
+	//Config.Recipes.push([Recipe.HitPower.Helm, "Giant Conch"]); // Craft Hit Power Helm
+	//Config.Recipes.push([Recipe.HitPower.Boots, "Boneweave Boots"]); // Craft Hit Power Boots
+	//Config.Recipes.push([Recipe.HitPower.Gloves, "Vambraces"]); // Craft Hit Power Gloves
+	//Config.Recipes.push([Recipe.HitPower.Belt, "Troll Belt"]); // Craft Hit Power Belt
+	//Config.Recipes.push([Recipe.HitPower.Shield, "Ward"]); // Craft Hit Power Shield
+	//Config.Recipes.push([Recipe.HitPower.Body, "Kraken Shell"]); // Craft Hit Power Armor
+	//Config.Recipes.push([Recipe.HitPower.Amulet]); // Craft Hit Power Amulet
+	//Config.Recipes.push([Recipe.HitPower.Ring]); // Craft Hit Power Ring
+	//Config.Recipes.push([Recipe.HitPower.Weapon, "Scourge"]); // Craft Hit Power Weapon | "Blunt" = All maces, rods (+50% Undead), excepting orbs
+
+	//Config.Recipes.push([Recipe.Safety.Helm, "Corona"]); // Craft Safety Helm
+	//Config.Recipes.push([Recipe.Safety.Boots, "Myrmidon Boots"]); // Craft Safety Boots
+	//Config.Recipes.push([Recipe.Safety.Gloves, "Ogre Gauntlets"]); // Craft Safety Gloves
+	//Config.Recipes.push([Recipe.Safety.Belt, "Spiderweb Sash"]); // Craft Safety Belt
+	//Config.Recipes.push([Recipe.Safety.Shield, "Monarch"]); // Craft Safety Shield
+	//Config.Recipes.push([Recipe.Safety.Body, "Great Hauberk"]); // Craft Safety Armor
+	//Config.Recipes.push([Recipe.Safety.Amulet]); // Craft Safety Amulet
+	//Config.Recipes.push([Recipe.Safety.Ring]); // Craft Safety Ring
+	//Config.Recipes.push([Recipe.Safety.Weapon, "Matriarchal Javelin"]); // Craft Safety Weapon
+	//Config.Recipes.push([Recipe.Safety.Weapon, "Matriarchal Spear"]); // Craft Safety Weapon
+
+```
 The required status for crafted items should also be added in the pickit, like in [default lines 741-771 of kolton.nip](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/pickit/kolton.nip#L741-L771)
+
+If you wanna sell the crafted items, instead default dropping, check https://github.com/blizzhackers/documentation/blob/master/kolbot/MiscellaneousOptions.md/#sell-cubing-items
 
 ### reroll magic/rare items
 
@@ -154,9 +193,9 @@ The required status for crafted items should also be added in the pickit, like i
 
 	//Config.Recipes.push([Recipe.Unique.Armor.ToExceptional, "Heavy Gloves", Roll.NonEth]); // Upgrade Bloodfist to Exceptional
 	//Config.Recipes.push([Recipe.Unique.Armor.ToExceptional, "Light Gauntlets", Roll.NonEth]); // Upgrade Magefist to Exceptional
-	//Config.Recipes.push([Recipe.Unique.Armor.ToElite, "Sharkskin Gloves", Roll.NonEth]); // Upgrade Bloodfist or Grave Palm to Elite
-	//Config.Recipes.push([Recipe.Unique.Armor.ToElite, "Battle Gauntlets", Roll.NonEth]); // Upgrade Magefist or Lavagout to Elite
-	//Config.Recipes.push([Recipe.Unique.Armor.ToElite, "War Boots", Roll.NonEth]); // Upgrade Gore Rider to Elite
+	//Config.Recipes.push([Recipe.Unique.Armor.ToElite, "Sharkskin Gloves", Roll.NonEth]); // Upgrade Bloodfist or Grave Palm to Elite (ladder)
+	//Config.Recipes.push([Recipe.Unique.Armor.ToElite, "Battle Gauntlets", Roll.NonEth]); // Upgrade Magefist or Lavagout to Elite (ladder)
+	//Config.Recipes.push([Recipe.Unique.Armor.ToElite, "War Boots", Roll.NonEth]); // Upgrade Gore Rider to Elite (ladder)
 ```
 
 ---
