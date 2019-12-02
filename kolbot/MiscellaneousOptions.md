@@ -22,6 +22,7 @@
 * [silenced Follower](#silenced-Follower)
 * [LifeChicken restart profile](#lifechicken-restart-profile)
 * [use Cain and sell items](#use-Cain-and-sell-items)
+* [sell cubing items](#sell-cubing-items)
 * [inventory full](#inventory-full)
 * [cubing all kind of gems](#cubing-all-kind-of-gems)
 * [picking and selling junk items](#picking-and-selling-junk-items)
@@ -320,6 +321,17 @@
 						break;
 	```
 * set a lower gold limit on char for using Cain, like 100.000 or 0.
+
+## sell cubing items
+by default the cubing items will be dropped if them not meet the condition to be kept. You should replace [the default lines 967-971 from Cubing.js](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/common/Cubing.js#L967-L971) with:
+```javascript
+						case 0:
+							Misc.itemLogger("Sold", items[j], "doCubing");
+							Town.initNPC("Shop", "clearInventory");
+							unids[j].sell();
+
+							break;
+```
 
 ## inventory full
 * If you don't wanna to set the [Automule](https://github.com/kolton/d2bot-with-kolbot/wiki/AutoMule-and-TorchMule#automule) option, or you don't have too many d2/lod keys to do that, you can set the stop of the profile.

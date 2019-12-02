@@ -33,6 +33,7 @@
 
 * [FAQ](kolbot/FAQ.md/#faq)
 * [Character Configuration](kolbot/CharacterConfig.md/#character-configuration)
+* [Cubing](kolbot/Cubing.md/#cubing)
 * [Manual Play](kolbot/ManualPlay.md/#manual-playing): D2BotMap, Manual.js script
 * [Multi Botting](kolbot/MultiBotting.md/#multi-botting): game creator, joining games, ...
 * [TCP/IP Games](kolbot/TCP-IP%20games.md#tcpip-games): host and join TCP/IP games

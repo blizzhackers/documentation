@@ -14,6 +14,8 @@ library scripts by [@kolton](https://github.com/kolton)
 
 * [Character Configuration](CharacterConfig.md/#character-configuration)
 
+* [Cubing](Cubing.md/#cubing)
+
 * [Manual Play](ManualPlay.md/#manual-playing): D2BotMap, Manual.js script
 
 * [Multi Botting](MultiBotting.md/#multi-botting): game creator, joining games, ...

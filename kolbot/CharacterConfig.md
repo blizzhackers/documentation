@@ -436,9 +436,9 @@ To enable script make it true.
 
 Config.Cubing =true; // Set to true to enable cubing.
 
-For example if u want to collect perfects skulls comment out (remove comment //) the line
+For example if u want to collect perfect skulls comment out (remove comment //) on line
 
-//Config.Recipes.push([Recipe.Gem, 600]); // perfect skull to
+//Config.Recipes.push([Recipe.Gem, "Flawless Skull"]); // Make Perfect Skull
 
 All ingredients will be auto-picked, for classids check **d2bs\kolbot\libs\NTItemAlias.dbl**
 
