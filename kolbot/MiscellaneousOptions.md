@@ -216,7 +216,11 @@
 	```javascript
 		Config.OpenChests = true;
 	```
-* add the changes to Attack.js, so line 892 from Attack.js will be:
+* add the changes to Attack.js, so line [1024 from Attack.js](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/common/Attack.js#L1024) 
+```javascript
+			ids = ["chest", "chest3", "weaponrack", "armorstand"];
+```
+	will be changed to:
 ```javascript
             ids = ["chest", "loose rock", "hidden stash", "loose boulder", "corpseonstick", "casket", "armorstand", "weaponrack", "barrel",
                 "holeanim", "tomb2", "tomb3", "roguecorpse", "ratnest", "corpse", "goo pile", "largeurn", "urn", "chest3", "jug", "skeleton",
@@ -257,6 +261,11 @@
 3. [the default 54th line from Pather.js](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/common/Pather.js#L54) should be:
 ```javascript
 		if (!!Config.OpenChests && Misc.openAreaChests()) {
+```
+
+4. [the default 1013th line from Attack.js](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/common/Attack.js#L1013) should be:
+```javascript
+		if (!Config.OpenChests && !Misc.openAreaChests()) {
 ```
 
 ## silenced Follower
