@@ -17,7 +17,7 @@ You should enable the cubing. If your toon hasn't the horadric cube, at the game
 
 ### gems
 
-- for cubing the gems lower quality than flawless, check https://github.com/blizzhackers/documentation/blob/master/kolbot/MiscellaneousOptions.md/#cubing-all-kind-of-gems
+- for cubing the gems with lower quality than flawless, check https://github.com/blizzhackers/documentation/blob/master/kolbot/MiscellaneousOptions.md/#cubing-all-kind-of-gems
 ```javascript
 	// Ingredients for the following recipes will be auto-picked, for classids check libs/NTItemAlias.dbl
 
@@ -54,7 +54,7 @@ You should enable the cubing. If your toon hasn't the horadric cube, at the game
 	Config.Recipes.push([Recipe.Gem, "Flawless Skull"]); // make Perfect Skull
 ```
 
-### esences
+### essences
 ```javascript
 	// Ingredients for the following recipes will be auto-picked, for classids check libs/NTItemAlias.dbl
 
@@ -209,35 +209,34 @@ You should enable the making of runewords.
 	 */
 	Config.MakeRunewords = true; // Set to true to enable runeword making/rerolling
 
-	//Config.Runewords.push([Runeword.Insight, "Thresher", Roll.Eth]); // Make ethereal Insight Thresher
-	//Config.Runewords.push([Runeword.Insight, "Cryptic Axe", Roll.Eth]); // Make ethereal Insight Cryptic Axe
+	Config.Runewords.push([Runeword.Insight, "Thresher", Roll.Eth]); // Make ethereal Insight Thresher
+	Config.Runewords.push([Runeword.Insight, "Cryptic Axe", Roll.Eth]); // Make ethereal Insight Cryptic Axe
 	//Config.Runewords.push([Runeword.Insight, "Great Poleaxe"]); // Make Insight Great Poleaxe
 	//Config.Runewords.push([Runeword.Insight, "Giant Thresher"]); // Make Insight Giant Thresher
-	//Config.Runewords.push([Runeword.Insight, "Colossus Voulge"]); // Make Insight Colossus Voulge
-	//Config.KeepRunewords.push("[type] == polearm # [meditationaura] == 17"); // medium Insight
+	Config.Runewords.push([Runeword.Insight, "Colossus Voulge"]); // Make Insight Colossus Voulge
+	Config.KeepRunewords.push("[type] == polearm # [meditationaura] == 17"); // medium Insight
 	//Config.KeepRunewords.push("[type] == polearm # [meditationaura] == 17 && [enhanceddamage] >= 260 && [attackrate] >= 250"); // perfect Insight
 
-	//Config.Runewords.push([Runeword.Grief, "Phase Blade"]); // Make Grief Phase Blade	
+	Config.Runewords.push([Runeword.Grief, "Phase Blade"]); // Make Grief Phase Blade	
 	//Config.Runewords.push([Runeword.Grief, "Berserker Axe"]); // Make Grief Berserker Axe	
-	//Config.KeepRunewords.push("([type] == sword || [type] == axe) # [plusmaxdamage] >= 390"); // medium Grief
+	Config.KeepRunewords.push("([type] == sword || [type] == axe) # [plusmaxdamage] >= 390"); // medium Grief
 	//Config.KeepRunewords.push("([type] == sword || [type] == axe) # [itemfasterattackrate] >= 40 && [plusmaxdamage] >= 400"); // perfect Grief  and *optional [itempiercepois] >= 25
 
-	//Config.Runewords.push([Runeword.CallToArms, "Crystal Sword"]); // Make CTA Crystal Sword
-	//Config.Runewords.push([Runeword.CallToArms, "Phase Blade"]); // Make CTA Phase Blade
+	Config.Runewords.push([Runeword.CallToArms, "Crystal Sword"]); // Make CTA Crystal Sword
+	Config.Runewords.push([Runeword.CallToArms, "Phase Blade"]); // Make CTA Phase Blade
 	//Config.Runewords.push([Runeword.CallToArms, "Flail"]); // Make CTA Flail
 	//Config.KeepRunewords.push("[name] == crystalsword || [name] == phaseblade || [name] == flail # [plusskillbattlecommand] >= 3 && [plusskillbattleorders] >=3");
-	//Config.KeepRunewords.push("[name] == crystalsword || [name] == phaseblade || [name] == flail # [plusskillbattlecommand] >= 6 && [plusskillbattleorders] >=6 && ["plusskillbattlecry"] >= 4"); // perfect CTA and *optional [enhanceddamage] = 290%
+	Config.KeepRunewords.push("[name] == crystalsword || [name] == phaseblade || [name] == flail # [plusskillbattlecommand] >= 6 && [plusskillbattleorders] >=6 && ["plusskillbattlecry"] >= 4"); // perfect CTA and *optional [enhanceddamage] = 290%
 
-	//Config.Runewords.push([Runeword.Spirit, "Crystal Sword"]); // Make Spirit Crystal Sword
-	//Config.Runewords.push([Runeword.Spirit, "Broad Sword"]); // Make Spirit Broad Sword
-	//Config.Runewords.push([Runeword.Spirit, "Battle Sword"]); // Make Spirit Crystal Sword
+	Config.Runewords.push([Runeword.Spirit, "Crystal Sword"]); // Make Spirit Crystal Sword
+	Config.Runewords.push([Runeword.Spirit, "Broad Sword"]); // Make Spirit Broad Sword
+	//Config.Runewords.push([Runeword.Spirit, "Battle Sword"]); // Make Spirit Battle Sword
 	//Config.Runewords.push([Runeword.Spirit, "Phase Blade"]); // Make Spirit Phase Blade	
-	//Config.Runewords.push([Runeword.Spirit, "Monarch", Roll.NonEth]); // Make Spirit Monarch
-	//Config.Runewords.push([Runeword.Spirit, "Sacred Targe", Roll.NonEth]); // Make Spirit Sacred Targe
-
-	//Config.Runewords.push([Runeword.Spirit, "Kurast Shield"]); // Make Spirit Kurast Shield
+	Config.Runewords.push([Runeword.Spirit, "Monarch", Roll.NonEth]); // Make Spirit Monarch
+	Config.Runewords.push([Runeword.Spirit, "Sacred Targe", Roll.NonEth]); // Make Spirit Sacred Targe
+	Config.Runewords.push([Runeword.Spirit, "Kurast Shield"]); // Make Spirit Kurast Shield
 	//Config.Runewords.push([Runeword.Spirit, "Vortex Shield"]); // Make Spirit Vortex Shield
-	//Config.KeepRunewords.push("[type] == sword || [type] == shield || [type] == auricshields # [fcr] == 35"); // middle spirit
+	Config.KeepRunewords.push("[type] == sword || [type] == shield || [type] == auricshields # [fcr] == 35"); // middle spirit
 	//Config.KeepRunewords.push("[type] == sword || [type] == shield || [type] == auricshields # [fcr] == 35") && [maxmana] >= 112 && [itemabsorbmagic] >=8; // perfect spirit
 
 	//Config.Runewords.push([Runeword.Prudence, "Sacred Armor", Roll.Eth]); // Make ethereal Prudence Sacred Armor
