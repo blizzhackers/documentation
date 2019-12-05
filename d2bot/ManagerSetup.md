@@ -30,7 +30,7 @@ If you use Windows 8/8.1, run D2Bot.exe in Windows 7 Compatibility Mode + Admini
 10. D2 CDKey Editor
 11. Schedule Editor
 12. Save current config and state
-13. About cointains suport links and shows if an update is available
+13. About cointains suport links and shows if an update is available (don't use this kind of update, but update your entire repository d2bot-with-kolbot using tortoiseSVN or other tools).
 	
 ![managersetup1-1](assets/d2bot-managersetup1-1.png)
 
