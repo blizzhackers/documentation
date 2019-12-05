@@ -134,9 +134,11 @@ you have to complete these fields for your leechers/helpers/followers
 
 
 ### using MFTeam
+
 * script allows multiple characters to do the same boss/area runs in sync.
 * the leader will open a town portal and give commands to the helpers. Because it uses town portals, it's possible for walking characters to run the same bosses as teleporting characters.
-* unfortunately the commands are based on battle.net chat, so the leader key can be muted. To avoid these, check the [local chat](https://github.com/blizzhackers/documentation/kolbot/CharacterConfig.md/#local-chat) section. Choose mode 1, or 2 if you are playing also manually.
+* in case of clearing, MFHelper will do the area clearing on his own, independent from leader.
+* unfortunately the commands are based on d2 server chat, so the leader key can be muted. To avoid these, check the [local chat](https://github.com/blizzhackers/documentation/kolbot/CharacterConfig.md/#local-chat) section. Choose mode 1, or 2 if you are playing also manually.
 ```javascript
 	LocalChat: {
 		Enabled: true,
@@ -144,7 +146,6 @@ you have to complete these fields for your leechers/helpers/followers
 		Mode: 1
 	},
 ```
-* MFHelper will do the area clearing on his own, independent from leader.
 
 #### MFLeader
 * in the leader config you have to set
@@ -160,9 +161,6 @@ and to enable the scripts you wanna run.
     Scripts.MFHelper = true; // Run the same MF run as the MFLeader.
 ```
 * the MFHelper script will end if the leader enters in Chaos Sanctuary or Throne of Destruction, because it's better to run the related DiabloHelper or BaalHelper after the MFHelper script.
-
-#### silenced MFTeam
-check the [local chat](https://github.com/blizzhackers/documentation/blob/master/kolbot/CharacterConfig.md/#local-chat) section.
 
 ### using Followers
 * see [Follower guide](https://github.com/kolton/d2bot-with-kolbot/wiki/Follower)
@@ -186,35 +184,17 @@ check the [local chat](https://github.com/blizzhackers/documentation/blob/master
 
 To avoid issues like "Please Wait" when you quit the game with all chars at the same time, you should set diferent delays for followers to exit game
 
-1. for quiting using **Config.QuitList** set in char config, you could try to find default lines [424-430 from ToolsThread.js](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/tools/ToolsThread.js#L424-L430) and to add a delay line (eg. with random delay 5-30 seconds)
+This was already merged in the main [d2bot-with-kolbot repository](https://github.com/kolton/d2bot-with-kolbot/commit/900eb9aeeeabff9a9d270cac4aa3692df2779350) and you should check the related char config section and to add the required time intervals for each follower.
 ```javascript
-		case 0x03: // "%Name1(%Name2) left our world. Diablo's minions weaken."
-			if ((typeof Config.QuitList === "string" && Config.QuitList.toLowerCase() === "any") ||
-					(Config.QuitList instanceof Array && Config.QuitList.indexOf(name1) > -1)) {
-				print(name1 + (mode === 0 ? " timed out" : " left"));
-
-				delay(rand(5e3, 3e4));
-				quitFlag = true;
-			}
+	Config.QuitListDelay = []; // Quit the game with random delay in case of using Config.QuitList. Example: Config.QuitListDelay = [1, 10]; will exit with random delay between 1 and 10 seconds.
 ```
-
-2. For using the quiting from Follower.js you should edit that file on default lines 506-510 and add a delay line
+So for different followers you can set different values:
 ```javascript
-			case "quit":
-			case me.name + " quit":
-				delay(rand(5, 30) * 1000);
-				quit();
+Config.QuitListDelay = [3, 5];
 
-				break;
-```
+Config.QuitListDelay = [5, 7];
 
-3. maybe you can set different delays using the name of the profiles that you set in manager, something like
-```javascript
-				if (me.profile == "leecher1") { delay(rand(5, 9) * 1000); }
-				if (me.profile == "leecher2") { delay(rand(10, 14) * 1000); }
-				if (me.profile == "leecher3") { delay(rand(15, 19) * 1000); }
-				if (me.profile == "leecher4") { delay(rand(20, 24) * 1000); }
-...
+Config.QuitListDelay = [8, 10];
 ```
 
 ### dia-baal teams
