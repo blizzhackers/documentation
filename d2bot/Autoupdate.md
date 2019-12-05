@@ -13,14 +13,15 @@
 [TortoiseSVN](https://tortoisesvn.net/), version 1.9 and later, has a project monitor included, which has similar features as the [CommitMonitor](#commit-monitor). 
 You should start ...\TortoiseSVN\bin\TortoiseProc.exe. By default the interval for monitoring is set to 30 minutes, and can have a maximum value of 1000 minutes.
 
-
 ![autoupdate1](assets/d2bot-autoupdate1.png)
 
-
-You should also check the options:
-
+* you should also check the options:
 
 ![autoupdate2](assets/d2bot-autoupdate2.png)
+
+* you could update the repositories using this utility, with a smply R-click:
+
+![autoupdate3](assets/d2bot-autoupdate3.png)
 
 ### commit monitor
 
