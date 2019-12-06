@@ -112,6 +112,7 @@ If you need to force the profile to stop you need to open the profile and erase 
 **Note:** If you have queued many drops, you will need to clear it for each drop, or you will need to restart D2BSharp.
 
 ### Frequently Asked Questions
+
 #### Will Limedrop steal my information?
 No. The web page part of Limedrop only makes calls to the API running on your D2BS. Your account passwords are not stored directly in the web page. Also, it's open source so if you don't trust it you can always take a look at the code yourself!
 
@@ -123,3 +124,12 @@ No. You will have to re-scan your existing mules in order to add them to the Lim
 
 #### Will Limedrop automatically update my inventory after dropping items?
 Yes.
+
+#### How to select all items in limedrop?
+Just type this in your address bar on the limedrop page:
+```javascript
+javascript:document.querySelectorAll('#items-list>div').forEach(el => el.click())
+```
+Works in chrome, but might take a while depending on item count.
+Make sure that all items are loaded beforehand (scroll to the end as long  as new items are loaded)
+(thanks discord/@ToDoWaldi#8021)

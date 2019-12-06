@@ -746,7 +746,7 @@ There's several ways to name a character config file. List in order of priority 
 * **Realm.Class.Charname.js** - This is used when botting on multiple realms with same character name.
 **Examples**: Europe.Sorceress.MyChar.js, USEast.Sorceress.MyChar.js
 * **Class.Charname.js** - This is the default format.
-**Examples**: Sorceress.MyChar.js, Druid.Sorceress.MyOtherChar.js
+**Examples**: Sorceress.MyChar.js, Sorceress.MyOtherChar.js
 * **Profile.js** - Similar to 1 but without Class prefix. This is used for generic characters where class doesn't matter (Follower, Wakka, AutoBaal etc.).
 **Examples**: Follower1.js, Follower2.js
 
