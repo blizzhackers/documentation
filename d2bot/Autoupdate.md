@@ -19,7 +19,7 @@ You should start ...\TortoiseSVN\bin\TortoiseProc.exe. By default the interval f
 
 ![autoupdate2](assets/d2bot-autoupdate2.png)
 
-* you could update the repositories using this utility, with a smply R-click:
+* you could update the monitorized repositories using this utility, with a single R-click:
 
 ![autoupdate3](assets/d2bot-autoupdate3.png)
 
