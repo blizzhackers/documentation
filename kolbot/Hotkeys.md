@@ -12,7 +12,7 @@
 * [changing the default keys](#changing-the-default-keys)
 * [d2bs core commands](#d2bs-core-commands)
 	* [chat commands](#chat-commands)
-	* [white console(layer)](#white-console(layer))
+	* [white console(layer)](#white-consolelayer)
 ---
 
 ## default keys

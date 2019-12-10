@@ -38,7 +38,7 @@
 * the creator of the game doesn't necessarily to be set as the leader in game.
 
 #### create/edit the profile
-*you can also use the [D2BotLeadStagger](https://github.com/mf022/d2bs/wiki/Misc_options#staggered-delays-for-creating-games)- a staggered version of D2BotLead
+*you can also use the [D2BotLeadStagger](https://github.com/blizzhackers/documentation/blob/master/kolbot/MiscellaneousOptions.md/#staggered-delays-for-creating-games)- a staggered version of D2BotLead
 
 ![CreatorProfile](assets/kolbot-multibotCreatorProfile.png)
 
@@ -178,7 +178,7 @@ and to enable the scripts you wanna run.
     Scripts.Follower = true; // Script that follows a manually played leader around like a merc. For a list of commands, see Follower.js
 ```
 * Follower.js is using chat commands like: 1, 2, wp, bo, ...
-* for a modded silenced follower, see [silenced Follower](https://github.com/mf022/d2bs/wiki/Misc_options#silenced-follower)
+* for a modded silenced follower, see [silenced Follower](https://github.com/blizzhackers/documentation/blob/master/kolbot/MiscellaneousOptions.md/#silenced-follower)
 
 ### followers exit delays
 

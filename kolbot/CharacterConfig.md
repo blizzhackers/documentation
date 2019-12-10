@@ -375,7 +375,7 @@ If you don't want to use Id Tome you can always try with Cain to id your items.
 
 Config.CainID.Enable = true; // Identify items at Cain
 
-* by default items identified at Cain won't be sold, but dropped, so add this workaround - [use Cain and sell items](https://github.com/mf022/d2bs/wiki/Misc_options#use-cain-and-sell-items).
+* by default items identified at Cain won't be sold, but dropped, so add this workaround - [use Cain and sell items](https://github.com/blizzhackers/documentation/blob/master/kolbot/MiscellaneousOptions.md/#use-cain-and-sell-items).
 
 Other option is to identify your drop at field.To activate it just enable this script.
 
