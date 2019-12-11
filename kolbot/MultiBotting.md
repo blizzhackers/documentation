@@ -140,11 +140,8 @@ you have to complete these fields for your leechers/helpers/followers
 * in case of clearing, MFHelper will do the area clearing on his own, independent from leader.
 * unfortunately the commands are based on d2 server chat, so the leader key can be muted. To avoid these, check the [local chat](https://github.com/blizzhackers/documentation/kolbot/CharacterConfig.md/#local-chat) section. Choose mode 1, or 2 if you are playing also manually.
 ```javascript
-	LocalChat: {
-		Enabled: true,
-		Toggle: false,
-		Mode: 1
-	},
+		Config.LocalChat.Enabled = true; // enable the LocalChat system
+		Config.LocalChat.Mode = 1; // 0 = disabled, 1 = chat from 'say' (recommended), 2 = all chat (for manual play)
 ```
 
 #### MFLeader
@@ -164,21 +161,18 @@ and to enable the scripts you wanna run.
 
 ### using Followers
 * see [Follower guide](https://github.com/kolton/d2bot-with-kolbot/wiki/Follower)
-* the leader can be played manually - see [d2bs manual play](https://github.com/blizzhackers/documentation/blob/master/kolbot/ManualPlay.md/#manual-playing)
+* the leader can be played manually with Manual.js(the whole config should be loaded and also the LocalChat - see [manual play](https://github.com/blizzhackers/documentation/blob/master/kolbot/ManualPlay.md/#manualjs)
 * you should use the [local chat](https://github.com/blizzhackers/documentation/blob/master/kolbot/CharacterConfig.md/#local-chat) with the settings
 ```javascript
-	LocalChat: {
-		Enabled: true,
-		Toggle: false,
-		Mode: 2
-	},
+		Config.LocalChat.Enabled = true; // enable the LocalChat system
+		Config.LocalChat.Mode = 2; // 0 = disabled, 1 = chat from 'say' (recommended), 2 = all chat (for manual play)
 ```
-* the other helping characters need this
+* the follower characters need only this
 ```javascript
     Scripts.Follower = true; // Script that follows a manually played leader around like a merc. For a list of commands, see Follower.js
 ```
 * Follower.js is using chat commands like: 1, 2, wp, bo, ...
-* for a modded silenced follower, see [silenced Follower](https://github.com/blizzhackers/documentation/blob/master/kolbot/MiscellaneousOptions.md/#silenced-follower)
+* alternative to LocalChat in mode 2 is a modded [silenced Follower](https://github.com/blizzhackers/documentation/blob/master/kolbot/MiscellaneousOptions.md/#silenced-follower)
 
 ### followers exit delays
 
@@ -194,7 +188,7 @@ Config.QuitListDelay = [3, 5];
 
 Config.QuitListDelay = [5, 7];
 
-Config.QuitListDelay = [8, 10];
+Config.QuitListDelay = [7, 9];
 ```
 
 ### dia-baal teams

@@ -40,19 +40,14 @@
 		// If LocalChat is enabled, chat can be sent via 'sendCopyData' instead of BNET
 		// To allow 'say' to use BNET, use 'say("msg", true)', the 2nd parameter will force BNET
 		// LocalChat messages will only be visible on clients running on the same PC
-		Config.LocalChat.Enabled = false; // enable the LocalChat system
+		Config.LocalChat.Enabled = true; // enable the LocalChat system
 		Config.LocalChat.Toggle = false; // optional, set to KEY value to toggle through modes 0, 1, 2
-		Config.LocalChat.Mode = 0; // 0 = disabled, 1 = chat from 'say' (recommended), 2 = all chat (for manual play)
+		Config.LocalChat.Mode = 2; // 0 = disabled, 1 = chat from 'say' (recommended), 2 = all chat (for manual play)
 	```
-* for using manual play and Follower.js you should activate it on mode 2
-* to be sure that any char isn't using the d2 server chat, you can set in Config.js:
-	```javascript
-		LocalChat: {
-			Enabled: true,
-			Toggle: false,
-			Mode: 2
-		},
-	```
+* MFTeam is ok with LocalChat in mode 1
+* [Manual played leader and Follower.js](https://github.com/blizzhackers/documentation/blob/master/kolbot/MultiBotting.md/#using-followers) - LocalChat in mode 2
+
+	
 
 ## updated Autosmurf
 * [@Dark-f](https://d2bot.discourse.group/u/hk-dark-f/) updated the [JeanMax/AutoSmurf](https://github.com/JeanMax/AutoSmurf)
