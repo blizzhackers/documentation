@@ -123,9 +123,9 @@
 ## how to define your own party
 * It is a public mode when your players invite and accept other players invites, only if their names are in your previously configured MyOwnParty list
 
-* in char config file, look to the // Public game options section and you have to add (line Config.PublicMode is already there, so add only option 4)
+* in char config file, look to the // Public game options section and you have to add (line Config.PublicMode is already there, so add only options 4 and 5 (use 4 only for char who's opening the game, and 5 for the others)
 	```javascript
-		Config.PublicMode = 4; // 1 = invite and accept, 2 = accept only, 3 = invite only, 4 = MyOwnParty, 0 = disable
+		Config.PublicMode = 4; // 1 = invite and accept, 2 = accept only, 3 = invite only, 4 = MyOwnParty invite,, 5 = MyOwnParty accept, 0 = disable
 		Config.MyOwnParty = []; // ["MyPlayer1", "MyPlayer2", "MyPlayer3"]
 	```
 
@@ -136,30 +136,42 @@
 * and complete the same list on every char config that you will add in your team game, including all charnames.
     Config.MyOwnParty = ["MyPlayer1", "MyPlayer2", "MyPlayer3", "MyPlayer4"];
 
-* in ... \tools\Party.js add after [default SVN line 143](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/tools/Party.js#L143) the case 4 (for entire Party.js script, check [next chapter](#hardcore-loot-corpses) pastebins)
+* in ... \tools\Party.js add after [default SVN line 143](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/tools/Party.js#L143) the cases 4 and 5 (for entire Party.js script, check [next chapter](#hardcore-loot-corpses) pastebins)
 ```javascript
-                    case 4: // MyOwnParty
-                        if (Config.MyOwnParty.length > 0) {
-                            var i;
- 
-                            for (i = 0; i < Config.MyOwnParty.length; i += 1) {
-                                if (player.name == Config.MyOwnParty[i] && player.name !== me.name) {
-                                    if (player.partyflag !== 4 || player.partyflag !== 2 && player.partyid === 65535) {
-                                        clickParty(player, 2);
-                                        delay(100);
-                                    }
-                                    if (player.partyid !== 65535 && player.partyid !== myPartyId) {
-                                        otherParty = player.partyid;
-                                    }
-                                    if (player.partyflag === 2 && (!otherParty || player.partyid === otherParty) && (getTickCount() - partyTick >= 2000 || Config.FastParty)) {
-                                        clickParty(player, 2);
-                                        delay(100);
-                                    }
-                                }
-                            }
-                        }
- 
-                        break;
+					case 4: // MyOwnParty invite
+						if (Config.MyOwnParty.length > 0) {
+							var i;
+
+							for (i = 0; i < Config.MyOwnParty.length; i += 1) {
+								if (player.name == Config.MyOwnParty[i] && player.name !== me.name) {
+									if (player.partyflag !== 4 && player.partyflag !== 2 && player.partyid === 65535) {
+										clickParty(player, 2);
+										delay(300);
+									}
+								}
+							}
+						} else if (Config.MyOwnParty.length === 0 || Config.MyOwnParty.length === undefined) {
+							Config.PublicMode = 1;
+						}
+
+						break;
+					case 5: // MyOwnParty accept
+						if (Config.MyOwnParty.length > 0) {
+							var i;
+
+							for (i = 0; i < Config.MyOwnParty.length; i += 1) {
+								if (player.name == Config.MyOwnParty[i] && player.name !== me.name) {
+									if (player.partyflag === 2) {
+										clickParty(player, 2);
+										delay(500);
+									}
+								}
+							}
+						} else if (Config.MyOwnParty.length === 0 || Config.MyOwnParty.length === "undefined") {
+							Config.PublicMode = 2;
+						}
+
+						break;
 ```
 
 ## hardcore loot corpses
@@ -173,7 +185,7 @@
 
 * copy the text and paste it.
 
-* I tested it with my modded Follower.js, where I added (around line 824+) an infinite loop to stop dead HC player from other actions which will end the game because of errors
+* I tested it manual mode with my modded [Follower.js](https://pastebin.com/LnXCQ3ES), where I added (around line 824+) an infinite loop to stop dead HC player from other actions which will end the game because of errors
 ```javascript
         if (me.playertype == 1 && me.mode === 17) { // stop the HC screen to allow the loot of dead player
             while(true) {
@@ -274,7 +286,7 @@
 * without the LocalChat active in mode 2, the follower reporting have to be silenced changing **say(** with **print(** or me.overhead (server side function of d2bs, other players don't see that).
 * the default Follower.js has set town activities only with command, and in the case of silenced it was changed to do town activities at the start of the game and just after every leader move in town. Cain can be used to identify items, but before setting that check the [section related](#use-cain-and-sell-items), below.
 
-* https://pastebin.com/LnXCQ3ES - copy and paste the text, replacing the content of ...\bots\Follower.js. 
+* https://pastebin.com/LnXCQ3ES - copy and paste the text, replacing the content of ...\bots\Follower.js. The scripts has some adds, check the top of it.
 
 ## LifeChicken restart profile
 * by default LifeChicken will exit game
@@ -324,7 +336,7 @@ by default the cubing items will be dropped if them not meet the condition to be
 						case 0:
 							Misc.itemLogger("Sold", items[j], "doCubing");
 							Town.initNPC("Shop", "clearInventory");
-							unids[j].sell();
+							items[j].sell();
 
 							break;
 ```
