@@ -340,6 +340,7 @@ by default the cubing items will be dropped if them not meet the condition to be
 
 							break;
 ```
+* if you get warnings/errors after the cubing is done, you should revert those lines to default.
 
 ## inventory full
 * If you don't wanna to set the [Automule](https://github.com/kolton/d2bot-with-kolbot/wiki/AutoMule-and-TorchMule#automule) option, or you don't have too many d2/lod keys to do that, you can set the stop of the profile.

@@ -34,11 +34,11 @@
 
 
 ## game creator
-*D2BotLead is the starter script that you will use to create games. It can announce games in channels when used for public runs. You have to set D2BotLead for your profile as a entry script. Now edit starter with notepad++. First part of starter is self-explanatory. 
+* D2BotLead is the starter script that you will use to create games. It can announce games in channels when used for public runs. You have to set D2BotLead for your profile as a entry script. Now edit starter with notepad++. First part of starter is self-explanatory. 
 * the creator of the game doesn't necessarily to be set as the leader in game.
 
 #### create/edit the profile
-*you can also use the [D2BotLeadStagger](https://github.com/blizzhackers/documentation/blob/master/kolbot/MiscellaneousOptions.md/#staggered-delays-for-creating-games)- a staggered version of D2BotLead
+* you can also use the [D2BotLeadStagger](https://github.com/blizzhackers/documentation/blob/master/kolbot/MiscellaneousOptions.md/#staggered-delays-for-creating-games)- a staggered version of D2BotLead
 
 ![CreatorProfile](assets/kolbot-multibotCreatorProfile.png)
 
