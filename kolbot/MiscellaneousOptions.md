@@ -13,8 +13,7 @@
 * [Autochaos](#Autochaos)
 * [modded BattleOrders.js](#modded-BattleOrdersjs)
 * [walking char](#walking-char)
-* [how to define your own party](#how-to-define-your-own-party)
-* [hardcore loot corpses](#hardcore-loot-corpses)
+* [how to define your own party and permit hardcore loot corpses](#how-to-define-your-own-party-and-permit-hardcore-loot-corpses)
 * [Baal.js with adds for hdin on wave 2](#Baaljs-with-adds-for-hdin-on-wave-2)
 * [staggered delays for creating games](#staggered-delays-for-creating-games)
 * [opening all chests](#opening-all-chests)
@@ -120,12 +119,12 @@
 	if that **Config.WalkingChar = true** in the char config, the result should be **use.teleport = false**
 
 
-## how to define your own party
+## how to define your own party and permit hardcore loot corpses
 * It is a public mode when your players invite and accept other players invites, only if their names are in your previously configured MyOwnParty list
 
 * in char config file, look to the // Public game options section and you have to add (line Config.PublicMode is already there, so add only options 4 and 5 (use 4 only for char who's opening the game, and 5 for the others)
 	```javascript
-		Config.PublicMode = 4; // 1 = invite and accept, 2 = accept only, 3 = invite only, 4 = MyOwnParty invite,, 5 = MyOwnParty accept, 0 = disable
+		Config.PublicMode = 4; // 1 = invite and accept, 2 = accept only, 3 = invite only, 4 = MyOwnParty invite, 5 = MyOwnParty accept, 0 = disable
 		Config.MyOwnParty = []; // ["MyPlayer1", "MyPlayer2", "MyPlayer3"]
 	```
 
@@ -136,7 +135,7 @@
 * and complete the same list on every char config that you will add in your team game, including all charnames.
     Config.MyOwnParty = ["MyPlayer1", "MyPlayer2", "MyPlayer3", "MyPlayer4"];
 
-* in ... \tools\Party.js add after [default SVN line 143](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/tools/Party.js#L143) the cases 4 and 5 (for entire Party.js script, check [next chapter](#hardcore-loot-corpses) pastebins)
+* in ... \tools\Party.js add after [default SVN line 143](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/tools/Party.js#L143) the cases 4 and 5
 ```javascript
 					case 4: // MyOwnParty invite
 						if (Config.MyOwnParty.length > 0) {
@@ -146,10 +145,16 @@
 								if (player.name == Config.MyOwnParty[i] && player.name !== me.name) {
 									if (player.partyflag !== 4 && player.partyflag !== 2 && player.partyid === 65535) {
 										clickParty(player, 2);
+
+										if (me.playertype == 1) { // hardcore permit loot
+											clickParty(player, 0);
+										}
+
 										delay(300);
 									}
 								}
 							}
+
 						} else if (Config.MyOwnParty.length === 0 || Config.MyOwnParty.length === undefined) {
 							Config.PublicMode = 1;
 						}
@@ -163,10 +168,16 @@
 								if (player.name == Config.MyOwnParty[i] && player.name !== me.name) {
 									if (player.partyflag === 2) {
 										clickParty(player, 2);
+
+										if (me.playertype == 1) { // hardcore permit loot
+											clickParty(player, 0);
+										}
+
 										delay(500);
 									}
 								}
 							}
+
 						} else if (Config.MyOwnParty.length === 0 || Config.MyOwnParty.length === "undefined") {
 							Config.PublicMode = 2;
 						}
@@ -174,18 +185,7 @@
 						break;
 ```
 
-## hardcore loot corpses
-* I added the lines to send automatically the accept of looting own corpse to other players. This was added in my modded MyOwnParty option from Party.js, so no one who isn't already defined there cannot get them.
-* If all are using it, everyone is able to loot other player corpse, set just after the partied message.
-* In case of disconnection and re-enter in the same game, the disconnected player will allow everyone the loot, but he not get the accept from all other players, because he is already on their loot list.
-* In case of reloading the scripts, first that player will refuse the loot, but 2 x reload will allow the looting again.
-
-* Party.js - https://pastebin.com/9Zjmg5HT
-* OOG.js - https://pastebin.com/CWAW8hjW
-
-* copy the text and paste it.
-
-* I tested it manual mode with my modded [Follower.js](https://pastebin.com/LnXCQ3ES), where I added (around line 824+) an infinite loop to stop dead HC player from other actions which will end the game because of errors
+* there should be added infinite loops to stop dead HC player from other actions which will end the game because of errors, like in the case of Follower.js
 ```javascript
         if (me.playertype == 1 && me.mode === 17) { // stop the HC screen to allow the loot of dead player
             while(true) {
@@ -193,7 +193,7 @@
             }
         }
 ```
-* it's working, and the other players in game are able to loot his/her corpse, getting the equipped items back. the mercenary stuff is lost, and also the items located in inventory and stash.
+* the other players already permitted to loot his/her corpse, can get the equipped items back, the mercenary stuff is lost, and also the items located in inventory and stash.
 
 ## Baal.js with adds for hdin on wave 2
 
@@ -284,9 +284,12 @@
 * the default script ...\d2bs\kolbot\libs\bots\Follower.js is a wonderful written script, but it was working only by using chat commands to move to leader position, take portals, ...
 
 * without the LocalChat active in mode 2, the follower reporting have to be silenced changing **say(** with **print(** or me.overhead (server side function of d2bs, other players don't see that).
-* the default Follower.js has set town activities only with command, and in the case of silenced it was changed to do town activities at the start of the game and just after every leader move in town. Cain can be used to identify items, but before setting that check the [section related](#use-cain-and-sell-items), below.
+* the default Follower.js has set town activities only with command, and in the case of silenced it was changed to do town activities at the start of the game and just after every leader move to town. Cain can be used to identify items, but before setting that check the [section related](#use-cain-and-sell-items), below.
 
-* https://pastebin.com/LnXCQ3ES - copy and paste the text, replacing the content of ...\bots\Follower.js. The scripts has some adds, check the top of it.
+* https://pastebin.com/LnXCQ3ES - copy and paste the text (or download that paste), in a new file ...\bots\FollowerSilent.js. The scripts has some adds, check the top of it. And you should add a new line in the character configuration file:
+```javascript
+	Scripts.FollowerSilent = true; // a custom automated Follower.js
+```
 
 ## LifeChicken restart profile
 * by default LifeChicken will exit game
