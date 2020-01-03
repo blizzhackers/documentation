@@ -138,6 +138,10 @@
 * in ... \tools\Party.js add after [default SVN line 143](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/tools/Party.js#L143) the cases 4 and 5
 ```javascript
 					case 4: // MyOwnParty invite
+						if (Config.MyOwnParty.indexOf(player.name) === -1) {
+							break;
+						}
+
 						if (Config.MyOwnParty.length > 0) {
 							var i;
 
@@ -161,6 +165,10 @@
 
 						break;
 					case 5: // MyOwnParty accept
+						if (Config.MyOwnParty.indexOf(player.name) === -1) {
+							break;
+						}
+
 						if (Config.MyOwnParty.length > 0) {
 							var i;
 
@@ -184,12 +192,17 @@
 
 						break;
 ```
-
+* in ... \tools\Party.js change [default line 74](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/tools/Party.js#L74) with:
+```javascript
+	if (Config.PublicMode === 4 || Config.PublicMode === 5) {
+		print("ÿc2Party thread loaded. ÿc0Mode: ÿc2MyOwnParty - " + ((Config.PublicMode === 5) ? "Accept" : "Invite"));
+	} else print("ÿc2Party thread loaded. ÿc0Mode: ÿc2" + (Config.PublicMode === 2 ? "Accept" : "Invite"));
+```
 * there should be added infinite loops to stop dead HC player from other actions which will end the game because of errors, like in the case of Follower.js
 ```javascript
         if (me.playertype == 1 && me.mode === 17) { // stop the HC screen to allow the loot of dead player
             while(true) {
-                delay(60000);
+                delay(6e5);
             }
         }
 ```
