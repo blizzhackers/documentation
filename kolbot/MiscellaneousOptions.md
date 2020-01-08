@@ -135,7 +135,8 @@
 * and complete the same list on every char config that you will add in your team game, including all charnames.
     Config.MyOwnParty = ["MyPlayer1", "MyPlayer2", "MyPlayer3", "MyPlayer4"];
 
-* in ... \tools\Party.js add after [default SVN line 143](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/tools/Party.js#L143) the cases 4 and 5
+* check the changes in [modded Party.js](https://raw.githubusercontent.com/blizzhackers/documentation/master/kolbot/scripts/Party.js) and replace the content of default Party.js, or make the following changes:
+	* in ... \tools\Party.js add after [default SVN line 143](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/tools/Party.js#L143) the cases 4 and 5
 ```javascript
 					case 4: // MyOwnParty invite
 						if (Config.MyOwnParty.indexOf(player.name) === -1) {
@@ -150,11 +151,11 @@
 									if (player.partyflag !== 4 && player.partyflag !== 2 && player.partyid === 65535) {
 										clickParty(player, 2);
 
-										if (me.playertype == 1) { // hardcore permit loot
+										if (me.playertype == 1) { // hardcore permit loot of leader to other char who is invited in the party
 											clickParty(player, 0);
 										}
 
-										delay(300);
+										delay(500);
 									}
 								}
 							}
@@ -170,17 +171,24 @@
 						}
 
 						if (Config.MyOwnParty.length > 0) {
-							var i;
+							var i;								
 
 							for (i = 0; i < Config.MyOwnParty.length; i += 1) {
 								if (player.name == Config.MyOwnParty[i] && player.name !== me.name) {
 									if (player.partyflag === 2) {
 										clickParty(player, 2);
 
-										if (me.playertype == 1) { // hardcore permit loot
+										if (me.playertype == 1) { // hardcore permit loot to leader
 											clickParty(player, 0);
+											loot.push(player.name);
 										}
 
+										delay(500);
+									}
+
+									if (loot.indexOf(player.name) === -1 && me.playertype == 1) { // hardcore permit loot to other chars
+										clickParty(player, 0);
+										loot.push(player.name);
 										delay(500);
 									}
 								}
@@ -192,12 +200,29 @@
 
 						break;
 ```
-* in ... \tools\Party.js change [default line 74](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/tools/Party.js#L74) with:
+	* in ... \tools\Party.js change [default line 74](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/tools/Party.js#L74) with:
 ```javascript
 	if (Config.PublicMode === 4 || Config.PublicMode === 5) {
 		print("ÿc2Party thread loaded. ÿc0Mode: ÿc2MyOwnParty - " + ((Config.PublicMode === 5) ? "Accept" : "Invite"));
 	} else print("ÿc2Party thread loaded. ÿc0Mode: ÿc2" + (Config.PublicMode === 2 ? "Accept" : "Invite"));
 ```
+	* in ... \tools\Party.js add after [the default line 56](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/tools/Party.js#L56) with:
+```javascript
+			case 0x00: // "%Name1(%Name2) dropped due to time out."
+			case 0x01: // "%Name1(%Name2) dropped due to errors."
+			case 0x03: // "%Name1(%Name2) left our world. Diablo's minions weaken."
+				if (me.playertype == 1 && loot.indexOf(name1) > -1) { // hardcore leaving char is removed from loot 
+					loot.splice(loot.indexOf(name1), 1);
+				}
+
+				break;
+```
+	* in ... \tools\Party.js change [the default line 22](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/tools/Party.js#L22) with:
+```javascript
+		partyTick = getTickCount(),
+		loot = [];
+```
+
 * there should be added infinite loops to stop dead HC player from other actions which will end the game because of errors, like in the case of Follower.js
 ```javascript
         if (me.playertype == 1 && me.mode === 17) { // stop the HC screen to allow the loot of dead player
@@ -206,7 +231,8 @@
             }
         }
 ```
-* the other players already permitted to loot his/her corpse, can get the equipped items back, the mercenary stuff is lost, and also the items located in inventory and stash.
+* the permit loot lines efectively work for the leader which give his permission for every player, and get those permissions from every player, too. 
+* the players, which are permitted to loot a hardcore player corpse, can get the equipped items back, but the mercenary stuff is lost, and also lost are the items located in inventory and stash.
 
 ## Baal.js with adds for hdin on wave 2
 
@@ -299,7 +325,8 @@
 * without the LocalChat active in mode 2, the follower reporting have to be silenced changing **say(** with **print(** or me.overhead (server side function of d2bs, other players don't see that).
 * the default Follower.js has set town activities only with command, and in the case of silenced it was changed to do town activities at the start of the game and just after every leader move to town. Cain can be used to identify items, but before setting that check the [section related](#use-cain-and-sell-items), below.
 
-* https://pastebin.com/LnXCQ3ES - copy and paste the text (or download that paste), in a new file ...\bots\FollowerSilent.js. The scripts has some adds, check the top of it. And you should add a new line in the character configuration file:
+* https://pastebin.com/LnXCQ3ES or [FollowerSilent.js on github](https://raw.githubusercontent.com/blizzhackers/documentation/master/kolbot/scripts/FollowerSilent.js) - copy and paste the text (or download that paste), in a new file ...\bots\FollowerSilent.js.
+This modded script has some adds, check the top of it. And you should add a new line in the character configuration file:
 ```javascript
 	Scripts.FollowerSilent = true; // a custom automated Follower.js
 ```
