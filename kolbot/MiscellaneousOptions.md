@@ -251,13 +251,13 @@
 
 * Note: apply it only if you run more game creator bots, and test first without it, someone on discord is saying that it isn't required the staggering like in the previous ladder season.
 
-* a staggered version of ...\d2bs\kolbot\D2BotLead.dbj  https://pastebin.com/u02RH1C2
+* a staggered version of ...\d2bs\kolbot\D2BotLead.dbj  https://pastebin.com/u02RH1C2 or [D2BotLeadStagger.dbj on github](https://raw.githubusercontent.com/blizzhackers/documentation/master/kolbot/scripts/D2BotLeadStagger.dbj)
 * copy and paste the text, and save it ...\kolbot\D2BotLeadStagger.dbj
 
 * this will create ...\logs\gameStagger.txt file and you'll see a message in status "Lobby - stagger time: (...s)" if the stagger delay wasn't reached.
 * in case of errors or too high values shown on d2bs status line, delete the gameStagger.txt and it will be written again.
 
-* staggerDelay was set to random value 120 - 130 sec (line 370), and CreateGameDelay to random value 5-15 sec (line 8)
+* staggerDelay was set to random value 120 - 130 sec (line 360), and CreateGameDelay to random value 10-15 sec (line 8)
 
 ## opening all chests
 * if you want to open all chests during clearing, set in char configuration file

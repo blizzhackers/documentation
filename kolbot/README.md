@@ -24,6 +24,8 @@ library scripts by [@kolton](https://github.com/kolton)
 
 * [D2BotMuleLog](D2BotMuleLog.md/#d2botmulelog): log muled items
 
+* [Perming Options](PermingOptions.md/#perming-options): options to perm chars or to refresh the countdown timer
+
 * [Automule](Automule.md/#automule): Automuling and torch muling
 
 * [Hotkeys](Hotkeys.md/#hotkeys): d2bs hotkeys, how to change them, console commands

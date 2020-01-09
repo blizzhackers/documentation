@@ -38,6 +38,7 @@
 * [Multi Botting](kolbot/MultiBotting.md/#multi-botting): game creator, joining games, ...
 * [TCP/IP Games](kolbot/TCP-IP%20games.md#tcpip-games): host and join TCP/IP games
 * [D2BotMuleLog](kolbot/D2BotMuleLog.md/#d2botmulelog): log muled items
+* [Perming Options](kolbot/PermingOptions.md/#perming-options): options to perm chars or to refresh the countdown timer
 * [Automule](kolbot/Automule.md/#automule): Automuling and torch muling
 * [Hotkeys](kolbot/Hotkeys.md/#hotkeys): d2bs hotkeys, how to change them, console commands
 * [Miscellaneous Options](kolbot/MiscellaneousOptions.md/#miscellaneous-options): autosmurf, autochaos, modded BattleOrders, how to define your own party, hardcore loot corpses, baal ads for hdin on wave2, ...

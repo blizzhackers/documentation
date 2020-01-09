@@ -20,7 +20,7 @@
 
 ## Host config
 
-1. save https://pastebin.com/FGaMpj18 as D2BotTcpIpHost.dbj in your ...\kolbot folder
+1. save https://pastebin.com/FGaMpj18 or [D2BotTcpIpHost.dbj on github](https://raw.githubusercontent.com/blizzhackers/documentation/master/kolbot/scripts/D2BotTcpIpHost.dbj) as D2BotTcpIpHost.dbj in your ...\kolbot folder
 
 1. create and edit a new profile in your D2Bot manager, using the previous created starter script:
 
@@ -29,7 +29,7 @@
 
 ## Join config
 
-1. save https://pastebin.com/zQyUrDKP as D2BotTcpIpJoin.dbj in your ...\kolbot folder
+1. save https://pastebin.com/zQyUrDKP or [D2BotTcpIpJoin.dbj on github](https://raw.githubusercontent.com/blizzhackers/documentation/master/kolbot/scripts/D2BotTcpIpJoin.dbj)as D2BotTcpIpJoin.dbj in your ...\kolbot folder
 
 1. create and edit a new profile in your D2Bot manager, using the previous created starter script:
 
