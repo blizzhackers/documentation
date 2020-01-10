@@ -1111,6 +1111,11 @@ function FollowerSilent() {
 
 				while (!Pather.usePortal(leader.area, leader.name) && leader.area !== me.area) {
 					me.overhead("ÿc1Failed to use leader portal.");
+
+					if (this.checkLeaderAct(leader) !== me.act) {
+
+						break;
+					}
 				}
 
 				if (!me.inTown) {
@@ -1129,6 +1134,7 @@ function FollowerSilent() {
 						delay(200);
 
 						if (leader.area !== me.area) {
+
 							break;
 						}
 					}
@@ -1142,9 +1148,9 @@ function FollowerSilent() {
 				Town.move("portalspot");
 			}
 
-			if (field && leader.inTown && autoTownChores && !action) {
+			if (field && autoTownChores && leader.inTown && !action) {
 				me.overhead("ÿc4Running town chores");
-				Town.doChores(true);
+				Town.doChores();
 				field = false;
 				Town.move("portalspot");
 			}

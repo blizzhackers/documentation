@@ -16,6 +16,8 @@
 * [how to define your own party and permit hardcore loot corpses](#how-to-define-your-own-party-and-permit-hardcore-loot-corpses)
 * [Baal.js with adds for hdin on wave 2](#Baaljs-with-adds-for-hdin-on-wave-2)
 * [staggered delays for creating games](#staggered-delays-for-creating-games)
+* [picking and selling junk items](#picking-and-selling-junk-items)
+* [picking and selling valuable items](#picking-and-selling-valuable-items)
 * [opening all chests](#opening-all-chests)
 * [open chests only from specific areas](#open-chests-only-from-specific-areas)
 * [silenced Follower](#silenced-Follower)
@@ -24,7 +26,6 @@
 * [sell cubing items](#sell-cubing-items)
 * [inventory full](#inventory-full)
 * [cubing all kind of gems](#cubing-all-kind-of-gems)
-* [picking and selling junk items](#picking-and-selling-junk-items)
 * [Diabase & D2BS](#Diabase--D2BS)
 * [silencing the scripts](#silencing-the-scripts)
 
@@ -68,7 +69,7 @@
 ## modded BattleOrders.js
 * reason = the default script was programmed to do only a single BOgive - BOget at the beggining of the game. Maybe it wasn't necessary a 2nd one, because games were shorter in those d2 server times without a lot of restrictions, which were applied in the meantime.
 
-* by [@nag0k](https://github.com/nag0k) - https://pastebin.com/JTmWbqLf - replace the default ...\libs\bots\BattleOrders.js
+* by [@nag0k](https://github.com/nag0k) - https://pastebin.com/JTmWbqLf or [BattleOrders.js on github](https://raw.githubusercontent.com/blizzhackers/documentation/master/kolbot/scripts/BattleOrders.js)- replace the default ...\libs\bots\BattleOrders.js
 * barbarian will go to the waypoint of your choosing and bo anyone that is nearby if they have bo or not. It will go back to town if monsters come close to the boer. It will go back to town and visit a healer NPC if it's mana gets below a set percentage then return to continue giving bo.
 
 * there are some settings at the top of the script you can change:
@@ -231,8 +232,10 @@
             }
         }
 ```
-* the permit loot lines efectively work for the leader which give his permission for every player, and get those permissions from every player, too. 
-* the players, which are permitted to loot a hardcore player corpse, can get the equipped items back, but the mercenary stuff is lost, and also lost are the items located in inventory and stash.
+* Notes:
+	* on reload Chat/console in-game command, the permit loot become off for all other players because loot list is lost, but 2nd reload will swith the permit loot to on.
+	* the players, which are permitted to loot a hardcore player corpse, can get the equipped items back, but the mercenary stuff is lost, and also lost are the items located in inventory and stash.
+	* to implement the recovery of loot stuff on automatic bot characters there should be added more changes in the libs scripts. With low hp chicken values on high ping games maybe there will be errors to get the death when game is left, so the recovery can't be done.
 
 ## Baal.js with adds for hdin on wave 2
 
@@ -258,6 +261,69 @@
 * in case of errors or too high values shown on d2bs status line, delete the gameStagger.txt and it will be written again.
 
 * staggerDelay was set to random value 120 - 130 sec (line 360), and CreateGameDelay to random value 10-15 sec (line 8)
+
+
+## picking and selling junk items
+
+* if your low bot need gold, you should activate the picking of junk items.
+* if total gold is less than Config.LowGold value pick up anything worth 10 gold per square to sell in town.
+
+* you should add in the char configuration file:
+	```javascript
+		Config.LowGold = 200000 // any low item with 10 gold per square will be picked and sold to NPC until me.gold < Config.LowGold
+	```
+that variable is already defined in Config.js (line 138, where it is set to 0), and it is used in [Pickit.js line 64](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/common/Pickit.js#L64) and [Town.js line 526](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/common/Town.js#L526)
+
+you could comment the [line 58 from Town.js](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/common/Town.js#L58) , in order to pick the [throwing potions](http://classic.battle.net/diablo2exp/items/potions.shtml)
+```javascript
+		//38, // Missile Potion
+```
+
+## picking and selling valuable items
+
+* if your bot need gold, to gamble more often, you should set the picking of valuable items including white ones, which worth more than 2k gold (customizable) / square.
+* add in the character configuration file:
+	```javascript
+		Config.PickValuableItems = true; // pick everything worth > 2k gold/square
+	```
+* add after [ line 138 (LowGold) in ... libs\common\Config.js](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/common/Config.js#L138):
+	```javascript
+		PickValuableItems: false,
+	```
+* add after [line 80 in Pickit.js](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/common/Pickit.js#L80):
+	```javascript
+		// pick valuable items which worth more than 2k gold/square to sell in town, if Config.PickValuableItems = true.
+		var dontSell = [557, 558, 559, 560, 561, 562, 563, 564, 565, 566, 567, 568, 569, 570, 571, 572, 573, 574, 575, 576, 577,
+						578,579, 580, 581, 582, 583, 584, 585, 586, 597, 598, 599, 600, 601, // gems
+						610, 611, 612, 613, 614, 615, 616, 617, 618, 619, 620, 621, 622, 623, 624, 625, 626, 627, 628, 629, 630,
+						631, 632, 633, 634, 635, 636, 637, 638, 639, 640, 641, 642]; // runes
+
+		if (rval.result === 0  && Config.PickValuableItems && unit.itemType !== 39 && dontSell.indexOf(unit.classid) === -1) { // exclude quest items, gems and runes
+			if (unit.getItemCost(1) / (unit.sizex * unit.sizey) >= 2e3) {
+				return {
+					result: 5,
+					line: null
+				};
+			}
+		}
+
+	```
+* add after [line 1942 in Town.js](hhttps://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/common/Town.js#L1942):
+	```javascript
+				case 5: // Sell valuable item > 2k gold/square
+					try {
+						print("Val.Items sell " + items[i].name);
+						this.initNPC("Shop", "clearInventory");
+						Misc.itemLogger("Sold", items[i]);
+						items[i].sell();
+					} catch (e) {
+						print(e);
+					}
+
+					break;
+	```
+* maybe the npc town visit will be more often, but large amounts of gold will be get faster.
+
 
 ## opening all chests
 * if you want to open all chests during clearing, set in char configuration file
@@ -351,27 +417,35 @@ This modded script has some adds, check the top of it. And you should add a new 
 	```
 
 ## use Cain and sell items
-* By default the identifying items on Cain will end with dropping the unwanted items. That was the reason to add a variable with minimum gold, just under the enabling ID at Cain.
-* [@noah-](https://github.com/noah-) argued that identifying on other npc is faster, but it isn't matter some seconds in these days on d2 server, and maybe old Etal users will use it.
+* the item identifying on Cain will end with dropping the unwanted items by default. That was the reason to add a variable with minimum gold, just under the enabling ID at Cain.
 
-* look in ...\d2bs\kolbot\libs\common\Town.js for [SVN lines 711-715](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/common/Town.js#L711-L715) :
+* add in the character configuration file in Cain section:
 	```javascript
-					case 0:
-						Misc.itemLogger("Dropped", unids[i], "cainID");
-						unids[i].drop();
-	
-						break;
+		Config.CainID.Drop = false; // drop items identified at Cain
 	```
-* and change them into:
+* set a lower gold limit for using Cain, like 100.000 or 0:
 	```javascript
-					case 0:
-						Misc.itemLogger("Dropped", unids[i], "cainID");
+		Config.CainID.MinGold = 0; // Minimum gold (stash + character) to have in order to use Cain.
+	```
+* add after [line 148 (CainID.Enable) in ... libs\common\Config.js](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/common/Config.js#L148):
+	```javascript
+			Drop: false,
+	```
+* change the [lines 711-715 in ...\libs\common\Town.js](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/common/Town.js#L711-L715) with:
+	```javascript
+				case 0:
+					if (!Config.CainID.Drop) {
+						Misc.itemLogger("Shopped", unids[i], "cainID");
 						this.initNPC("Shop", "clearInventory");
 						unids[i].sell();
-	
-						break;
+					} else {
+						Misc.itemLogger("Dropped", unids[i], "cainID");
+						unids[i].drop();
+					}
+
+					break;
 	```
-* set a lower gold limit on char for using Cain, like 100.000 or 0.
+
 
 ## sell cubing items
 by default the cubing items will be dropped if them not meet the condition to be kept. You should replace [the default lines 967-971 from Cubing.js](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/common/Cubing.js#L967-L971) with:
@@ -601,26 +675,6 @@ by default the cubing items will be dropped if them not meet the condition to be
 
 * if picking a lot of gems will highly increase the number of the lines in d2bs manager item log tab, check the proper settings in the **// Manager Item Log Screen** section from character config file
 
-
-## picking and selling junk items
-
-* if your low bot need gold, you should activate the picking of junk items.
-* if total gold is less than Config.LowGold value pick up anything worth 10 gold per square to sell in town.
-
-* you should add in the char configuration file:
-	```javascript
-		Config.LowGold = 200000 // any low item with 10 gold per square will be picked and sold to NPC until me.gold < Config.LowGold
-	```
-that variable is already defined in Config.js (line 138, where it is set to 0), and it is used in Pickit.js(line 64) and Town.js(line 526)
-
-* some items are ignored, but if you wanna pick everything, remove this part from default line 64 in Pickit.js:
-	```javascript
-	&& Town.ignoredItemTypes.indexOf(unit.itemType) === -1 
-	```
-otherwise you can only comment the desired line from Town.js like line 54, which is responsible of ignoring [throwing potions](http://classic.battle.net/diablo2exp/items/potions.shtml)
-```javascript
-		//38, // Missile Potion
-```
 
 ## Diabase & D2BS
 @Ned added some changes to Diabase to work with D2BS
