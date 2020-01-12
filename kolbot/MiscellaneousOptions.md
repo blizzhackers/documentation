@@ -301,7 +301,7 @@ you could comment the [line 58 from Town.js](https://github.com/kolton/d2bot-wit
 		if (rval.result === 0  && Config.PickValuableItems && unit.itemType !== 39 && dontSell.indexOf(unit.classid) === -1) { // exclude quest items, gems and runes
 			if (unit.getItemCost(1) / (unit.sizex * unit.sizey) >= 2e3) {
 				return {
-					result: 5,
+					result: 7,
 					line: null
 				};
 			}
@@ -310,7 +310,7 @@ you could comment the [line 58 from Town.js](https://github.com/kolton/d2bot-wit
 	```
 * add after [line 1942 in Town.js](hhttps://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/common/Town.js#L1942):
 	```javascript
-				case 5: // Sell valuable item > 2k gold/square
+				case 7: // Sell valuable item > 2k gold/square
 					try {
 						print("Val.Items sell " + items[i].name);
 						this.initNPC("Shop", "clearInventory");
