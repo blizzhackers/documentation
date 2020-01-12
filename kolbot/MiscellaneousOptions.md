@@ -312,7 +312,7 @@ you could comment the [line 58 from Town.js](https://github.com/kolton/d2bot-wit
 	```javascript
 				case 7: // Sell valuable item > 2k gold/square
 					try {
-						print("Val.Items sell " + items[i].name);
+						print("val.items sell " + items[i].name + " - " + items[i].getItemCost(1) + " gold");
 						this.initNPC("Shop", "clearInventory");
 						Misc.itemLogger("Sold", items[i]);
 						items[i].sell();
