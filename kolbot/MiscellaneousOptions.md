@@ -16,6 +16,7 @@
 * [how to define your own party and permit hardcore loot corpses](#how-to-define-your-own-party-and-permit-hardcore-loot-corpses)
 * [Baal.js with adds for hdin on wave 2](#Baaljs-with-adds-for-hdin-on-wave-2)
 * [staggered delays for creating games](#staggered-delays-for-creating-games)
+* [quit with logging items](#quit-with-logging-items)
 * [picking and selling junk items](#picking-and-selling-junk-items)
 * [picking and selling valuable items](#picking-and-selling-valuable-items)
 * [opening all chests](#opening-all-chests)
@@ -262,6 +263,23 @@
 
 * staggerDelay was set to random value 120 - 130 sec (line 360), and CreateGameDelay to random value 10-15 sec (line 8)
 
+## quit with logging items
+
+* for manual quit and stop a profile on the latest run, add after [line 355 of ToolsThread.js](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/tools/ToolsThread.js#L355):
+```javascript
+		case 35: // End key
+			MuleLogger.logChar(); // log the char
+			delay(rand(2e3, 5e3));
+			D2Bot.printToConsole(me.profile + " - end run " + me.gamename);
+			D2Bot.stop(me.profile, true);
+
+			break;
+```
+* the < END > key can be used to quit with logging items at the end of runs.
+* with multiple chars in the game you can replace **delay(rand(2e3, 5e3));** with the already set values of **Config.QuitListDelay** :
+```javascript
+			delay(rand(Config.QuitListDelay[0] * 1e3, Config.QuitListDelay[1] * 1e3));
+```
 
 ## picking and selling junk items
 
@@ -278,6 +296,7 @@ you could comment the [line 58 from Town.js](https://github.com/kolton/d2bot-wit
 ```javascript
 		//38, // Missile Potion
 ```
+* if you don't wanna pick arrows/bolts you should increase the value **10** from [line 73 of Pickit.js](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/common/Pickit.js#L73) to any other value like 15 or 20.
 
 ## picking and selling valuable items
 
@@ -293,10 +312,12 @@ you could comment the [line 58 from Town.js](https://github.com/kolton/d2bot-wit
 * add after [line 80 in Pickit.js](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/common/Pickit.js#L80):
 	```javascript
 		// pick valuable items which worth more than 2k gold/square to sell in town, if Config.PickValuableItems = true.
-		var dontSell = [557, 558, 559, 560, 561, 562, 563, 564, 565, 566, 567, 568, 569, 570, 571, 572, 573, 574, 575, 576, 577,
+		var dontSell = [
+						557, 558, 559, 560, 561, 562, 563, 564, 565, 566, 567, 568, 569, 570, 571, 572, 573, 574, 575, 576, 577,
 						578,579, 580, 581, 582, 583, 584, 585, 586, 597, 598, 599, 600, 601, // gems
 						610, 611, 612, 613, 614, 615, 616, 617, 618, 619, 620, 621, 622, 623, 624, 625, 626, 627, 628, 629, 630,
-						631, 632, 633, 634, 635, 636, 637, 638, 639, 640, 641, 642]; // runes
+						631, 632, 633, 634, 635, 636, 637, 638, 639, 640, 641, 642 // runes
+						];
 
 		if (rval.result === 0  && Config.PickValuableItems && unit.itemType !== 39 && dontSell.indexOf(unit.classid) === -1) { // exclude quest items, gems and runes
 			if (unit.getItemCost(1) / (unit.sizex * unit.sizey) >= 2e3) {
@@ -308,6 +329,10 @@ you could comment the [line 58 from Town.js](https://github.com/kolton/d2bot-wit
 		}
 
 	```
+* note that the 9th line is customizable, adding only the value of the item (like 5k gold) or a mixed line with previous example (2k gold/square):
+```javascript
+			if (unit.getItemCost(1) >= 5e3 || (unit.getItemCost(1) / (unit.sizex * unit.sizey) >= 2e3)) {
+```
 * add after [line 1942 in Town.js](hhttps://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/common/Town.js#L1942):
 	```javascript
 				case 7: // Sell valuable item > 2k gold/square
@@ -495,9 +520,8 @@ by default the cubing items will be dropped if them not meet the condition to be
 
 ## cubing all kind of gems
 * if you wanna a bot from your team to cube all the gems found, you can add some changes:
-* in the special pickit file for that char, you can have only 1 line near the perfect gem lines
+* in the special pickit file for that char, you can have only the perfect gem lines
 	```javascript
-	[type] == gem
 	[name] == perfectamethyst
 	[name] == perfectdiamond
 	[name] == perfectemerald
@@ -506,137 +530,44 @@ by default the cubing items will be dropped if them not meet the condition to be
 	[name] == perfecttopaz
 	[name] == perfectskull
 	```
-* in ...\kolbot\libs\common\Cubing.js after [SVN line 667](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/common/Cubing.js#L667) add these lines:
+* in ...\kolbot\libs\common\Cubing.js replace [default lines 201-204](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/common/Cubing.js#L201-L204) with:
 ```javascript
+			case Recipe.Gem:
+				switch (Config.Recipes[i][1]) {
+				case 557: // chipped amethyst
+				case 558: // flawed amethyst
+				case 559: // amethyst
+				case 560: // flawless amethyst
+				case 562: // chipped topaz
+				case 563: // flawed topaz
+				case 564: // topaz
+				case 565: // flawless topaz
+				case 567: // chipped sapphire
+				case 568: // flawed sapphire
+				case 569: // sapphire
+				case 570: // flawless sapphire
+				case 572: // chipped emerald
+				case 573: // flawed emerald
+				case 574: // emerald
+				case 575: // flawless emerald
+				case 577: // chipped ruby
+				case 578: // flawed ruby
+				case 579: // ruby
+				case 580: // flawless ruby
+				case 582: // chipped diamond
+				case 583: // flawed diamond
+				case 584: // diamond
+				case 585: // flawless diamond
+				case 597: // chipped skull
+				case 598: // flawed skull
+				case 599: // skull
+				case 600: // flawless skull
+					this.recipes.push({Ingredients: [Config.Recipes[i][1], Config.Recipes[i][1], Config.Recipes[i][1]], Index: Recipe.Gem, AlwaysEnabled: true});
 
-                // flawless gems
-                // Make flawless amethyst
-                if (this.subRecipes.indexOf(560) === -1 && (this.recipes[i].Ingredients[j] === 560 || (this.recipes[i].Ingredients[j] === "lgem" && this.gemList.indexOf(560) > -1))) {
-                    this.recipes.push({Ingredients: [559, 559, 559], Index: Recipe.Gem, AlwaysEnabled: true, MainRecipe: this.recipes[i].Index});
-                    this.subRecipes.push(560);
-                }
+					break;
+				}
 
-                // Make flawless topaz
-                if (this.subRecipes.indexOf(565) === -1 && (this.recipes[i].Ingredients[j] === 565 || (this.recipes[i].Ingredients[j] === "lgem" && this.gemList.indexOf(565) > -1))) {
-                    this.recipes.push({Ingredients: [564, 564, 564], Index: Recipe.Gem, AlwaysEnabled: true, MainRecipe: this.recipes[i].Index});
-                    this.subRecipes.push(565);
-                }
-
-                // Make flawless sapphire
-                if (this.subRecipes.indexOf(570) === -1 && (this.recipes[i].Ingredients[j] === 570 || (this.recipes[i].Ingredients[j] === "lgem" && this.gemList.indexOf(570) > -1))) {
-                    this.recipes.push({Ingredients: [569, 569, 569], Index: Recipe.Gem, AlwaysEnabled: true, MainRecipe: this.recipes[i].Index});
-                    this.subRecipes.push(570);
-                }
-
-                // Make flawless emerald
-                if (this.subRecipes.indexOf(575) === -1 && (this.recipes[i].Ingredients[j] === 575 || (this.recipes[i].Ingredients[j] === "lgem" && this.gemList.indexOf(575) > -1))) {
-                    this.recipes.push({Ingredients: [574, 574, 574], Index: Recipe.Gem, AlwaysEnabled: true, MainRecipe: this.recipes[i].Index});
-                    this.subRecipes.push(575);
-                }
-
-                // Make flawless ruby
-                if (this.subRecipes.indexOf(580) === -1 && (this.recipes[i].Ingredients[j] === 580 || (this.recipes[i].Ingredients[j] === "lgem" && this.gemList.indexOf(580) > -1))) {
-                    this.recipes.push({Ingredients: [579, 579, 579], Index: Recipe.Gem, AlwaysEnabled: true, MainRecipe: this.recipes[i].Index});
-                    this.subRecipes.push(580);
-                }
-
-                // Make flawless diamond
-                if (this.subRecipes.indexOf(585) === -1 && (this.recipes[i].Ingredients[j] === 585 || (this.recipes[i].Ingredients[j] === "lgem" && this.gemList.indexOf(585) > -1))) {
-                    this.recipes.push({Ingredients: [584, 584, 584], Index: Recipe.Gem, AlwaysEnabled: true, MainRecipe: this.recipes[i].Index});
-                    this.subRecipes.push(585);
-                }
-
-                // Make flawless skull
-                if (this.subRecipes.indexOf(600) === -1 && (this.recipes[i].Ingredients[j] === 600 || (this.recipes[i].Ingredients[j] === "lgem" && this.gemList.indexOf(600) > -1))) {
-                    this.recipes.push({Ingredients: [599, 599, 599], Index: Recipe.Gem, AlwaysEnabled: true, MainRecipe: this.recipes[i].Index});
-                    this.subRecipes.push(600);
-                }
-
-                // gems
-                // Make amethyst
-                if (this.subRecipes.indexOf(559) === -1 && (this.recipes[i].Ingredients[j] === 559 || (this.recipes[i].Ingredients[j] === "sgem" && this.gemList.indexOf(559) > -1))) {
-                    this.recipes.push({Ingredients: [558, 558, 558], Index: Recipe.Gem, AlwaysEnabled: true, MainRecipe: this.recipes[i].Index});
-                    this.subRecipes.push(559);
-                }
-
-                // Make topaz
-                if (this.subRecipes.indexOf(564) === -1 && (this.recipes[i].Ingredients[j] === 564 || (this.recipes[i].Ingredients[j] === "sgem" && this.gemList.indexOf(564) > -1))) {
-                    this.recipes.push({Ingredients: [563, 563, 563], Index: Recipe.Gem, AlwaysEnabled: true, MainRecipe: this.recipes[i].Index});
-                    this.subRecipes.push(564);
-                }
-
-                // Make sapphire
-                if (this.subRecipes.indexOf(569) === -1 && (this.recipes[i].Ingredients[j] === 569 || (this.recipes[i].Ingredients[j] === "sgem" && this.gemList.indexOf(569) > -1))) {
-                    this.recipes.push({Ingredients: [568, 568, 568], Index: Recipe.Gem, AlwaysEnabled: true, MainRecipe: this.recipes[i].Index});
-                    this.subRecipes.push(569);
-                }
-
-                // Make emerald
-                if (this.subRecipes.indexOf(574) === -1 && (this.recipes[i].Ingredients[j] === 574 || (this.recipes[i].Ingredients[j] === "sgem" && this.gemList.indexOf(574) > -1))) {
-                    this.recipes.push({Ingredients: [573, 573, 573], Index: Recipe.Gem, AlwaysEnabled: true, MainRecipe: this.recipes[i].Index});
-                    this.subRecipes.push(574);
-                }
-
-                // Make ruby
-                if (this.subRecipes.indexOf(579) === -1 && (this.recipes[i].Ingredients[j] === 579 || (this.recipes[i].Ingredients[j] === "sgem" && this.gemList.indexOf(579) > -1))) {
-                    this.recipes.push({Ingredients: [578, 578, 578], Index: Recipe.Gem, AlwaysEnabled: true, MainRecipe: this.recipes[i].Index});
-                    this.subRecipes.push(579);
-                }
-
-                // Make diamond
-                if (this.subRecipes.indexOf(584) === -1 && (this.recipes[i].Ingredients[j] === 584 || (this.recipes[i].Ingredients[j] === "sgem" && this.gemList.indexOf(584) > -1))) {
-                    this.recipes.push({Ingredients: [583, 583, 583], Index: Recipe.Gem, AlwaysEnabled: true, MainRecipe: this.recipes[i].Index});
-                    this.subRecipes.push(584);
-                }
-
-                // Make skull
-                if (this.subRecipes.indexOf(599) === -1 && (this.recipes[i].Ingredients[j] === 599 || (this.recipes[i].Ingredients[j] === "sgem" && this.gemList.indexOf(599) > -1))) {
-                    this.recipes.push({Ingredients: [598, 598, 598], Index: Recipe.Gem, AlwaysEnabled: true, MainRecipe: this.recipes[i].Index});
-                    this.subRecipes.push(599);
-                }
-
-                // flawed gems
-                // Make flawed amethyst
-                if (this.subRecipes.indexOf(558) === -1 && (this.recipes[i].Ingredients[j] === 558 || (this.recipes[i].Ingredients[j] === "fgem" && this.gemList.indexOf(558) > -1))) {
-                    this.recipes.push({Ingredients: [557, 557, 557], Index: Recipe.Gem, AlwaysEnabled: true, MainRecipe: this.recipes[i].Index});
-                    this.subRecipes.push(558);
-                }
-
-                // Make flawed topaz
-                if (this.subRecipes.indexOf(563) === -1 && (this.recipes[i].Ingredients[j] === 563 || (this.recipes[i].Ingredients[j] === "fgem" && this.gemList.indexOf(563) > -1))) {
-                    this.recipes.push({Ingredients: [562, 562, 562], Index: Recipe.Gem, AlwaysEnabled: true, MainRecipe: this.recipes[i].Index});
-                    this.subRecipes.push(563);
-                }
-
-                // Make flawed sapphire
-                if (this.subRecipes.indexOf(568) === -1 && (this.recipes[i].Ingredients[j] === 568 || (this.recipes[i].Ingredients[j] === "fgem" && this.gemList.indexOf(568) > -1))) {
-                    this.recipes.push({Ingredients: [567, 567, 567], Index: Recipe.Gem, AlwaysEnabled: true, MainRecipe: this.recipes[i].Index});
-                    this.subRecipes.push(568);
-                }
-
-                // Make flawed emerald
-                if (this.subRecipes.indexOf(573) === -1 && (this.recipes[i].Ingredients[j] === 573 || (this.recipes[i].Ingredients[j] === "fgem" && this.gemList.indexOf(573) > -1))) {
-                    this.recipes.push({Ingredients: [572, 572, 572], Index: Recipe.Gem, AlwaysEnabled: true, MainRecipe: this.recipes[i].Index});
-                    this.subRecipes.push(573);
-                }
-
-                // Make flawed ruby
-                if (this.subRecipes.indexOf(578) === -1 && (this.recipes[i].Ingredients[j] === 578 || (this.recipes[i].Ingredients[j] === "fgem" && this.gemList.indexOf(578) > -1))) {
-                    this.recipes.push({Ingredients: [577, 577, 577], Index: Recipe.Gem, AlwaysEnabled: true, MainRecipe: this.recipes[i].Index});
-                    this.subRecipes.push(578);
-                }
-
-                // Make flawed diamond
-                if (this.subRecipes.indexOf(583) === -1 && (this.recipes[i].Ingredients[j] === 583 || (this.recipes[i].Ingredients[j] === "fgem" && this.gemList.indexOf(583) > -1))) {
-                    this.recipes.push({Ingredients: [582, 582, 582], Index: Recipe.Gem, AlwaysEnabled: true, MainRecipe: this.recipes[i].Index});
-                    this.subRecipes.push(583);
-                }
-
-                // Make flawed skull
-                if (this.subRecipes.indexOf(598) === -1 && (this.recipes[i].Ingredients[j] === 599 || (this.recipes[i].Ingredients[j] === "fgem" && this.gemList.indexOf(598) > -1))) {
-                    this.recipes.push({Ingredients: [597, 597, 597], Index: Recipe.Gem, AlwaysEnabled: true, MainRecipe: this.recipes[i].Index});
-                    this.subRecipes.push(598);
-                }
+				break;
 ```
 * in character configuration file should be added in the cubing config section (default lines ~320-326 have the cubing of the flawless to perfect gems):
 	```javascript
