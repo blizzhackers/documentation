@@ -11,7 +11,7 @@
 *	- silent follower will check the leader's act and will go to it.
 *	- when leader makes tp the follower will try to use it and will precast/buff.
 *	- the follower will go after leader in town, using his tp, and will do town activities (if autoTownChores = true).
-*	- lines 1010-1024 will stop HC chars, in order to allow the loot of their corpses.
+*	- lines 1013-1027 will stop HC chars, in order to allow the loot of their corpses.
 *	- quiting/ending the game will be done using the random delay Config.QuitListDelay.
 *	- check the additional commands: b, ancs, ancsoff, ai, map, stash, restart, end, 0, ...
 *
@@ -591,6 +591,8 @@ function FollowerSilent() {
 			return [82];
 		case 100:
 			return [83];
+		case 102:
+			return [103];
 		case 109:
 			return [121];
 		case 111:
@@ -800,14 +802,15 @@ function FollowerSilent() {
 
 				break;
 			case "ancs": // prepare ancients quest a5q5, overwrite the config settings
+			case me.name + " ancs":
 				Config.MercWatch = false;
 				Config.TownCheck = false;
 				Config.TownHP = 0;
 				Config.LifeChicken = 0;
 				Config.ManaChicken = 0;
 				Config.HealStatus = false;
-				Config.HPBuffer = 5;
-				Config.MPBuffer = 5;
+				Config.HPBuffer = 3;
+				Config.MPBuffer = 3;
 				Config.RejuvBuffer = 5;
 
 				if (me.inTown) {
@@ -824,7 +827,7 @@ function FollowerSilent() {
 				Config.TownHP = 30;
 				Config.HPBuffer = 0;
 				Config.MPBuffer = 0;
-				Config.RejuvBuffer = 4;
+				Config.RejuvBuffer = 5;
 				me.overhead("ÿc1Configuration settings reverted");
 
 				break;
@@ -1344,7 +1347,12 @@ WPLoop:
 				me.overhead("ÿc8moving to leader, area: ÿc0" + la + "ÿc8 x: ÿc0" + lx + "ÿc8 y: ÿc0" + ly);
 				Pather.moveTo(lx, ly, 3, true);
 			} else {
-				say("ÿc1different area, cannot get leader position");
+				if (me.inTown) {
+					say("ÿc1I'm in town ÿc0- " + me.area);
+				} else {
+					say("ÿc1different area, ÿc0cannot get leader position");
+				}
+
 				action = "";
 			}
 		}

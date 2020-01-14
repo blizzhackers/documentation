@@ -70,7 +70,7 @@ case of loader keys in a set list, **set1** including key1.mpq, key2.mpq, key3.m
 
 Since June 2017 the key switching/swapping not help you at all in d2 server counting. So it's ok to use only 1 cdkeyset/bot.
 
-* download https://github.com/mf022/D2LoD-files/tree/master/D2LoD-key-utilities.
+* download https://github.com/blizzhackers/D2LoD-files/tree/master/D2LoD-key-utilities.
 * read ...\loaderkey-creator\loaderkey-creator-Readme.txt.
 * run ...\loaderkey-creator\keyCreator26.exe for 26 digits keys.
 * create your keysets d2key.mpq (807 B) and rename them in key1.mpq, key2.mpq, ...

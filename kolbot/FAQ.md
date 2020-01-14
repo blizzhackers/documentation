@@ -105,7 +105,7 @@ check [download guide](https://github.com/blizzhackers/documentation/tree/master
 
 ### how many bots in one game
 1. **Q:** is it possible to run more than 4 bots in one game?
-2. **A:** yes it is. Even on d2 main server, since [1 June 2017](https://us.battle.net/forums/en/bnet/topic/20754946455?page=12#post-229) are allowed 8 players in the same game, with same IP.
+2. **A:** yes it is. Even on d2 main server, since 1st June 2017 are allowed 8 players in the same game, with same IP.
 
 ### fastmod config
 1. **Q:** fastmod config or packet casting.
