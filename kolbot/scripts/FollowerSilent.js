@@ -5,13 +5,13 @@
 *	Config.LocalChat.Enabled = true; // enable the LocalChat system
 *	Config.LocalChat.Mode = 2; // 0 = disabled, 1 = chat from 'say' (recommended), 2 = all chat (for manual play)
 *
-* version: 06.01.2020
+* version: 17.01.2020
 *
 * silent-automated follower changes:
 *	- silent follower will check the leader's act and will go to it.
 *	- when leader makes tp the follower will try to use it and will precast/buff.
 *	- the follower will go after leader in town, using his tp, and will do town activities (if autoTownChores = true).
-*	- lines 1013-1027 will stop HC chars, in order to allow the loot of their corpses.
+*	- lines 1007-1021 will stop HC chars, in order to allow the loot of their corpses.
 *	- quiting/ending the game will be done using the random delay Config.QuitListDelay.
 *	- check the additional commands: b, ancs, ancsoff, ai, map, stash, restart, end, 0, ...
 *
@@ -24,11 +24,8 @@
 *	3					| town manager
 *	<charname> 3		|
 *
-*	p					| pick items
+*	p					| pick items, potions and open containers
 *	<charname> p		|
-*
-*	po					| pick potions
-*	<charname> po		|
 *
 *	c					| get softcore player corpse
 *	<charname> c		|
@@ -90,6 +87,8 @@
 *	m					| 
 *	<charname> m		|
 *
+*	dist:x	- minimum distance to leader. default value 6. you can set it in range 6 - 30
+*
 *	area: ... x: ... y: ... |  move to leader position in the same area *** leader should set a key in ToolsThread.js, like case 111: say("area: " + me.area + " x: " + me.x + " y: " + me.y); ***
 *
 *	map					| activate mh in the follower windows
@@ -116,7 +115,8 @@ function FollowerSilent() {
 		action = "",
 		charClass = classes[me.classid],
 		autoTownChores = true, // automatic town activities after arriving from field/areas
-		field = false,
+		field = false, // variable used in autoTownChores
+		dist = 6, // distance to leader. It can be changed with chat "dist:x" by leader.
 		logCharOnExit = true; // log items of the current char before exit
 
 	// Override config values
@@ -177,17 +177,13 @@ function FollowerSilent() {
 		return 5;
 	};
 
-	this.getCloser = function (range) {
+	this.getCloser = function () {
 		if (me.inTown) {
 			return;
 		}
 
-		if (range === undefined) {
-			range = 60;
-		}
-
-		if (leaderUnit && getDistance(me.x, me.y, leaderUnit.x, leaderUnit.y) <= range) {
-			if (getDistance(me.x, me.y, leaderUnit.x, leaderUnit.y) > 5) {
+		if (leaderUnit && getDistance(me.x, me.y, leaderUnit.x, leaderUnit.y) <= 65) {
+			if (getDistance(me.x, me.y, leaderUnit.x, leaderUnit.y) > dist) {
 				Pather.moveToUnit(leaderUnit, true);
 			}
 		} else if (!leaderUnit) {
@@ -591,8 +587,6 @@ function FollowerSilent() {
 			return [82];
 		case 100:
 			return [83];
-		case 102:
-			return [103];
 		case 109:
 			return [121];
 		case 111:
@@ -1047,12 +1041,11 @@ function FollowerSilent() {
 				}
 			}
 
-			this.getCloser(60);
+			this.getCloser();
 
 			if (attack) {
 				Attack.clear(15, false, false, false, true);
 				this.pickPotions(15);
-				this.getCloser(30);
 			}
 
 			Pickit.pickItems();
@@ -1236,19 +1229,13 @@ WPLoop:
 		case me.name + " p":
 			me.overhead("ÿc4!Picking items.");
 			Pickit.pickItems();
+			this.pickPotions(20);
 
 			if (openContainers) {
 				this.openContainers(20);
 			}
 
 			me.overhead("ÿc2!Done picking.");
-
-			break;
-		case "po":
-		case me.name + " po":
-			me.overhead("ÿc4!Picking potions.");
-			this.pickPotions(20);
-			me.overhead("ÿc2!Done.");
 
 			break;
 		case "1":
@@ -1355,6 +1342,11 @@ WPLoop:
 
 				action = "";
 			}
+		}
+
+		if (action && action.split(":")[0] === "dist") { // used in getCloser function
+			dist = (parseInt(action.split(":")[1], 10) > 6 && parseInt(action.split(":")[1], 10) <= 30) ? parseInt(action.split(":")[1], 10) : 6;
+			me.overhead("ÿc4distance to leader ÿc0= " + dist);
 		}
 
 		if (action.indexOf("talk") > -1) {

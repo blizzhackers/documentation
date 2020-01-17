@@ -693,9 +693,9 @@ function Manual () {
 
 	addEventListener("gamepacketsent", PacketSent);
 	addEventListener("gamepacket", PacketReceived);	
-	addEventListener("copydata", ircHandler);
+	//addEventListener("copydata", ircHandler);
 	load("tools/mapthread.js");
-	D2Bot.ircEvent(true);	
+	//D2Bot.ircEvent(true);	
 
 	while (true) {
 
