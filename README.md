@@ -1,3 +1,6 @@
+# Note: 
+* visit the latest updated documentation repository https://github.com/blizzhackers-d2/documentation
+
 # Diablo 2 Botting System (D2BS)
 
 * [d2bs core](#d2bs-d2bs-core-by-view-developers)
