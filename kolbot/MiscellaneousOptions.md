@@ -70,7 +70,7 @@
 ## modded BattleOrders.js
 * reason = the default script was programmed to do only a single BOgive - BOget at the beggining of the game. Maybe it wasn't necessary a 2nd one, because games were shorter in those d2 server times without a lot of restrictions, which were applied in the meantime.
 
-* by [@nag0k](https://github.com/nag0k) - https://pastebin.com/JTmWbqLf or [BattleOrders.js on github](https://raw.githubusercontent.com/blizzhackers/documentation/master/kolbot/scripts/BattleOrders.js)- replace the default ...\libs\bots\BattleOrders.js
+* by [@nag0k](https://github.com/nag0k) - https://pastebin.com/JTmWbqLf or [BattleOrders.js on github](https://raw.githubusercontent.com/blizzhackers/documentation/master/kolbot/custom-scripts/BattleOrders.js)- replace the default ...\libs\bots\BattleOrders.js
 * barbarian will go to the waypoint of your choosing and bo anyone that is nearby if they have bo or not. It will go back to town if monsters come close to the boer. It will go back to town and visit a healer NPC if it's mana gets below a set percentage then return to continue giving bo.
 
 * there are some settings at the top of the script you can change:
@@ -137,7 +137,7 @@
 * and complete the same list on every char config that you will add in your team game, including all charnames.
     Config.MyOwnParty = ["MyPlayer1", "MyPlayer2", "MyPlayer3", "MyPlayer4"];
 
-* check the changes in [modded Party.js](https://raw.githubusercontent.com/blizzhackers/documentation/master/kolbot/scripts/Party.js) and replace the content of default Party.js, or make the following changes:
+* check the changes in [modded Party.js](https://raw.githubusercontent.com/blizzhackers/documentation/master/kolbot/custom-scripts/Party.js) and replace the content of default Party.js, or make the following changes:
 	* in ... \tools\Party.js add after [default SVN line 143](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/tools/Party.js#L143) the cases 4 and 5
 ```javascript
 					case 4: // MyOwnParty invite
@@ -255,7 +255,7 @@
 
 * Note: apply it only if you run more game creator bots, and test first without it, someone on discord is saying that it isn't required the staggering like in the previous ladder season.
 
-* a staggered version of ...\d2bs\kolbot\D2BotLead.dbj  https://pastebin.com/u02RH1C2 or [D2BotLeadStagger.dbj on github](https://raw.githubusercontent.com/blizzhackers/documentation/master/kolbot/scripts/D2BotLeadStagger.dbj)
+* a staggered version of ...\d2bs\kolbot\D2BotLead.dbj  https://pastebin.com/u02RH1C2 or [D2BotLeadStagger.dbj on github](https://raw.githubusercontent.com/blizzhackers/documentation/master/kolbot/custom-scripts/D2BotLeadStagger.dbj)
 * copy and paste the text, and save it ...\kolbot\D2BotLeadStagger.dbj
 
 * this will create ...\logs\gameStagger.txt file and you'll see a message in status "Lobby - stagger time: (...s)" if the stagger delay wasn't reached.
@@ -416,7 +416,7 @@ you could comment the [line 58 from Town.js](https://github.com/kolton/d2bot-wit
 * without the LocalChat active in mode 2, the follower reporting have to be silenced changing **say(** with **print(** or me.overhead (server side function of d2bs, other players don't see that).
 * the default Follower.js has set town activities only with command, and in the case of silenced it was changed to do town activities at the start of the game and just after every leader move to town. Cain can be used to identify items, but before setting that check the [section related](#use-cain-and-sell-items), below.
 
-* https://pastebin.com/LnXCQ3ES or [FollowerSilent.js on github](https://raw.githubusercontent.com/blizzhackers/documentation/master/kolbot/scripts/FollowerSilent.js) - copy and paste the text (or download that paste), in a new file ...\bots\FollowerSilent.js.
+* https://pastebin.com/LnXCQ3ES or [FollowerSilent.js on github](https://raw.githubusercontent.com/blizzhackers/documentation/master/kolbot/custom-scripts/FollowerSilent.js) - copy and paste the text (or download that paste), in a new file ...\bots\FollowerSilent.js.
 This modded script has some adds, check the top of it. And you should add a new line in the character configuration file:
 ```javascript
 	Scripts.FollowerSilent = true; // a custom automated Follower.js
