@@ -92,8 +92,8 @@ Check [@rivx mule view project](http://www.rivsoft.net/projects/other/muleview/)
 
 ### dropper
 It's a free public dropper - limedrop, included in the default branch (master = trunk) of repository
-- browser link <https://github.com/kolton/kolbot-with-kolbot/tree/master>
-- download link for TortoiseSVN <https://github.com/kolton/kolbot-with-kolbot/trunk/>
+- browser link <https://github.com/blizzhackers/kolbot/tree/master>
+- download link for TortoiseSVN <https://github.com/blizzhackers/kolbot/trunk/>
 - check the [discord limedrop channel](https://discordapp.com/channels/430522386253611018/482930024681439242):
 
 * [About limedrop](https://github.com/blizzhackers/documentation/tree/master/limedrop#about-limedrop)

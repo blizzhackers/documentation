@@ -253,7 +253,7 @@ In special scripts section you can find additonal scripts with extra features li
 * Scripts.ChestMania
 * Scripts.ClearAnyArea
 
-Take a closer look and check what you like. Remember that inside of each script you can find additional information. All scripts are stored in **d2bs\kolbot\libs\bots**. Here you can read more about [URL='https://github.com/kolton/d2bot-with-kolbot/wiki/Gambling-System']Gambling System[/URL]
+Take a closer look and check what you like. Remember that inside of each script you can find additional information. All scripts are stored in **d2bs\kolbot\libs\bots**. 
 
 ### Guest scripts
 
@@ -426,8 +426,8 @@ Config.GambleItems.push(520); // Amulet **ENABLED**
 //Config.GambleItems.push(522); // Ring **DISABLED**
 
 for more items check **libs/NTItemAlias.dbl**
-Don't set stop gold amount to low if you use MiniShopBot can fail buy.
-Gambling can be used a Gambling System. For more info about, see [Gambling System Guide](https://github.com/kolton/d2bot-with-kolbot/wiki/Gambling-System)
+Don't set stop gold amount too low if you use MiniShopBot, buy can fail.
+Gambling can be used as Gambling System. For more info about, see [Gambling System Guide](https://github.com/kolton/d2bot-with-kolbot/wiki/Gambling-System)
 
 ### Cubing Config
 All recipes are available in **d2bs\kolbot\libs\config\Templates\Cubing.txt.**

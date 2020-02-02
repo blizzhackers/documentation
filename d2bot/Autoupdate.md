@@ -8,7 +8,7 @@
 
 ---
 
-### tortoiseSVN
+### tortoiseSVN project monitor
 
 [TortoiseSVN](https://tortoisesvn.net/), version 1.9 and later, has a project monitor included, which has similar features as the [CommitMonitor](#commit-monitor). 
 You should start ...\TortoiseSVN\bin\TortoiseProc.exe. By default the interval for monitoring is set to 30 minutes, and can have a maximum value of 1000 minutes.

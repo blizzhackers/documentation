@@ -16,4 +16,4 @@ d2bot manager by [@noah-](https://github.com/noah-)
 
 * [Keylist Configuration](Keylist.md/#keylist): additional info for key list management
 
-* [Autoupdate](Autoupdate.md/#autoupdate)
+* [Autoupdate](Autoupdate.md/#autoupdate): project monitor, commit monitor

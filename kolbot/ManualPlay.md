@@ -18,7 +18,7 @@
 
 ## info
 
-* [d2bs](https://github.com/kolton/d2bot-with-kolbot) allows manual playing
+* [d2bs](https://github.com/blizzhackers/kolbot) allows manual playing
 
 ## multi loader
 
@@ -54,7 +54,7 @@
 ```javascript
         hideFlags = [0x09, 0x0C, 0x01, 0x02, 0x0F, 0x18, 0x19, 0x21];
 ```
-6. if you want to use it with followers, and to activate LocalChat, you should add some extra lines in [default.dbj - part related to d2botmap](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/default.dbj#L40-L47)
+6. if you want to use it with followers, and to activate LocalChat, you should add some extra lines in [default.dbj - part related to d2botmap](https://github.com/blizzhackers/kolbot/blob/master/d2bs/kolbot/default.dbj#L40-L47)
 ```javascript
 	if (getScript("d2botmap.dbj")) {
 		load("tools/mapthread.js");

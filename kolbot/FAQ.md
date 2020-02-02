@@ -34,9 +34,6 @@
 
 ---
 
-## info
-[other FAQ page](https://github.com/kolton/d2bot-with-kolbot/wiki/FAQ)
-
 ## Q / A
 
 ### how to avoid checking versions issue?
@@ -63,12 +60,12 @@
 ### I have an issue with my bot
 1. **Q:** I have a problem with my bot. What should i do??
 2. **A:** please [pastebin](https://pastebin.com/) your config and write your current bot version. Explain all issues carefully. It's important to keep your bot up to date using latest version (every update fixes a lot of bugs).
-Here you can find [latest kolbot](https://github.com/kolton/d2bot-with-kolbot/). Learn [how to keep it updated](https://github.com/blizzhackers/documentation/blob/master/d2bot/Download.md#keep-bot-files-updated).
+Here you can find [latest kolbot](https://github.com/blizzhackers/kolbot/). Learn [how to keep it updated](https://github.com/blizzhackers/documentation/blob/master/d2bot/Download.md#keep-bot-files-updated).
 
 ### best version of d2bs
 1. **Q:** which version of D2BS should i use ??
 2. **A:** trunk is the latest **stable** version.
-* you can use [TortoiseSVN](https://tortoisesvn.net/downloads.html) on <https://github.com/kolton/d2bot-with-kolbot/trunk/>
+* you can use [TortoiseSVN](https://tortoisesvn.net/downloads.html) on <https://github.com/blizzhackers/kolbot/trunk/>
 check [download guide](https://github.com/blizzhackers/documentation/tree/master/d2bot/Download.md)
 
 ### how to change the pause button?
@@ -78,7 +75,7 @@ check [download guide](https://github.com/blizzhackers/documentation/tree/master
 
 ### pickit issue
 1. **Q:** I have a problem with my pickit.
-2. **A:** please check this page about - <https://github.com/blizzhackers/pickits> or <https://github.com/kolton/d2bot-with-kolbot/wiki/Pickit>
+2. **A:** please check this page about - <https://github.com/blizzhackers/pickits>
 
 ### using d2bs only multiloader
 1. **Q:** How I can use the dbs only as multiloader, without loading any scripts?
@@ -109,7 +106,7 @@ check [download guide](https://github.com/blizzhackers/documentation/tree/master
 
 ### fastmod config
 1. **Q:** fastmod config or packet casting.
-2. **A:** read carefully explanations in [Character config](https://github.com/kolton/d2bot-with-kolbot/wiki/Kolbot-Character-config#fastmod-config)
+2. **A:** read carefully explanations in [Character config](https://github.com/blizzhackers/documentation/blob/master/kolbot/CharacterConfig.md/#fastmod-config)
 
 ### d2bs sandboxed
 1. **Q:** Sandboxie
@@ -191,6 +188,6 @@ check [download guide](https://github.com/blizzhackers/documentation/tree/master
 2. **A:** on the manager click Settings > Close Game.exe. You'll get a confirmation message. Other method is to use windows task manager, and if you are seeing Game.exe, R-click and choose End task
 
 ## support
-* https://github.com/kolton/d2bot-with-kolbot/issues
+* https://github.com/blizzhackers/kolbot/issues
 * [discord #support](https://discordapp.com/channels/430522386253611018/430522508026839051)
 * [d2bot.discourse.group #support](https://d2bot.discourse.group/c/support)

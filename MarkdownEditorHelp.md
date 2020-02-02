@@ -2,7 +2,9 @@
 
 ---
 
-* additional guides can be found on http://docutils.sourceforge.net/docs/ref/rst/
+* additional guides can be found on:
+	* https://github.github.com/gfm/
+	* http://docutils.sourceforge.net/docs/ref/rst/
 
 ---
 [Block Elements](#block-elements)

@@ -27,6 +27,7 @@
 * [sell cubing items](#sell-cubing-items)
 * [inventory full](#inventory-full)
 * [cubing all kind of gems](#cubing-all-kind-of-gems)
+* [Taiwan disclaimer](#taiwan-disclaimer)
 * [Diabase & D2BS](#Diabase--D2BS)
 * [silencing the scripts](#silencing-the-scripts)
 
@@ -100,21 +101,21 @@
 
 ## walking char
 
-* you can add a variable in the char config ([maybe ~ line24](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/config/Sorceress.js#L24), just after BattleOrders section), like:
+* you can add a variable in the char config ([maybe ~ line24](https://github.com/blizzhackers/kolbot/blob/master/d2bs/kolbot/libs/config/Sorceress.js#L24), just after BattleOrders section), like:
 	```javascript
 	
 		Config.WalkingChar = true;
 	
 	```
 
-* in [Config.js line 277](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/common/Config.js#L277) add
+* in [Config.js line 277](https://github.com/blizzhackers/kolbot/blob/master/d2bs/kolbot/libs/common/Config.js#L277) add
 	```
 		WalkingChar: false,
 
 	``` 
 	this is the default option if you don't have it in char config and prevent other errors.
 
-* finally, add it in the line https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/common/Pather.js#L121 , so you'll get smth like 
+* finally, add it in the line https://github.com/blizzhackers/kolbot/master/d2bs/kolbot/libs/common/Pather.js#L121 , so you'll get smth like 
 	```javascript
         return this.teleport && !me.getState(139) && !me.getState(140) && !me.inTown && !Config.WalkingChar && ((me.classid === 1 && me.getSkill(54, 1)) || me.getStat(97, 54));
 	```
@@ -138,7 +139,7 @@
     Config.MyOwnParty = ["MyPlayer1", "MyPlayer2", "MyPlayer3", "MyPlayer4"];
 
 * check the changes in [modded Party.js](https://raw.githubusercontent.com/blizzhackers/documentation/master/kolbot/custom-scripts/Party.js) and replace the content of default Party.js, or make the following changes:
-	* in ... \tools\Party.js add after [default SVN line 143](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/tools/Party.js#L143) the cases 4 and 5
+	* in ... \tools\Party.js add after [default SVN line 143](https://github.com/blizzhackers/kolbot/blob/master/d2bs/kolbot/tools/Party.js#L143) the cases 4 and 5
 ```javascript
 					case 4: // MyOwnParty invite
 						if (Config.MyOwnParty.indexOf(player.name) === -1) {
@@ -202,13 +203,13 @@
 
 						break;
 ```
-	* in ... \tools\Party.js change [default line 74](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/tools/Party.js#L74) with:
+	* in ... \tools\Party.js change [default line 74](https://github.com/blizzhackers/kolbot/blob/master/d2bs/kolbot/tools/Party.js#L74) with:
 ```javascript
 	if (Config.PublicMode === 4 || Config.PublicMode === 5) {
 		print("ÿc2Party thread loaded. ÿc0Mode: ÿc2MyOwnParty - " + ((Config.PublicMode === 5) ? "Accept" : "Invite"));
 	} else print("ÿc2Party thread loaded. ÿc0Mode: ÿc2" + (Config.PublicMode === 2 ? "Accept" : "Invite"));
 ```
-	* in ... \tools\Party.js add after [the default line 56](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/tools/Party.js#L56) with:
+	* in ... \tools\Party.js add after [the default line 56](https://github.com/blizzhackers/kolbot/blob/master/d2bs/kolbot/tools/Party.js#L56) with:
 ```javascript
 			case 0x00: // "%Name1(%Name2) dropped due to time out."
 			case 0x01: // "%Name1(%Name2) dropped due to errors."
@@ -219,7 +220,7 @@
 
 				break;
 ```
-	* in ... \tools\Party.js change [the default line 22](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/tools/Party.js#L22) with:
+	* in ... \tools\Party.js change [the default line 22](https://github.com/blizzhackers/kolbot/blob/master/d2bs/kolbot/tools/Party.js#L22) with:
 ```javascript
 		partyTick = getTickCount(),
 		loot = [];
@@ -265,7 +266,7 @@
 
 ## quit with logging items
 
-* for manual quit and stop a profile on the latest run, add after [line 355 of ToolsThread.js](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/tools/ToolsThread.js#L355):
+* for manual quit and stop a profile on the latest run, add after [line 355 of ToolsThread.js](https://github.com/blizzhackers/kolbot/blob/master/d2bs/kolbot/tools/ToolsThread.js#L355):
 ```javascript
 		case 35: // End key
 			MuleLogger.logChar(); // log the char
@@ -290,13 +291,13 @@
 	```javascript
 		Config.LowGold = 200000 // any low item with 10 gold per square will be picked and sold to NPC until me.gold < Config.LowGold
 	```
-that variable is already defined in Config.js (line 138, where it is set to 0), and it is used in [Pickit.js line 64](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/common/Pickit.js#L64) and [Town.js line 526](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/common/Town.js#L526)
+that variable is already defined in Config.js (line 138, where it is set to 0), and it is used in [Pickit.js line 64](https://github.com/blizzhackers/kolbot/blob/master/d2bs/kolbot/libs/common/Pickit.js#L64) and [Town.js line 526](https://github.com/blizzhackers/kolbot/blob/master/d2bs/kolbot/libs/common/Town.js#L526)
 
-you could comment the [line 58 from Town.js](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/common/Town.js#L58) , in order to pick the [throwing potions](http://classic.battle.net/diablo2exp/items/potions.shtml)
+you could comment the [line 58 from Town.js](https://github.com/blizzhackers/kolbot/blob/master/d2bs/kolbot/libs/common/Town.js#L58) , in order to pick the [throwing potions](http://classic.battle.net/diablo2exp/items/potions.shtml)
 ```javascript
 		//38, // Missile Potion
 ```
-* if you don't wanna pick arrows/bolts you should increase the value **10** from [line 73 of Pickit.js](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/common/Pickit.js#L73) to any other value like 15 or 20.
+* if you don't wanna pick arrows/bolts you should increase the value **10** from [line 73 of Pickit.js](https://github.com/blizzhackers/kolbot/blob/master/d2bs/kolbot/libs/common/Pickit.js#L73) to any other value like 15 or 20.
 
 ## picking and selling valuable items
 
@@ -305,11 +306,11 @@ you could comment the [line 58 from Town.js](https://github.com/kolton/d2bot-wit
 	```javascript
 		Config.PickValuableItems = true; // pick everything worth > 2k gold/square
 	```
-* add after [ line 138 (LowGold) in ... libs\common\Config.js](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/common/Config.js#L138):
+* add after [ line 138 (LowGold) in ... libs\common\Config.js](https://github.com/blizzhackers/kolbot/blob/master/d2bs/kolbot/libs/common/Config.js#L138):
 	```javascript
 		PickValuableItems: false,
 	```
-* add after [line 80 in Pickit.js](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/common/Pickit.js#L80):
+* add after [line 80 in Pickit.js](https://github.com/blizzhackers/kolbot/blob/master/d2bs/kolbot/libs/common/Pickit.js#L80):
 	```javascript
 		// pick valuable items which worth more than 2k gold/square to sell in town, if Config.PickValuableItems = true.
 		var dontSell = [
@@ -333,7 +334,7 @@ you could comment the [line 58 from Town.js](https://github.com/kolton/d2bot-wit
 ```javascript
 			if (unit.getItemCost(1) >= 5e3 || (unit.getItemCost(1) / (unit.sizex * unit.sizey) >= 2e3)) {
 ```
-* add after [line 1942 in Town.js](hhttps://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/common/Town.js#L1942):
+* add after [line 1942 in Town.js](hhttps://github.com/blizzhackers/kolbot/blob/master/d2bs/kolbot/libs/common/Town.js#L1942):
 	```javascript
 				case 7: // Sell valuable item > 2k gold/square
 					try {
@@ -355,7 +356,7 @@ you could comment the [line 58 from Town.js](https://github.com/kolton/d2bot-wit
 	```javascript
 		Config.OpenChests = true;
 	```
-* add the changes to Attack.js, so line [1024 from Attack.js](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/common/Attack.js#L1024) 
+* add the changes to Attack.js, so line [1024 from Attack.js](https://github.com/blizzhackers/kolbot/blob/master/d2bs/kolbot/libs/common/Attack.js#L1024) 
 ```javascript
 			ids = ["chest", "chest3", "weaponrack", "armorstand"];
 ```
@@ -377,7 +378,7 @@ you could comment the [line 58 from Town.js](https://github.com/kolton/d2bot-wit
 	Config.OpenChests = true; // Open chests. Controls key buying.
 ```
 
-2. add in [Misc.js before default line 988](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/common/Misc.js#L988) '    shrineStates: false,'  (and feel free to add any other area where you wanna open chests, using sdk\areas.txt) :
+2. add in [Misc.js before default line 988](https://github.com/blizzhackers/kolbot/blob/master/d2bs/kolbot/libs/common/Misc.js#L988) '    shrineStates: false,'  (and feel free to add any other area where you wanna open chests, using sdk\areas.txt) :
 ```javascript
 
 	// open chests only from these areas -> Pather.popChests
@@ -397,12 +398,12 @@ you could comment the [line 58 from Town.js](https://github.com/kolton/d2bot-wit
 
 ```
 
-3. [the default 54th line from Pather.js](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/common/Pather.js#L54) should be:
+3. [the default 54th line from Pather.js](https://github.com/blizzhackers/kolbot/blob/master/d2bs/kolbot/libs/common/Pather.js#L54) should be:
 ```javascript
 		if (!!Config.OpenChests && Misc.openAreaChests()) {
 ```
 
-4. [the default 1013th line from Attack.js](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/common/Attack.js#L1013) should be:
+4. [the default 1013th line from Attack.js](https://github.com/blizzhackers/kolbot/blob/master/d2bs/kolbot/libs/common/Attack.js#L1013) should be:
 ```javascript
 		if (!Config.OpenChests && !Misc.openAreaChests()) {
 ```
@@ -426,7 +427,7 @@ This modded script has some adds, check the top of it. And you should add a new 
 * by default LifeChicken will exit game
 * if you wanna close d2 window (like the d2nt method) instead exiting game, you should think about restarting the current d2bot profile:
 
-	* add in Config.js after https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/common/Config.js#L117 :
+	* add in Config.js after https://github.com/blizzhackers/kolbot/blob/master/d2bs/kolbot/libs/common/Config.js#L117 :
 	```javascript
 		LifeChickenRestart: false,
 	```
@@ -436,7 +437,7 @@ This modded script has some adds, check the top of it. And you should add a new 
 		Config.LifeChickenRestart = true; // Restart profile if LifeChicken is activated
 	```
 
-	* in ToolsThread.js replace https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/tools/ToolsThread.js#L564 with:
+	* in ToolsThread.js replace https://github.com/blizzhackers/kolbot/blob/master/d2bs/kolbot/tools/ToolsThread.js#L564 with:
 	```javascript
 						Config.LifeChickenRestart ? D2Bot.restart() : this.exit();
 	```
@@ -452,11 +453,11 @@ This modded script has some adds, check the top of it. And you should add a new 
 	```javascript
 		Config.CainID.MinGold = 0; // Minimum gold (stash + character) to have in order to use Cain.
 	```
-* add after [line 148 (CainID.Enable) in ... libs\common\Config.js](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/common/Config.js#L148):
+* add after [line 148 (CainID.Enable) in ... libs\common\Config.js](https://github.com/blizzhackers/kolbot/blob/master/d2bs/kolbot/libs/common/Config.js#L148):
 	```javascript
 			Drop: false,
 	```
-* change the [lines 711-715 in ...\libs\common\Town.js](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/common/Town.js#L711-L715) with:
+* change the [lines 711-715 in ...\libs\common\Town.js](https://github.com/blizzhackers/kolbot/blob/master/d2bs/kolbot/libs/common/Town.js#L711-L715) with:
 	```javascript
 				case 0:
 					if (!Config.CainID.Drop) {
@@ -473,7 +474,7 @@ This modded script has some adds, check the top of it. And you should add a new 
 
 
 ## sell cubing items
-by default the cubing items will be dropped if them not meet the condition to be kept. You should replace [the default lines 967-971 from Cubing.js](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/common/Cubing.js#L967-L971) with:
+by default the cubing items will be dropped if them not meet the condition to be kept. You should replace [the default lines 967-971 from Cubing.js](https://github.com/blizzhackers/kolbot/blob/master/d2bs/kolbot/libs/common/Cubing.js#L967-L971) with:
 ```javascript
 						case 0:
 							Misc.itemLogger("Sold", items[j], "doCubing");
@@ -485,7 +486,7 @@ by default the cubing items will be dropped if them not meet the condition to be
 * if you get warnings/errors after the cubing is done, you should revert those lines to default.
 
 ## inventory full
-* If you don't wanna to set the [Automule](https://github.com/kolton/d2bot-with-kolbot/wiki/AutoMule-and-TorchMule#automule) option, or you don't have too many d2/lod keys to do that, you can set the stop of the profile.
+* If you don't wanna to set the [Automule](https://github.com/blizzhackers/documentation/blob/master/kolbot/Automule.md/#automule) option, or you don't have too many d2/lod keys to do that, you can set the stop of the profile.
 * again, some old etal users may need this function.
 
 * add in char configuration file (at the end of General config section, ~ line 400), a new variable:
@@ -498,24 +499,17 @@ by default the cubing items will be dropped if them not meet the condition to be
 		InventoryFull: false,
 	```
 
-* finally, look for the default SVN lines 145-148 from Pickit.js
+* finally, look for the default [lines 145-148 from Pickit.js](https://github.com/blizzhackers-d2/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/common/Pickit.js#L145-L148)and change them to:
 ```javascript
-                            // Town visit failed - abort
-                            print("ÿc7Not enough room for " + this.itemColor(pickList[0]) + pickList[0].name);
+							// Town visit failed - abort
+							print("ÿc7Not enough room for " + this.itemColor(pickList[0]) + pickList[0].name);
 
-                            return false;
-```
-* and change them to:
-```javascript
-                            // Town visit failed - abort
-                            print("ÿc7Not enough room for " + this.itemColor(pickList[0]) + pickList[0].name);
- 
-                            if (Config.InventoryFull) {
-                                D2Bot.printToConsole("Inventory Full. game: " + me.gamename + "char: " + me.account + " - " + me.name, 6);
-                                D2Bot.stop(me.profile, true);
-                            }
+							if (Config.InventoryFull) {
+								D2Bot.printToConsole("Inventory Full. game: " + me.gamename + "char: " + me.account + " - " + me.name, 6);
+								D2Bot.stop(me.profile, true);
+							}
 
-                            return false;
+							return false;
 ```
 
 ## cubing all kind of gems
@@ -530,7 +524,7 @@ by default the cubing items will be dropped if them not meet the condition to be
 	[name] == perfecttopaz
 	[name] == perfectskull
 	```
-* in ...\kolbot\libs\common\Cubing.js replace [default lines 201-204](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/common/Cubing.js#L201-L204) with:
+* in ...\kolbot\libs\common\Cubing.js replace [default lines 201-204](https://github.com/blizzhackers/kolbot/blob/master/d2bs/kolbot/libs/common/Cubing.js#L201-L204) with:
 ```javascript
 			case Recipe.Gem:
 				switch (Config.Recipes[i][1]) {
@@ -607,6 +601,24 @@ by default the cubing items will be dropped if them not meet the condition to be
 * if picking a lot of gems will highly increase the number of the lines in d2bs manager item log tab, check the proper settings in the **// Manager Item Log Screen** section from character config file
 
 
+## Taiwan Disclaimer
+* in Taiwan region ![this taiwan disclaimer](assets/kolbot-taiwan-disclaimer.png) blocks the d2 start.
+* install https://www.autoitscript.com/site/autoit/downloads/
+* check their documentation
+* edit a new script in notepad++ (thanks to [Mercoory](https://github.com/Mercoory) + [emily785](https://github.com/emily785) - [posts](https://github.com/kolton/d2bot-with-kolbot/issues/1946#issuecomment-551206448):
+```
+While 1
+	If WinExists("Taiwan Legal Disclaimer") Then
+		WinWaitActive("Taiwan Legal Disclaimer")
+		Send("{ENTER}")
+	EndIf
+	Sleep(1000)
+WEnd
+```
+* save the script as TaiwanDisclaimer.au3
+* run Autoit with administrative privileges
+
+
 ## Diabase & D2BS
 @Ned added some changes to Diabase to work with D2BS
 
@@ -648,12 +660,12 @@ Some of d2bot-with-kolbot scripts aren't silenced by default, and in some cases 
 	```
 
 5. other method:
-	* for silencing Baal.js, look for [SVN line 196](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/bots/Baal.js#L196)
+	* for silencing Baal.js, look for [SVN line 196](https://github.com/blizzhackers/kolbot/blob/master/d2bs/kolbot/libs/bots/Baal.js#L196)
 		```javascript
 			say(string);
 		```
 	* comment this line adding **//** before say, or change **say** into **print**
-	* do the same with lines [214](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/bots/Baal.js#L214) and [220](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/bots/Baal.js#L220), for the cases of dolls and souls.
+	* do the same with lines [214](https://github.com/blizzhackers/kolbot/blob/master/d2bs/kolbot/libs/bots/Baal.js#L214) and [220](https://github.com/blizzhackers/kolbot/blob/master/d2bs/kolbot/libs/bots/Baal.js#L220), for the cases of dolls and souls.
 	* in char configuration file you can remove the text between quotes "" , lines 85-88, 114-116, 220-223.
 	* in Config.js you can remove the text between quotes in lines 344-346, and for Diablo 376-381
 	* use np++ Find in Files looking for **say(** in whole d2bs folder. Then manually edit those results, changing them to (choose one):

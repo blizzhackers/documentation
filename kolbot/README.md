@@ -12,9 +12,11 @@ library scripts by [@kolton](https://github.com/kolton)
 
 * [FAQ](FAQ.md/#faq)
 
-* [Character Configuration](CharacterConfig.md/#character-configuration)
+* [Notepad++](Notepad++.md/#syntax-highlighting-in-np++): Syntax highlighting in np++
 
-* [Cubing](Cubing.md/#cubing)
+* [Character Configuration](CharacterConfig.md/#character-configuration): options for configuring the bot
+
+* [Cubing](Cubing.md/#cubing): using the horadric cube recipes
 
 * [Manual Play](ManualPlay.md/#manual-playing): D2BotMap, Manual.js script
 

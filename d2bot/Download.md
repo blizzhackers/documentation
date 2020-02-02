@@ -36,8 +36,8 @@ you need these to be installed:
  
  ![tortoise2](assets/d2bot-tortoise2.png)
  
- at <https://github.com/kolton/d2bot-with-kolbot/trunk> (! use this link only for Tortoise SVN, for browser it become https://github.com/kolton/d2bot-with-kolbot/tree/master)
- - using <https://github.com/kolton/d2bot-with-kolbot/> will have the result of downloading the whole tree of repository.
+ at <https://github.com/blizzhackers/kolbot/trunk> (! use this link only for Tortoise SVN, for browser it become https://github.com/blizzhackers/kolbot/tree/master)
+ - using <https://github.com/blizzhackers/kolbot/> will have the result of downloading the whole tree of repository.
 
 * let the default option for Checkout Depth drop down list = Fully recursive
 
@@ -64,3 +64,4 @@ you need these to be installed:
 
 * download the d2bot-with-kolbot files using [tortoiseSVN](#download-with-tortoiseSVN)
 * use SVN Update option when R-click the d2bs(d2bot-with-kolbot) folder
+* use TortoiseSVN [project monitor](https://github.com/blizzhackers/documentation/blob/master/d2bot/Autoupdate.md/#tortoisesvn-project-monitor)

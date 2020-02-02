@@ -25,15 +25,16 @@
 * [Download](d2bot/Download.md): how to download files and to keep them updated
 * [Manager Setup](d2bot/ManagerSetup.md/#manager-setup): how to set-up d2bot manager
 * [Keylist Configuration](d2bot/Keylist.md/#keylist): additional info for key list management
-* [Autoupdate](d2bot/Autoupdate.md/#autoupdate)
+* [Autoupdate](d2bot/Autoupdate.md/#autoupdate): project monitor, commit monitor
 
 ---
 
 ### [kolbot](kolbot/#kolbot): library scripts by [@kolton](https://github.com/kolton)
 
 * [FAQ](kolbot/FAQ.md/#faq)
-* [Character Configuration](kolbot/CharacterConfig.md/#character-configuration)
-* [Cubing](kolbot/Cubing.md/#cubing)
+* [Notepad++](kolbot/Notepad++.md/#syntax-highlighting-in-np++): Syntax highlighting in np++
+* [Character Configuration](kolbot/CharacterConfig.md/#character-configuration): options for configuring the bot
+* [Cubing](kolbot/Cubing.md/#cubing): using the horadric cube recipes
 * [Manual Play](kolbot/ManualPlay.md/#manual-playing): D2BotMap, Manual.js script
 * [Multi Botting](kolbot/MultiBotting.md/#multi-botting): game creator, joining games, ...
 * [TCP/IP Games](kolbot/TCP-IP%20games.md#tcpip-games): host and join TCP/IP games

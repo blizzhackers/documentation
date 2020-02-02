@@ -30,7 +30,7 @@
 ---
 
 ### info
-[d2bs](https://github.com/kolton/d2bot-with-kolbot) allows multi-botting.
+[d2bs](https://github.com/blizzhackers/kolbot) allows multi-botting.
 
 
 ## game creator
@@ -75,12 +75,13 @@ var StarterConfig = {
 
 
 ## joining games
-[Kolbot Leecher config](https://github.com/kolton/d2bot-with-kolbot/wiki/Kolbot-Leecher-Starter)
-There are two different starter scripts for joining games:
+There are different starter scripts for joining games:
 
-* D2BotFollow - based on locally shared info between different profiles of the same d2bs manager
+* D2BotFollow.dbj - based on locally shared info between different profiles of the same d2bs manager
 
-* D2BotChannel - based on info shared on chat channels
+* D2BotChannel.dbj - based on info shared on chat channels
+
+* D2BotPubJoin.dbj
 
 ### D2BotFollow
 * joining chat channel isn't needed.
@@ -92,7 +93,7 @@ There are two different starter scripts for joining games:
 ![follower2](https://github.com/blizzhackers/documentation/blob/master/kolbot/assets/kolbot-multibotFollower2Profile.png)
 
 ##### randomize the timers
-replace the default lines 1-17 of [D2BotFollow.dbj](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/D2BotFollow.dbj) with these:
+replace the default lines 1-17 of [D2BotFollow.dbj](https://github.com/blizzhackers/kolbot/blob/master/d2bs/kolbot/D2BotFollow.dbj) with these:
 ```javascript
 var StarterConfig = {
     JoinChannel: "", // Name of the channel to join
@@ -120,8 +121,22 @@ use np++ to edit D2BotFollow.js and complete the JoinSettings and AdvancedConfig
 
 
 ### D2BotChannel
-* main [guide](https://github.com/kolton/d2bot-with-kolbot/wiki/Kolbot-Leecher-Starter#2-d2botchannel-is-used-to-join-games-from-both-channel-announcements-and-friend-list-announcements-that-means-that-you-can-use-this-starter-when-want-to-join-games-that-are-runned-on-other-computer-in-this-example-we-will-join-channel-kolbot-and-our-first-message-will-be-im-from-other-dimension)
-* edit [D2BotChannel.dbj](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/D2BotChannel.dbj) with the required settings
+* D2BotChannel, is used to join games from both channel announcements and friend list announcements. That means that you can use this starter when want to join games that are runned on other computer. 
+* edit [D2BotChannel.dbj](https://github.com/blizzhackers/kolbot/blob/master/d2bs/kolbot/D2BotChannel.dbj) with the required settings
+
+* in this example we will join channel "MyChannel" and our first message will be "I'm from other dimension", in lines 2, 3 :
+```javascript
+	JoinChannel: "MyChannel", // Name of the channel to join
+	FirstJoinMessage: "I'm from other dimension", // Message to say when first joining a channel, usually ".login"
+```
+* in lines 7, 8 we have to set what games we are seeking, in this example "FASTBAAL-", "csRun-", "Kolbot-Runs". If games have password we need to supply it, if not please leave it blank.
+```javascript
+	Games: ["FASTBAAL-", "csRun-", "Kolbot-Runs"], // List of games to look for. Example: Games: ["some baal-", "chaos run-"],
+	Passwords: ["", "password", "otherpassword"], // List of game passwords. Each array in Games array should have a matching element in Passwords. Use "" for blank pw.
+```
+* to use friend list you need to set a delay between retries in seconds, to disable it set to "0".
+
+* from line 26 to 53 we have an example of advanced settings
 
 ## team games
 Note: the game creator isn't necessarily to be set as the leader in game.
@@ -160,25 +175,31 @@ and to enable the scripts you wanna run.
 * the MFHelper script will end if the leader enters in Chaos Sanctuary or Throne of Destruction, because it's better to run the related DiabloHelper or BaalHelper after the MFHelper script.
 
 ### using Followers
-* see [Follower guide](https://github.com/kolton/d2bot-with-kolbot/wiki/Follower)
-* the leader can be played manually with Manual.js(the whole config should be loaded and also the LocalChat - see [manual play](https://github.com/blizzhackers/documentation/blob/master/kolbot/ManualPlay.md/#manualjs)
+* the leader can be played manually with Manual.js(the whole config should be loaded and also the LocalChat - see [manual play](https://github.com/blizzhackers-d2/documentation/blob/master/kolbot/ManualPlay.md/#manualjs)
 * you should use the [local chat](https://github.com/blizzhackers/documentation/blob/master/kolbot/CharacterConfig.md/#local-chat) with the settings
 ```javascript
 		Config.LocalChat.Enabled = true; // enable the LocalChat system
 		Config.LocalChat.Mode = 2; // 0 = disabled, 1 = chat from 'say' (recommended), 2 = all chat (for manual play)
 ```
-* the follower characters need only this
+* the follower characters need only this line to be activated:
 ```javascript
     Scripts.Follower = true; // Script that follows a manually played leader around like a merc. For a list of commands, see Follower.js
 ```
-* Follower.js is using chat commands like: 1, 2, wp, bo, ...
-* alternative to LocalChat in mode 2 is a modded [silenced Follower](https://github.com/blizzhackers/documentation/blob/master/kolbot/MiscellaneousOptions.md/#silenced-follower)
+* the leeching section should be completed
+```
+	Config.Leader = "MyLeader"; // Leader's ingame character name. Leave blank to try auto-detection (works in AutoBaal, Wakka, MFHelper)
+	Config.QuitList = ["MyLeader"]; // List of character names to quit with. Example: Config.QuitList = ["MySorc", "MyDin"];
+	Config.QuitListMode = 0; // 0 = use character names; 1 = use profile names (all profiles must run on the same computer).
+	Config.QuitListDelay = [x, y]; // Quit the game with random delay in case of using Config.QuitList. Example: Config.QuitListDelay = [1, 10]; will exit with random delay between 1 and 10 seconds.
+```
+* Follower.js is using chat commands like: 1, 2, wp, bo, ... and you can find the full list on [3rd-46th lines of Follower.js](https://github.com/blizzhackers-d2/d2bot-with-kolbot/blob/master/d2bs/kolbot/libs/bots/Follower.js#L3-L46)
+* the alternative is a semi-automated [silenced Follower](https://github.com/blizzhackers-d2/documentation/blob/master/kolbot/MiscellaneousOptions.md/#silenced-follower) which have nice addons.
 
 ### followers exit delays
 
 To avoid issues like "Please Wait" when you quit the game with all chars at the same time, you should set diferent delays for followers to exit game
 
-This was already merged in the main [d2bot-with-kolbot repository](https://github.com/kolton/d2bot-with-kolbot/commit/900eb9aeeeabff9a9d270cac4aa3692df2779350) and you should check the related char config section and to add the required time intervals for each follower.
+This was already merged in the main [d2bot-with-kolbot repository](https://github.com/blizzhackers/kolbot/commit/900eb9aeeeabff9a9d270cac4aa3692df2779350) and you should check the related char config section and to add the required time intervals for each follower.
 ```javascript
 	Config.QuitListDelay = []; // Quit the game with random delay in case of using Config.QuitList. Example: Config.QuitListDelay = [1, 10]; will exit with random delay between 1 and 10 seconds.
 ```

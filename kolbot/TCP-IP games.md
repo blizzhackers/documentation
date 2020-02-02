@@ -16,7 +16,7 @@
 
 ## info
 
-* [d2bs](https://github.com/kolton/d2bot-with-kolbot) allows botting in TCP/IP created games
+* [d2bs](https://github.com/blizzhackers/kolbot) allows botting in TCP/IP created games
 
 ## Host config
 

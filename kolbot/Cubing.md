@@ -151,7 +151,7 @@ Blood - Caster - Hit Power - Safety   Recipes
 	//Config.Recipes.push([Recipe.Safety.Weapon, "Matriarchal Spear"]); // Craft Safety Weapon
 
 ```
-The required status for crafted items should also be added in the pickit, like in [default lines 741-771 of kolton.nip](https://github.com/kolton/d2bot-with-kolbot/blob/master/d2bs/kolbot/pickit/kolton.nip#L741-L771)
+The required status for crafted items should also be added in the pickit, like in [default lines 741-771 of kolton.nip](https://github.com/blizzhackers/kolbot/blob/master/d2bs/kolbot/pickit/kolton.nip#L741-L771)
 
 If you wanna sell the crafted items, instead default dropping, check https://github.com/blizzhackers/documentation/blob/master/kolbot/MiscellaneousOptions.md/#sell-cubing-items
 

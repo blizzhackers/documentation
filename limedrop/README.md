@@ -12,7 +12,7 @@
 Limedrop is a web-based item **dropper**; it is a program that will manage joining games and dropping specific items.
 
 ##### How do I install it?
-Limedrop is an API added to D2Bot # and a web-based frontend. The d2bot-with-kolbot [kolbot](https://github.com/kolton/d2bot-with-kolbot) has Limedrop built in.
+Limedrop is an API added to D2Bot # and a web-based frontend. The d2bot-with-kolbot [kolbot](https://github.com/blizzhackers/kolbot) has Limedrop built in.
 
 ##### How does it work?
 There are two parts to Limedrop. One part is the API, and one part is a web page that calls the API. The web page can be accessed at www.limedrop.org
@@ -32,7 +32,7 @@ The benefit of this version is that it is always up-to-date
 **Note:** If you want to access Limedrop from an external network you will need to open router ports. The frontend only delivers the static site, it uses your instance of D2Bot to power the API. Note, the Limedrop API has not been security tested so if you choose to open your network externally, you need to assume all risks associated with that.
 
 ### Setup Limedrop
-1. Download the Limedrop version from [here](https://github.com/kolton/d2bot-with-kolbot/archive/master.zip) or clone from: _https://github.com/kolton/d2bot-with-kolbot.git_
+1. Download the Limedrop version from [here](https://github.com/blizzhackers/kolbot/archive/master.zip) or clone from: _https://github.com/blizzhackers/kolbot.git_
 
 1. Extract to a folder:
 	![Extracted Files](assets/limedrop-extract.png)
