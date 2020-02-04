@@ -121,6 +121,8 @@
 	```
 	if that **Config.WalkingChar = true** in the char config, the result should be **use.teleport = false**
 
+* something similar with [this suggested option](https://github.com/blizzhackers/documentation/commit/f83800af39991199a72473344ce05f94ccdeb969) was merged in the kolbot repository with this [pull-request](https://github.com/blizzhackers/kolbot/pull/3)
+
 
 ## how to define your own party and permit hardcore loot corpses
 * It is a public mode when your players invite and accept other players invites, only if their names are in your previously configured MyOwnParty list

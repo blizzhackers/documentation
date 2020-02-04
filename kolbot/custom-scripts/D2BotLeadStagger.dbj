@@ -17,7 +17,7 @@ var StarterConfig = {
 	AfterGameMessage: "", // Default message after a finished game. Can be an array of messages
 
 	SwitchKeyDelay: rand(5, 15), // Seconds to wait before switching a used/banned key or after realm down
-	CrashDelay: rand(60e3, 120e3), // Milliseconds to wait after a d2 window crash
+	CrashDelay: rand(120e3, 150e3), // Milliseconds to wait after a d2 window crash
 	FTJDelay: rand(25e3, 30e3), // Milliseconds to wait after failing to create a game
 	RealmDownDelay: rand(3, 7), // Minutes to wait after getting Realm Down message
 	UnableToConnectDelay: rand(5, 10), // Minutes to wait after Unable To Connect message
@@ -513,7 +513,7 @@ MainSwitch:
 				}
 
 				for (i = 0; i < chanInfo.joinChannel.length; i += 1) {
-					ControlAction.timeoutDelay("Chat delay", StarterConfig.ChatActionsDelay * 1e3);
+					ControlAction.timeoutDelay("Chat delay", StarterConfig.ChatActionsDelay);
 
 					if (ControlAction.joinChannel(chanInfo.joinChannel[i])) {
 						useChat = true;

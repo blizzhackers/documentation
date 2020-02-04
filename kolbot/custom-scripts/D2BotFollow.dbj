@@ -6,7 +6,7 @@ var StarterConfig = {
 	JoinRetryDelay: rand(5e3, 15e3), // Time in miliseconds to wait before next join attempt
 	SwitchKeyDelay: rand(5, 15), // Seconds to wait before switching a used/banned key or after realm down
 
-	CrashDelay: rand(60e3, 120e3), // Milliseconds to wait after a d2 window crash
+	CrashDelay: rand(120e3, 150e3), // Milliseconds to wait after a d2 window crash
 	RealmDownDelay: rand(3, 5), // Minutes to wait after getting Realm Down message
 	UnableToConnectDelay: rand(2, 7), // Minutes to wait after Unable To Connect message
 	CDKeyInUseDelay: rand(2, 7), // Minutes to wait before connecting again if CD-Key is in use. SwitchKeys overrides this!

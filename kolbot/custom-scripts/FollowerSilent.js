@@ -11,7 +11,7 @@
 *	- silent follower will check the leader's act and will go to it.
 *	- when leader makes tp the follower will try to use it and will precast/buff.
 *	- the follower will go after leader in town, using his tp, and will do town activities (if autoTownChores = true).
-*	- lines 1007-1021 will stop HC chars, in order to allow the loot of their corpses.
+*	- lines 1009-1023 will stop HC chars, in order to allow the loot of their corpses.
 *	- quiting/ending the game will be done using the random delay Config.QuitListDelay.
 *	- check the additional commands: b, ancs, ancsoff, ai, map, stash, restart, end, 0, ...
 *
@@ -71,6 +71,8 @@
 *	<charname> ai		|
 *	ancs - prepare for ancients quest a5q5, overwrite the config settings with more potions and towncheck restricted
 *	ancsoff - revert to char config from ancients config. *** or you can use .reload for every follower
+*	gamble 				| start gambling
+*	<charname> gamble	|
 *
 * Misc.
 *	cow - enter red cow portal
@@ -107,7 +109,7 @@
 */
 
 function FollowerSilent() {
-	var i, j, stop, leader, leaderUnit, piece, skill, result, unit, player, coord, map, tick, ai,
+	var i, j, stop, leader, leaderUnit, piece, skill, result, unit, player, coord, map, tick, ai, gold,
 		commanders = [Config.Leader],
 		attack = true,
 		openContainers = true,
@@ -1272,6 +1274,19 @@ WPLoop:
 			if (me.inTown) {
 				me.overhead("ÿc4Running town chores");
 				Town.doChores(true);
+				Town.move("portalspot");
+				me.overhead("ÿc2Ready");
+			}
+
+			break;
+		case "gamble":
+		case me.name + " gamble":
+			if (me.inTown) {
+				me.overhead("ÿc4Start gambling");
+				gold = Config.GambleGoldStart;
+				Config.GambleGoldStart = me.gold;
+				Town.gamble();
+				Config.GambleGoldStart = gold;
 				Town.move("portalspot");
 				me.overhead("ÿc2Ready");
 			}
