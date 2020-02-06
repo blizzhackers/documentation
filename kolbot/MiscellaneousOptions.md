@@ -52,14 +52,15 @@
 	
 
 ## updated Autosmurf
-* [@Dark-f](https://d2bot.discourse.group/u/hk-dark-f/) updated the [JeanMax/AutoSmurf](https://github.com/JeanMax/AutoSmurf)
+* [@Dark-f](https://github.com/Dark-f/) updated the [JeanMax/AutoSmurf](https://github.com/JeanMax/AutoSmurf)
 	- the files can be found on https://github.com/blizzhackers/autosmurf repository
 	- check this @Dark-f video https://www.youtube.com/watch?v=rTXM9szlIdw
 
-* other autosmurf version can be be downloaded with tortoiseSVN (add /trunk) from <https://github.com/SetupSonic/d2bot-with-kolbot-sonic/>
-	- the description can be found on https://github.com/SetupSonic/SetupSonic/wiki/D2Bot%23-Configuration
+* other autosmurf version can be be downloaded with tortoiseSVN (add /trunk) from <https://github.com/blizzhackers/kolbot-sonic/>
+	- the description can be found on https://github.com/blizzhackers/kolbot-sonic/blob/master/SetupSonic.md/#sonic-setup
+	- many thanks to [Laz](https://github.com/laztheripper) - the author of sonic scripts.
 	- it is a modified version of d2bs for sorceress chars, so check D2BotSonic.dbj starter script, config files ...\libs\config\Sorceress.js and ...\libs\config\Builds\Sorceress.Sonic.js 
-	- it have its modified files in ...\d2bot-with-kolbot-sonic\d2bs\kolbot\libs\sonic\
+	- it have its modified files in ...\kolbot\libs\sonic\
 
 ## Autochaos
 
