@@ -1375,10 +1375,12 @@ WPLoop:
 		}
 
 		// Communication between 2 teams, 2nd leader is set as follower for the 1st. the commands will be repetead by the 2nd leader
-		if (action && action.split(" ")[0] === "say" && action.split(" ")[1] !== "") {
+		if (action && action.split(" ")[0] === "say" && action.length > 4) {
 			if (action.split(" ")[1] === "area") {
 				say("area: " + me.area + " x: " + me.x + " y: " + me.y);
-			} else if (action.split(" ")[2] !== "") {
+			}
+
+			if (action.split(" ")[2]) {
 				say(action.split(" ")[1] + " " + action.split(" ")[2]);
 			} else {
 				say(action.split(" ")[1]);
