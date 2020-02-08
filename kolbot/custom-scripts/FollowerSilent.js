@@ -1378,9 +1378,7 @@ WPLoop:
 		if (action && action.split(" ")[0] === "say" && action.length > 4) {
 			if (action.split(" ")[1] === "area") {
 				say("area: " + me.area + " x: " + me.x + " y: " + me.y);
-			}
-
-			if (action.split(" ")[2]) {
+			} else if (action.split(" ")[2]) {
 				say(action.split(" ")[1] + " " + action.split(" ")[2]);
 			} else {
 				say(action.split(" ")[1]);
