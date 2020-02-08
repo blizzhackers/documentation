@@ -5,13 +5,13 @@
 *	Config.LocalChat.Enabled = true; // enable the LocalChat system
 *	Config.LocalChat.Mode = 2; // 0 = disabled, 1 = chat from 'say' (recommended), 2 = all chat (for manual play)
 *
-* version: 17.01.2020
+* version: 08.02.2020
 *
 * silent-automated follower changes:
 *	- silent follower will check the leader's act and will go to it.
 *	- when leader makes tp the follower will try to use it and will precast/buff.
 *	- the follower will go after leader in town, using his tp, and will do town activities (if autoTownChores = true).
-*	- lines 1009-1023 will stop HC chars, in order to allow the loot of their corpses.
+*	- lines 1014-1028 will stop HC chars, in order to allow the loot of their corpses. *** you should avoid the chat commands untill you get successful loot.
 *	- quiting/ending the game will be done using the random delay Config.QuitListDelay.
 *	- check the additional commands: b, ancs, ancsoff, ai, map, stash, restart, end, 0, ...
 *
@@ -83,7 +83,8 @@
 *	bo - barbarian precast
 *	b - refresh buff all followers
 *
-*	<charname> tp - make a TP. Needs a TP tome if not using custom libs.
+*	tp				| make a TP. Needs a TP tome if not using custom libs.
+*	<charname> tp	|
 *
 *	move				| move in a random direction based on player position (use if you're stuck by followers)
 *	m					| 
@@ -106,6 +107,10 @@
 *
 * 	end					| stop follower profile and release the key, after a random delay
 *	<charname> end		|
+*
+* Communication between 2 teams, 2nd leader is set as follower for the 1st. *** usefull for getting experience when start a new low char(team) helped by 2nd high level team, cause you can change the distance between the teams (10-20).
+*	say area	| the 2nd leader will announce his position
+*	say xxx		| 2nd leader will repeat the xxx
 */
 
 function FollowerSilent() {
@@ -1318,6 +1323,7 @@ WPLoop:
 			this.changeAct(parseInt(action[1], 10));
 
 			break;
+		case "tp":
 		case me.name + " tp":
 			unit = me.findItem("tbk", 0, 3);
 
@@ -1366,6 +1372,17 @@ WPLoop:
 
 		if (action.indexOf("talk") > -1) {
 			this.talk(action.split(" ")[1]);
+		}
+
+		// Communication between 2 teams, 2nd leader is set as follower for the 1st. the commands will be repetead by the 2nd leader
+		if (action && action.split(" ")[0] === "say" && action.split(" ")[1] !== "") {
+			if (action.split(" ")[1] === "area") {
+				say("area: " + me.area + " x: " + me.x + " y: " + me.y);
+			} else if (action.split(" ")[2] !== "") {
+				say(action.split(" ")[1] + " " + action.split(" ")[2]);
+			} else {
+				say(action.split(" ")[1]);
+			}
 		}
 
 		action = "";
