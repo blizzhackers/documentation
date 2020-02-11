@@ -5,13 +5,13 @@
 *	Config.LocalChat.Enabled = true; // enable the LocalChat system
 *	Config.LocalChat.Mode = 2; // 0 = disabled, 1 = chat from 'say' (recommended), 2 = all chat (for manual play)
 *
-* version: 08.02.2020
+* version: 11.02.2020
 *
 * silent-automated follower changes:
 *	- silent follower will check the leader's act and will go to it.
 *	- when leader makes tp the follower will try to use it and will precast/buff.
 *	- the follower will go after leader in town, using his tp, and will do town activities (if autoTownChores = true).
-*	- lines 1014-1028 will stop HC chars, in order to allow the loot of their corpses. *** you should avoid the chat commands untill you get successful loot.
+*	- lines 1016-1030 will stop HC chars, in order to allow the loot of their corpses. *** you should avoid the chat commands untill you get successful loot.
 *	- quiting/ending the game will be done using the random delay Config.QuitListDelay.
 *	- check the additional commands: b, ancs, ancsoff, ai, map, stash, restart, end, 0, ...
 *
@@ -76,6 +76,9 @@
 *
 * Misc.
 *	cow - enter red cow portal
+*	<charname> cowopen	- this command requires the custom ...\CowOpen.js file (https://raw.githubusercontent.com/blizzhackers/documentation/master/kolbot/custom-scripts/CowOpen.js)
+*
+*	<charname> x - teleporter go to desired area and make tp | x = countess , andariel, summoner, duriel, mephisto, chaos, nihlathak(using HoP wp), throne
 *
 *	wp					| activate a nearby wp
 *	<charname> wp		|
@@ -109,8 +112,9 @@
 *	<charname> end		|
 *
 * Communication between 2 teams, 2nd leader is set as follower for the 1st. *** usefull for getting experience when start a new low char(team) helped by 2nd high level team, cause you can change the distance between the teams (10-20).
-*	say area	| the 2nd leader will announce his position
-*	say xxx		| 2nd leader will repeat the xxx
+*	say area	- the 2nd leader will announce his position
+*	say x		| 2nd leader will repeat the command
+*	say x y		|
 */
 
 function FollowerSilent() {
@@ -1170,6 +1174,11 @@ function FollowerSilent() {
 			}
 
 			break;
+		case me.name + " cowopen":
+			include("bots/cowopen.js");
+			CowOpen();
+
+			break;
 		case "move":
 		case "m":
 		case me.name + " m":
@@ -1342,6 +1351,106 @@ WPLoop:
 			}
 
 			me.overhead("ÿc1No TP scrolls or tomes.");
+
+			break;
+		case me.name + " countess":
+			Town.doChores();
+			Pather.useWaypoint(6);
+			Precast.doPrecast(true);
+
+			if (!Pather.moveToExit([20, 21, 22, 23, 24, 25], true)) {
+				throw new Error("Failed to move to Countess");
+			}
+
+			Pather.makePortal(true);
+
+			break;
+		case me.name + " andariel":
+			Town.doChores();
+			Pather.useWaypoint(35);
+			Precast.doPrecast(true);
+
+			if (!Pather.moveToExit([36, 37], true)) {
+				throw new Error("Failed to move to Catacombs Level 4");
+			}
+
+			Pather.makePortal(true);
+
+			break;
+		case me.name + " summoner":
+			Town.doChores();
+			Pather.useWaypoint(74);
+			Precast.doPrecast(true);
+
+			if (!Pather.moveToPreset(me.area, 2, 357, -3, -3)) {
+				throw new Error("Failed to move to Summoner");
+			}
+
+			Pather.makePortal(true);
+
+			break;
+		case me.name + " duriel":
+			Town.doChores();
+			Pather.useWaypoint(46);
+			Precast.doPrecast(true);
+
+			if (!Pather.moveToExit(getRoom().correcttomb, true)) {
+				throw new Error("Failed to move to Tal Rasha's Tomb");
+			}
+
+			if (!Pather.moveToPreset(me.area, 2, 152, -11, 3)) {
+				throw new Error("Failed to move to Orifice");
+			}
+
+			Pather.makePortal(true);
+
+			break;
+		case me.name + " mephisto":
+			Town.doChores();
+			Pather.useWaypoint(101);
+			Precast.doPrecast(true);
+
+			if (!Pather.moveToExit(102, true)) {
+				throw new Error("Failed to move to Durance Level 3");
+			}
+
+			Pather.makePortal(true);
+
+			break;
+		case me.name + " chaos":
+			Town.doChores();
+			Pather.useWaypoint(107);
+			Precast.doPrecast(true);
+
+			if (!Pather.moveToExit(108, true)) {
+				throw new Error("Failed to move to Chaos Sanctuary");
+			}
+
+			Pather.makePortal(true);
+
+			break;
+		case me.name + " nihlathak":
+			Town.doChores();
+			Pather.useWaypoint(123);
+			Precast.doPrecast(true);
+
+			if (!Pather.moveToExit(124, true)) {
+				throw new Error("Failed to go to Nihlathak");
+			}
+
+			Pather.makePortal(true);
+
+			break;
+		case me.name + " throne":
+			Town.doChores();
+			Pather.useWaypoint(129);
+			Precast.doPrecast(true);
+
+			if (!Pather.moveToExit([130, 131], true)) {
+				throw new Error("Failed to move to Throne of Destruction.");
+			}
+
+			Pather.makePortal(true);
 
 			break;
 		}
