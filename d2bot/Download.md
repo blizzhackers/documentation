@@ -65,3 +65,9 @@ you need these to be installed:
 * download the d2bot-with-kolbot files using [tortoiseSVN](#download-with-tortoiseSVN)
 * use SVN Update option when R-click the d2bs(d2bot-with-kolbot) folder
 * use TortoiseSVN [project monitor](https://github.com/blizzhackers/documentation/blob/master/d2bot/Autoupdate.md/#tortoisesvn-project-monitor)
+
+* if you downloaded the bot files from older repository <https://github.com/kolton/d2bot-with-kolbot/> and you wanna switch to the newer repository <https://github.com/blizzhackers/kolbot>
+	* delete the hidden .svn folder, the newer repository is a stand alone one, with its origin from a fork of an older repo.
+	* then you can use tortoiseSVN Checkout from a new url <https://github.com/blizzhackers/kolbot/trunk>.
+	* before proceeding check the paths and correct them.
+	* here you'll get a warning for checkout in a non-empty folder. bypass it and it will be ok.

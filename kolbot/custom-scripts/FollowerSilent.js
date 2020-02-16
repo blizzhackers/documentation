@@ -5,7 +5,7 @@
 *	Config.LocalChat.Enabled = true; // enable the LocalChat system
 *	Config.LocalChat.Mode = 2; // 0 = disabled, 1 = chat from 'say' (recommended), 2 = all chat (for manual play)
 *
-* version: 11.02.2020
+* version: 16.02.2020
 *
 * silent-automated follower changes:
 *	- silent follower will check the leader's act and will go to it.
@@ -74,7 +74,7 @@
 *	gamble 				| start gambling
 *	<charname> gamble	|
 *
-* Misc.
+* Misc:
 *	cow - enter red cow portal
 *	<charname> cowopen	- this command requires the custom ...\CowOpen.js file (https://raw.githubusercontent.com/blizzhackers/documentation/master/kolbot/custom-scripts/CowOpen.js)
 *
@@ -137,57 +137,7 @@ function FollowerSilent() {
 	Config.TownCheck = true;
 	Config.OpenChests = true;
 
-	// Get leader's Party Unit
-	this.getLeader = function (name) {
-		var player = getParty();
-
-		if (player) {
-			do {
-				if (player.name === name) {
-					return player;
-				}
-			} while (player.getNext());
-		}
-
-		return false;
-	};
-
-	// Get leader's Unit
-	this.getLeaderUnit = function (name) {
-		var player = getUnit(0, name);
-
-		if (player) {
-			do {
-				if (!player.dead) {
-					return player;
-				}
-			} while (player.getNext());
-		}
-
-		return false;
-	};
-
-	// Get leader's act from Party Unit
-	this.checkLeaderAct = function (unit) {
-		if (unit.area <= 39) {
-			return 1;
-		}
-
-		if (unit.area >= 40 && unit.area <= 74) {
-			return 2;
-		}
-
-		if (unit.area >= 75 && unit.area <= 102) {
-			return 3;
-		}
-
-		if (unit.area >= 103 && unit.area <= 108) {
-			return 4;
-		}
-
-		return 5;
-	};
-
+	// Get closer to leader, or other player
 	this.getCloser = function () {
 		if (me.inTown) {
 			return;
@@ -962,16 +912,16 @@ function FollowerSilent() {
 				me.overhead("ÿc4Switching leader to " + piece);
 
 				Config.Leader = piece;
-				leader = this.getLeader(Config.Leader);
-				leaderUnit = this.getLeaderUnit(Config.Leader);
+				leader = Misc.findPlayer(Config.Leader);
+				leaderUnit = Misc.getPlayerUnit(Config.Leader);
 			}
 		}
 	};
 
 	// Start
 	addEventListener("chatmsg", this.chatEvent);
-	leaderUnit = this.getLeaderUnit(Config.Leader);
-	leader = this.getLeader(Config.Leader);
+	leaderUnit = Misc.getPlayerUnit(Config.Leader);
+	leader = Misc.findPlayer(Config.Leader);
 
 	for (i = 0; i < 120; i += 1) {
 		if (leader) {
@@ -1013,7 +963,7 @@ function FollowerSilent() {
 				}
 
 				Town.move("portalspot");
-				me.overhead("ÿc2I'm alive!");
+				print("ÿc2Revived!");
 
 			} else if (me.playertype == 1) { // stop the HC screen to allow the loot of dead player corpse
 				Config.MercWatch = false;
@@ -1045,7 +995,7 @@ function FollowerSilent() {
 			field = true;
 
 			if (!leaderUnit || !copyUnit(leaderUnit).x) {
-				leaderUnit = this.getLeaderUnit(Config.Leader);
+				leaderUnit = Misc.getPlayerUnit(Config.Leader);
 
 				if (leaderUnit) {
 					me.overhead("ÿc2Leader unit found.");
@@ -1100,7 +1050,7 @@ function FollowerSilent() {
 					delay(100);
 				}
 
-				if (!me.inTown && (leader.inTown || this.checkLeaderAct(leader) !== me.act)) {
+				if (!me.inTown && (leader.inTown || Misc.getPlayerAct(leader) !== me.act)) {
 					if (!Pather.usePortal(null, leader.name)) {
 						me.overhead("ÿc1Failed to use leader portal.");
 						Town.goToTown();
@@ -1111,7 +1061,7 @@ function FollowerSilent() {
 		}
 
 		if (me.inTown) {
-			if (!leader.inTown && this.checkLeaderAct(leader) === me.act) {
+			if (!leader.inTown && Misc.getPlayerAct(leader) === me.act) {
 				me.overhead("ÿc2Ready");
 				Town.move("portalspot");
 				Attack.weaponSwitch(0);
@@ -1119,7 +1069,7 @@ function FollowerSilent() {
 				while (!Pather.usePortal(leader.area, leader.name) && leader.area !== me.area) {
 					me.overhead("ÿc1Failed to use leader portal.");
 
-					if (this.checkLeaderAct(leader) !== me.act) {
+					if (Misc.getPlayerAct(leader) !== me.act) {
 
 						break;
 					}
@@ -1136,7 +1086,7 @@ function FollowerSilent() {
 						Precast.doPrecast(true);
 					}
 
-					while (!this.getLeaderUnit(Config.Leader) && !me.dead && !action) {
+					while (!Misc.getPlayerUnit(Config.Leader) && !me.dead && !action) {
 						Attack.clear(10, false, false, false, true);
 						delay(200);
 
@@ -1148,9 +1098,9 @@ function FollowerSilent() {
 				}
 			}
 
-			if (this.checkLeaderAct(leader) !== me.act) {
+			if (Misc.getPlayerAct(leader) !== me.act) {
 				me.overhead("ÿc8Going to leader's town.");
-				Town.goToTown(this.checkLeaderAct(leader));
+				Town.goToTown(Misc.getPlayerAct(leader));
 				delay(200);
 				Town.move("portalspot");
 			}
@@ -1255,20 +1205,20 @@ WPLoop:
 
 			break;
 		case "1":
-			if (me.inTown && leader.inTown && this.checkLeaderAct(leader) !== me.act) {
+			if (me.inTown && leader.inTown && Misc.getPlayerAct(leader) !== me.act) {
 				me.overhead("ÿc8Going to leader's town.");
-				Town.goToTown(this.checkLeaderAct(leader));
+				Town.goToTown(Misc.getPlayerAct(leader));
 				Town.move("portalspot");
 			} else if (me.inTown) {
 				say("Going outside.");
-				Town.goToTown(this.checkLeaderAct(leader));
+				Town.goToTown(Misc.getPlayerAct(leader));
 				Town.move("portalspot");
 
 				if (!Pather.usePortal(leader.area, leader.name)) {
 					break;
 				}
 
-				while (!this.getLeaderUnit(Config.Leader) && !me.dead) {
+				while (!Misc.getPlayerUnit(Config.Leader) && !me.dead) {
 					Attack.clear(10);
 					delay(200);
 				}
