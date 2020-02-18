@@ -5,7 +5,7 @@
 *	Config.LocalChat.Enabled = true; // enable the LocalChat system
 *	Config.LocalChat.Mode = 2; // 0 = disabled, 1 = chat from 'say' (recommended), 2 = all chat (for manual play)
 *
-* version: 16.02.2020
+* version: 18.02.2020
 *
 * silent-automated follower changes:
 *	- silent follower will check the leader's act and will go to it.
@@ -920,10 +920,10 @@ function FollowerSilent() {
 
 	// Start
 	addEventListener("chatmsg", this.chatEvent);
-	leaderUnit = Misc.getPlayerUnit(Config.Leader);
-	leader = Misc.findPlayer(Config.Leader);
 
 	for (i = 0; i < 120; i += 1) {
+		leader = Misc.findPlayer(Config.Leader);
+
 		if (leader) {
 			break;
 		}
@@ -955,6 +955,8 @@ function FollowerSilent() {
 
 	// Main Loop
 	while (Misc.inMyParty(Config.Leader)) {
+		leaderUnit = Misc.getPlayerUnit(Config.Leader);
+
 		if (me.mode === 17) {
 			if (me.playertype != 1) {
 				while (!me.inTown) {
@@ -1050,7 +1052,7 @@ function FollowerSilent() {
 					delay(100);
 				}
 
-				if (!me.inTown && (leader.inTown || Misc.getPlayerAct(leader) !== me.act)) {
+				if (!me.inTown && (leader.inTown || Misc.getPlayerAct(Config.Leader) !== me.act)) {
 					if (!Pather.usePortal(null, leader.name)) {
 						me.overhead("ÿc1Failed to use leader portal.");
 						Town.goToTown();
@@ -1061,7 +1063,7 @@ function FollowerSilent() {
 		}
 
 		if (me.inTown) {
-			if (!leader.inTown && Misc.getPlayerAct(leader) === me.act) {
+			if (!leader.inTown && Misc.getPlayerAct(Config.Leader) === me.act) {
 				me.overhead("ÿc2Ready");
 				Town.move("portalspot");
 				Attack.weaponSwitch(0);
@@ -1069,7 +1071,7 @@ function FollowerSilent() {
 				while (!Pather.usePortal(leader.area, leader.name) && leader.area !== me.area) {
 					me.overhead("ÿc1Failed to use leader portal.");
 
-					if (Misc.getPlayerAct(leader) !== me.act) {
+					if (Misc.getPlayerAct(Config.Leader) !== me.act) {
 
 						break;
 					}
@@ -1098,9 +1100,9 @@ function FollowerSilent() {
 				}
 			}
 
-			if (Misc.getPlayerAct(leader) !== me.act) {
+			if (Misc.getPlayerAct(Config.Leader) !== me.act) {
 				me.overhead("ÿc8Going to leader's town.");
-				Town.goToTown(Misc.getPlayerAct(leader));
+				Town.goToTown(Misc.getPlayerAct(Config.Leader));
 				delay(200);
 				Town.move("portalspot");
 			}
@@ -1205,13 +1207,13 @@ WPLoop:
 
 			break;
 		case "1":
-			if (me.inTown && leader.inTown && Misc.getPlayerAct(leader) !== me.act) {
+			if (me.inTown && leader.inTown && Misc.getPlayerAct(Config.Leader) !== me.act) {
 				me.overhead("ÿc8Going to leader's town.");
-				Town.goToTown(Misc.getPlayerAct(leader));
+				Town.goToTown(Misc.getPlayerAct(Config.Leader));
 				Town.move("portalspot");
 			} else if (me.inTown) {
 				say("Going outside.");
-				Town.goToTown(Misc.getPlayerAct(leader));
+				Town.goToTown(Misc.getPlayerAct(Config.Leader));
 				Town.move("portalspot");
 
 				if (!Pather.usePortal(leader.area, leader.name)) {

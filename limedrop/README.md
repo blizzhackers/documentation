@@ -20,7 +20,7 @@ There are two parts to Limedrop. One part is the API, and one part is a web page
 When the web page requests an item, Limedrop will launch the configured profile, join the game specified, and drop the item(s) selected.
 
 ##### Self-hosting
-If you want to access the latest version, use www.limedrop.org, if you would like to host the static front-end yourself, you can download it [here](https://github.com/noah-/limedrop) and copy it to the "Limedrop" folder of your d2bot-with-kolbot download. To access locally use http://localhost:8080.
+If you want to access the latest version, use www.limedrop.org, if you would like to host the static front-end yourself, you can download it [blizzhackers/limedrop](https://github.com/blizzhackers/limedrop) and copy it to the "Limedrop" folder of your d2bot-with-kolbot download. To access locally use http://localhost:8080.
 
 If you're using Git to clone d2bot-with-kolbot it will ask you if you want to automatically download the sub-repository.
 
