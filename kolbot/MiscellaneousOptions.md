@@ -12,7 +12,6 @@
 * [updated Autosmurf](#updated-Autosmurf)
 * [Autochaos](#Autochaos)
 * [modded BattleOrders.js](#modded-BattleOrdersjs)
-* [walking char](#walking-char)
 * [how to define your own party and permit hardcore loot corpses](#how-to-define-your-own-party-and-permit-hardcore-loot-corpses)
 * [Baal.js with adds for hdin on wave 2](#Baaljs-with-adds-for-hdin-on-wave-2)
 * [staggered delays for creating games](#staggered-delays-for-creating-games)
@@ -58,7 +57,6 @@
 
 * other autosmurf version can be be downloaded with tortoiseSVN (add /trunk) from <https://github.com/blizzhackers/kolbot-sonic/>
 	- the description can be found on https://github.com/blizzhackers/kolbot-sonic/blob/master/SetupSonic.md/#sonic-setup
-	- many thanks to [Laz](https://github.com/laztheripper) - the author of sonic scripts.
 	- it is a modified version of d2bs for sorceress chars, so check D2BotSonic.dbj starter script, config files ...\libs\config\Sorceress.js and ...\libs\config\Builds\Sorceress.Sonic.js 
 	- it have its modified files in ...\kolbot\libs\sonic\
 
@@ -99,30 +97,6 @@
 			Pather.moveTo(me.x + 5, me.y + 5);
 			delay(3000);
 		```
-
-## walking char
-
-* you can add a variable in the char config ([maybe ~ line24](https://github.com/blizzhackers/kolbot/blob/master/d2bs/kolbot/libs/config/Sorceress.js#L24), just after BattleOrders section), like:
-	```javascript
-	
-		Config.WalkingChar = true;
-	
-	```
-
-* in [Config.js line 277](https://github.com/blizzhackers/kolbot/blob/master/d2bs/kolbot/libs/common/Config.js#L277) add
-	```
-		WalkingChar: false,
-
-	``` 
-	this is the default option if you don't have it in char config and prevent other errors.
-
-* finally, add it in the line https://github.com/blizzhackers/kolbot/master/d2bs/kolbot/libs/common/Pather.js#L121 , so you'll get smth like 
-	```javascript
-        return this.teleport && !me.getState(139) && !me.getState(140) && !me.inTown && !Config.WalkingChar && ((me.classid === 1 && me.getSkill(54, 1)) || me.getStat(97, 54));
-	```
-	if that **Config.WalkingChar = true** in the char config, the result should be **use.teleport = false**
-
-* something similar with [this suggested option](https://github.com/blizzhackers/documentation/commit/f83800af39991199a72473344ce05f94ccdeb969) was merged in the kolbot repository with this [pull-request](https://github.com/blizzhackers/kolbot/pull/3)
 
 
 ## how to define your own party and permit hardcore loot corpses
@@ -650,16 +624,9 @@ Some of d2bot-with-kolbot scripts aren't silenced by default, and in some cases 
 		say("");
 		```
 
-4. if you insist to silent your scripts, the easier option (@nag0k choice) is to add a function in ...\kolbot\default.dbj after line 92, which will change **say** into **me.overhead** or **print**:
-	```javascript
-	this.say = function (string) {
-		me.overhead(string);
-	};
+4. if you insist to silent your scripts, the easier option is to set in char config:
 	```
-	```javascript
-	this.say = function (string) {
-		print(string);
-	};
+		Config.Silence = true; // Make the bot not say a word. Do not use in combination with LocalChat
 	```
 
 5. other method:

@@ -5,7 +5,7 @@
 *				- the values in lines 12-14 are customizable. 
 *				- in barbarian config file you should have Scripts.BattleOrders = true; and Config.QuitList = ["..."]; should be completed.
 *				- other chars should have in the running area scripts the lines to get the wp where Boer is
-*				- check https://www.projectetal.com/forums/wiki/?title=D2BS_Misc_Options#modded_BattleOrders_js
+*				- check https://github.com/blizzhackers/documentation/blob/master/kolbot/MiscellaneousOptions.md/#modded-battleordersjs
 */
 
 const BattleOrders = () => {
