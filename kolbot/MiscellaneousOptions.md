@@ -68,36 +68,29 @@
 * you can post the results on discord [#testing channel](https://discordapp.com/channels/430522386253611018/430534815549358080)
 
 ## modded BattleOrders.js
+* this was implemented with some changes than previous shared option in https://github.com/blizzhackers/kolbot/pull/37
+* if you want to use this feature, the required character configuration lines were placed only on [18-21 of .../libs/config/_BaseConfigFile.js](https://github.com/blizzhackers/kolbot/blob/master/d2bs/kolbot/libs/config/_BaseConfigFile.js#L18-L21), which could become a place to have all additional options, in order to simplify the character Class.js files.
+
 * reason = the default script was programmed to do only a single BOgive - BOget at the beggining of the game. Maybe it wasn't necessary a 2nd one, because games were shorter in those d2 server times without a lot of restrictions, which were applied in the meantime.
 
-* by [@nag0k](https://github.com/nag0k) - https://pastebin.com/JTmWbqLf or [BattleOrders.js on github](https://raw.githubusercontent.com/blizzhackers/documentation/master/kolbot/custom-scripts/BattleOrders.js)- replace the default ...\libs\bots\BattleOrders.js
-* barbarian will go to the waypoint of your choosing and bo anyone that is nearby if they have bo or not. It will go back to town if monsters come close to the boer. It will go back to town and visit a healer NPC if it's mana gets below a set percentage then return to continue giving bo.
+* barbarian will go to the waypoint of your choosing and bo anyone that is nearby, no matter if they have bo state or not. It will go back to town if monsters come close to the boer. It will go back to town and visit a healer NPC if it's mana gets below a set percentage then return to continue giving bo.
 
-* there are some settings at the top of the script you can change:
+* barbarian config file:
 	```javascript
-		const BO_WP = 35; // area to buff - 35 is catacombs level 2
-		const TOWN_NEARBY_MONSTER = true; // go to town if monsters nearby
-		const TOWN_MANA = 20; // go refill mana if mana drops below this percent
+ 	Scripts.BoBarbHelper = true; // specific HC script with BoBarb on the Bo area during whole game
+		Config.BoBarbHelper.Mode = 0; // 0 = give BO, 1 = get BO, -1  = disabled
+		Config.BoBarbHelper.Wp = 35; // 35 = Catacombs level 2
+		Config.BoBarbHelper.BoDuration = 400; // the barbarian char duration of BO skill in seconds (it can be the lower value between BC-BO-Shout)
 	```
-* BO_WP sets what wp to bo at, 35 is default which is catacombs level 2.
-* TOWN_NEARBY_MONSTER makes the barb go to town if monsters come too close.
-* TOWN_MANA makes the barb go refill it's mana if it drops below this percentage, if mana drops below 20% the barb will go heal by default.
-
-* Notes:
-	* only for giving BO, so only in barbarian config file:
-		```javascript
-			// Battle orders script - Use this for 2+ characters (for example BO barb + sorc)
-			Scripts.BattleOrders = true;
-		```
-	* the other parameters are useless.
 	* in barbarian config Config.QuitList = ["..."]; should be completed.
-	* this script is only the "barb giving bo" component, so it's not really compatible with the current BattleOrders unless you do what you done and make the characters receiving bo to go on the Boer wp first, by adding in your running scripts the following lines:
-		```javascript
-			Pather.useWaypoint(35, true); // take Boer wp
-			Pather.moveTo(me.x + 5, me.y + 5);
-			delay(3000);
-		```
-
+* other chars who need getting bo:
+	```javascript
+ 	Scripts.BoBarbHelper = true; // specific HC script with BoBarb on the Bo area during whole game
+		Config.BoBarbHelper.Mode = 1; // 0 = give BO, 1 = get BO, -1  = disabled
+		Config.BoBarbHelper.Wp = 35; // 35 = Catacombs level 2
+		Config.BoBarbHelper.BoDuration = 400; // the barbarian char duration of BO skill in seconds (it can be the lower value between BC-BO-Shout)
+	```
+* for chars with Config.BoBarbHelper.Mode = 1 will run in the background ...\kolbot\tools\BoGetting.js moving the char on the Config.BoBarbHelper.Wp with 30 sec before the value of Config.BoBarbHelper.BoDuration
 
 ## how to define your own party and permit hardcore loot corpses
 * It is a public mode when your players invite and accept other players invites, only if their names are in your previously configured MyOwnParty list
