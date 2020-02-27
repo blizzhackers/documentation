@@ -77,9 +77,9 @@ Limedrop will launch the profile on its own when it needs to do something.
 * You can create a profile using the standard [MuleLogger profile](https://github.com/blizzhackers/documentation/blob/master/kolbot/D2BotMuleLog.md)
 	* All mules logged this way will appear in the Limedrop web page
 
-**The creation of games was removed from limedrop, so don't try to log mules/accounts with it***, because of in some cases limedrop was creating a new game and it was dropping items.
+**The creation of games was removed from limedrop, so don't try to log mules/accounts with it**, because in some cases limedrop was creating a new game and it was dropping items, then left that game.
 
-* You can use the Web Interface to manually add a whole profile, or a single character:
+<!--* You can use the Web Interface to manually add a whole profile, or a single character:
 	* ![AddAccount1](assets/limedrop-addaccount1.png)
 	* ![AddAccount2](assets/limedrop-addaccount2.png)
 
@@ -98,9 +98,11 @@ Limedrop will launch the profile on its own when it needs to do something.
 	G - Click to begin logging accounts
 
 **Notes:**
-	* it is safe to log the same account by "adding" it through this interface. It will just update the files.
-	* currently you _can not_ use Numpad 5 to manually log a character with Limedrop
 
+	* it is safe to log the same account by "adding" it through this interface. It will just update the files.
+
+	* currently you _can not_ use Numpad 5 to manually log a character with Limedrop
+-->
 #### Emergency Stop
 You may notice that if you "stop" the GameAction profile that it immediately starts up again.
 
