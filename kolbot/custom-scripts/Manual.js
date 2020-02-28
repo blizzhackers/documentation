@@ -9,10 +9,10 @@ function Manual () {
 	var activeAction, end, block, wp, resfix, lifehook, watch,
 		i, unit, title, dummy, keydown, currentlife, currentmana,
 		classes = ["Amazon", "Sorceress", "Necromancer", "Paladin", "Barbarian", "Druid", "Assassin"],
-		flags = [0x1, 0x2, 0x3, 0x4, 0x5, 0xf, 0x18, 0x19, 0xc, 0x9],		
+		flags = [0x1, 0x2, 0x3, 0x4, 0x5, 0xf, 0x18, 0x19, 0xc, 0x9],
 		resolution = me.screensize,
-		info = new UnitInfo(),		
-		channel = "#d2bs", //Default
+		info = new UnitInfo(),
+		channel = "#d2bs", // default
 		hide = false,
 		list = true,
 		chat = 0,
@@ -34,7 +34,7 @@ function Manual () {
 			return true;
 		}
 
-		if (watchRecv.indexOf(ID) > -1) {	
+		if (watchRecv.indexOf(ID) > -1) {
 			let size = pBytes.length;
 			let array = [].slice.call(pBytes);
 			array.shift();
@@ -49,7 +49,7 @@ function Manual () {
 		let ID = pBytes[0].toString(16);
 
 		if (ID == "15") { //Block all commands or irc chat from being sent to server
-			if (pBytes[3] == 46 || chat == 1) {		
+			if (pBytes[3] == 46 || chat == 1) {
 				let str = "";
 
 				for (let b = 3; b < pBytes.length - 3; b++) {
@@ -177,7 +177,7 @@ function Manual () {
 
 					default:
 						print("ÿc1Invalid argument : " + msgList[1]);
-						break;	
+						break;
 				}
 
 				break;
@@ -293,7 +293,7 @@ function Manual () {
 
 				channel = msgList[1];
 				print("Set channel to : ÿc8" + msgList[1]);
-				break;				
+				break;
 
 			case "commands":
 			case "help":
@@ -375,7 +375,7 @@ function Manual () {
 		this.y = 157;
 		this.hooks = [];
 		this.cleared = true;
-	
+
 		this.createInfo = function (unit) {
 			if (typeof unit === "undefined") {
 				this.remove();
@@ -494,7 +494,7 @@ function Manual () {
 			this.hooks.push(new Text("Magic resist: ÿc0" + unit.getStat(37), this.x, this.y + 105, 4, 13, 2));
 
 			this.cleared = false;
-			
+
 			this.hooks.push(new Box(this.x + 2, this.y - 15, 136 + 85, frameYsize, 0x0, 1, 2));
 			this.hooks.push(new Frame(this.x, this.y - 15, 140 + 85, frameYsize, 2));
 
@@ -582,7 +582,7 @@ function Manual () {
 	// Sort items by size to pick biggest first
 	function sortPickList(a, b) {
 
-		// Same size -  sort by distance
+		// Same size - sort by distance
 		if (b.sizex === a.sizex && b.sizey === a.sizey) {
 			return getDistance(me, a) - getDistance(me, b);
 
@@ -591,14 +591,14 @@ function Manual () {
 	}
 
 	// Sort items by size to move biggest first
-	function sortMoveList(a, b) {          
-		return b.sizex * b.sizey - a.sizex * a.sizey;         
+	function sortMoveList(a, b) {
+		return b.sizex * b.sizey - a.sizex * a.sizey;
 	}
 
 	function hookHandler (click, x, y) {
 		// Get the hook closest to the clicked location
 		function sortHooks(h1, h2) {
-			return Math.abs(h1.y - y) - Math.abs(h2.y - y);  
+			return Math.abs(h1.y - y) - Math.abs(h2.y - y);
 		}
 
 		// Left click
@@ -617,7 +617,7 @@ function Manual () {
 			hooks[0].color = hooks[0].color === 4 ? 1 : 4;
 
 			// Block click
-			return true;	   
+			return true;
 		}
 
 		return false; 
@@ -642,7 +642,7 @@ function Manual () {
 				}
 
 				list = !list;
-				   
+
 			} else {
 				return false;
 			}
@@ -671,7 +671,7 @@ function Manual () {
 		}
 
 		for (var i = commands.length; i; i--) {
-			addHook (commands[i-1]);  
+			addHook (commands[i-1]);
 		}
 
 		hide = false;
@@ -890,7 +890,7 @@ function Manual () {
 
 				activeAction = false;
 				break;
-	   
+
 			default:
 				showHooks ();
 
