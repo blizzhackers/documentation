@@ -175,7 +175,7 @@ check [download guide](https://github.com/blizzhackers/documentation/tree/master
 
 ### I cannot change account
 1. **Q:** I'm playing manually and I cannot change the first account with I did the first log in. Even I enter other account the character screen will be for the first account, or in the worst case an empty character selection screen with Connecting ... 
-2. **A:** Uncheck the "RD Blocker" box, because that is causing it. The [wiki guide](https://github.com/blizzhackers/documentation/blob/master/d2bot/ManagerSetup.md/#create-a-profile) :
+2. **A:** Uncheck the "RD Blocker" box, because that is causing it. In the [guide](https://github.com/blizzhackers/documentation/blob/master/d2bot/ManagerSetup.md/#create-a-profile) is written:
 > 19. Enables RD Block (**don't enable unless you know what you are doing**)
 * it does nothing useful for most people
 

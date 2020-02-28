@@ -5,13 +5,13 @@
 *	Config.LocalChat.Enabled = true; // enable the LocalChat system
 *	Config.LocalChat.Mode = 2; // 0 = disabled, 1 = chat from 'say' (recommended), 2 = all chat (for manual play)
 *
-* version: 18.02.2020
+* version: 28.02.2020
 *
 * silent-automated follower changes:
 *	- silent follower will check the leader's act and will go to it.
 *	- when leader makes tp the follower will try to use it and will precast/buff.
 *	- the follower will go after leader in town, using his tp, and will do town activities (if autoTownChores = true).
-*	- lines 1016-1030 will stop HC chars, in order to allow the loot of their corpses. *** you should avoid the chat commands untill you get successful loot.
+*	- lines 986-1000 will stop HC chars, in order to allow the loot of their corpses. *** you should avoid the chat commands untill you get successful loot.
 *	- quiting/ending the game will be done using the random delay Config.QuitListDelay.
 *	- check the additional commands: b, ancs, ancsoff, ai, map, stash, restart, end, 0, ...
 *
@@ -125,6 +125,8 @@ function FollowerSilent() {
 		classes = ["amazon", "sorceress", "necromancer", "paladin", "barbarian", "druid", "assassin"],
 		action = "",
 		charClass = classes[me.classid],
+		BCDuration = 0;
+		BCTick = 0,
 		autoTownChores = true, // automatic town activities after arriving from field/areas
 		field = false, // variable used in autoTownChores
 		dist = 6, // distance to leader. It can be changed with chat "dist:x" by leader.
@@ -577,6 +579,20 @@ function FollowerSilent() {
 		}
 	};
 
+	this.precast = function () {
+		Precast.doPrecast(true);
+
+		if (me.classid !== 4 || !me.getSkill(155, 0)) {
+
+			return true;
+		}
+
+		BCDuration = (20 + me.getSkill(155, 1) * 10 + (me.getSkill(138, 0) + me.getSkill(149, 0)) * 5) * 1000;
+		BCTick = getTickCount();
+
+		return true;
+	};
+
 	this.pickPotions = function (range) {
 		if (me.dead) {
 			return false;
@@ -1006,6 +1022,10 @@ function FollowerSilent() {
 
 			this.getCloser();
 
+			if (me.classid === 4 && me.getSkill(155, 0) && ((getTickCount() - BCTick >= BCDuration - 30000) || !me.getState(51))) {
+				this.precast;
+			}
+
 			if (attack) {
 				Attack.clear(15, false, false, false, true);
 				this.pickPotions(15);
@@ -1080,12 +1100,12 @@ function FollowerSilent() {
 				if (!me.inTown) {
 					me.overhead("ÿc2Precast");
 					delay(rand(100, 200));
-					Precast.doPrecast(true);
+					this.precast;
 
 					if (me.classid === 4) {
 						Attack.clear(10, false, false, false, true);
 						delay(3e3);
-						Precast.doPrecast(true);
+						this.precast;
 					}
 
 					while (!Misc.getPlayerUnit(Config.Leader) && !me.dead && !action) {
@@ -1267,14 +1287,14 @@ WPLoop:
 		case "bo":
 			if (me.classid === 4) {
 				me.overhead("ÿc2BO");
-				Precast.doPrecast(true);
+				this.precast;
 			}
 
 			break;
 		case "b": // buff all followers
 			me.overhead("ÿc2refresh buff");
 			delay(rand(100, 200));
-			Precast.doPrecast(true);
+			this.precast;
 
 			break;
 		case "a2":
@@ -1308,7 +1328,7 @@ WPLoop:
 		case me.name + " countess":
 			Town.doChores();
 			Pather.useWaypoint(6);
-			Precast.doPrecast(true);
+			this.precast;
 
 			if (!Pather.moveToExit([20, 21, 22, 23, 24, 25], true)) {
 				throw new Error("Failed to move to Countess");
@@ -1320,7 +1340,7 @@ WPLoop:
 		case me.name + " andariel":
 			Town.doChores();
 			Pather.useWaypoint(35);
-			Precast.doPrecast(true);
+			this.precast;
 
 			if (!Pather.moveToExit([36, 37], true)) {
 				throw new Error("Failed to move to Catacombs Level 4");
@@ -1332,7 +1352,7 @@ WPLoop:
 		case me.name + " summoner":
 			Town.doChores();
 			Pather.useWaypoint(74);
-			Precast.doPrecast(true);
+			this.precast;
 
 			if (!Pather.moveToPreset(me.area, 2, 357, -3, -3)) {
 				throw new Error("Failed to move to Summoner");
@@ -1344,7 +1364,7 @@ WPLoop:
 		case me.name + " duriel":
 			Town.doChores();
 			Pather.useWaypoint(46);
-			Precast.doPrecast(true);
+			this.precast;
 
 			if (!Pather.moveToExit(getRoom().correcttomb, true)) {
 				throw new Error("Failed to move to Tal Rasha's Tomb");
@@ -1360,7 +1380,7 @@ WPLoop:
 		case me.name + " mephisto":
 			Town.doChores();
 			Pather.useWaypoint(101);
-			Precast.doPrecast(true);
+			this.precast;
 
 			if (!Pather.moveToExit(102, true)) {
 				throw new Error("Failed to move to Durance Level 3");
@@ -1372,7 +1392,7 @@ WPLoop:
 		case me.name + " chaos":
 			Town.doChores();
 			Pather.useWaypoint(107);
-			Precast.doPrecast(true);
+			this.precast;
 
 			if (!Pather.moveToExit(108, true)) {
 				throw new Error("Failed to move to Chaos Sanctuary");
@@ -1384,7 +1404,7 @@ WPLoop:
 		case me.name + " nihlathak":
 			Town.doChores();
 			Pather.useWaypoint(123);
-			Precast.doPrecast(true);
+			this.precast;
 
 			if (!Pather.moveToExit(124, true)) {
 				throw new Error("Failed to go to Nihlathak");
@@ -1396,7 +1416,7 @@ WPLoop:
 		case me.name + " throne":
 			Town.doChores();
 			Pather.useWaypoint(129);
-			Precast.doPrecast(true);
+			this.precast;
 
 			if (!Pather.moveToExit([130, 131], true)) {
 				throw new Error("Failed to move to Throne of Destruction.");
