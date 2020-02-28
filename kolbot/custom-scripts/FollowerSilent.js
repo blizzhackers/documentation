@@ -125,7 +125,7 @@ function FollowerSilent() {
 		classes = ["amazon", "sorceress", "necromancer", "paladin", "barbarian", "druid", "assassin"],
 		action = "",
 		charClass = classes[me.classid],
-		BCDuration = 0;
+		BCDuration = 0,
 		BCTick = 0,
 		autoTownChores = true, // automatic town activities after arriving from field/areas
 		field = false, // variable used in autoTownChores
