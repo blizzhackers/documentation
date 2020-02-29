@@ -16,12 +16,12 @@ var StarterConfig = {
 	AnnounceGames: false, // Default value
 	AfterGameMessage: "", // Default message after a finished game. Can be an array of messages
 
-	SwitchKeyDelay: rand(5, 15), // Seconds to wait before switching a used/banned key or after realm down
+	SwitchKeyDelay: rand(5e3, 15e3), // Milliseconds to wait before switching a used/banned key or after realm down
 	CrashDelay: rand(120e3, 150e3), // Milliseconds to wait after a d2 window crash
 	FTJDelay: rand(25e3, 30e3), // Milliseconds to wait after failing to create a game
-	RealmDownDelay: rand(3, 7), // Minutes to wait after getting Realm Down message
-	UnableToConnectDelay: rand(5, 10), // Minutes to wait after Unable To Connect message
-	CDKeyInUseDelay: rand(5, 10), // Minutes to wait before connecting again if CD-Key is in use.
+	RealmDownDelay: rand(3*6e4, 7*6e4), // Minutes to wait after getting Realm Down message
+	UnableToConnectDelay: rand(5*6e4, 10*6e4), // Minutes to wait after Unable To Connect message
+	CDKeyInUseDelay: rand(5*6e4, 10*6e4), // Minutes to wait before connecting again if CD-Key is in use.
 	ConnectingTimeout: rand(25e3, 30e3), // Milliseconds to wait before cancelling the 'Connecting...' screen
 	PleaseWaitTimeout: rand(20e3, 30e3), // Milliseconds to wait before cancelling the 'Please Wait...' screen
 	WaitInLineTimeout: rand(60e3, 90e3), // Milliseconds to wait before cancelling the 'Waiting in Line...' screen
@@ -692,7 +692,7 @@ MainSwitch:
 				D2Bot.CDKeyDisabled();
 
 				if (gameInfo.switchKeys) {
-					ControlAction.timeoutDelay("Key switch delay", StarterConfig.SwitchKeyDelay * 1000);
+					ControlAction.timeoutDelay("Key switch delay", StarterConfig.SwitchKeyDelay);
 					D2Bot.restart(true);
 				} else {
 					D2Bot.stop();
@@ -705,7 +705,7 @@ MainSwitch:
 				D2Bot.CDKeyDisabled();
 
 				if (gameInfo.switchKeys) {
-					ControlAction.timeoutDelay("Key switch delay", StarterConfig.SwitchKeyDelay * 1000);
+					ControlAction.timeoutDelay("Key switch delay", StarterConfig.SwitchKeyDelay);
 					D2Bot.restart(true);
 				} else {
 					D2Bot.stop();
@@ -718,7 +718,7 @@ MainSwitch:
 				D2Bot.CDKeyDisabled();
 
 				if (gameInfo.switchKeys) {
-					ControlAction.timeoutDelay("Key switch delay", StarterConfig.SwitchKeyDelay * 1000);
+					ControlAction.timeoutDelay("Key switch delay", StarterConfig.SwitchKeyDelay);
 					D2Bot.restart(true);
 				} else {
 					D2Bot.stop();
@@ -736,7 +736,7 @@ MainSwitch:
 				D2Bot.printToConsole("Login Error - " + string);
 
 				if (gameInfo.switchKeys) {
-					ControlAction.timeoutDelay("Key switch delay", StarterConfig.SwitchKeyDelay * 1000);
+					ControlAction.timeoutDelay("Key switch delay", StarterConfig.SwitchKeyDelay);
 					D2Bot.restart(true);
 				} else {
 					D2Bot.stop();
@@ -757,7 +757,7 @@ MainSwitch:
 		D2Bot.updateStatus("Unable To Connect");
 
 		if (connectFail) {
-			ControlAction.timeoutDelay("Unable to Connect", StarterConfig.UnableToConnectDelay * 6e4);
+			ControlAction.timeoutDelay("Unable to Connect", StarterConfig.UnableToConnectDelay);
 
 			connectFail = false;
 		}
@@ -778,12 +778,12 @@ MainSwitch:
 		}
 
 		updateCount();
-		ControlAction.timeoutDelay("Realm Down", StarterConfig.RealmDownDelay * 6e4);
+		ControlAction.timeoutDelay("Realm Down", StarterConfig.RealmDownDelay);
 		D2Bot.CDKeyRD();
 
 		if (gameInfo.switchKeys && !gameInfo.rdBlocker) {
 			D2Bot.printToConsole("Realm Down - Changing CD-Key");
-			ControlAction.timeoutDelay("Key switch delay", StarterConfig.SwitchKeyDelay * 1000);
+			ControlAction.timeoutDelay("Key switch delay", StarterConfig.SwitchKeyDelay);
 			D2Bot.restart(true);
 		} else {
 			D2Bot.printToConsole("Realm Down - Restart");
@@ -813,11 +813,11 @@ MainSwitch:
 		D2Bot.CDKeyInUse();
 
 		if (gameInfo.switchKeys) {
-			ControlAction.timeoutDelay("Key switch delay", StarterConfig.SwitchKeyDelay * 1000);
+			ControlAction.timeoutDelay("Key switch delay", StarterConfig.SwitchKeyDelay);
 			D2Bot.restart(true);
 		} else {
 			ControlAction.click(6, 335, 450, 128, 35);
-			ControlAction.timeoutDelay("CD-Key in use", StarterConfig.CDKeyInUseDelay * 6e4);
+			ControlAction.timeoutDelay("CD-Key in use", StarterConfig.CDKeyInUseDelay);
 		}
 
 		break;
@@ -849,22 +849,22 @@ MainSwitch:
 			D2Bot.CDKeyInUse();
 
 			if (gameInfo.switchKeys) {
-				ControlAction.timeoutDelay("Key switch delay", StarterConfig.SwitchKeyDelay * 1000);
+				ControlAction.timeoutDelay("Key switch delay", StarterConfig.SwitchKeyDelay);
 				D2Bot.restart(true);
 			} else {
 				ControlAction.click(6, 335, 450, 128, 35);
-				ControlAction.timeoutDelay("LoD key in use", StarterConfig.CDKeyInUseDelay * 6e4);
+				ControlAction.timeoutDelay("LoD key in use", StarterConfig.CDKeyInUseDelay);
 			}
 
 			break;
 		default:
 			if (gameInfo.switchKeys) {
 				D2Bot.printToConsole("Invalid CD-Key");
-				ControlAction.timeoutDelay("Key switch delay", StarterConfig.SwitchKeyDelay * 1000);
+				ControlAction.timeoutDelay("Key switch delay", StarterConfig.SwitchKeyDelay);
 				D2Bot.restart(true);
 			} else {
 				ControlAction.click(6, 335, 450, 128, 35);
-				ControlAction.timeoutDelay("Invalid CD-Key", StarterConfig.CDKeyInUseDelay * 6e4);
+				ControlAction.timeoutDelay("Invalid CD-Key", StarterConfig.CDKeyInUseDelay);
 			}
 
 			break;
@@ -891,7 +891,7 @@ MainSwitch:
 				D2Bot.CDKeyDisabled();
 
 				if (gameInfo.switchKeys) {
-					ControlAction.timeoutDelay("Key switch delay", StarterConfig.SwitchKeyDelay * 1000);
+					ControlAction.timeoutDelay("Key switch delay", StarterConfig.SwitchKeyDelay);
 					D2Bot.restart(true);
 				} else {
 					D2Bot.stop();
@@ -934,7 +934,7 @@ MainSwitch:
 			D2Bot.printToConsole(gameInfo.mpq + " is probably flagged.", 6);
 
 			if (gameInfo.switchKeys) {
-				ControlAction.timeoutDelay("Key switch delay", StarterConfig.SwitchKeyDelay * 1000);
+				ControlAction.timeoutDelay("Key switch delay", StarterConfig.SwitchKeyDelay);
 				D2Bot.restart(true);
 			}
 		} else {

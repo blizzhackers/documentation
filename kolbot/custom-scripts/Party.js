@@ -13,6 +13,7 @@ function main() {
 	include("common/Cubing.js");
 	include("common/Runewords.js");
 	include("common/Misc.js");
+	include("common/Util.js");
 	include("common/Prototypes.js");
 	include("common/Town.js");
 
@@ -202,7 +203,7 @@ function main() {
 										delay(500);
 									}
 
-									if (me.playertype == 1 && loot.indexOf(player.name) === -1) { // hardcore permit loot to other chars
+									if (loot.indexOf(player.name) === -1 && me.playertype == 1) { // hardcore permit loot to other chars
 										clickParty(player, 0);
 										loot.push(player.name);
 										delay(500);

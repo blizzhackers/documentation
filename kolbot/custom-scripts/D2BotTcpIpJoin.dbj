@@ -4,6 +4,7 @@ include("OOG.js");
 include("gambling.js");
 include("craftingsystem.js");
 include("common/misc.js");
+include("common/util.js");
 
 var i, j, gameInfo, joinInfo, gameStart, ingame, handle,
 	gameCount = DataFile.getStats().runs + 1,
@@ -135,40 +136,40 @@ function locationAction() {
 
 	MainSwitch:
 	switch (ScreenLocation) {
-		case 0:// Splash Screen
+		case 0: // Splash Screen
 		break;
-		case 8:// Main Screen
-			ControlAction.click(6, 264, 433, 272, 35);//Other Multiplayer
+		case 8: // Main Screen
+			ControlAction.click(6, 264, 433, 272, 35); //Other Multiplayer
 			delay(500);
 		break;
-		case 12:// Character Select Screen
+		case 12: // Character Select Screen
 			try {
 				login(me.profile);
 			} catch (err) {
 				print(err+" "+getLocation());
 			}
 		break;
-		case 16:// Logging in Select
+		case 16: // Logging in Select
 			delay(500);
 		break;
-		case 30:// Connecting
+		case 30: // Connecting
 			ControlAction.click(6, 351, 337, 96, 32);
 			delay(500);
 		break;
-		case 39:// Other Multiplayer Screen
-			ControlAction.click(6, 264, 350, 272, 35);//TCP/IP Game
+		case 39: // Other Multiplayer Screen
+			ControlAction.click(6, 264, 350, 272, 35); //TCP/IP Game
 			delay(500);
 		break;
-		case 40:// TCP IP Screen
-			// ControlAction.click(6, 265, 206, 272, 35);//Host Game
-			ControlAction.click(6, 265, 264, 272, 35);//Join Game
+		case 40: // TCP IP Screen
+			// ControlAction.click(6, 265, 206, 272, 35); //Host Game
+			ControlAction.click(6, 265, 264, 272, 35); //Join Game
 			delay(500);
 		break;
-		case 41:// Join Game
-			// ControlAction.click(6, 281, 337, 96, 32);//Cancel
+		case 41: // Join Game
+			// ControlAction.click(6, 281, 337, 96, 32); //Cancel
 			delay(500);
 			D2Bot.updateStatus("Join Game");
-			ControlAction.click(6, 421, 337, 96, 32);//Join
+			ControlAction.click(6, 421, 337, 96, 32); //Join
 		break;
 		default:
 			if (ScreenLocation !== undefined) {

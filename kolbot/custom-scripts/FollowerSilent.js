@@ -5,15 +5,15 @@
 *	Config.LocalChat.Enabled = true; // enable the LocalChat system
 *	Config.LocalChat.Mode = 2; // 0 = disabled, 1 = chat from 'say' (recommended), 2 = all chat (for manual play)
 *
-* version: 28.02.2020
+* version: 29.02.2020
 *
 * silent-automated follower changes:
 *	- silent follower will check the leader's act and will go to it.
 *	- when leader makes tp the follower will try to use it and will precast/buff.
 *	- the follower will go after leader in town, using his tp, and will do town activities (if autoTownChores = true).
-*	- lines 986-1000 will stop HC chars, in order to allow the loot of their corpses. *** you should avoid the chat commands untill you get successful loot.
+*	- lines 986-1000 will stop HC chars, in order to allow the loot of their corpses. *** you should avoid the chat commands until you get successful loot.
 *	- quiting/ending the game will be done using the random delay Config.QuitListDelay.
-*	- check the additional commands: b, ancs, ancsoff, ai, map, stash, restart, end, 0, ...
+*	- check the additional commands: b, ancs, ancsoff, ai, map, restart, end, dist:x, gamble, cowopen, bosses (countess, andariel, summoner, duriel, mephisto, chaos, nihlathak, throne), say ...
 *
 * Commands:
 *
@@ -162,6 +162,20 @@ function FollowerSilent() {
 				} while (player.getNext());
 			}
 		}
+	};
+
+	this.precast = function () {
+		Precast.doPrecast(true);
+
+		if (me.classid !== 4 || !me.getSkill(155, 0)) {
+
+			return true;
+		}
+
+		BCDuration = (20 + me.getSkill(155, 1) * 10 + (me.getSkill(138, 0) + me.getSkill(149, 0)) * 5) * 1000;
+		BCTick = getTickCount();
+
+		return true;
 	};
 
 	// Change areas to where leader is
@@ -577,20 +591,6 @@ function FollowerSilent() {
 		default:
 			return [];
 		}
-	};
-
-	this.precast = function () {
-		Precast.doPrecast(true);
-
-		if (me.classid !== 4 || !me.getSkill(155, 0)) {
-
-			return true;
-		}
-
-		BCDuration = (20 + me.getSkill(155, 1) * 10 + (me.getSkill(138, 0) + me.getSkill(149, 0)) * 5) * 1000;
-		BCTick = getTickCount();
-
-		return true;
 	};
 
 	this.pickPotions = function (range) {
@@ -1427,7 +1427,14 @@ WPLoop:
 			break;
 		}
 
-		if (action && action.split(" ")[0] === "area:") { // leader should set a key in ToolsThread.js, like case 111: say("area: " + me.area + " x: " + me.x + " y: " + me.y);
+		// Talk to NPC
+		if (action.indexOf("talk") > -1) {
+			this.talk(action.split(" ")[1]);
+		}
+
+		 // Move to leader announced position
+		 // Leader should set a key in ToolsThread.js, like (Numpad /) case 111: say("area: " + me.area + " x: " + me.x + " y: " + me.y);
+		if (action && action.split(" ")[0] === "area:") {
 			var la = parseInt(action.split(" ")[1], 10),
 				lx = parseInt(action.split(" ")[3], 10),
 				ly = parseInt(action.split(" ")[5], 10);
@@ -1446,13 +1453,10 @@ WPLoop:
 			}
 		}
 
-		if (action && action.split(":")[0] === "dist") { // used in getCloser function
+		// Change the distance to leader - used in getCloser function
+		if (action && action.split(":")[0] === "dist") {
 			dist = (parseInt(action.split(":")[1], 10) > 6 && parseInt(action.split(":")[1], 10) <= 30) ? parseInt(action.split(":")[1], 10) : 6;
 			me.overhead("ÿc4distance to leader ÿc0= " + dist);
-		}
-
-		if (action.indexOf("talk") > -1) {
-			this.talk(action.split(" ")[1]);
 		}
 
 		// Communication between 2 teams, 2nd leader is set as follower for the 1st. the commands will be repetead by the 2nd leader
