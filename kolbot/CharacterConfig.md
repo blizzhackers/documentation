@@ -427,7 +427,7 @@ Config.GambleItems.push(520); // Amulet **ENABLED**
 
 for more items check **libs/NTItemAlias.dbl**
 Don't set stop gold amount too low if you use MiniShopBot, buy can fail.
-Gambling can be used as Gambling System. For more info about, see [Gambling System Guide](https://github.com/kolton/d2bot-with-kolbot/wiki/Gambling-System)
+Gambling can be used as Gambling System. For more info about, see [Gambling System Guide](https://github.com/blizzhackers/documentation/kolbot/GamblingSystem.md#gambling-system)
 
 ### Cubing Config
 All recipes are available in **d2bs\kolbot\libs\config\Templates\Cubing.txt.**

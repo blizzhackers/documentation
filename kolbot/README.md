@@ -30,6 +30,8 @@ library scripts by [@kolton](https://github.com/kolton)
 
 * [Automule](Automule.md/#automule): Automuling and torch muling
 
+* [Gambling System](GamblingSystem.md#gambling-system): how to configure gambling teams
+
 * [Hotkeys](Hotkeys.md/#hotkeys): d2bs hotkeys, how to change them, console commands
 
 * [Miscellaneous Options](MiscellaneousOptions.md/#miscellaneous-options): autosmurf, autochaos, modded BattleOrders, how to define your own party, hardcore loot corpses, baal ads for hdin on wave2, ...

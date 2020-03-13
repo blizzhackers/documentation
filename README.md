@@ -41,6 +41,7 @@
 * [D2BotMuleLog](kolbot/D2BotMuleLog.md/#d2botmulelog): log muled items
 * [Perming Options](kolbot/PermingOptions.md/#perming-options): options to perm chars or to refresh the countdown timer
 * [Automule](kolbot/Automule.md/#automule): Automuling and torch muling
+* [Gambling System](kolbot/GamblingSystem.md#gambling-system): how to configure gambling teams
 * [Hotkeys](kolbot/Hotkeys.md/#hotkeys): d2bs hotkeys, how to change them, console commands
 * [Miscellaneous Options](kolbot/MiscellaneousOptions.md/#miscellaneous-options): autosmurf, autochaos, modded BattleOrders, how to define your own party, hardcore loot corpses, baal ads for hdin on wave2, ...
 
