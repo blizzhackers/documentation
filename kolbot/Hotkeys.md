@@ -65,6 +65,13 @@ Here is just a quick run through of what each current key is, and what it will d
   	  	<td></td>
 	</tr>
 	<tr>
+  	  	<td>35 - End</td>
+  	  	<td>MuleLogger.logChar(); D2Bot.stop(me.profile, true);</td>
+  	  	<td>mulelog the current char and stop that profile</td>
+  	  	<td></td>
+  	  	<td></td>
+	</tr>
+	<tr>
   	  	<td>36 - Home</td>
   	  	<td></td>
   	  	<td></td>
@@ -73,8 +80,8 @@ Here is just a quick run through of what each current key is, and what it will d
 	</tr>
 	<tr>
   	  	<td>45 - Insert</td>
-  	  	<td></td>
-  	  	<td></td>
+  	  	<td>revealLevel(true)</td>
+  	  	<td>show/hide map</td>
   	  	<td>c (Test.js)</td>
   	  	<td>print ... </td>
 	</tr>
@@ -187,13 +194,6 @@ Here is just a quick run through of what each current key is, and what it will d
   	  	<td>111 - Num /</td>
   	  	<td></td>
   	  	<td></td>
-  	  	<td></td>
-  	  	<td></td>
-	</tr>
-	<tr>
-  	  	<td>123 - F12</td>
-  	  	<td>revealLevel(true)</td>
-  	  	<td>show/hide map</td>
   	  	<td></td>
   	  	<td></td>
 	</tr>
