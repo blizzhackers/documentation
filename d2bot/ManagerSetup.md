@@ -10,7 +10,7 @@
 
 [Microsoft Visual C++ 2010 Redistributable Package (x86)](https://www.microsoft.com/en-us/download/details.aspx?id=5555)
 
-[Microsoft .NET Framework 4.0 (or higher)](https://www.microsoft.com/net/download/Windows/run)
+[Microsoft .NET Framework 4.0 (or higher)](https://dotnet.microsoft.com/download/dotnet-framework)
 
 ### Launch D2Bot.exe in Administrator Mode
 
