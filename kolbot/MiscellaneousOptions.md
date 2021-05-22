@@ -381,7 +381,7 @@ you could comment the [line 58 from Town.js](https://github.com/blizzhackers/kol
 * without the LocalChat active in mode 2, the follower reporting have to be silenced changing **say(** with **print(** or me.overhead (server side function of d2bs, other players don't see that).
 * the default Follower.js has set town activities only with command, and in the case of silenced it was changed to do town activities at the start of the game and just after every leader move to town. Cain can be used to identify items, but before setting that check the [section related](#use-cain-and-sell-items), below.
 
-* https://pastebin.com/LnXCQ3ES or [FollowerSilent.js on github](https://raw.githubusercontent.com/blizzhackers/documentation/master/kolbot/custom-scripts/FollowerSilent.js) - copy and paste the text (or download that paste), in a new file ...\bots\FollowerSilent.js.
+* [FolowerSilent on gist](https://gist.github.com/mf022/d952e12bc89248a242c3868f2323b74a) or [FollowerSilent.js on github](https://raw.githubusercontent.com/blizzhackers/documentation/master/kolbot/custom-scripts/FollowerSilent.js) - copy and paste the text (or download that paste), in a new file ...\bots\FollowerSilent.js.
 This modded script has some adds, check the top of it. And you should add a new line in the character configuration file:
 ```javascript
 	Scripts.FollowerSilent = true; // a custom automated Follower.js
@@ -588,7 +588,7 @@ WEnd
 
 * download using SVN Checkout... -> (https://github.com/Nedkali/DiaBaseV1/trunk)
 * create a subfolder ...\d2bs\kolbot\MuleInventory\
-* you have the option to not use the Diabase function which overwrite the files, using Utilities > Verify logging files, and it's enough to replace the default libs\MuleLogger.js with https://pastebin.com/5AkYLwNU - which will create the both log files for the default D2BS Char Viewer (in mules\realm\account) and Diabase(in MuleInventory\).
+* you have the option to not use the Diabase function which overwrite the files, using Utilities > Verify logging files, and it's enough to replace the default libs\MuleLogger.js with [Mulelogger on gist](https://gist.github.com/mf022/a0ee6d71d071dc45635650cef4bc8afd) - which will create the both log files for the default D2BS Char Viewer (in mules\realm\account) and Diabase(in MuleInventory\).
 
 ## silencing the scripts
 **me.overhead** command in d2bs is displayed only on client side, like the **print** command, too. Nobody in the same game cannot see those messages. Those are different than server chat messages starting with **!** symbol.
