@@ -45,13 +45,14 @@
 * open hosts file
 * add the line corresponding to your d2 server
 ```
-	199.108.55.57 useast.battle.net
-	12.129.236.17 uswest.battle.net
-	5.42.181.18 europe.battle.net
-	121.254.164.18 asia.battle.net
+	34.223.227.224 uswest.battle.net
+	44.194.80.159 useast.battle.net
+	13.124.4.20 asia.battle.net
+	3.66.69.82 europe.battle.net
 ```
 * [@Darkvigilante video guide](https://www.youtube.com/watch?v=vK3jaNttWAU)
 * [additional guide](https://www.howtogeek.com/howto/27350/beginner-geek-how-to-edit-your-hosts-file/)
+* in case of servers changes, use the [sysinternal tool](https://docs.microsoft.com/en-us/sysinternals/downloads/tcpview) and search inside this app for **Game** 
 
 ### how much I have to wait for an answer?
 1. **Q:** I've posted a question on forum 5 minutes ago and I still haven't got any answer!!!

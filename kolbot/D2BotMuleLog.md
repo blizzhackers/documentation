@@ -103,7 +103,8 @@ It's a free public dropper - limedrop, included in the default branch (master = 
 
 
 ### diabase & d2bs
-[@Ned](https://github.com/Nedkali/) added some changes to Diabase to work with D2BS - see this 
-- download using SVN Checkout... -> <https://github.com/Nedkali/DiaBaseV1/trunk>
-- create a subfolder ...\d2bs\kolbot\MuleInventory\
-- you have the option to not use the Diabase function which overwrite the files, using Utilities > Verify logging files, and it's enough to replace the default libs\MuleLogger.js with <https://pastebin.com/raw/5AkYLwNU> - which will create the both log files for the default D2BS Char Viewer (in mules\realm\account) and Diabase(in MuleInventory\).
+[@Ned](https://github.com/Nedkali/)added some changes to Diabase to work with D2BS
+
+* download using SVN Checkout... -> (https://github.com/Nedkali/DiaBaseV1/trunk)
+* create a subfolder ...\d2bs\kolbot\MuleInventory\
+* you have the option to not use the Diabase function which overwrite the files, using Utilities > Verify logging files, and it's enough to replace the default libs\MuleLogger.js with [Mulelogger on gist](https://gist.github.com/mf022/a0ee6d71d071dc45635650cef4bc8afd) - which will create the both log files for the default D2BS Char Viewer (in mules\realm\account) and Diabase(in MuleInventory\).

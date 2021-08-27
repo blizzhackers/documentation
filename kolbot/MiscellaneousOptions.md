@@ -584,7 +584,7 @@ WEnd
 
 
 ## Diabase & D2BS
-@Ned added some changes to Diabase to work with D2BS
+[@Ned](https://github.com/Nedkali/) added some changes to Diabase to work with D2BS
 
 * download using SVN Checkout... -> (https://github.com/Nedkali/DiaBaseV1/trunk)
 * create a subfolder ...\d2bs\kolbot\MuleInventory\
