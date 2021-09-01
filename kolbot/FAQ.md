@@ -8,7 +8,8 @@
 
 ---
 
-* [how to avoid checking versions issue?](#how-to-avoid-checking-versions-issue)
+* [how to avoid "checking versions"?](#how-to-avoid-checking-versions)
+* [how to avoid "connecting to the fastest server"?](#how-to-avoid-connecting-to-the-fastest-server)
 * [how much I have to wait for an answer?](#how-much-i-have-to-wait-for-an-answer)
 * [I have an issue with my bot](#i-have-an-issue-with-my-bot)
 * [best version of d2bs](#best-version-of-d2bs)
@@ -36,7 +37,7 @@
 
 ## Q / A
 
-### how to avoid checking versions issue?
+### how to avoid "checking versions"?
 1. **Q:** Diablo II  login screen is showing "Checking versions..." on every try
 2. **A:** you have to add some extra lines in windows hosts file:
 * run notepad in admin mode.
@@ -53,6 +54,12 @@
 * [@Darkvigilante video guide](https://www.youtube.com/watch?v=vK3jaNttWAU)
 * [additional guide](https://www.howtogeek.com/howto/27350/beginner-geek-how-to-edit-your-hosts-file/)
 * in case of servers changes, use the [sysinternal tool](https://docs.microsoft.com/en-us/sysinternals/downloads/tcpview) and search inside this app for **Game** 
+
+### how to avoid "connecting to the fastest server"?
+1. **Q:** Diablo II  login screen is showing "Connecting to the fastest server" on every try
+2. **A:** check your extra lines in windows C:\Windows\System32\drivers\etc\hosts file, see [previous issue](#how-to-avoid-checking-versions)
+* use the [sysinternal tool](https://docs.microsoft.com/en-us/sysinternals/downloads/tcpview) and with Diablo II running, search inside TCPview app for **Game**, and write down the Remote Adress of Game.exe, coresponding to the server you have connected.
+* if you wanna play d2 only directly, without d2bs, you could also delete those extra lines from C:\Windows\System32\drivers\etc\hosts file
 
 ### how much I have to wait for an answer?
 1. **Q:** I've posted a question on forum 5 minutes ago and I still haven't got any answer!!!
