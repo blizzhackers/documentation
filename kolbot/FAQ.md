@@ -198,4 +198,4 @@ check [download guide](https://github.com/blizzhackers/documentation/tree/master
 ## support
 * https://github.com/blizzhackers/kolbot/issues
 * [discord #support](https://discordapp.com/channels/430522386253611018/430522508026839051)
-* [d2bot.discourse.group #support](https://d2bot.discourse.group/c/support)
+* [blizzhackers.discourse.group #support](https://blizzhackers.discourse.group/c/support/14)

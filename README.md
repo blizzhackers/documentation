@@ -59,7 +59,7 @@
 ### video guides:
 
 * <https://www.youtube.com/playlist?list=PLsHwtjzVMbwGJr8NS-5GPMthAbVF8iZUM>
-* <https://darcvigilante.site/forumdisplay.php?fid=6>
+* <https://www.youtube.com/c/KolbotForever/videos>
 
 ---
 
