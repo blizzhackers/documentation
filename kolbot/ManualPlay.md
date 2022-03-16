@@ -34,39 +34,34 @@
 3. it gives you some improvements like:
 
 	* reveals map
-	* loads chicken/potion/fastmod from character config
+	* loads character config
 	* shows ping
 	* shows game time
-	* shows vectors
 	* displays IP
+	* shows vectors/area names/shrines/monsters/items
 	* with numpad key 0 - goes to next area
 	* with numpad key 1 - goes to previous area
 	* with numpad key 2 - goes to wp and grab it (if possible)
-	* with numpad key 3 - goes to boss from quest (if possible)
-	* with numpad key 7 - disables monsters
-	* with numpad key 8 - disables vectors
+	* with numpad key 3 - goes to point of interest (if possible)
+	* with numpad key 4 - goes to side area (if possible)
+	* with numpad key (5 - 8) - goes to point of interest (if possible)
+	* with shift < - goes to previous act (if possible)
+	* with shift > - goes to next act (if possible)
+	* with key 5 - (in town will go to healer)(out of town it will make a portal if possible)
+	* with key 6 - (in town will open stash)(out of town it will go to town if possible)
+	* with key 7 - disables item filter
+	* with key 8 - disables vectors
+	* with key 9 - disables vectors
+	* with numpad key - (toggle item filter between default and custom)
+	* with alt key while hovering over item will - (move item to next location)(stash <-> inventory)(cube <-> inventory)
+	(tradescreen <-> inventory)(inventory -> sell to npc in menu)
+	* chat commands, to see available commands type .help into chat to display a clickable menu
 
-4. to see all details properly, change the resolution to 800x600 in game settings!
+![D2BotMap](assets/kolbot-manualplayD2BotMapEx1.jpg)
 
-![D2BotMap](assets/kolbot-manualplayD2BotMap.jpg)
+# D2BotMap help menu
+![D2BotMap](assets/kolbot-manualplayD2BotMapEx2.jpg)
 
-5. if you wanna view maps + monsters while you are pressing < ALT > key you have to search to the line 727 of kolbot\tools\MapThread.js and to remove the 0x0D code. After that line is looking:
-```javascript
-        hideFlags = [0x09, 0x0C, 0x01, 0x02, 0x0F, 0x18, 0x19, 0x21];
-```
-6. if you want to use it with followers, and to activate LocalChat, you should add some extra lines in [default.dbj - part related to d2botmap](https://github.com/blizzhackers/kolbot/blob/master/d2bs/kolbot/default.dbj#L40-L47)
-```javascript
-	if (getScript("d2botmap.dbj")) {
-		load("tools/mapthread.js");
-		load("tools/ToolsThread.js");
-		Config.init(true);
-		LocalChat.init();
-
-		while (true) {
-			delay(1000);
-		}
-	}
-```
 
 ## Manual.js
 
