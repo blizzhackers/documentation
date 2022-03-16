@@ -57,10 +57,10 @@
 	(tradescreen <-> inventory)(inventory -> sell to npc in menu)
 	* chat commands, to see available commands type .help into chat to display a clickable menu
 
-![D2BotMap](assets/kolbot-manualplayD2BotMapEx1.jpg)
+![D2BotMap](assets/kolbot-manualplayD2BotMapEx1.JPG)
 
-# D2BotMap help menu
-![D2BotMap](assets/kolbot-manualplayD2BotMapEx2.jpg)
+### D2BotMap help menu
+![D2BotMap](assets/kolbot-manualplayD2BotMapEx2.JPG)
 
 
 ## Manual.js
