@@ -65,7 +65,7 @@
 
 ### D2BS(d2bot-with-kolbot) history
 
-* [D2BS Release](https://web.archive.org/web/20170813084150/http://www.blizzhackers.cc/viewforum.php?f=228&sid=923d6d1f4fb72bbe94aa7cb14600e0c1) = d2bs core + [d2bot manager](https://github.com/noah-/d2bs) by [noah-](https://github.com/noah-) aka @D3STROY3R + kolbot library scripts by [@kolton](https://github.com/kolton).
+* [D2BS Release](https://web.archive.org/web/20170813084150/http://www.blizzhackers.cc/viewforum.php?f=228&sid=923d6d1f4fb72bbe94aa7cb14600e0c1) = [d2bs core](https://github.com/noah-/d2bs) + [d2bot manager](https://github.com/d2botsharp/d2bot/) by [noah-](https://github.com/noah-) (aka @D3STROY3R) + kolbot library scripts by [@kolton](https://github.com/kolton).
 
 * d2bot-with-kolbot was released on 24th Apr 2012 on [blizzhackers](https://web.archive.org/web/20171030004307/http://www.blizzhackers.cc/viewtopic.php?f=206&t=489091&sid=076b6f411e98d938f4568c448d3f5845) , and it was announced a bit later on [projectetal forum](https://web.archive.org/web/20170215101441/http://www.projectetal.com:80/forums/threads/kolbot-and-d2bot.8698/).
 
