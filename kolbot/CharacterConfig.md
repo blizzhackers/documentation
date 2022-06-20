@@ -135,6 +135,8 @@ If you want to change the order of the scripts, just change the order of their l
 		Config.Countess.KillGhosts = false;
 	Scripts.Andariel = false;
 	Scripts.Cows = false;
+		Config.MakeCows = false; // if set to true just opens cow portal but doesn't clear - useful to ensure maker never gets king killed
+		Config.KillKing = false; // MAKE SURE YOUR MAKER DOESN"T HAVE THIS SET TO TRUE!!!!
 
 	// *** act 2 ***
 	Scripts.Radament = false;
@@ -165,16 +167,18 @@ If you want to change the order of the scripts, just change the order of their l
 	Scripts.OuterSteppes = false;
 	Scripts.Izual = false;
 	Scripts.Hephasto = false;
-	Scripts.Vizier = false; // Intended for classic sorc, kills Vizier only.
-	Scripts.FastDiablo = false;
+		Config.Hephasto.ClearRiver = false; // Clear river after killing Hephasto
+		Config.Hephasto.ClearType = 0xF; // 0xF = skip normal, 0x7 = champions/bosses, 0 = all
 	Scripts.Diablo = false;
 		Config.Diablo.WalkClear = false; // Disable teleport while clearing to protect leechers
 		Config.Diablo.Entrance = true; // Start from entrance
+		Config.Diablo.JustViz = false; // Intended for classic sorc, kills Vizier only.
+		Config.Diablo.SealLeader = false; // Clear a safe spot around seals and invite leechers in. Leechers should run SealLeecher script.
+		Config.Diablo.Fast = false; // Runs diablo fast, focuses on clearing seal bosses rather than clearing path
 		Config.Diablo.SealWarning = "Leave the seals alone!";
 		Config.Diablo.EntranceTP = "Entrance TP up";
 		Config.Diablo.StarTP = "Star TP up";
 		Config.Diablo.DiabloMsg = "Diablo";
-	Scripts.SealLeader = false; // Clear a safe spot around seals and invite leechers in. Leechers should run SealLeecher script. Don't run with Diablo or FastDiablo.
 
 	// *** act 5 ***
 	Scripts.Pindleskin = false;
@@ -183,6 +187,7 @@ If you want to change the order of the scripts, just change the order of their l
 		Config.Pindleskin.ViperQuit = false; // End script if Tomb Vipers are found.
 	Scripts.Nihlathak = false;
 		Config.Nihlathak.ViperQuit = false; // End script if Tomb Vipers are found.
+		Config.Nihlathak.UseWaypoint = false; // Use waypoint to Nith, if false uses anya portal
 	Scripts.Eldritch = false;
 		Config.Eldritch.OpenChest = true;
 		Config.Eldritch.KillShenk = true;
@@ -246,7 +251,7 @@ In special scripts section you can find additonal scripts with extra features li
 * Scripts.Gamble
 * Scripts.Crafting
 * Scripts.GhostBusters
-* Scripts.Enchant
+* Scripts.ControlBot
 * Scripts.IPHunter
 * Scripts.KillDclone
 * Scripts.ShopBot
@@ -362,7 +367,9 @@ Config.CainID.MinGold = 2500000; // Minimum gold (stash + character) to have in 
 
 Config.CainID.MinUnids = 3; // Minimum number of unid items in order to use Cain.
 
-Config.FieldID = false; // Identify items in the field instead of going to town.
+Config.FieldID.Enabled = false; // Identify items while in the field
+Config.FieldID.PacketID = true; // use packets to speed up id process (recommended to use this)
+Config.FieldID.UsedSpace = 80; // how much space has been used before trying to field id, set to 0 to id after every item picked
 
 Config.DroppedItemsAnnounce.Enable = false;	// Announce Dropped Items to in-game newbs
 
@@ -379,7 +386,7 @@ Config.CainID.Enable = true; // Identify items at Cain
 
 Other option is to identify your drop at field.To activate it just enable this script.
 
-Config.FieldID = true; // Identify items in the field instead of going to town.
+Config.FieldID.Enabled = true; // Identify items in the field instead of going to town.
 
 
 ### Manager Item Log Screen
@@ -609,9 +616,15 @@ is additional option for class only
 
 
 #### Amazon
-  Config.LightningFuryDelay = 10; // Lightning fury interval in seconds. LF is treated as timed skill.
-  
-  Config.SummonValkyrie = true; // Summon Valkyrie
+Config.LightningFuryDelay = 10; // Lightning fury interval in seconds. LF is treated as timed skill.
+
+Config.UseInnerSight = true; // Use inner sight as a precast
+
+Config.UseSlowMissiles = true; // Use slow missiles as a precast
+
+Config.UseDecoy = true; // Use decoy with merc stomp
+
+Config.SummonValkyrie = true; // Summon Valkyrie
 
 
 #### Assassin
@@ -631,6 +644,8 @@ Config.UseBoS = false; // Set to true to use Burst of Speed prebuff. TODO: Casti
 Config.UseVenom = false; // Set to true to use Venom prebuff. Set to false if you don't have the skill and have Arachnid Mesh - it will cause connection drop otherwise.
 
 Config.UseCloakofShadows = true; // Set to true to use Cloak of Shadows while fighting. Useful for blinding regular monsters/minions.
+
+Config.UseBladeShield = false; // Set to true to use blade shield armor
 
 
 #### Barbarian
@@ -691,6 +706,11 @@ Config.CastStatic = 60; // Cast static until the target is at designated life pe
 
 Config.StaticList = ["Diablo"]; // List of monster NAMES to static. Example: Config.StaticList = ["Andariel", "Diablo", "Baal"];
 
+Config.UseTelekinesis = true; // Use telekinesis on units that allow it. Example: Shrines, Waypoints, Chests, and Portals
+
+Config.UseEnergyShield = false; // set to true to use energy shield if its available
+
+Config.UseColdArmor = true; // use armor skills, uses skill ids or set to true to let the bot decide based on skill level or false to disable completely
 
 ### AutoSkill builds character
 
