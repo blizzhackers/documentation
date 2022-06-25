@@ -192,8 +192,8 @@ Here is just a quick run through of what each current key is, and what it will d
 	</tr>
 	<tr>
   	  	<td>111 - Num /</td>
-  	  	<td></td>
-  	  	<td></td>
+  	  	<td>this.stopDefault()</td>
+  	  	<td>Stop threads and reload</td>
   	  	<td></td>
   	  	<td></td>
 	</tr>
@@ -220,7 +220,7 @@ This is just a simple run through, to truly know what each key does, you'll need
 press < Enter > and type:
 * .start -
 * .stop - will stop the current scripts. the profile will crash and it will be restarted in few seconds
-* .reload - will stop and reload the scripts. you are able to change config while in game.
+* .reload - will stop and reload the scripts. you are able to change config while in game. Don't use as it crashes after the game is done, Use Numpad /
 * .flushcache -
 * .load -
 
@@ -232,7 +232,7 @@ display status messages out of game as well as in game:
 * the same chat commands without . prefix:
 	* start -
 	* stop - will stop the current scripts. the profile will crash and it will be restarted in few seconds
-	* reload - will stop and reload the scripts. you are able to change config while in game.
+	* reload - will stop and reload the scripts. you are able to change config while in game. Don't use as it crashes after the game is done. Use Numpad /
 	* flushcache -
 	* load
 * include - other scripts can be loaded: include("common/prototypes.js");
