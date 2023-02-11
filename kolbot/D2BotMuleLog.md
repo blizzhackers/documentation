@@ -66,7 +66,7 @@ and with R-click you have these option for saved items:
 ![d2botmulelog4](assets/kolbot-d2botmulelog4.png)
 
 You'll have that info in the "Char Viewer" tab of the manager console as long as you keep those log files in ...\mules\ folder. Those will be automatically loaded at every D2Bot.exe start, but there is an option in Settings > Refresh Char View, to reload the logging files.
-Every item is saved on different line, so you can edit those logging files easily with notepad++.
+Every item is saved on different line, so you can edit those logging files easily with any txt/code editor of choice. See [IDE-Setup](kolbot/IDES.md/#code-editors-ides) for code editors.
 
 It will be saved in ...\logs\MuleLog.json the current account and the current charname. This have to be edited or removed in case of crashes when some chars were omitted from logging. At the end of full account logging, that file is deleted automatically.
 

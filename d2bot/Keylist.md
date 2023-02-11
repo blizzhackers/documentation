@@ -31,7 +31,7 @@ Since 14th Aug 2018 patch you cannot use the keys with 16 alphanumeric strings o
 * Import a batch of cdkeys by clicking the folder button and choosing a [list name].csv file, a csv file can be made with excel or text editor -- Ex: File name: keys.csv, Content: key1, 123456790, 123456790 -- This adds a Key List named 'keys' (left hand side) with the key 'key1' (right hand side)
 
 ## manual edit 
-You are still able to edit ...\data\cdkeys.json with notepad++.
+You are still able to edit ...\data\cdkeys.json with your code editor of choice. See [IDE-Setup](kolbot/IDES.md/#code-editors-ides) for code editors.
 
 ### adding raw/loader keys
 There are 2 kind of lines:

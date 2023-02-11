@@ -596,23 +596,23 @@ Some of d2bot-with-kolbot scripts aren't silenced by default, and in some cases 
 
 1. **if you are worried about server chat filter**, you can **set** [**Local Chat**](#local-chat) **true** and **mode 1** or **2**. Setting mode 1 in the case of MFTeam or SealLeader/Leecher, or mode 2 in the case of Followers.js is all you have to do to get all chat messages only on local client(d2 window).
 
-2. if you don't wanna see any messages overhead, use notepad++ find and remove the text between quotes -> you'll get smth like:
-	```
+2. if you don't wanna see any messages overhead, use your IDE of choice to find and remove the text between quotes -> you'll get smth like:
+	```javascript
 	me.overhead("");
 	```
 	
 3. if you don't wanna see any chat messages:
 	* check the config file and remove text between quotes -> you'll get smth like:
-		```
+		```javascript
 		Config.  ... = "";
 		```
 	* and also check the Boss/Area script and remove the text between quotes in the line with **say("anytext");** -> so you'll get smth like:
-		```
+		```javascript
 		say("");
 		```
 
 4. if you insist to silent your scripts, the easier option is to set in char config:
-	```
+	```javascript
 		Config.Silence = true; // Make the bot not say a word. Do not use in combination with LocalChat
 	```
 

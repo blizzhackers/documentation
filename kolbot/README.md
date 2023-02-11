@@ -12,7 +12,7 @@ library scripts by [@kolton](https://github.com/kolton)
 
 * [FAQ](FAQ.md/#faq)
 
-* [Notepad++](Notepad++.md/#syntax-highlighting-in-np++): Syntax highlighting in np++
+* [IDE-Setup](IDES.md/#code-editors-ides): How to set up your IDE for syntax highlighting
 
 * [Character Configuration](CharacterConfig.md/#character-configuration): options for configuring the bot
 

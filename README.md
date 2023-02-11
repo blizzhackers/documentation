@@ -32,7 +32,7 @@
 ### [kolbot](kolbot/#kolbot): library scripts by [@kolton](https://github.com/kolton)
 
 * [FAQ](kolbot/FAQ.md/#faq)
-* [Notepad++](kolbot/Notepad++.md/#syntax-highlighting-in-np++): Syntax highlighting in np++
+* [IDE-Setup](kolbot/IDES.md/#code-editors-ides): How to set up your IDE for syntax highlighting
 * [Character Configuration](kolbot/CharacterConfig.md/#character-configuration): options for configuring the bot
 * [Cubing](kolbot/Cubing.md/#cubing): using the horadric cube recipes
 * [Manual Play](kolbot/ManualPlay.md/#manual-playing): D2BotMap, Manual.js script

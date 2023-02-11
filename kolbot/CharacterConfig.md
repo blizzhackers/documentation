@@ -60,7 +60,7 @@
 ### Basic Start
 Character config files can be found in ...\d2bs\kolbot\libs\config\...:  Amazon.js, Assassin.js, Barbarian.js, Druid.js, Necromancer.js, Paladin.js, Sorceress.js. Choose your toon class file and copy it adding your toon name, like Sorceress.MyToon.js
 If you started without having a char config file, you'll see on the top white console the option to press < Home > and < Space > to create the char config. Close that profile and look for the file Class.MyToon.js, because you have to edit it before start running.
-Use [notepad++](https://notepad-plus-plus.org/download/) to edit d2bs files.
+Use your code editor of choice to edit kolbot files. See [IDE-Setup](kolbot/IDES.md/#code-editors-ides) for code editors
 
 NOTE: To set up everything correctly you need to understand two simple commands used to configure!!!
 

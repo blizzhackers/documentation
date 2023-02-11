@@ -34,7 +34,7 @@
 
 
 ## game creator
-* D2BotLead is the starter script that you will use to create games. It can announce games in channels when used for public runs. You have to set D2BotLead for your profile as a entry script. Now edit starter with notepad++. First part of starter is self-explanatory. 
+* D2BotLead is the starter script that you will use to create games. It can announce games in channels when used for public runs. You have to set D2BotLead for your profile as a entry script. Now edit starter with your IDE of choice. First part of starter is self-explanatory. 
 * the creator of the game doesn't necessarily to be set as the leader in game.
 
 #### create/edit the profile
