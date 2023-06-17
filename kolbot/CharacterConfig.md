@@ -313,11 +313,16 @@ Config.MinColumn[2] = 0;
 Config.MinColumn[3] = 0;
 
 ### Pickit config
-All pickit files are stored in **d2bs/kolbot/pickit/** By default are enabled only kolton.nip and LLD.nip.
+All pickit files are stored in **d2bs/kolbot/pickit/** By default kolton.nip and LLD.nip are included but not enabled.
 
 To enable other nip file add a line here
 
-[CODE]    Config.PickitFiles.push("myPickit.nip");[/CODE]
+```js
+// Config.PickitFiles.push("kolton.nip"); // uncomment to include
+// Config.PickitFiles.push("LLD.nip");  // uncomment to include
+// add under here
+Config.PickitFiles.push("myPickit.nip"); // <-- your personalized pickit
+```
 
 There are several files to choose, you can also create and add your own or just edit these files:
 
