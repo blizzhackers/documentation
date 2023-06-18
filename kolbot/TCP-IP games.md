@@ -20,18 +20,12 @@
 
 ## Host config
 
-1. save https://pastebin.com/FGaMpj18 or [D2BotTcpIpHost.dbj on github](https://raw.githubusercontent.com/blizzhackers/documentation/master/kolbot/custom-scripts/D2BotTcpIpHost.dbj) as D2BotTcpIpHost.dbj in your ...\kolbot folder
+1. Create or edit a profile in your D2Bot manager. Use `D2BotLead.dbj` as your Entry Script and set the mode to `Host TCP/IP Game`:
 
-1. create and edit a new profile in your D2Bot manager, using the previous created starter script:
-
-![Host config](assets/kolbot-TcpIp-host.png)
-
+![Host config](https://github.com/blizzhackers/documentation/assets/60308670/3bf5ff3a-edd7-46f3-ad72-33bdaad2688c)
 
 ## Join config
 
-1. save https://pastebin.com/zQyUrDKP or [D2BotTcpIpJoin.dbj on github](https://raw.githubusercontent.com/blizzhackers/documentation/master/kolbot/custom-scripts/D2BotTcpIpJoin.dbj)as D2BotTcpIpJoin.dbj in your ...\kolbot folder
+1. Create or edit a profile in your D2Bot manager. Use `D2BotFollow.dbj` as your Entry Script and set the mode to `Join TCP/IP Game`:
 
-1. create and edit a new profile in your D2Bot manager, using the previous created starter script:
-
-![Host config](assets/kolbot-TcpIp-join.png)
-
+![Follow config](https://github.com/blizzhackers/documentation/assets/60308670/a27f22d3-8fc4-4cee-9148-f507e4c0d78a)
