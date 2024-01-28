@@ -18,16 +18,21 @@
 
 For perming the chars with staying 2h in game, you should use the starter script [D2BotMuleLog](D2BotMuleLog.md/#d2botmulelog) like for muling purpose.
 
-Edit the MuleLogger.js with required info and set the value:
+Edit `kolbot/libs/systems/mulelogger/LoggerConfig.js` with required info and set the value:
 
 ```javascript
-	IngameTime: rand(7230, 7290),
+    IngameTime: rand(7230, 7290),
 ```
 
+or
+
+```javascript
+    AutoPerm: true, // override InGameTime to perm character
+```
 
 ### D2BotTimerRefresh
 
-If you need only to refresh the countdown timer for your chars, a better choice can be [D2BotTimerRefresh.dbj on github](https://raw.githubusercontent.com/blizzhackers/documentation/master/kolbot/custom-scripts/D2BotTimerRefresh.dbj) saved as D2BotTimerRefresh.dbj in your ...\kolbot\ folder.
+If you need only to refresh the countdown timer for your chars, a better choice can be [D2BotTimerRefresh.dbj on github](https://raw.githubusercontent.com/blizzhackers/documentation/master/kolbot/custom-scripts/D2BotTimerRefresh.dbj) saved as D2BotTimerRefresh.dbj in your ~\d2bs\kolbot\ folder.
 
 This will log on accounts/chars and will keep every char for random 15-25 seconds (line 185) in the lobby, without creating games.
 

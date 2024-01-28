@@ -8,10 +8,12 @@
 
 You should enable the cubing. If your toon hasn't the horadric cube, at the game's beginning he will travel to act 2 to get it.
 ```javascript
-	/* Cubing config. All recipe names are available in Templates/Cubing.txt. For item names/classids check NTItemAlias.dbl
-	 * The format is Config.Recipes.push([recipe_name, item_name_or_classid, etherealness]). Etherealness is optional and only applies to some recipes.
-	 */
-	Config.Cubing = true; // Set to true to enable cubing.
+  /* 
+   * All recipe names are available in Templates/Cubing.txt. For item names/classids check core/GameData/NTItemAlias.js
+   * The format is Config.Recipes.push([recipe_name, item_name_or_classid, etherealness]).
+   * Etherealness is optional and only applies to some recipes.
+   */
+  Config.Cubing = true; // Set to true to enable cubing.
 ```
 ---
 
@@ -19,80 +21,80 @@ You should enable the cubing. If your toon hasn't the horadric cube, at the game
 
 - for cubing the gems with lower quality than flawless, check https://github.com/blizzhackers/documentation/blob/master/kolbot/MiscellaneousOptions.md/#cubing-all-kind-of-gems
 ```javascript
-	// Ingredients for the following recipes will be auto-picked, for classids check libs/NTItemAlias.dbl
+  // Ingredients for the following recipes will be auto-picked, for classids check libs/core/GameData/NTItemAlias.js
 
-	//Config.Recipes.push([Recipe.Gem, "Chipped Amethyst"]); // make FlawedAmethyst
-	//Config.Recipes.push([Recipe.Gem, "Chipped Topaz"]); // make Flawed Topaz
-	//Config.Recipes.push([Recipe.Gem, "Chipped Sapphire"]); // make Flawed Sapphire
-	//Config.Recipes.push([Recipe.Gem, "Chipped Emerald"]); // make Flawed Emerald
-	//Config.Recipes.push([Recipe.Gem, "Chipped Ruby"]); // make Flawed Ruby
-	//Config.Recipes.push([Recipe.Gem, "Chipped Diamond"]); // make Flawed Diamond
-	//Config.Recipes.push([Recipe.Gem, "Chipped Skull"]); // make Flawed Skull
+  // Config.Recipes.push([Recipe.Gem, "Flawed Amethyst"]); // make Flawed Amethyst
+  // Config.Recipes.push([Recipe.Gem, "Flawed Topaz"]); // make Flawed Topaz
+  // Config.Recipes.push([Recipe.Gem, "Flawed Sapphire"]); // make Flawed Sapphire
+  // Config.Recipes.push([Recipe.Gem, "Flawed Emerald"]); // make Flawed Emerald
+  // Config.Recipes.push([Recipe.Gem, "Flawed Ruby"]); // make Flawed Ruby
+  // Config.Recipes.push([Recipe.Gem, "Flawed Diamond"]); // make Flawed Diamond
+  // Config.Recipes.push([Recipe.Gem, "Flawed Skull"]); // make Flawed Skull
 
-	//Config.Recipes.push([Recipe.Gem, "Flawed Amethyst"]); // make Amethyst
-	//Config.Recipes.push([Recipe.Gem, "Flawed Topaz"]); // make Topaz
-	//Config.Recipes.push([Recipe.Gem, "Flawed Sapphire"]); // make Sapphire
-	//Config.Recipes.push([Recipe.Gem, "Flawed Emerald"]); // make Emerald
-	//Config.Recipes.push([Recipe.Gem, "Flawed Ruby"]); // make Ruby
-	//Config.Recipes.push([Recipe.Gem, "Flawed Diamond"]); // make Diamond
-	//Config.Recipes.push([Recipe.Gem, "Flawed Skull"]); // make Skull
+  // Config.Recipes.push([Recipe.Gem, "Amethyst"]); // make Amethyst
+  // Config.Recipes.push([Recipe.Gem, "Topaz"]); // make Topaz
+  // Config.Recipes.push([Recipe.Gem, "Sapphire"]); // make Sapphire
+  // Config.Recipes.push([Recipe.Gem, "Emerald"]); // make Emerald
+  // Config.Recipes.push([Recipe.Gem, "Ruby"]); // make Ruby
+  // Config.Recipes.push([Recipe.Gem, "Diamond"]); // make Diamond
+  // Config.Recipes.push([Recipe.Gem, "Skull"]); // make Skull
 
-	Config.Recipes.push([Recipe.Gem, "Amethyst"]); // make Flawless Amethyst
-	Config.Recipes.push([Recipe.Gem, "Topaz"]); // make Flawless Topaz
-	Config.Recipes.push([Recipe.Gem, "Sapphire"]); // make Flawless Sapphire
-	Config.Recipes.push([Recipe.Gem, "Emerald"]); // make Flawless Emerald
-	Config.Recipes.push([Recipe.Gem, "Ruby"]); // make Flawless Ruby
-	Config.Recipes.push([Recipe.Gem, "Diamond"]); // make Flawless Diamond
-	Config.Recipes.push([Recipe.Gem, "Skull"]); // make Flawless Skull
+  // Config.Recipes.push([Recipe.Gem, "Flawless Amethyst"]); // make Flawless Amethyst
+  // Config.Recipes.push([Recipe.Gem, "Flawless Topaz"]); // make Flawless Topaz
+  // Config.Recipes.push([Recipe.Gem, "Flawless Sapphire"]); // make Flawless Sapphire
+  // Config.Recipes.push([Recipe.Gem, "Flawless Emerald"]); // make Flawless Emerald
+  // Config.Recipes.push([Recipe.Gem, "Flawless Ruby"]); // make Flawless Ruby
+  // Config.Recipes.push([Recipe.Gem, "Flawless Diamond"]); // make Flawless Diamond
+  // Config.Recipes.push([Recipe.Gem, "Flawless Skull"]); // make Flawless Skull
 
-	Config.Recipes.push([Recipe.Gem, "Flawless Amethyst"]); // make Perfect Amethyst
-	Config.Recipes.push([Recipe.Gem, "Flawless Topaz"]); // make Perfect Topaz
-	Config.Recipes.push([Recipe.Gem, "Flawless Sapphire"]); // make Perfect Sapphire
-	Config.Recipes.push([Recipe.Gem, "Flawless Emerald"]); // make Perfect Emerald
-	Config.Recipes.push([Recipe.Gem, "Flawless Ruby"]); // make Perfect Ruby
-	Config.Recipes.push([Recipe.Gem, "Flawless Diamond"]); // make Perfect Diamond
-	Config.Recipes.push([Recipe.Gem, "Flawless Skull"]); // make Perfect Skull
+  Config.Recipes.push([Recipe.Gem, "Perfect Amethyst"]); // Make Perfect Amethyst
+  Config.Recipes.push([Recipe.Gem, "Perfect Topaz"]); // Make Perfect Topaz
+  Config.Recipes.push([Recipe.Gem, "Perfect Sapphire"]); // Make Perfect Sapphire
+  Config.Recipes.push([Recipe.Gem, "Perfect Emerald"]); // Make Perfect Emerald
+  Config.Recipes.push([Recipe.Gem, "Perfect Ruby"]); // Make Perfect Ruby
+  Config.Recipes.push([Recipe.Gem, "Perfect Diamond"]); // Make Perfect Diamond
+  Config.Recipes.push([Recipe.Gem, "Perfect Skull"]); // Make Perfect Skull
 ```
 
 ### essences
 ```javascript
-	// Ingredients for the following recipes will be auto-picked, for classids check libs/NTItemAlias.dbl
+  // Ingredients for the following recipes will be auto-picked, for classids check libs/core/GameData/NTItemAlias.js
 
-	//Config.Recipes.push([Recipe.Token]); // Make Token of Absolution
+  // Config.Recipes.push([Recipe.Token]); // Make Token of Absolution
 ```
 
 ### runes
 
 ```javascript
-	// Ingredients for the following recipes will be auto-picked, for classids check libs/NTItemAlias.dbl
+  // Ingredients for the following recipes will be auto-picked, for classids check libs/core/GameData/NTItemAlias.js
 
-	//Config.Recipes.push([Recipe.Rune, "El Rune"]); // Upgrade El to Eld
-	//Config.Recipes.push([Recipe.Rune, "Eld Rune"]); // Upgrade Eld to Tir
-	//Config.Recipes.push([Recipe.Rune, "Tir Rune"]); // Upgrade Tir to Nef
-	//Config.Recipes.push([Recipe.Rune, "Nef Rune"]); // Upgrade Nef to Eth
-	//Config.Recipes.push([Recipe.Rune, "Eth Rune"]); // Upgrade Eth to Ith
-	//Config.Recipes.push([Recipe.Rune, "Ith Rune"]); // Upgrade Ith to Tal
-	//Config.Recipes.push([Recipe.Rune, "Tal Rune"]); // Upgrade Tal to Ral
-	//Config.Recipes.push([Recipe.Rune, "Ral Rune"]); // Upgrade Ral to Ort
-	//Config.Recipes.push([Recipe.Rune, "Ort Rune"]); // Upgrade Ort to Thul
+  // Config.Recipes.push([Recipe.Rune, "Eld Rune"]); // Upgrade El to Eld
+  // Config.Recipes.push([Recipe.Rune, "Tir Rune"]); // Upgrade Eld to Tir
+  // Config.Recipes.push([Recipe.Rune, "Nef Rune"]); // Upgrade Tir to Nef
+  // Config.Recipes.push([Recipe.Rune, "Eth Rune"]); // Upgrade Nef to Eth
+  // Config.Recipes.push([Recipe.Rune, "Ith Rune"]); // Upgrade Eth to Ith
+  // Config.Recipes.push([Recipe.Rune, "Tal Rune"]); // Upgrade Ith to Tal
+  // Config.Recipes.push([Recipe.Rune, "Ral Rune"]); // Upgrade Tal to Ral
+  // Config.Recipes.push([Recipe.Rune, "Ort Rune"]); // Upgrade Ral to Ort
 
-	//Config.Recipes.push([Recipe.Rune, "Thul Rune"]); // Upgrade Thul to Amn
-	//Config.Recipes.push([Recipe.Rune, "Amn Rune"]); // Upgrade Amn to Sol
-	//Config.Recipes.push([Recipe.Rune, "Sol Rune"]); // Upgrade Sol to Shael
-	//Config.Recipes.push([Recipe.Rune, "Shael Rune"]); // Upgrade Shael to Dol
-	//Config.Recipes.push([Recipe.Rune, "Dol Rune"]); // Upgrade Dol to Hel
-	//Config.Recipes.push([Recipe.Rune, "Hel Rune"]); // Upgrade Hel to Io
-	//Config.Recipes.push([Recipe.Rune, "Io Rune"]); // Upgrade Io to Lum
-	//Config.Recipes.push([Recipe.Rune, "Lum Rune"]); // Upgrade Lum to Ko
-	//Config.Recipes.push([Recipe.Rune, "Ko Rune"]); // Upgrade Ko to Fal
-	//Config.Recipes.push([Recipe.Rune, "Fal Rune"]); // Upgrade Fal to Lem
-	//Config.Recipes.push([Recipe.Rune, "Lem Rune"]); // Upgrade Lem to Pul
+  // Config.Recipes.push([Recipe.Rune, "Thul Rune"]); // Upgrade Ort to Thul
+  // Config.Recipes.push([Recipe.Rune, "Amn Rune"]); // Upgrade Thul to Amn
+  // Config.Recipes.push([Recipe.Rune, "Sol Rune"]); // Upgrade Amn to Sol
+  // Config.Recipes.push([Recipe.Rune, "Shael Rune"]); // Upgrade Sol to Shael
+  // Config.Recipes.push([Recipe.Rune, "Dol Rune"]); // Upgrade Shael to Dol
+  // Config.Recipes.push([Recipe.Rune, "Hel Rune"]); // Upgrade Dol to Hel
+  // Config.Recipes.push([Recipe.Rune, "Io Rune"]); // Upgrade Hel to Io
+  // Config.Recipes.push([Recipe.Rune, "Lum Rune"]); // Upgrade Io to Lum
+  // Config.Recipes.push([Recipe.Rune, "Ko Rune"]); // Upgrade Lum to Ko
+  // Config.Recipes.push([Recipe.Rune, "Fal Rune"]); // Upgrade Ko to Fal
+  // Config.Recipes.push([Recipe.Rune, "Lem Rune"]); // Upgrade Fal to Lem
 
-	Config.Recipes.push([Recipe.Rune, "Pul Rune"]); // Upgrade Pul to Um
-	//Config.Recipes.push([Recipe.Rune, "Um Rune"]); // Upgrade Um to Mal
-	Config.Recipes.push([Recipe.Rune, "Mal Rune"]); // Upgrade Mal to Ist
-	//Config.Recipes.push([Recipe.Rune, "Ist Rune"]); // Upgrade Ist to Gul
-	Config.Recipes.push([Recipe.Rune, "Gul Rune"]); // Upgrade Gul to Vex
+  Config.Recipes.push([Recipe.Rune, "Pul Rune"]); // Upgrade Lem to Pul
+  Config.Recipes.push([Recipe.Rune, "Um Rune"]); // Upgrade Pul to Um
+  Config.Recipes.push([Recipe.Rune, "Mal Rune"]); // Upgrade Um to Mal
+  Config.Recipes.push([Recipe.Rune, "Ist Rune"]); // Upgrade Mal to Ist
+  Config.Recipes.push([Recipe.Rune, "Gul Rune"]); // Upgrade Ist to Gul
+  Config.Recipes.push([Recipe.Rune, "Vex Rune"]); // Upgrade Gul to Vex
 ```
 
 ### crafting
@@ -107,7 +109,7 @@ In your pickit file you may specify the level for the base items:
 ```
 Blood - Caster - Hit Power - Safety   Recipes
 ```javascript
-	// Ingredients for the following recipes will be auto-picked, for classids check libs/NTItemAlias.dbl
+	// Ingredients for the following recipes will be auto-picked, for classids check libs/core/GameData/NTItemAlias.js
 
 	//Config.Recipes.push([Recipe.Blood.Helm, "Armet"]); // Craft Blood Helm
 	//Config.Recipes.push([Recipe.Blood.Boots, "Mirrored Boots"]); // Craft Blood Boots

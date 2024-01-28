@@ -17,13 +17,26 @@
 
 ---
 
-### info
+### Info
 It's a D2BS starter script which allow to log the items from inventory, stash and the equipped ones (including merc) to text files, then to show them in the <Char Viewer> tab of the manager.
 
-### how to set up
-In MuleLogger.js lines 21 and 24 have to be set:
+### How to set up
+In kolbot/libs/systems/mulelogger/LoggerConfig.js fill out `LogAccounts`
 ```javascript
-		"account/password/realm": ["all"]
+    LogAccounts: {
+      /* Format:
+        "account1/password1/realm": ["charname1", "charname2 etc"],
+        "account2/password2/realm": ["charnameX", "charnameY etc"],
+        "account3/password3/realm": ["all"]
+
+        To log a full account, put "account/password/realm": ["all"]
+
+        realm = useast, uswest, europe or asia
+
+        Enter Individual entries are separated with a comma below
+      */
+      "exampleAcc/pa33word3/realm": ["all"],
+    },
 ```
 ! the realm should be written with lowercase letters (see line 16), otherwise you'll get an error in OOG.js
 ```javascript
@@ -31,7 +44,7 @@ In MuleLogger.js lines 21 and 24 have to be set:
 ```
 
 
-At the first run set the next variables (lines 25-30):
+At the first run set the next variables (lines 10-17):
 ```javascript
 	LogNames: true, // Put account/character name on the picture
 ```
@@ -41,10 +54,11 @@ At the first run set the next variables (lines 25-30):
 	LogEquipped: false, // include equipped items
 	LogMerc: false, // include items merc has equipped (if alive)
 	SaveScreenShot: false, // Save pictures in jpg format (saved in 'Images' folder)
+	AutoPerm: true, // override InGameTime to perm character
 	IngameTime: rand(180, 210), // (180, 210) to avoid RD, increase it to (7230, 7290) for mule perming
 ```
 
-LogEquipped - will be logged all items,  but the potions/tomes or other low level items will be skipped from log - see **skipItem** function from Misc.js.
+LogEquipped - will be logged all items,  but the potions/tomes or other low level items will be skipped from log - see **skipItem** function from core/Item.js.
 
 In case of logging all the chars (the visible 8), at the end the d2 will be reset to main screen, re-login and after rechecking the first char it will be closed automatically by the manager and the related profile, too. This isn't working in case of setting a single mule char, when you have to stop that profile manually.
 
