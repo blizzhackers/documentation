@@ -48,10 +48,10 @@ Example config for muling on two realms:
 ![image](https://github.com/magace/documentation/assets/7795098/e2f6a76d-9987-4e6d-b759-8d77853266a7)
 
 
+The names of each sub-entry, must be different ("Mule1" and "Mule2" in the example).  
 
-The names of each sub-entry must be different ("Mule1" and "Mule2" in the example).
+The settings for each sub-entry should use differnt names if they are on the running on the same same realm, muleProfile, accountPrefix, charPrfix.
 
-Different sub-entries may use the the same mule profile.
 
 
 ## Torch Anni Muling
