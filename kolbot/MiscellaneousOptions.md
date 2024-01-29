@@ -31,7 +31,7 @@
 
 ---
 
-## local chat
+## Local chat
 
 * [@noah-](https://github.com/noah-) added in the char configuration files the options:
 	```javascript
@@ -47,13 +47,13 @@
 * MFTeam is ok with LocalChat in mode 1
 * [Manual played leader and Follower.js](https://github.com/blizzhackers/documentation/blob/master/kolbot/MultiBotting.md/#using-followers) - LocalChat in mode 2
 
-## updated Autosmurf
+## Updated Autosmurf
 * **!!! Autosmurf is outdated and no longer maintained - Feel free to fork and update it otherwise check out [Horde](https://github.com/Adpist/horde) (not a blizzhackers project)**
 * [@Dark-f](https://github.com/Dark-f/) updated the [JeanMax/AutoSmurf](https://github.com/JeanMax/AutoSmurf)
 	- the files can be found on https://github.com/blizzhackers/autosmurf repository
 	- check this @Dark-f video https://www.youtube.com/watch?v=rTXM9szlIdw
 
-## sonic
+## Sonic
 * Autoleveling sorceress script <https://github.com/blizzhackers/kolbot-sonic/>
 	- the description can be found on https://github.com/blizzhackers/kolbot-sonic/blob/master/SetupSonic.md/#sonic-setup
 	- it is a modified version of d2bs for sorceress chars, so check D2BotSonic.dbj starter script, config files ...\libs\config\Sorceress.js and ...\libs\config\Builds\Sorceress.Sonic.js 
@@ -65,7 +65,7 @@
 * check also the comments there
 * you can post the results on discord [#testing channel](https://discordapp.com/channels/430522386253611018/430534815549358080)
 
-## modded BattleOrders.js
+## Modded BattleOrders.js
 * if you want to use this feature, copy the required character configuration lines from [18-20 of .../libs/config/_BaseConfigFile.js](https://github.com/blizzhackers/kolbot/blob/master/d2bs/kolbot/libs/config/_BaseConfigFile.js#L18-L20), which could become a place to have all additional options, in order to simplify the character Class.js files.
 
 * barbarian will go to the waypoint of your choosing and bo anyone that is nearby, no matter if they have bo state or not. It will go back to town if monsters come close to the boer. It will go back to town and visit a healer NPC if it's mana gets below a set percentage then return to continue giving bo.
@@ -79,26 +79,28 @@
 	* in barbarian config Config.QuitList = ["..."]; should be completed.
 * other chars who need getting bo, should be moved in BO area by adding in the running area scripts, depending of the lower value between BC-BO-Shout skill duration of the barbarian helper:
 	```javascript
-			Pather.useWaypoint(35, true); // go to BO area
-			Pather.moveTo(me.x + 5, me.y + 5, 5, true);
-			delay(3000);
+	Pather.useWaypoint(35, true); // go to BO area
+	Pather.moveTo(me.x + 5, me.y + 5, 5, true);
+	delay(3000);
 	```
 
-## how to define your own party and permit hardcore loot corpses
+## How to define your own party and permit hardcore loot corpses
 * It is a public mode when your players invite and accept other players invites, only if their names are in your previously configured MyOwnParty list
 
 * in char config file, look to the // Public game options section and you have to add (line Config.PublicMode is already there, so add only options 4 and 5 (use 4 only for char who's opening the game, and 5 for the others)
 	```javascript
-		Config.PublicMode = 4; // 1 = invite and accept, 2 = accept only, 3 = invite only, 4 = MyOwnParty invite, 5 = MyOwnParty accept, 0 = disable
-		Config.MyOwnParty = []; // ["MyPlayer1", "MyPlayer2", "MyPlayer3"]
+	Config.PublicMode = 4; // 1 = invite and accept, 2 = accept only, 3 = invite only, 4 = MyOwnParty invite, 5 = MyOwnParty accept, 0 = disable
+	Config.MyOwnParty = []; // ["MyPlayer1", "MyPlayer2", "MyPlayer3"]
 	```
 
-* in ... libs\common\Config.js before line 161 DeathMessages add
+* in ... libs\core\Config.js before line 161 DeathMessages add
 	```javascript
-		MyOwnParty: [],
+	MyOwnParty: [],
 	```
 * and complete the same list on every char config that you will add in your team game, including all charnames.
-    Config.MyOwnParty = ["MyPlayer1", "MyPlayer2", "MyPlayer3", "MyPlayer4"];
+	```js
+	Config.MyOwnParty = ["MyPlayer1", "MyPlayer2", "MyPlayer3", "MyPlayer4"];
+	```
 
 * check the changes in [modded Party.js](https://raw.githubusercontent.com/blizzhackers/documentation/master/kolbot/custom-scripts/Party.js) and replace the content of default Party.js, or make the following changes:
 	* in ... \threads\Party.js add after [default SVN line 143](https://github.com/blizzhackers/kolbot/blob/master/d2bs/kolbot/tools/Party.js#L143) the cases 4 and 5
@@ -109,14 +111,12 @@ case 4: // MyOwnParty invite
 	}
 
 	if (Config.MyOwnParty.length > 0) {
-		var i;
-
-		for (i = 0; i < Config.MyOwnParty.length; i += 1) {
+		for (let i = 0; i < Config.MyOwnParty.length; i += 1) {
 			if (player.name == Config.MyOwnParty[i] && player.name !== me.name) {
 				if (player.partyflag !== 4 && player.partyflag !== 2 && player.partyid === 65535) {
 					clickParty(player, 2);
 
-					if (me.playertype == 1) { // hardcore permit loot of leader to other char who is invited in the party
+					if (me.hardcore) { // hardcore permit loot of leader to other char who is invited in the party
 						clickParty(player, 0);
 					}
 
@@ -124,7 +124,6 @@ case 4: // MyOwnParty invite
 				}
 			}
 		}
-
 	} else if (Config.MyOwnParty.length === 0 || Config.MyOwnParty.length === undefined) {
 		Config.PublicMode = 1;
 	}
@@ -136,14 +135,12 @@ case 5: // MyOwnParty accept
 	}
 
 	if (Config.MyOwnParty.length > 0) {
-		var i;								
-
-		for (i = 0; i < Config.MyOwnParty.length; i += 1) {
+		for (let i = 0; i < Config.MyOwnParty.length; i += 1) {
 			if (player.name == Config.MyOwnParty[i] && player.name !== me.name) {
 				if (player.partyflag === 2) {
 					clickParty(player, 2);
 
-					if (me.playertype == 1) { // hardcore permit loot to leader
+					if (me.hardcore) { // hardcore permit loot to leader
 						clickParty(player, 0);
 						loot.push(player.name);
 					}
@@ -151,14 +148,13 @@ case 5: // MyOwnParty accept
 					delay(500);
 				}
 
-				if (loot.indexOf(player.name) === -1 && me.playertype == 1) { // hardcore permit loot to other chars
+				if (loot.indexOf(player.name) === -1 && me.hardcore) { // hardcore permit loot to other chars
 					clickParty(player, 0);
 					loot.push(player.name);
 					delay(500);
 				}
 			}
 		}
-
 	} else if (Config.MyOwnParty.length === 0 || Config.MyOwnParty.length === "undefined") {
 		Config.PublicMode = 2;
 	}
@@ -178,24 +174,24 @@ if (Config.PublicMode === 4 || Config.PublicMode === 5) {
 case 0x00: // "%Name1(%Name2) dropped due to time out."
 case 0x01: // "%Name1(%Name2) dropped due to errors."
 case 0x03: // "%Name1(%Name2) left our world. Diablo's minions weaken."
-	if (me.playertype == 1 && loot.indexOf(name1) > -1) { // hardcore leaving char is removed from loot 
+	if (me.hardcore && loot.includes(name1)) { // hardcore leaving char is removed from loot 
 		loot.splice(loot.indexOf(name1), 1);
 	}
 
 	break;
 ```
-* in ... \threads\Party.js change [the default line 22](https://github.com/blizzhackers/kolbot/blob/master/d2bs/kolbot/tools/Party.js#L22) with:
+* in ... \threads\Party.js change [the default line 28](https://github.com/blizzhackers/kolbot/blob/14cc99e02898bf90662c03cbb7025dda30f9a216/d2bs/kolbot/threads/Party.js#L28) with:
 ```javascript
-	partyTick = getTickCount(),
-	loot = [];
+let partyTick = getTickCount();
+let loot = [];
 ```
 
 * there should be added infinite loops to stop dead HC player from other actions which will end the game because of errors, like in the case of Follower.js
 ```javascript
-if (me.playertype == 1 && me.mode === 17) { // stop the HC screen to allow the loot of dead player
-		while(true) {
-				delay(6e5);
-		}
+if (me.hardcore && me.mode === sdk.player.mode.Dead) { // stop the HC screen to allow the loot of dead player
+	while (true) {
+		delay(6e5);
+	}
 }
 ```
 * Notes:
@@ -205,12 +201,12 @@ if (me.playertype == 1 && me.mode === 17) { // stop the HC screen to allow the l
 
 ## Baal.js with adds for hdin on wave 2
 
-* https://pastebin.com/mnqySRqF copy and paste the text, replacing the content of ...\libs\bots\Baal.js file.
+* https://pastebin.com/mnqySRqF copy and paste the text, replacing the content of ...\libs\scripts\Baal.js file.
 * the adds for pala hdin consist in an extra function for wave 2 (without having the Nature's Peace ring, which is making this unnecessary). You have to set in hdin config file for wave 2
 
 ```javascript
-	Config.AttackSkill[5] = 97; // Secondary skill if monster is immune to primary.
-	Config.AttackSkill[6] = 113; // Secondary aura.
+Config.AttackSkill[5] = 97; // Secondary skill if monster is immune to primary.
+Config.AttackSkill[6] = 113; // Secondary aura.
 ```
 
 * try to have Holy Shield at max points, and hdin Smite dmg will be around 1.8-2 k physical dmg with concentration aura, which will increase also the mercenary's dmg.
