@@ -27,14 +27,17 @@
 * Select a local path you want to save to.  I selected "C:\Users\dom\Desktop\kolbot\kolbot"
 * Click Clone and you have successfully downloaded kolbot.
    
-![image](https://github.com/magace/documentation/assets/7795098/d04de353-61d1-4f3c-be63-64648c040560)
+![image](https://github.com/magace/documentation/assets/7795098/d3915428-b25e-4e3e-9a3f-889f6d8f203f)
+
 
 
 ### Keep bot files updated
 The Kolbot scripting library gets regular updates.  There is no auto-updater for security reasons so it will be up to you to regularly check for updates.
 * Open GitHub Desktop and it should automatically fetch any updates if there are any.
 * If there are any new updates you should see a button "Pull origin" Click on that to pull all the latest updates!
-  ![image](https://github.com/magace/documentation/assets/7795098/9a4c09e9-f249-4ef8-9812-b869c4b233aa)
+
+![image](https://github.com/magace/documentation/assets/7795098/33fb2bbf-ea28-42aa-b204-ead487757e9a)
+
 
 * If you don't see anything you are fully updated.
 * Other places to check for updates: https://github.com/blizzhackers/kolbot/commits/
