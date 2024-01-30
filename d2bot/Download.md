@@ -1,6 +1,6 @@
-[general table of content](https://github.com/blizzhackers/documentation/#diablo-2-botting-system)
+[General Table of Contents](https://github.com/blizzhackers/documentation/#diablo-2-botting-system)
 
-[d2bot table of content](https://github.com/blizzhackers/documentation/tree/master/d2bot/#d2bot)
+[D2Bot Table of Contents](https://github.com/blizzhackers/documentation/#d2bot)
 
 ---
 
@@ -8,66 +8,48 @@
 
 ---
 
-* [requirements](#requirements)
-* [download with tortoiseSVN](#download-with-tortoiseSVN)
-* [compatibility](#compatibility)
-* [keep bot files updated](#keep-bot-files-updated)
+* [Requirements](#requirements)
+* [Download with Github Desktop](#download-with-github-desktop)
+* [Compatibility](#compatibility)
+* [Keep bot files updated](#keep-bot-files-updated)
 
 ---
 
-### requirements
+### Requirements
+**These MUST be installed before you continue.**
+* [Microsoft Visual C++ 2010 Redistributable Package (x86)](https://download.microsoft.com/download/1/6/5/165255E7-1014-4D0A-B094-B6A430A6BFFC/vcredist_x86.exe)
+* [Microsoft .NET Framework 4.0 (or higher)](https://dotnet.microsoft.com/download/dotnet-framework)  (Windows 10 and newer may have this installed)
 
-you need these to be installed:
-
-* [Microsoft Visual C++ 2010 Redistributable Package (x86)](https://www.microsoft.com/en-us/download/details.aspx?id=26999)
-* [Microsoft .NET Framework 4.0 (or higher)](https://dotnet.microsoft.com/download/dotnet-framework)
-
-### download with tortoiseSVN
-
-* install [Tortoise SVN](https://tortoisesvn.net/downloads.html)
-
-* on your local hard drive, create a folder for D2BS and name it whatever you want.
-
-* R-click that folder 
-
-![tortoise1](assets/d2bot-tortoise1.png)
-
- and use SVN Checkout... 
- 
- ![tortoise2](assets/d2bot-tortoise2.png)
- 
- at <https://github.com/blizzhackers/kolbot/trunk> (! use this link only for Tortoise SVN, for browser it become https://github.com/blizzhackers/kolbot/tree/master)
- - using <https://github.com/blizzhackers/kolbot/> will have the result of downloading the whole tree of repository.
-
-* let the default option for Checkout Depth drop down list = Fully recursive
-
-* press "OK".
-
-![tortoise3](assets/d2bot-tortoise3.png): finishing download 1
-
-![tortoise4](assets/d2bot-tortoise4.png): finishing download 2
-
-* after download is finished, open that folder and R-click D2Bot.exe and click Send to > Desktop (create shortcut)
-
-![tortoise5](assets/d2bot-tortoise5.png)
-
-### compatibility
-
-* R-click the D2Bot.exe shortcut and choose Properties. follow the 4th steps
-
-* ![d2bot compatibility](assets/d2bot-compatibility.png)
-
-* for Win 8 if you get issues, choose either "Run this program in compatibility mode for Windows 7"
+### Download with Github Desktop
+* Install [Github Desktop](https://desktop.github.com/)
+* Open GitHub desktop and select "file" then "clone repository" or click CTRL + SHIFT + O
+* Select URL and enter the following: "https://github.com/blizzhackers/kolbot/"
+* Select a local path you want to save to.  I selected "C:\Users\dom\Desktop\kolbot\kolbot"
+* Click Clone and you have successfully downloaded kolbot.
+   
+![image](https://github.com/magace/documentation/assets/7795098/d3915428-b25e-4e3e-9a3f-889f6d8f203f)
 
 
-### keep bot files updated
 
-* download the d2bot-with-kolbot files using [tortoiseSVN](#download-with-tortoiseSVN)
-* use SVN Update option when R-click the d2bs(d2bot-with-kolbot) folder
-* use TortoiseSVN [project monitor](https://github.com/blizzhackers/documentation/blob/master/d2bot/Autoupdate.md/#tortoisesvn-project-monitor)
+### Keep bot files updated
+The Kolbot scripting library gets regular updates.  There is no auto-updater for security reasons so it will be up to you to regularly check for updates.
+* Open GitHub Desktop and it should automatically fetch any updates if there are any.
+* If there are any new updates you should see a button "Pull origin" Click on that to pull all the latest updates!
 
-* if you downloaded the bot files from older repository <https://github.com/kolton/d2bot-with-kolbot/> and you wanna switch to the newer repository <https://github.com/blizzhackers/kolbot>
-	* delete the hidden .svn folder, the newer repository is a stand alone one, with its origin from a fork of an older repo.
-	* then you can use tortoiseSVN Checkout from a new url <https://github.com/blizzhackers/kolbot/trunk>.
-	* before proceeding check the paths and correct them.
-	* here you'll get a warning for checkout in a non-empty folder. bypass it and it will be ok.
+![image](https://github.com/magace/documentation/assets/7795098/33fb2bbf-ea28-42aa-b204-ead487757e9a)
+
+
+* If you don't see anything you are fully updated.
+* Other places to check for updates: https://github.com/blizzhackers/kolbot/commits/
+* The blizzhackers discord development channel will also post any new updates. https://discord.gg/69W7twTm5K
+
+### Compatibility
+If you run into any issues with D2Bot.exe launching you can try running it in compatibility mode.
+* Right-click D2Bot.exe and select properties.  From there click compatibility.
+* For Win 8 if you get issues, try to  "Run this program in compatibility mode for Windows 7"
+* Note compatibility will not fix the "D2BS is not responding error"  For that make sure you install the [Requirements](#requirements)
+
+ ![d2bot compatibility](assets/d2bot-compatibility.png)
+
+### What's Next?
+[D2Bot Manager Setup](https://github.com/blizzhackers/documentation/blob/master/d2bot/ManagerSetup.md/#manager-setup)
