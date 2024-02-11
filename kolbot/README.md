@@ -20,7 +20,7 @@ library scripts by [@kolton](https://github.com/kolton)
 
 * [Manual Play](ManualPlay.md/#manual-playing): D2BotMap, Manual.js script
 
-* [PlugY setup](https://github.com/SPCommY/documentation/blob/restructure/kolbot/PlugY.md#plugy-setup-for-single-player-botting)
+* [PlugY setup](PlugY.md#plugy-setup-for-single-player-botting) PlugY setup for single player.
 
 * [Multi Botting](MultiBotting.md/#multi-botting): game creator, joining games, ...
 
