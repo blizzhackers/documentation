@@ -36,6 +36,7 @@
 * [Character Configuration](kolbot/CharacterConfig.md/#character-configuration): options for configuring the bot
 * [Cubing](kolbot/Cubing.md/#cubing): using the horadric cube recipes
 * [Manual Play](kolbot/ManualPlay.md/#manual-playing): D2BotMap, Manual.js script
+* [PlugY setup](kolbot/PlugY.md#plugy-setup-for-single-player-botting) PlugY setup for single player.
 * [Multi Botting](kolbot/MultiBotting.md/#multi-botting): game creator, joining games, ...
 * [TCP/IP Games](kolbot/TCP-IP%20games.md#tcpip-games): host and join TCP/IP games
 * [D2BotMuleLog](kolbot/D2BotMuleLog.md/#d2botmulelog): log muled items
