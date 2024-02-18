@@ -32,7 +32,7 @@
 
     a) Go to \d2bs\kolbot\libs\core and open Config.js
 
-    b) Find and set the line PlugyStash: true,
+    b) Find and set the line PlugYStash: true,
 
 2. To set PlugY stash to enabled only for a certain character:
 
