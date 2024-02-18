@@ -16,7 +16,7 @@
 
 ## Installing PlugY
 
-1. Download PlugY from the [official website](http://plugy.free.fr/PlugY_The_Survival_Kit_v14.03.zip)
+1. Download PlugY ZIP version not the recommended installer version from the [official website](http://plugy.free.fr/PlugY_The_Survival_Kit_v14.03.zip)
 
 2. Download the [PlugY D2FilePatcher](http://plugy.free.fr/PlugY_The_Survival_Kit_v14.03_D2FilePatcher.zip)
 
