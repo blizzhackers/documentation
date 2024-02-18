@@ -4,7 +4,7 @@
 
 ---
 
-# PlugY Setup for Single Player botting
+## PlugY Setup for Single Player botting
 
 ---
 
