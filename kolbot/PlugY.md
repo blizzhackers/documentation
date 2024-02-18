@@ -28,10 +28,18 @@
 
 ## Configuring D2BS and Kolbot for PlugY single player.
 
-1. Go to \d2bs\kolbot\libs\core and open Config.js
+1. To set PlugY stash enabled for all your characters:
 
-2. Find and set the line PlugyStash: true,
+    a) Go to \d2bs\kolbot\libs\core and open Config.js
 
-3. In D2Bot.exe make sure the path is set to Game.exe and not PlugY.exe!
+    b) Find and set the line PlugyStash: true,
 
-4. In-game make sure the first 2 pages of your PlugY stash are empty.
+2. To set PlugY stash to enabled only for a certain character:
+
+    a) Go to \d2bs\kolbot\libs\config\yourcharacterconfig.js
+
+    b) Add after line18 - Config.SortSettings.PlugYStash = true;
+
+4. In D2Bot.exe make sure the path is set to Game.exe and not PlugY.exe!
+
+5. In-game make sure the first 2 pages of your PlugY stash are empty.
