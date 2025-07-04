@@ -10,6 +10,7 @@
 
 * [Requirements](#requirements)
 * [Download with Github Desktop](#download-with-github-desktop)
+* [Download with git](#download-with-git)
 * [Compatibility](#compatibility)
 * [Keep bot files updated](#keep-bot-files-updated)
 
@@ -29,8 +30,6 @@
    
 ![image](https://github.com/magace/documentation/assets/7795098/d3915428-b25e-4e3e-9a3f-889f6d8f203f)
 
-
-
 ### Keep bot files updated
 The Kolbot scripting library gets regular updates.  There is no auto-updater for security reasons so it will be up to you to regularly check for updates.
 * Open GitHub Desktop and it should automatically fetch any updates if there are any.
@@ -38,10 +37,21 @@ The Kolbot scripting library gets regular updates.  There is no auto-updater for
 
 ![image](https://github.com/magace/documentation/assets/7795098/33fb2bbf-ea28-42aa-b204-ead487757e9a)
 
-
 * If you don't see anything you are fully updated.
 * Other places to check for updates: https://github.com/blizzhackers/kolbot/commits/
 * The blizzhackers discord development channel will also post any new updates. https://discord.gg/69W7twTm5K
+
+### Download with git
+* Create a folder name it whatever you like, I am going to call mine `d2kolbot`. Make sure the folder is empty then open it up in a terminal. I am using git bash https://gitforwindows.org/
+* Next enter this into the terminal
+```bash
+git clone --recurse-submodules https://github.com/blizzhackers/kolbot.git
+```
+
+![alt text](assets/gitbash.png)
+
+### After download
+* Now that you have kolbot downloaded the first thing you must do is navigate to the root directory and run the setup.bat file. This will bootstrap kolbot with the necessary files for it to run. If you miss this step then d2bot# will not start.
 
 ### Compatibility
 If you run into any issues with D2Bot.exe launching you can try running it in compatibility mode.
