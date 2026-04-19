@@ -25,6 +25,7 @@
 * [d2bs sandboxed](#d2bs-sandboxed)
 * [D2BS is not responding ... starting profile](#d2bs-is-not-responding--starting-profile)
 * [window has unexpectedly exited... starting profile](#window-has-unexpectedly-exited-starting-profile)
+* [attempt to access invalid address](#attempt-to-access-invalid-address)
 * [you were disconnected from d2 server](#you-were-disconnected-from-d2-server)
 * [game with that name already exists](#game-with-that-name-already-exists)
 * [how can I stop the bot in game, in case of error](#how-can-i-stop-the-bot-in-game-in-case-of-error)
@@ -160,6 +161,11 @@ check [download guide](https://github.com/blizzhackers/documentation/tree/master
 * https://compfreakstars.blogspot.com/2011/11/0xc0000005-error-every-day-many.html
 * https://stackoverflow.com/questions/14949904/what-do-i-do-when-my-program-crashes-with-exception-0xc0000005-at-address-0
 * http://www.errorlive.com/exception-code-0xc0000005
+
+### attempt to access invalid address
+
+1. **Q:** I get the error message "attempt to access invalid address" when starting a profile in hidden mode.
+2. **A:** This is usually caused by a version mismatch. Ensure the Diablo II version selected in D2Bot matches your installed game version (e.g. 1.13d vs 1.14d).
 
 ### you were disconnected from d2 server
 1. **Q:** I get all the time d2 error when it's opened by D2BS: "You were disconnected from d2 server. Please reconnect" 
